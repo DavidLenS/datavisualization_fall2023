@@ -2,23 +2,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "The Politics of Climate Change",
+    "title": "Data Visualization for Comparative Politics",
     "section": "",
-    "text": "Climate change is one of this century’s most significant challenges. Climate change mitigation and adaptation will require massive economic transformations and strongly affect other fields: infrastructure, health, agriculture, biodiversity, migration, and many more. How do political actors – parties, politicians, social movements, institutions, international organizations, etc. – react to and influence these transformations? And what about public opinion? Do citizens change their behavior (voting, consumption, etc.)? If yes, why and under what conditions?\nThis course introduces students to theories and methods on the nexus of climate change and politics. It aims to equip the students with the necessary skills to formulate and pursue their own research questions at the intersection of climate change and politics. In addition, students will learn to engage critically with existing research and understand its implications. In doing so, the course will primarily focus on (quantitative) empirical research addressing party competition, political behavior, and policymaking."
+    "text": "The course introduces students to data visualization techniques for comparative politics taking a very practical approach using the R programming language. At the beginning of the course, you will be guided into the programming language by learning the basics of data management, generating summary statistics, and simple visualizations. On this basis, we will then deal with large quantities of data – covering temporal, spatial, and relational dimensions – and more complex data visualizations such as maps, interactive plots, or GIFs.\nThe goal of this course is to equip the students with the necessary skills to collect (large quantities of) data, clean datasets, explore and understand patterns of data, and communicate these patterns and findings with visualizations. In addition, learning to produce effective graphs from own data is a great way to a better understanding of graphs – as well as their strengths or shortcomings – presented in research journals or the media."
   },
   {
     "objectID": "index.html#seminar-meetings",
     "href": "index.html#seminar-meetings",
-    "title": "The Politics of Climate Change",
+    "title": "Data Visualization for Comparative Politics",
     "section": "Seminar meetings",
-    "text": "Seminar meetings\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nSeminar\nA 103\nTue 15:30 – 17:00"
+    "text": "Seminar meetings\n\n\n\n\n\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nSeminar\nC -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)\nThu 13:45 – 15:15"
   },
   {
     "objectID": "index.html#teaching",
     "href": "index.html#teaching",
-    "title": "The Politics of Climate Change",
+    "title": "Data Visualization for Comparative Politics",
     "section": "Teaching",
-    "text": "Teaching\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nDavid Schweizer\nTue 10:15 – 11:45\nA 340"
+    "text": "Teaching\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nDavid Schweizer\nThu 15:30 – 16:30\nA 340"
   },
   {
     "objectID": "material.html",
@@ -2133,5 +2133,12 @@
     "title": "Climate Change and Democracy",
     "section": "Case Selection: Example",
     "text": "Case Selection: Example\nOtteni, C., & Weisskircher, M. (2022). Global warming and polarization. Wind turbines and the electoral success of the greens and the populist radical right.\nWhy is the case of Germany a “good” case?\n\n\nGlobal warming and wind energy -> salient issues.\nExpansion of wind power is main part of ‘energy transition’ (Energiewende)\nPro: Strong German Green party. Contra: Strong radical right (AfD, Alternative for Germany)."
+  },
+  {
+    "objectID": "index.html#course-overview",
+    "href": "index.html#course-overview",
+    "title": "Data Visualization for Comparative Politics",
+    "section": "",
+    "text": "The course introduces students to data visualization techniques for comparative politics taking a very practical approach using the R programming language. At the beginning of the course, you will be guided into the programming language by learning the basics of data management, generating summary statistics, and simple visualizations. On this basis, we will then deal with large quantities of data – covering temporal, spatial, and relational dimensions – and more complex data visualizations such as maps, interactive plots, or GIFs.\nThe goal of this course is to equip the students with the necessary skills to collect (large quantities of) data, clean datasets, explore and understand patterns of data, and communicate these patterns and findings with visualizations. In addition, learning to produce effective graphs from own data is a great way to a better understanding of graphs – as well as their strengths or shortcomings – presented in research journals or the media."
   }
 ]
