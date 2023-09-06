@@ -1,15 +1,15 @@
 ---
-title: "Introductory Session"
+title: "Intro Session"
 subtitle: "Week 1"
 author: "David Schweizer"
-date: "February 14, 2023"
+date: "September 07, 2023"
 date-format: long
 institute: "University of Mannheim"
 format: 
   revealjs:
     theme: serif
     slide-number: c/t #< collapsed/total
-    footer: "The Politics of Climate Change | Spring 2023 | University of Mannheim"
+    footer: "Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
 editor: visual
 ---
 

@@ -1,144 +1,63 @@
 ---
-title: "The Politics of Climate Change"
+title: "Syllabus: Data Visualization for Comparative Politics"
+subtitle: "Fall 2023"
 editor: 
   markdown: 
     wrap: 72
 ---
 
-## Syllabus
-
-Spring 2023
-
 |                 |                                                                                                         |
-|---------------|---------------------------------------------------------|
-| Proseminar:     | PS Einführung in die Vergleichende Regierungslehre                                                      |
-| Time:           | Tuesday, 15:30 -- 17:00, February 14 to May 30, Cancelled dates: April 04, April 11                     |
-| Place:          | A 103 Seminarraum (B 6, 23-25 Bauteil A)                                                                |
+|-----------------|-------------------------------------------------------|
+| Seminar:        | Übung - Methoden der Vergleichenden Regierungslehre                                                     |
+| Time:           | Thu 13:45 -- 15:15, September 07 to December 07                                                         |
+| Place:          | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C                                             |
 | Language:       | English                                                                                                 |
 | Instructor:     | David Schweizer, M.A., david.schweizer\@uni-mannheim.de                                                 |
-| Office hours:   | In-person (A 340) or via Zoom, Tue, 10:15 -- 11:45, please make an appointment by e-mail                |
-| Course website: | [Link](https://politics-of-climate-change.netlify.app "https://politics-of-climate-change.netlify.app") |
+| Office hours:   | In-person (A 340) or via Zoom, Thu 15:30 -- 16:30, please make an appointment by e-mail                 |
+| Course website: | [Link](https://datavisualizationfall2023.netlify.app/ "https://datavisualizationfall2023.netlify.app/") |
 
 ## **Course description**
 
 **\
-**Climate change is one of this century's most significant challenges.
-Climate change mitigation and adaptation will require massive economic
-transformations and strongly affect other fields: infrastructure,
-health, agriculture, biodiversity, migration, and many more. How do
-political actors -- parties, politicians, social movements,
-institutions, international organizations, etc. -- react to and
-influence these transformations? And what about public opinion? Do
-citizens change their behavior (voting, consumption, etc.)? If yes, why
-and under what conditions? This course introduces students to theories
-and methods on the nexus of climate change and politics. It aims to
-equip the students with the necessary skills to formulate and pursue
-their own research questions at the intersection of climate change and
-politics. In addition, students will learn to engage critically with
-existing research and understand its implications. In doing so, the
-course will primarily focus on (quantitative) empirical research
-addressing party competition, political behavior, and policymaking.
+**The course introduces students to data visualization techniques for
+comparative politics taking a very practical approach using the R
+programming language. At the beginning of the course, you will be guided
+into the programming language by learning the basics of data management,
+generating summary statistics, and simple visualizations. On this basis,
+we will then deal with large quantities of data -- covering temporal,
+spatial, and relational dimensions -- and more complex data
+visualizations such as maps, interactive plots, or GIFs.
 
-**Seminar Goals:**
-
--   Introducing concepts, definitions, and measurements in the field of
-    climate change in political science research
-
--   Getting to know the recent literature and being able to critically
-    engage with it
-
--   Being able to interpret the results of the analyses applied in the
-    literature
-
--   Being able to present the core results and main take-aways of
-    research articles - Identifying research questions and research
-    designs at the intersection of climate change and politics
-
--   Formulating own research questions and conducting own research
+The goal of this course is to equip the students with the necessary
+skills to collect (large quantities of) data, clean data sets, explore
+and understand patterns of data, and communicate these patterns and
+findings with visualizations. In addition, learning to produce effective
+graphs from own data is a great way to a better understanding of graphs
+-- as well as their strengths or shortcomings -- presented in research
+journals or the media.
 
 ## Course Requirements
 
 **Participation:**
 
-Attending the weekly sessions and reading assigned articles (mandatory)
-before class. Use Perusall to annotate articles collaboratively and
-exchange via Slack. (Of course, there is still also the discussion forum
-on ILIAS to post questions or discuss with your peers if you are stuck.)
-You are encouraged to also have a look at the further readings.
-
-**Discussion questions for mandatory readings (Pass/Fail):**
-
-Each week, students should submit a discussion question for at least one
-mandatory reading (via Perusall or ILIAS) at the latest on the day of
-the seminar until 12:00 (noon). This can just be one sentence. E.g., a
-comment that points something you liked about the paper and/or something
-that you would have done differently. You can also relate your
-discussion question to current events.
-
-**Presentation of one paper (Pass/Fail):**
-
-There will be short group presentations (max. 12 minutes, 3-4 people
-depending on the seminar size, support presentation with slides) of
-selected research articles beginning after the Easter break. You should
-be able to convey the main take-aways and core results of empirical
-research. But more on this during the semester!
-
-**Submission of a research proposal (Optional):**
-
-You have the possibility to write a research proposal developing your
-research question for your final term paper during the semester. It a)
-gives the motivation for your research question and, b) presents a short
-(preliminary) overview of related literature, which can already lead to
-hypotheses. Your term paper can be based on your proposal but does not
-have to. Length: 700 -- 800 words (excluding references, +/- 10% , 12pt
-font - Times New Roman or Calibri, and 1.5 line spacing), it can be
-written in English or German. The proposal should be submitted as PDF
-via ILIAS. **Deadline:** April 18, 2023, 20:00. You will get detailed
-feedback from me. Furthermore, by opting in for the research proposal
-you agree to give feedback on two proposals of your peers.
-
-**Term paper (100% of your grade):**
-
-You will write a short term paper on the topics discussed in the
-seminar. You should a) identify a research question on your own, b)
-develop a theory (causal mechanism) and hypotheses, c) describe data and
-method used to answer your research question, and d) the paper should
-include a (preliminary/basic) empirical analysis (descriptives,
-correlations, basic regressions. If you want, you can also include ideas
-for more advanced analyses. Especially, if you choose not to write a
-research proposal, I recommend you to come to my office hours to discuss
-your topic. We will discuss in more detail on how to write a "good" term
-paper during the semester. The paper has to be submitted as PDF via
-ILIAS. The length should be around 3500 words (excluding references, +/-
-10% , 12pt font - Times New Roman or Calibri, and 1.5 line spacing), can
-be written in English or German. Late submissions will result in
-deductions of 1/3 of a grade point per day. In case of any questions or
-problems, please get in touch with me early. More on this to come during
-the semester. **Deadline:** July 4, 2023, 20:00.
+**Visualization project (100% of your grade):**
 
 ## (Recommended) Readings
 
-Helpful background readings for this seminar include the following
-articles:
+The primary readings for this seminar are chapters from the following
+books:
 
--   Bernauer, T. (2013). Climate change politics. Annual review of
-    political science, 16, 421-448.
+-   Cairo, Alberto*. The truthful art: Data, charts, and maps for
+    communication*. New Riders, 2016. *Free access via Katalog Primo (UB
+    Mannheim)*
 
--   Cao, X., Milner, H. V., Prakash, A., & Ward, H. (2014). Research
-    frontiers in comparative and international environmental politics:
-    an introduction. Comparative Political Studies, 47(3), 291-308.
+-   Healy, Kieran. *Data visualization: a practical introduction*.
+    Princeton University Press, 2018. *Free access via Katalog Primo and
+    free online: https://socviz.co/*
 
--   Howe, P. D., Marlon, J. R., Mildenberger, M., & Shield, B. S.
-    (2019). How will climate change shape climate opinion?.
-    Environmental Research Letters, 14(11).
-
-Furthermore, there are mandatory readings for each session. They convey
-the session's the take-away message. Therefore, you should read these
-texts carefully. We will use [Perusall](https://www.perusall.com/) as a
-tool for collaborative reading. You will find the mandatory readings on
-[ILIAS](https://ilias.uni-mannheim.de/login.php?target=&client_id=ILIAS&auth_stat=)
-However, they (mostly) should be accessible via the university library
-([Katalog-Primo](https://primo.bib.uni-mannheim.de/primo-explore/search?vid=MAN_UB&lang=en_US&fromRedirectFilter=true)).
+-   Wilke, Claus E. *Fundamentals of Data Visualization*. O\'Reilly
+    Media, 2018). *Free access via Katalog Primo and free online:
+    https://clauswilke.com/dataviz/*
 
 ## Organization & Learning Resources
 
@@ -146,16 +65,16 @@ However, they (mostly) should be accessible via the university library
 
 The plan is to use primarily the course website and Slack for providing
 the structure of the seminar and communication, respectively.
-Nevertheless, you will find the information on ILIAS as well. Make sure
-to regularly check your university e-mail address.
+Nevertheless, make sure to regularly check your university e-mail
+address for announcements via ILIAS.
 
 -   You can find the course website here:
-    [Link](https://politics-of-climate-change.netlify.app)
+    [Link](https://datavisualizationfall2023.netlify.app/ "https://datavisualizationfall2023.netlify.app/")
 
--   The ILIAS seminar name is: PS Einführung in die Vergleichende
-    Regierungslehre: The Politics of Climate Change \[PS\] \[1. PG\]
-    (FSS 2023). Ensure that you have access to the system and that
-    e-mails sent over ILIAS are forwarded to the e-mail account you
+-   The ILIAS seminar name is: Ü Methoden der Vergleichenden
+    Regierungslehre: Data Visualization for Comparative Politics \[WÜB\]
+    \[1. PG\] (HWS 2023). Ensure that you have access to the system and
+    that e-mails sent over ILIAS are forwarded to the e-mail account you
     check regularly.
 
 -   If you have contacted me with a question via any channel and you did
@@ -164,13 +83,13 @@ to regularly check your university e-mail address.
 
 **Office hours:**
 
--   In-person (A 340) or via Zoom, Tue, 10:15 -- 11:45, please make an
+-   In-person (A 340) or via Zoom, Thu 15:30 -- 16:30, please make an
     appointment by e-mail.
 
 -   If you have a specific question or problem (e.g., finding a research
     question), please tell me before coming to the office hours (when
-    making the appointment). This way , I can also prepare for it making
-    it more productive and constructive.
+    making the appointment). This way , I can also prepare for it and
+    thereby making our meeting more productive and constructive.
 
 **Covid-19 (and general illness):**
 
@@ -201,365 +120,20 @@ found via this
 
 ## Course Schedule
 
-|         |            |                                                   |
-|---------|------------|---------------------------------------------------|
-| Session | Date       | Topic                                             |
-| 1       | 14.02.2023 | Intro Session                                     |
-| 2       | 21.02.2023 | The Science of Climate Change & Impacts           |
-| 3       | 28.02.2023 | Climate Change as Collective Action Problem?      |
-| 4       | 07.03.2023 | Public Opinion on Climate Change                  |
-| 5       | 14.03.2023 | Natural Disasters, Attitudes and Voting Behaviour |
-| 6       | 21.03.2023 | Natural Disasters and Political Accountability    |
-| 7       | 28.03.2023 | Success and Impact of Green Parties               |
-| \-      | 04.04.2023 | Easter Break                                      |
-| \-      | 11.04.2023 | Easter Break                                      |
-| 8       | 18.04.2023 | Party Responsiveness to Climate Change            |
-| 9       | 25.04.2023 | Behaviour and Polarization                        |
-| 10      | 02.05.2023 | Populist Backlash                                 |
-| 11      | 09.05.2023 | Climate Action from an International Perspective  |
-| 12      | 16.05.2023 | Climate Change and Inequality                     |
-| 13      | 23.05.2023 | Climate Change and Democracy                      |
-| 14      | 30.05.2023 | Closing Session                                   |
-
-## Course Schedule and Reading Material
-
-The reading list will be updated from time to time. Keep an eye on
-announcements on Slack or ILIAS.
-
-### **BLOCK I: INTRO**
-
-::: {.callout-note icon="false" appearance="simple"}
-**1. Intro Session (February 14)**
-:::
-
--   No mandatory reading
-
--   Seminar outline
-
-::: {.callout-note icon="false" appearance="simple"}
-**2. The Science of Climate Change & Impacts (February 21)**
-:::
-
-Mandatory Readings:
-
--   Carleton, T. A., & Hsiang, S. M. (2016). Social and economic impacts
-    of climate. Science, 353(6304), aad9837.
-
--   Hsiang, S., & Kopp, R. E. (2018). An economist's guide to climate
-    change science. Journal of Economic Perspectives, 32(4), 3-32.
-
-Further Readings:
-
--   Doherty, T. J., & Clayton, S. (2011). The psychological impacts of
-    global climate change. American Psychologist, 66(4), 265.
-
--   Hsiang, S. M., Burke, M., & Miguel, E. (2013). Quantifying the
-    influence of climate on human conflict. Science, 341(6151), 1235367.
-
--   IPCC (2022). Summary for policymakers.
-
--   IPCC (2022). Full report.
-
--   The En-ROADS Climate Solutions Simulator (2022)
-
-::: {.callout-note icon="false" appearance="simple"}
-**3. Climate Change as Collective Action Problem? (February 28)**
-:::
-
-Mandatory Readings:
-
--   Aklin, M., & Mildenberger, M. (2020). Prisoners of the wrong
-    dilemma: why distributive conflict, not collective action,
-    characterizes the politics of climate change. Global Environmental
-    Politics, 20(4), 4-27.
-
--   Breetz, H., Mildenberger, M., & Stokes, L. (2018). The political
-    logics of clean energy transitions. Business and Politics, 20(4),
-    492-522.
-
-Further Readings:
-
--   Hardin, G. (1968). The tragedy of the commons: the population
-    problem has no technical solution; it requires a fundamental
-    extension in morality. Science, 162(3859), 1243-1248.
-
--   Mildenberger, M. (2019). The Tragedy of the Tragedy of the Commons.
-    Scientific American, 23. o Nordhaus, W. (2015). Climate clubs:
-    Overcoming free-riding in international climate policy. American
-    Economic Review, 105(4), 1339-1370.
-
--   Ostrom, E. (1990). Governing the commons: The evolution of
-    institutions for collective action. Cambridge University Press.
-
-### BLOCK II: Political Behaviour
-
-::: {.callout-note icon="false" appearance="simple"}
-**4. Public Opinion on Climate Change (March 7)**
-:::
-
-Mandatory Readings:
-
--   Bush, S. S., & Clayton, A. (2022). Facing change: Gender and climate
-    change attitudes worldwide. American Political Science Review, 1-18.
-
--   Lee, T. M., Markowitz, E. M., Howe, P. D., Ko, C. Y., &
-    Leiserowitz, A. A. (2015). Predictors of public climate change
-    awareness and risk perception around the world. Nature climate
-    change, 5(11), 1014-1020
-
-Further Readings:
-
--   Mildenberger, M., & Leiserowitz, A. (2017). Public opinion on climate change: Is there an economy–environment tradeoff?. Environmental Politics, 26(5), 801-824.?
-
-::: {.callout-note icon="false" appearance="simple"}
-**5. Natural Disasters, Climate Attitudes and Voting Behaviour (March
-14)**
-:::
-
-Mandatory Readings:
-
--   Garside, S., & Zhai, H. (2022). If not now, when? Climate disaster
-    and the Green vote following the 2021 Germany floods. Research &
-    Politics, 9(4)
-
--   Hilbig, H., & Riaz, S. (2021). Natural Disasters and Electoral
-    Support for Green Parties-Evidence from the 2021 Flood in Germany.
-    OSF Preprints.
-
-Further Readings:
-
--   Baccini, L., & Leemann, L. (2021). Do natural disasters help the
-    environment? How voters respond and what that means. Political
-    Science Research and Methods, 9(3), 468-484.
-
--   Egan, P. J., & Mullin, M. (2012). Turning personal experience into
-    political attitudes: The effect of local weather on Americans'
-    perceptions about global warming. The Journal of Politics, 74(3),
-    796-809.
-
--   Hazlett, C., & Mildenberger, M. (2020). Wildfire exposure increases
-    proenvironment voting within democratic but not republican areas.
-    American Political Science Review, 114(4), 1359-1365.
-
--   Quoß, F., & Rudolph, L. (2022). Operationalisation matters: Weather
-    extremes as noisy natural experiment show no influence on political
-    attitudes. OSF Preprints.
-
-::: {.callout-note icon="false" appearance="simple"}
-**6. Natural Disasters and Political Accountability (March 21)**
-:::
-
-Mandatory Readings:
-
--   Gasper, J. T., & Reeves, A. (2011). Make it rain? Retrospection and
-    the attentive electorate in the context of natural disasters.
-    American Journal of Political Science, 55(2), 340-355.
-
--   Healy, A., & Malhotra, N. (2009). Myopic voters and natural disaster
-    policy. American Political Science Review, 103(3), 387-406.
-
-Further Readings:
-
--   Bechtel, M. M., & Hainmueller, J. (2011). How lasting is voter
-    gratitude? An analysis of the short‐and long‐term electoral returns
-    to beneficial policy. American journal of political science, 55(4),
-    852-868.
-
--   Cole, S., Healy, A., & Werker, E. (2012). Do voters demand
-    responsive governments? Evidence from Indian disaster relief.
-    Journal of Development Economics, 97(2), 167-181.
-
-### BLOCK III: Political Parties
-
-::: {.callout-note icon="false" appearance="simple"}
-**7. Success and Impact of Green Parties (March 28)**
-:::
-
-Mandatory Readings:
-
--   Abou-Chadi, T. (2016). Niche party success and mainstream party
-    policy shifts--how green and radical right parties differ in their
-    impact. British Journal of Political Science, 46(2), 417-436.
-
--   Grant, Z. P., & Tilley, J. (2019). Fertile soil: explaining
-    variation in the success of Green parties. West European Politics,
-    42(3), 495-516.
-
-Further Readings:
-
--   Burchell, J. (2002). The Evolution of Green Politics - Development
-    and Change within European Green Parties. London: Earthscan. Chapter
-    1: A 'New' Challenge to Party Politics? Analysing Green Party
-    Development and Change
-
--   Carter, N. (2013). Greening the mainstream: party politics and the
-    environment. Environmental Politics, 22(1), 73-94.
-
--   Kitschelt, H. P. (1986). Political opportunity structures and
-    political protest: Anti-nuclear movements in four democracies.
-    British journal of political science, 16(1), 57-85.
-
--   Spoon, J. J., Hobolt, S. B., & De Vries, C. E. (2014). Going green:
-    Explaining issue competition on the environment. European Journal of
-    Political Research, 53(2), 363-380.
-
-::: {.callout-note icon="false" appearance="simple"}
-**Easter Break: There are no lectures on April 4 and April 11**
-:::
-
-**Optional:** Research Proposal until April 18
-
-**Pass/Fail:** Group presentations start after the Easter break
-
-::: {.callout-note icon="false" appearance="simple"}
-**8. Party Responsiveness to Climate Change (April 18)**
-:::
-
-Mandatory Readings:
-
--   Birch, S. (2023). The electoral benefits of environmental
-    position‐taking: Floods and electoral outcomes in England
-    2010--2019. European Journal of Political Research, 62(1), 95-117.
-
--   Schweizer, D. (2023). No Planet B? Climate Change and Party
-    Competition. Working Paper.
-
-Further Readings:
-
--   Bernardi, L., Morales, L., Lühiste, M., & Bischof, D. (2018). The
-    effects of the Fukushima disaster on nuclear energy debates and
-    policies: a two-step comparative examination. Environmental
-    Politics, 27(1), 42-68.
-
--   Berker, L. E., & Pollex, J. (2022). Explaining differences in party
-    reactions to the Fridays for Future-movement--a qualitative
-    comparative analysis (QCA) of parties in three European countries.
-    Environmental Politics, 1-38.
-
--   Carter, N., Ladrech, R., Little, C., & Tsagkroni, V. (2018).
-    Political parties and climate policy: A new approach to measuring
-    parties' climate policy preferences. Party Politics, 24(6), 731-742.
-
--   Farstad, F. M. (2018). What explains variation in parties' climate
-    change salience?. Party Politics, 24(6), 698-707
-
--   Valentim, A. (2021). Imperfect Information and Party Responsiveness:
-    Evidence from Extreme Weather Events and the Green Party in England.
-    Available at SSRN 3960045.
-
-### BLOCK IV: Climate Policies, Behaviour, and Polarization
-
-::: {.callout-note icon="false" appearance="simple"}
-**9. Behaviour and Polarization (April 25)**
-:::
-
-Mandatory Readings:
-
--   McCright, A. M., & Dunlap, R. E. (2011). The politicization of
-    climate change and polarization in the American public's views of
-    global warming, 2001--2010. The Sociological Quarterly, 52(2),
-    155-194.
-
--   Otteni, C., & Weisskircher, M. (2022). Global warming and
-    polarization. Wind turbines and the electoral success of the greens
-    and the populist radical right. European Journal of Political
-    Research, 61(4), 1102-1122.
-
-Further Readings:
-
--   Stokes, L. C. (2016). Electoral backlash against climate policy: A
-    natural experiment on retrospective voting and local resistance to
-    public policy. American Journal of Political Science, 60(4),
-    958-974.
-
-::: {.callout-note icon="false" appearance="simple"}
-**10. Populist Backlash (May 2)**
-:::
-
-Mandatory Readings:
-
--   Forchtner, B. (2019). Climate change and the far right. Wiley
-    Interdisciplinary Reviews: Climate Change, 10(5), e604.
-
--   Huber, R. A., Fesenfeld, L., & Bernauer, T. (2020). Political
-    populism, responsiveness, and public support for climate mitigation.
-    Climate Policy, 20(3), 373-386.
-
-Further Readings:
-
--   Vihma, A., Reischl, G., & Nonbo Andersen, A. (2021). A climate
-    backlash: comparing populist parties' climate policies in Denmark,
-    Finland, and Sweden. The Journal of Environment & Development,
-    30(3), 219-239.
-
--   Chan, G., Stavins, R., & Ji, Z. (2018). International climate change
-    policy. Annual Review of Resource Economics, 10, 335-360.
-
-### BLOCK V: Challenges of Climate Change
-
-::: {.callout-note icon="false" appearance="simple"}
-**11. Climate Action from an International Perspective (May 9)**
-:::
-
-Mandatory Readings:
-
--   Bechtel, M. M., Scheve, K. F., & van Lieshout, E. (2022). Improving
-    public support for climate action through multilateralism. Nature
-    Communications, 13(1), 6441.
-
--   Harrison, K., & Sundstrom, L. M. (2007). The comparative politics of
-    climate change. Global Environmental Politics, 7(4), 1-18.
-
-Further Readings:
-
--   Chan, G., Stavins, R., & Ji, Z. (2018). International climate change
-    policy. Annual Review of Resource Economics, 10, 335-360.
-
-::: {.callout-note icon="false" appearance="simple"}
-**12. Climate Change and Inequality (May 16)**
-:::
-
-Mandatory Readings:
-
--   Diffenbaugh, N. S., & Burke, M. (2019). Global warming has increased
-    global economic inequality. Proceedings of the National Academy of
-    Sciences, 116(20), 9808-9813.
-
--   Hartzell‐Nichols, L. (2011). Responsibility for meeting the costs of
-    adaptation. Wiley Interdisciplinary Reviews: Climate Change, 2(5),
-    687-700.
-
-Further Readings:
-
--   Knox, J., Hess, T., Daccache, A., & Wheeler, T. (2012). Climate
-    change impacts on crop productivity in Africa and South Asia.
-    Environmental research letters, 7(3).
-
-::: {.callout-note icon="false" appearance="simple"}
-**13. Climate Change and Democracy (May 23)**
-:::
-
-Mandatory Readings:
-
--   Mittiga, R. (2022). Political legitimacy, authoritarianism, and
-    climate change. American Political Science Review, 116(3), 998-1011.
-
--   Schweizer, D., Menzner, J. (2023). Worried about climate change and
-    unsatisfied with democracy? Working Paper.
-
-Further Readings:
-
--   Ross, M. L. (2015). What have we learned about the resource curse?.
-    Annual Review of Political Science, 18, 239-259.
-
--   Von Stein, J. (2022). Democracy, autocracy, and everything in
-    between: How domestic institutions affect environmental protection.
-    British Journal of Political Science, 52(1), 339-357.
-
-::: {.callout-note icon="false" appearance="simple"}
-**14. Closing Session (May 30)**
-:::
-
--   No mandatory reading
-
--   Wrap-up, seminar evaluation, and discussion of research designs
+|         |            |                         |
+|---------|------------|-------------------------|
+| Session | Date       | Topic                   |
+| 1       | 07.09.2023 | Intro Session           |
+| 2       | 14.09.2023 | Grammar of Graphics     |
+| 3       | 21.09.2023 | Data                    |
+| 4       | 28.09.2023 | Amounts and Proportions |
+| 5       | 05.10.2023 | Themes                  |
+| 6       | 12.10.2023 | Uncertainty             |
+| 7       | 19.10.2023 | Relationships           |
+| 8       | 26.10.2023 | Comparisons             |
+| 9       | 02.11.2023 | Annotations             |
+| 10      | 09.11.2023 | Interactivity I         |
+| 11      | 16.11.2023 | Time                    |
+| 12      | 23.11.2023 | Space                   |
+| 13      | 30.11.2023 | Interactivity II        |
+| 14      | 07.12.2023 | Closing Session         |

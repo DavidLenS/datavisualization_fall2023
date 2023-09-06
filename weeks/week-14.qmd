@@ -3,7 +3,7 @@ title: "Closing Session"
 subtitle: "Week 14"
 description: ""
 author: ""
-date: "May 30, 2023"
+date: "Dec 07, 2023"
 listing:
   - id: slides
     contents:
@@ -39,7 +39,3 @@ tbl-colwidths: [10,50,40]
 
 ::: {#slides}
 :::
-
-# Readings
-
-There are no mandatory readings this week. We will wrap-up the seminar, discuss your evaluations as well as research designs.

@@ -1,9 +1,9 @@
 ---
-title: "Success and Impact of Green Parties"
+title: "Relationships"
 subtitle: "Week 07"
 description: ""
 author: ""
-date: "March 28, 2023"
+date: "Oct 19, 2023"
 listing:
   - id: slides
     contents:
@@ -39,21 +39,3 @@ tbl-colwidths: [10,50,40]
 
 ::: {#slides}
 :::
-
-# Readings
-
-Mandatory readings for this week are:
-
--   Abou-Chadi, T. (2016). Niche party success and mainstream party policy shifts–how green and radical right parties differ in their impact. British Journal of Political Science, 46(2), 417-436. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368423_download&client_id=ILIAS)\]
-
--   Grant, Z. P., & Tilley, J. (2019). Fertile soil: explaining variation in the success of Green parties. West European Politics, 42(3), 495-516. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368424_download&client_id=ILIAS)\]
-
-Further readings and materials include:
-
--   Burchell, J. (2002). The Evolution of Green Politics - Development and Change within European Green Parties. London: Earthscan. Chapter 1: A ‘New’ Challenge to Party Politics? Analysing Green Party Development and Change.
-
--   Carter, N. (2013). Greening the mainstream: party politics and the environment. Environmental Politics, 22(1), 73-94.
-
--   Kitschelt, H. P. (1986). Political opportunity structures and political protest: Anti-nuclear movements in four democracies. British journal of political science, 16(1), 57-85.
-
--   Spoon, J. J., Hobolt, S. B., & De Vries, C. E. (2014). Going green: Explaining issue competition on the environment. European Journal of Political Research, 53(2), 363-380.

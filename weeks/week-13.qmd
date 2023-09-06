@@ -1,9 +1,9 @@
 ---
-title: "Climate Change and Democracy"
+title: "Interactivity II"
 subtitle: "Week 13"
 description: ""
 author: ""
-date: "May 23, 2023"
+date: "Nov 30, 2023"
 listing:
   - id: slides
     contents:
@@ -40,16 +40,3 @@ tbl-colwidths: [10,50,40]
 ::: {#slides}
 :::
 
-# Readings
-
-Mandatory readings for this week are:
-
--   Mittiga, R. (2022). Political legitimacy, authoritarianism, and climate change. American Political Science Review, 116(3), 998-1011. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368446_download&client_id=ILIAS)\]
-
--   Schweizer, D., Menzner, J. (2023). Worried about climate change and unsatisfied with democracy? Working Paper.
-
-Further readings and materials include:
-
--   Ross, M. L. (2015). What have we learned about the resource curse?. Annual Review of Political Science, 18, 239-259.
-
--   Von Stein, J. (2022). Democracy, autocracy, and everything in between: How domestic institutions affect environmental protection. British Journal of Political Science, 52(1), 339-357.

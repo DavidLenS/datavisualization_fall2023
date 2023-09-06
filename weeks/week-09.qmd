@@ -1,9 +1,9 @@
 ---
-title: "Behaviour and Polarization"
+title: "Annotations"
 subtitle: "Week 09"
 description: ""
 author: ""
-date: "April 25, 2023"
+date: "Nov 02, 2023"
 listing:
   - id: slides
     contents:
@@ -39,15 +39,3 @@ tbl-colwidths: [10,50,40]
 
 ::: {#slides}
 :::
-
-# Readings
-
-Mandatory readings for this week are:
-
--   McCright, A. M., & Dunlap, R. E. (2011). The politicization of climate change and polarization in the American public's views of global warming, 2001–2010. The Sociological Quarterly, 52(2), 155-194. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368428_download&client_id=ILIAS)\]
-
--   Otteni, C., & Weisskircher, M. (2022). Global warming and polarization. Wind turbines and the electoral success of the greens and the populist radical right. European Journal of Political Research, 61(4), 1102-1122. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368429_download&client_id=ILIAS)\]
-
-Further readings and materials include:
-
--   Stokes, L. C. (2016). Electoral backlash against climate policy: A natural experiment on retrospective voting and local resistance to public policy. American Journal of Political Science, 60(4), 958-974.

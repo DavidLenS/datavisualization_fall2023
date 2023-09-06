@@ -1,20 +1,21 @@
 ---
 title: "Data Visualization for Comparative Politics"
+subtitle: "Übung - Methoden der Vergleichenden Regierungslehre"
 ---
 
 ## Course overview
 
 The course introduces students to data visualization techniques for comparative politics taking a very practical approach using the R programming language. At the beginning of the course, you will be guided into the programming language by learning the basics of data management, generating summary statistics, and simple visualizations. On this basis, we will then deal with large quantities of data -- covering temporal, spatial, and relational dimensions -- and more complex data visualizations such as maps, interactive plots, or GIFs.
 
-The goal of this course is to equip the students with the necessary skills to collect (large quantities of) data, clean datasets, explore and understand patterns of data, and communicate these patterns and findings with visualizations. In addition, learning to produce effective graphs from own data is a great way to a better understanding of graphs -- as well as their strengths or shortcomings -- presented in research journals or the media.
+The goal of this course is to equip the students with the necessary skills to collect (large quantities of) data, clean data sets, explore and understand patterns of data, and communicate these patterns and findings with visualizations. In addition, learning to produce effective graphs from own data is a great way to a better understanding of graphs -- as well as their strengths or shortcomings -- presented in research journals or the media.
 
-## Seminar meetings
+## Weekly session
 
-| Meeting | Location                                                     | Time               |
+| Meeting   | Location                                                     | Time               |
 |-----------------|-----------------|--------------------------------------|
-| Seminar | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C) | Thu 13:45 -- 15:15 |
+| In-person | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C) | Thu 13:45 -- 15:15 |
 
-## Teaching
+## Instructor
 
 | Name            | Office hours       | Location |
 |-----------------|--------------------|----------|

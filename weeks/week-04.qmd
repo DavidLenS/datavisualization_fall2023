@@ -1,9 +1,9 @@
 ---
-title: "Public Opinion on Climate Change"
+title: "Amounts and Proportions"
 subtitle: "Week 04"
 description: ""
 author: ""
-date: "March 07, 2023"
+date: "Sep 28, 2023"
 listing:
   - id: slides
     contents:
@@ -39,15 +39,3 @@ tbl-colwidths: [10,50,40]
 
 ::: {#slides}
 :::
-
-# Readings
-
-Mandatory readings for this week are:
-
--   Bush, S. S., & Clayton, A. (2022). Facing change: Gender and climate change attitudes worldwide. American Political Science Review, 1-18. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368414_download&client_id=ILIAS)\]
-
--   Lee, T. M., Markowitz, E. M., Howe, P. D., Ko, C. Y., & Leiserowitz, A. A. (2015). Predictors of public climate change awareness and risk perception around the world. Nature climate change, 5(11), 1014-1020. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368415_download&client_id=ILIAS)\]
-
-Further readings and materials include:
-
--   Mildenberger, M., & Leiserowitz, A. (2017). Public opinion on climate change: Is there an economy–environment tradeoff?. Environmental Politics, 26(5), 801-824.

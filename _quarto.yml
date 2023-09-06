@@ -2,12 +2,11 @@ project:
   type: website
   output-dir: docs
 
-
 website:
-  title: "The Politics of Climate Change - Course Website"
+  title: "Data Visualization for Comparative Politics - Course Website"
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."
-    left: "The Politics of Climate Change | Spring 2023 | University of Mannheim"  
+    left: "Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim"  
   sidebar:
     background: "#8399B0"
     logo: "images/hex_sticker.png"

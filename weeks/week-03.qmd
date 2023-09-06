@@ -1,9 +1,9 @@
 ---
-title: "Climate Change as Collective Action Problem?"
+title: "Data"
 subtitle: "Week 03"
 description: ""
 author: ""
-date: "Feb 28, 2023"
+date: "Sep 21, 2023"
 listing:
   - id: slides
     contents:
@@ -40,20 +40,3 @@ tbl-colwidths: [10,50,40]
 ::: {#slides}
 :::
 
-# Readings
-
-Mandatory readings for this week are:
-
--   Aklin, M., & Mildenberger, M. (2020). Prisoners of the wrong dilemma: why distributive conflict, not collective action, characterizes the politics of climate change. Global Environmental Politics, 20(4), 4-27. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368411_download&client_id=ILIAS)\]
-
--   Breetz, H., Mildenberger, M., & Stokes, L. (2018). The political logics of clean energy transitions. Business and Politics, 20(4), 492-522. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368412_download&client_id=ILIAS)\]
-
-Further readings and materials include:
-
--   Hardin, G. (1968). The tragedy of the commons: the population problem has no technical solution; it requires a fundamental extension in morality. Science, 162(3859), 1243-1248.
-
--   Mildenberger, M. (2019). The Tragedy of the Tragedy of the Commons. Scientific American, 23.
-
--   Nordhaus, W. (2015). Climate clubs: Overcoming free-riding in international climate policy. American Economic Review, 105(4), 1339-1370.
-
--   Ostrom, E. (1990). Governing the commons: The evolution of institutions for collective action. Cambridge University Press.

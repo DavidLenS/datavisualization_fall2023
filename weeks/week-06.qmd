@@ -1,9 +1,9 @@
 ---
-title: "Natural Disasters and Political Accountability"
+title: "Uncertainty"
 subtitle: "Week 06"
 description: ""
 author: ""
-date: "March 21, 2023"
+date: "Oct 12, 2023"
 listing:
   - id: slides
     contents:
@@ -39,17 +39,3 @@ tbl-colwidths: [10,50,40]
 
 ::: {#slides}
 :::
-
-# Readings
-
-Mandatory readings for this week are:
-
--   Gasper, J. T., & Reeves, A. (2011). Make it rain? Retrospection and the attentive electorate in the context of natural disasters. American Journal of Political Science, 55(2), 340-355. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368420_download&client_id=ILIAS)\]
-
--   Healy, A., & Malhotra, N. (2009). Myopic voters and natural disaster policy. American Political Science Review, 103(3), 387-406. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368421_download&client_id=ILIAS)\]
-
-Further readings and materials include:
-
--   Bechtel, M. M., & Hainmueller, J. (2011). How lasting is voter gratitude? An analysis of the short‐and long‐term electoral returns to beneficial policy. American journal of political science, 55(4), 852-868.
-
--   Cole, S., Healy, A., & Werker, E. (2012). Do voters demand responsive governments? Evidence from Indian disaster relief. Journal of Development Economics, 97(2), 167-181.

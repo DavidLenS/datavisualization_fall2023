@@ -1,8 +1,8 @@
 ---
-title: "Closing Session"
-subtitle: "Week 14"
+title: "Themes"
+subtitle: "Week 5"
 author: "David Schweizer"
-date: "December 07, 2023"
+date: "October 05, 2023"
 date-format: long
 institute: "University of Mannheim"
 format: 

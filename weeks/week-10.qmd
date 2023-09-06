@@ -1,9 +1,9 @@
 ---
-title: "Populist Backlash"
+title: "Interactivity I"
 subtitle: "Week 10"
 description: ""
 author: ""
-date: "May 02, 2023"
+date: "Nov 09, 2023"
 listing:
   - id: slides
     contents:
@@ -39,17 +39,3 @@ tbl-colwidths: [10,50,40]
 
 ::: {#slides}
 :::
-
-# Readings
-
-Mandatory readings for this week are:
-
--   Forchtner, B. (2019). Climate change and the far right. Wiley Interdisciplinary Reviews: Climate Change, 10(5), e604. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368432_download&client_id=ILIAS)\]
-
--   Huber, R. A., Fesenfeld, L., & Bernauer, T. (2020). Political populism, responsiveness, and public support for climate mitigation. Climate Policy, 20(3), 373-386. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368433_download&client_id=ILIAS)\]
-
-Further readings and materials include:
-
--   Vihma, A., Reischl, G., & Nonbo Andersen, A. (2021). A climate backlash: comparing populist parties’ climate policies in Denmark, Finland, and Sweden. The Journal of Environment & Development, 30(3), 219-239.
-
--   Chan, G., Stavins, R., & Ji, Z. (2018). International climate change policy. Annual Review of Resource Economics, 10, 335-360.

@@ -1,9 +1,9 @@
 ---
-title: "Climate Action from an International Perspective"
+title: "Time"
 subtitle: "Week 11"
 description: ""
 author: ""
-date: "May 09, 2023"
+date: "Nov 16, 2023"
 listing:
   - id: slides
     contents:
@@ -39,15 +39,3 @@ tbl-colwidths: [10,50,40]
 
 ::: {#slides}
 :::
-
-# Readings
-
-Mandatory readings for this week are:
-
--   Bechtel, M. M., Scheve, K. F., & van Lieshout, E. (2022). Improving public support for climate action through multilateralism. Nature Communications, 13(1), 6441. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368439_download&client_id=ILIAS)\]
-
--   Harrison, K., & Sundstrom, L. M. (2007). The comparative politics of climate change. Global Environmental Politics, 7(4), 1-18. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368440_download&client_id=ILIAS)\]
-
-Further readings and materials include:
-
--   Chan, G., Stavins, R., & Ji, Z. (2018). International climate change policy. Annual Review of Resource Economics, 10, 335-360.

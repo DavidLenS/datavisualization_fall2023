@@ -18,7 +18,7 @@ listing:
 editor: visual
 ---
 
-## Weekly schedule
+## 
 
 ::: {#material}
 :::
