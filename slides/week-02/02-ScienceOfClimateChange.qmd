@@ -1,0 +1,159 @@
+---
+title: "Science of Climate Change & Impacts"
+subtitle: "Week2"
+author: "David Schweizer"
+date: "February 21, 2023"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: serif
+    slide-number: c/t #< collapsed/total
+    footer: "The Politics of Climate Change | Spring 2023 | University of Mannheim"
+editor: visual
+---
+
+## Plan for Today
+
+-   Dataquest access
+
+-   Discuss readings & short input *\~ 30 min*
+
+-   Group work: Case studies *\~ 30 min*
+
+    -   Economic \| social \| political impact?
+
+    -   Pathways?
+
+    -   Adaptation gap?
+
+-   Short presentations & discussions *\~ 30 min*
+
+-   Outlook next week
+
+## Dataquest
+
+-   Free access to premium team account until 01.08.2023
+
+-   Possibility to learn R (but also Python, Excel, etc.)
+
+-   The Dataquest catalog includes:
+
+    -   Career paths (e.g., Data Analyst in R)
+
+    -   Skill paths (e.g., Probability and Statistics with R)
+
+    -   Individual courses (e.g., Linear Regression Modeling in R)
+
+-   Invitation to team account after the session
+
+# Readings - Your Key Takeaways?
+
+## Readings - Discussion Questions
+
+-   Consequences of the differentiated impacts of climate change?
+
+    -   Gender, Income, Resources
+
+-   Examples of good adaptation, failure to adapt? What about mitigation?
+
+-   Did reading the two texts make you more or less pessimistic about the future?
+
+-   We read about economics, but what role can political science play as a discipline?
+
+## Climate ⟶ Social Outcomes
+
+![Figure 1 (Carleton & Hsiang, 2016)](fig1_carleton_hsiang.jpg){alt="Figure 1 (Carleton & Hsiang, 2016)" fig-align="center" width="60%"}
+
+## Pathways
+
+**Direct**
+
+-   Change in distribution of weather leads to change in distribution of events experienced by individuals
+
+**Informational**
+
+-   Individuals expect specific distributions of weather events and their effects
+
+## Example: Profanity on Social Media
+
+![Figure 2 (Carleton & Hsiang, 2016)](fig2_carleton_hsiang.jpg){fig-align="center"}
+
+## Adaptation Gaps
+
+![Figure 3 (Carleton & Hsiang, 2016)](fig3_carleton_hsiang.jpg){fig-align="center"}
+
+## Group Work: Case Studies (1)
+
+**Task**
+
+Prepare a short presentation (max. 5 mins - 1 slide per question) addressing the following questions (choose specific scenarios!)
+
+-   What kind of impact (economic, social, political) does climate change have for *your* country?
+
+-   Describe possible pathways
+
+-   Are there adaptation gaps?
+
+## Group Work: Case Studies (2)
+
+**Countries**
+
+-   Bangladesh
+
+-   Brazil
+
+-   Ethiopia
+
+-   Germany
+
+-   United Kingdom
+
+## Group Work: Case Studies (3)
+
+Your turn! Country profiles are available on ILIAS. Of course, you can look for additional information.
+
+```{r countdown-package, include=FALSE}
+#remotes::install_github("gadenbuie/countdown")
+library(countdown)
+```
+
+```{r, echo = FALSE}
+countdown(minutes = 30, seconds = 00, 
+          left = 0, right = 0,
+          padding = "50px",
+          margin = "15%",
+          font_size = "5em",
+          #color_border = solarized$magenta,
+          color_text = "#000",
+          color_running_background  = "#f0f1eb",
+          #color_running_text        = solarized$base02,
+          color_finished_background = "#f0f1eb")
+          #color_finished_text       = solarized$base3)
+```
+
+## Presentations
+
+**Order**
+
+1.  Bangladesh
+
+2.  Brazil
+
+3.  Ethiopia
+
+4.  Germany
+
+5.  United Kingdom
+
+## (Until) Next Week
+
+**Climate Change as Collective Action Problem?**
+
+-   Add comments, discussion questions, etc. for the mandatory readings. Try Perusall:
+
+    -   Aklin, M., & Mildenberger, M. (2020)
+
+    -   Breetz, H., Mildenberger, M., & Stokes, L. (2018)
+
+-   We will expand our case studies: What are possible solutions? How can we achieve them?

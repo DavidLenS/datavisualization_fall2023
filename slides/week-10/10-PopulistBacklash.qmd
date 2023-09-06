@@ -1,0 +1,171 @@
+---
+title: "Populist Backlash"
+subtitle: "Week10"
+author: "David Schweizer"
+date: "May 02, 2023"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: serif
+    slide-number: c/t #< collapsed/total
+    footer: "The Politics of Climate Change | Spring 2023 | University of Mannheim"
+editor: visual
+---
+
+## Plan for Today
+
+-   Presentations & discussion questions
+
+-   Discussion format:
+
+    -   When discussing the question, also keep in mind the readings that have been covered so far.
+
+    1.  Individual thinking: 2 min.
+
+    2.  Discussing in small groups (of 2-3 persons): 4 min.
+
+    3.  Sharing your thoughts in the plenum: \~10 min.
+
+## Presentation 1
+
+-   McCright, A. M., & Dunlap, R. E. (2011). The politicization of climate change and polarization in the American public's views of global warming, 2001-- 2010. The Sociological Quarterly, 52(2), 155-194
+
+## Discussion - Individual Thinking
+
+-   McCright & Dunlap find a political divide between democrats and republicans in the American public. But what about multi-party systems? Divide based on left-right or cutting across the party spectrum?
+
+```{r countdown-package, include=FALSE}
+#remotes::install_github("gadenbuie/countdown")
+library(countdown)
+```
+
+```{r, echo = FALSE}
+countdown(minutes = 2, seconds = 00, 
+          left = 0, right = 0,
+          padding = "25px",
+          margin = "5%",
+          font_size = "5em",
+          #color_border = solarized$magenta,
+          color_text = "#000",
+          color_running_background  = "#f0f1eb",
+          #color_running_text        = solarized$base02,
+          color_finished_background = "#f0f1eb")
+          #color_finished_text       = solarized$base3)
+```
+
+## Discussion - In Groups
+
+-   McCright & Dunlap find a political divide between democrats and republicans in the American public. But what about multi-party systems? Divide based on left-right or cutting across the party spectrum?
+
+```{r, echo = FALSE}
+countdown(minutes = 4, seconds = 00, 
+          left = 0, right = 0,
+          padding = "25px",
+          margin = "5%",
+          font_size = "5em",
+          #color_border = solarized$magenta,
+          color_text = "#000",
+          color_running_background  = "#f0f1eb",
+          #color_running_text        = solarized$base02,
+          color_finished_background = "#f0f1eb")
+          #color_finished_text       = solarized$base3)
+```
+
+## Discussion - Sharing
+
+<iframe src="https://app.sli.do/event/7ZcX6uRuWLPenmFjRTWvV6" height="100%" width="100%" frameBorder="0" style="min-height: 560px;" title="Slido">
+
+</iframe>
+
+## Presentation 2
+
+-   Forchtner, B. (2019). Climate change and the far right. Wiley Interdisciplinary Reviews: Climate Change, 10(5), e604.
+
+## Discussion - Individual Thinking
+
+-   How do right-wing parties that deny climate change react to "climate refugees" and how does society act?
+
+```{r, echo = FALSE}
+countdown(minutes = 2, seconds = 00, 
+          left = 0, right = 0,
+          padding = "25px",
+          margin = "5%",
+          font_size = "5em",
+          #color_border = solarized$magenta,
+          color_text = "#000",
+          color_running_background  = "#f0f1eb",
+          #color_running_text        = solarized$base02,
+          color_finished_background = "#f0f1eb")
+          #color_finished_text       = solarized$base3)
+```
+
+## Discussion - In Groups
+
+-   How do right-wing parties that deny climate change react to "climate refugees" and how does society act?
+
+```{r, echo = FALSE}
+countdown(minutes = 4, seconds = 00, 
+          left = 0, right = 0,
+          padding = "25px",
+          margin = "5%",
+          font_size = "5em",
+          #color_border = solarized$magenta,
+          color_text = "#000",
+          color_running_background  = "#f0f1eb",
+          #color_running_text        = solarized$base02,
+          color_finished_background = "#f0f1eb")
+          #color_finished_text       = solarized$base3)
+```
+
+## Discussion - Sharing
+
+<iframe src="https://app.sli.do/event/7ZcX6uRuWLPenmFjRTWvV6" height="100%" width="100%" frameBorder="0" style="min-height: 560px;" title="Slido">
+
+</iframe>
+
+## Presentation 3
+
+-   Huber, R. A., Fesenfeld, L., & Bernauer, T. (2020). Political populism, responsiveness, and public support for climate mitigation. Climate Policy, 20(3), 373-386.
+
+## Discussion - Individual Thinking
+
+-   Huber et al. show that populist attitudes enhance the effect of partisanship on climate concern/support for climate policies in the US. What are the implications to address climate change in other countries, particularly with high levels of populism?
+
+```{r, echo = FALSE}
+countdown(minutes = 2, seconds = 00, 
+          left = 0, right = 0,
+          padding = "25px",
+          margin = "5%",
+          font_size = "5em",
+          #color_border = solarized$magenta,
+          color_text = "#000",
+          color_running_background  = "#f0f1eb",
+          #color_running_text        = solarized$base02,
+          color_finished_background = "#f0f1eb")
+          #color_finished_text       = solarized$base3)
+```
+
+## Discussion - In Groups
+
+-   Huber et al. show that populist attitudes enhance the effect of partisanship on climate concern/support for climate policies in the US. What are the implications to address climate change in other countries, particularly with high levels of populism?
+
+```{r, echo = FALSE}
+countdown(minutes = 4, seconds = 00, 
+          left = 0, right = 0,
+          padding = "25px",
+          margin = "5%",
+          font_size = "5em",
+          #color_border = solarized$magenta,
+          color_text = "#000",
+          color_running_background  = "#f0f1eb",
+          #color_running_text        = solarized$base02,
+          color_finished_background = "#f0f1eb")
+          #color_finished_text       = solarized$base3)
+```
+
+## Discussion - Sharing
+
+<iframe src="https://app.sli.do/event/7ZcX6uRuWLPenmFjRTWvV6" height="100%" width="100%" frameBorder="0" style="min-height: 560px;" title="Slido">
+
+</iframe>

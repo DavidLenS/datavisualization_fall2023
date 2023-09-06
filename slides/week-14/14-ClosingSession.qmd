@@ -1,0 +1,18 @@
+---
+title: "Closing Session"
+subtitle: "Week14"
+author: "David Schweizer"
+date: "May 30, 2023"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: serif
+    slide-number: c/t #< collapsed/total
+    footer: "The Politics of Climate Change | Spring 2023 | University of Mannheim"
+editor: visual
+---
+
+# Plan for today
+
+-   You can find the grading scheme on ILIAS or on Slack.

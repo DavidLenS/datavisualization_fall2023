@@ -1,0 +1,59 @@
+---
+title: "Party Responsiveness to Climate Change"
+subtitle: "Week 08"
+description: ""
+author: ""
+date: "April 18, 2023"
+listing:
+  - id: slides
+    contents:
+      - ../slides/week-08/*.qmd
+    type: table
+    fields: [title, subtitle, date]
+    #date-format: "ddd, MMM DD"
+    field-display-names:
+      title: "Topic"
+      subtitle: "Session"
+      date: "Date"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+  # - id: assignments
+  #   contents:
+  #     - ../hw/w1-*.qmd
+  #     - ../labs/w1-*.qmd
+  #   type: table
+  #   fields: [categories, title, date]
+  #   date-format: "ddd, MMM DD"
+  #   field-display-names:
+  #     categories: "Assignment"
+  #     title: "Title"
+  #     date: "Due"
+  #   sort: [date]
+  #   sort-ui: false
+  #   filter-ui: false
+tbl-colwidths: [10,50,40]
+---
+
+# Seminar slides
+
+::: {#slides}
+:::
+
+# Readings
+
+Mandatory readings for this week are:
+
+-   Birch, S. (2023). The electoral benefits of environmental position‐taking: Floods and electoral outcomes in England 2010–2019. European Journal of Political Research, 62(1), 95-117. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368426_download&client_id=ILIAS)\]
+
+-   Schweizer, D. (2023). No Planet B? Climate Change and Party Competition. Working Paper.
+
+Further readings and materials include:
+
+-   Bernardi, L., Morales, L., Lühiste, M., & Bischof, D. (2018). The effects of the Fukushima disaster on nuclear energy debates and policies: a two-step comparative examination. Environmental Politics, 27(1), 42-68.
+
+-   Berker, L. E., & Pollex, J. (2022). Explaining differences in party reactions to the Fridays for Future-movement–a qualitative comparative analysis (QCA) of parties in three European countries. Environmental Politics, 1-38.
+
+-   Farstad, F. M. (2018). What explains variation in parties’ climate change salience?. Party Politics, 24(6), 698-707.
+
+-   Valentim, A. (2021). Imperfect Information and Party Responsiveness: Evidence from Extreme Weather Events and the Green Party in England. Available at SSRN 3960045.

@@ -1,0 +1,246 @@
+---
+title: "Public Opinion on Climate Change"
+subtitle: "Week4"
+author: "David Schweizer"
+date: "March 07, 2023"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: serif
+    slide-number: c/t #< collapsed/total
+    footer: "The Politics of Climate Change | Spring 2023 | University of Mannheim"
+editor: visual
+---
+
+## Plan for Today
+
+-   Concepts so far & Discussion of readings \~ 25 min
+
+-   First research question \~ 45 min
+
+    -   Research question / puzzle?
+
+    -   Literature?
+
+    -   Data?
+
+-   Discussion of research questions \~ 20 min
+
+-   Outlook next week
+
+## Mechanisms, Dilemmata, Politics
+
+::: panel-tabset
+#### Pathways
+
+**Direct**
+
+-   Change in distribution of weather leads to change in distribution of events experienced by individuals
+
+**Informational**
+
+-   Individuals expect specific distributions of weather events and their effects
+
+#### Dilemmata
+
+**Collective action theory:**
+
+-   Incentives for free-riding need to be overcome by international cooperation
+
+**Distributive conflict:**
+
+-   Climate policies ⤍ New economic winners and losers
+-   Conflicts over material benefits, reinforced by (ideological) political struggles
+
+#### Energy transition
+
+*Experience* or *learning curves:* Often, policy and politics not taken into account
+
+-   Affects both price and quantity
+-   Effects differ depending on current stage of the experience curve
+:::
+
+## Quiz
+
+<iframe src="https://app.sli.do/event/4X6Tgk5jB9pr61Ny4a46br" height="80%" width="100%" frameBorder="0" style="min-height: 450px;" title="Slido">
+
+</iframe>
+
+## Quiz
+
+Respondents in Germany were asked: \[...\] *what percentage of climate scientists have concluded that human-caused climate change is happening?* What is their average estimate?
+
+-   ::: {.fragment .highlight-red}
+    69%
+    :::
+
+-   79%
+
+-   89%
+
+-   99%
+
+## Quiz
+
+Respondents in Germany were asked whether they think that *oil companies are hiding technology that could make cars run without petrol or diesel*. How many think this is the case?
+
+-   23%
+
+-   ::: {.fragment .highlight-red}
+    46%
+    :::
+
+-   64%
+
+-   80%
+
+## Quiz
+
+Respondents in Germany were asked when, if ever, they think *climate change will start to harm them personally*. How many think it already harms them or in the next ten years?
+
+-   33%
+
+-   ::: {.fragment .highlight-red}
+    43%
+    :::
+
+-   53%:
+
+-   63%
+
+## Quiz
+
+And how many respondents strongly or tend to agree with the statement that *there is no point in changing their behaviour to tackle climate change because it won't make any difference anyway*.
+
+-   15%
+
+-   ::: {.fragment .highlight-red}
+    25%
+    :::
+
+-   35%
+
+-   45%
+
+## Surveys
+
+-   PERITIA (2022). Public perceptions on climate change. [Link](https://peritia-trust.eu/wp-content/uploads/2022/06/4-Climate-change_EU.pdf)
+-   Alliance of Democracies (2022). Democracy Perception Index 2022. [Link](https://docs.google.com/spreadsheets/d/1gdjTHqM_O2kDNyFgvLWVsCn4lFWzFRoMRUdTelXxTM4/edit#gid=1271546525)
+-   European Investment Bank (2022). 2021-2022 EIB Climate Survey. [Link](https://www.eib.org/en/surveys/climate-survey/4th-climate-survey/index.htm)
+-   Yale Program on Climate Change Communication and Data for Good at Meta (2022). [Link](https://climatecommunication.yale.edu/publications/international-public-opinion-on-climate-change-2022/)
+
+## Bush & Clayton
+
+. . .
+
+-   Gender gap in wealthy but not in poor countries
+
+    -   Men tend to attach greater material costs to mitigation
+
+    -   Men tend to express more support for group-based dominance (correlated with climate skepticism)
+
+-   Implications
+
+    -   Women's greater role in climate policy may lead to more decisive climate action
+
+    -   Voices and perspectives from the Global South need to be considered
+
+## Lee et al.
+
+. . .
+
+-   Predictors of public climate change awareness:
+
+    -   Educational attainment
+
+-   Predictors of climate risk perception:
+
+    -   Understanding the anthropogenic cause of climate change (Europe, Latin America)
+
+    -   Perception of local temperature change (Africa, Asia)
+
+Improving education, climate literacy, and understanding of the local impacts are essential for more support for climate action - *exact strategy depends on country (context)*.
+
+## Discussion Questions
+
+-   Would female politicians (head of states) implement more progressive climate change mitigation policy?
+
+-   Educational attainment as the strongest predictor of climate awareness. Climate skeptics just uneducated?
+
+-   How could climate education look like? What should we teach over one school year, for example? Climate education as a political issue?
+
+-   What role do social media / modern communication and globalization play? How do they foster the influence of right-wing populist / climate change denying parties?
+
+## Finding a Research Question
+
+**Task**
+
+In small groups or individually, find a research question that you could also follow-up with your term paper.
+
+-   Academic relevance?
+
+-   Societal relevance?
+
+-   Feasibility?
+
+-   Relation to existing theories?
+
+Formulate the question with a question mark!
+
+## Finding Literature
+
+**Helpful tools**
+
+-   Elicit [Link](https://elicit.org/)
+-   Research Rabbit [Link](https://researchrabbitapp.com/home)
+-   Connected Papers [Link](https://www.connectedpapers.com/)
+
+## Finding Data
+
+**Task**
+
+In small groups or individually, find possible data sources for answering your research question.
+
+-   Easily accessible?
+
+-   What kind of data? E.g., cross-sectional, panel data?
+
+-   What concepts can you measure with these data?
+
+## Your Turn!
+
+If you have absolutely no idea where to start:
+
+-   Have a look at the surveys, anything interesting there?
+
+-   Recent, climate change-related events? Reporting in newspapers, etc.
+
+```{r countdown-package, include=FALSE}
+#remotes::install_github("gadenbuie/countdown")
+library(countdown)
+```
+
+```{r, echo = FALSE}
+countdown(minutes = 45, seconds = 00, 
+          left = 0, right = 0,
+          padding = "25px",
+          margin = "5%",
+          font_size = "5em",
+          #color_border = solarized$magenta,
+          color_text = "#000",
+          color_running_background  = "#f0f1eb",
+          #color_running_text        = solarized$base02,
+          color_finished_background = "#f0f1eb")
+          #color_finished_text       = solarized$base3)
+```
+
+# Discussion of Research Questions
+
+## (Until) Next Week
+
+-   BLOCK II - Political Behaviour (2): Natural Disasters, Climate Attitudes and Voting Behaviour. Add comments, discussion questions, etc. for the mandatory readings. Try Perusall:
+
+    -   Garside, S., & Zhai, H. (2022). If not now, when? Climate disaster and the Green vote following the 2021 Germany floods. Research & Politics, 9(4).
+
+    -   Hilbig, H., & Riaz, S. (2021). Natural Disasters and Electoral Support for Green Parties-Evidence from the 2021 Flood in Germany. OSF Preprints.

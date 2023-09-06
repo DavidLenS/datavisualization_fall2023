@@ -1,0 +1,141 @@
+---
+title: "Climate Action from an International Perspective"
+subtitle: "Week11"
+author: "David Schweizer"
+date: "May 09, 2023"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: serif
+    slide-number: c/t #< collapsed/total
+    footer: "The Politics of Climate Change | Spring 2023 | University of Mannheim"
+editor: visual
+---
+
+## Plan for Today
+
+-   Presentations & discussion questions \~45 min
+
+-   Extension: "Climate Policy Costs, Regional Identity and Backlash against International Cooperation" \~45 min
+
+    -   In-seminar reading
+
+    -   Discussion
+
+## Presentation 1
+
+-   Bechtel, M. M., Scheve, K. F., & van Lieshout, E. (2022). Improving public support for climate action through multilateralism. Nature Communications, 13(1), 6441
+
+## Discussion - Individual Thinking
+
+-   Since free-rider effects of climate action as a global public good are often used by opponents of climate action as an argument against costly climate action, to what extent do multilateral agreements help to reduce polarization of society? Do multilateral agreements have to be binding in order to reduce polarization?
+
+```{r countdown-package, include=FALSE}
+#remotes::install_github("gadenbuie/countdown")
+library(countdown)
+```
+
+```{r, echo = FALSE}
+countdown(minutes = 1, seconds = 30, 
+          left = 0, right = 0,
+          padding = "25px",
+          margin = "5%",
+          font_size = "3em",
+          #color_border = solarized$magenta,
+          color_text = "#000",
+          color_running_background  = "#f0f1eb",
+          #color_running_text        = solarized$base02,
+          color_finished_background = "#f0f1eb")
+          #color_finished_text       = solarized$base3)
+```
+
+## Discussion - In Groups
+
+-   Since free-rider effects of climate action as a global public good are often used by opponents of climate action as an argument against costly climate action, to what extent do multilateral agreements help to reduce polarization of society? Do multilateral agreements have to be binding in order to reduce polarization?
+
+```{r, echo = FALSE}
+countdown(minutes = 3, seconds = 00, 
+          left = 0, right = 0,
+          padding = "25px",
+          margin = "5%",
+          font_size = "3em",
+          #color_border = solarized$magenta,
+          color_text = "#000",
+          color_running_background  = "#f0f1eb",
+          #color_running_text        = solarized$base02,
+          color_finished_background = "#f0f1eb")
+          #color_finished_text       = solarized$base3)
+```
+
+# Discussion - Sharing
+
+## Presentation 2
+
+-   Harrison, K., & Sundstrom, L. M. (2007). The comparative politics of climate change. Global Environmental Politics, 7(4), 1-18.
+
+## Discussion - Individual Thinking
+
+-   ... "there is no substitute for voters caring enough to demand action by their elected representatives". What about counter action? What if voters do not care enough?
+
+```{r, echo = FALSE}
+countdown(minutes = 1, seconds = 30, 
+          left = 0, right = 0,
+          padding = "25px",
+          margin = "5%",
+          font_size = "3em",
+          #color_border = solarized$magenta,
+          color_text = "#000",
+          color_running_background  = "#f0f1eb",
+          #color_running_text        = solarized$base02,
+          color_finished_background = "#f0f1eb")
+          #color_finished_text       = solarized$base3)
+```
+
+## Discussion - In Groups
+
+-   ... "there is no substitute for voters caring enough to demand action by their elected representatives". What about counter action? What if voters do not care enough?
+
+```{r, echo = FALSE}
+countdown(minutes = 3, seconds = 00, 
+          left = 0, right = 0,
+          padding = "25px",
+          margin = "5%",
+          font_size = "3em",
+          #color_border = solarized$magenta,
+          color_text = "#000",
+          color_running_background  = "#f0f1eb",
+          #color_running_text        = solarized$base02,
+          color_finished_background = "#f0f1eb")
+          #color_finished_text       = solarized$base3)
+```
+
+# Discussion - Sharing
+
+## Bayer & Genovese (2023) - Introduction
+
+-   Starting point: Evidence for popular backlash against global institutions and multilateral cooperation
+
+    -   Rooted in national interests (e.g., Brexit, Trump, ...)
+
+-   What aspects of domestic politics influence public opinion against international cooperation?
+
+-   Subnational nature of the costs of international integration as sources of public backlash
+
+## Bayer & Genovese (2023) - Task
+
+-   In-seminar reading:
+
+    -   Skim the paper, focus on the most important parts
+
+    -   You can also make use of AI tools such as Elicit.org
+
+-   **Discussion Question:**
+
+    -   How does this paper relate to today's presentation?
+
+    -   Justification of case selection?
+
+    -   Main results?
+
+    -   What do the authors contribute?

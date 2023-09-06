@@ -1,0 +1,56 @@
+---
+title: "Introductory Session"
+subtitle: "Week 1"
+author: "David Schweizer"
+date: "February 14, 2023"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: serif
+    slide-number: c/t #< collapsed/total
+    footer: "The Politics of Climate Change | Spring 2023 | University of Mannheim"
+editor: visual
+---
+
+# Plan for today:
+
+-   Introduction round
+    -   Getting to know each other
+-   Course content and structure
+    -   What will we do in this course?
+-   Your expectations
+    -   What are you interested in?
+-   Course requirements and basic information
+    -   What do you need to do in this course?
+
+# Introduction round
+
+-   I'll go first. A few words about me
+
+-   You're next. Groups of 2-3
+
+    -   Introduce yourselves to your classmates
+    -   Name, background, what do you study, interests, personal interests and hobbies, ...
+
+-   Plenum
+
+    -   In a few sentences, present yourself to the plenum and tell also one thing about the persons you just met
+
+# About me
+
+-   PhD candidate in Political Science since fall 2021, focus on party competition and intra-party politics
+
+-   Academic Background:
+
+    -   Political Science (LMU) and Economics (Goethe University)
+
+-   Interested in all kinds of sports & fantasy books
+
+# Your turn!
+
+# Course content and structure
+
+# Your expectations
+
+# Course requirements and basic information

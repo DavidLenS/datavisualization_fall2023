@@ -1,0 +1,243 @@
+---
+title: "Success and Impact of Green Parties"
+subtitle: "Week7"
+author: "David Schweizer"
+date: "March 28, 2023"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: serif
+    slide-number: c/t #< collapsed/total
+    footer: "The Politics of Climate Change | Spring 2023 | University of Mannheim"
+editor: visual
+---
+
+## Plan for Today
+
+-   Orga: Outlook semester \~ 10 min
+
+-   Discussion of readings \~ 15 min
+
+-   First research question \~ 65 min
+
+    -   Importing data,
+
+    -   Generating a data set
+
+    -   Basic Analysis
+
+## Outlook Semester
+
+-   Research proposal: Still time to opt-in
+
+-   Student presentations each week:
+
+    -   Groups and presentations are announced later today
+
+-   Focus on discussion of readings
+
+-   Group work from time to time
+
+-   Your chance to influence the style of the seminar:
+
+    -   Mid-semester feedback survey
+
+    -   Discuss suggestions anonymously in the ILIAS forum
+
+# Readings
+
+## Discussion Mandatory Readings
+
+-   Who wrote the article? What's their background?
+
+-   General summary of the article
+
+-   Strengths & Weaknesses
+
+-   How does it connect to other readings?
+
+-   How does it connect to current events?
+
+-   What do you take away for your own research agenda?
+
+## Discussion Questions
+
+-   Are Abou-Chadi's findings still valid? Higher electoral success of Green and radical-right parties in recent years...
+
+-   Are Green and radical right parties still niche parties? Can parties de-emphasize the environment?
+
+-   Relationship between Green parties and environmental movements beneficial?
+
+-   Success of Green parties outside Western Europe?
+
+# Research Question - Importing Data, Generating a Data Set, Basic Analysis
+
+## Example
+
+-   How does concern about climate protection influence perception of politicians?
+
+    -   GLES Panel Data: Wave 23
+
+    -   Relationship between climate protection - economy trade-off and popularity of politicians
+
+## Step 1: Import & Select Data
+
+::: panel-tabset
+## R
+
+```{r, eval=FALSE, echo=TRUE}
+# Setting the working directory to the folder "Data"
+setwd("C:/Users/David/Desktop/Data")
+
+# Import GLES Panel wave 23
+data <- haven::read_dta("GLES_Panel_wave23.dta")
+
+# Select relevant variables
+data <- data %>% 
+  dplyr::select(kp23_1290, 
+                starts_with("kp23_1483"), 
+                starts_with("kp23_650"), 
+                lfdn)
+```
+
+## Stata
+
+```{stata, eval=FALSE, echo=TRUE}
+* Setting the working directory to the folder "Data"
+cd "C:\Users\David\Desktop\Data"
+* Check current directory
+pwd
+* Display files in current directory 
+dir
+
+* Import data
+use "GLES_Panel_wave23.dta"
+
+* Select relevant variable.names
+keep kp23_1290 kp23_1483* kp23_650* lfdn
+```
+:::
+
+## Step 2: Prepare Data
+
+::: panel-tabset
+## R
+
+```{r, eval=FALSE, echo=TRUE}
+# We can now check the structure of the data and look at a basic summary
+str(data)
+summary(data)
+
+# "filter" to keep only values larger than 0 (exclude missings)
+data <- data %>% 
+  dplyr::filter(kp23_1290 > 0) %>% 
+  dplyr::filter(kp23_650l1 > 0) %>%
+  dplyr::filter(kp23_650k1 > 0)
+```
+
+## Stata
+
+```{stata, eval=FALSE, echo=TRUE}
+* We can now check the structure of the data and look at a basic summary
+describe
+sum
+
+* keep only values larger than 0 (exclude missings)
+keep if kp23_1290 > 0
+keep if kp23_650l1 > 0
+keep if kp23_650k1 > 0
+```
+:::
+
+## Step 3: Basic Analysis 1
+
+```{r, include=FALSE}
+library(haven)
+library(dplyr)
+
+GLES_Panel_wave23 <- haven::read_dta("GLES_Panel_wave23.dta")
+
+data <- GLES_Panel_wave23 %>% 
+  dplyr::select(kp23_1290, starts_with("kp23_1483"), starts_with("kp23_650"), lfdn)
+
+data <- data %>% 
+  dplyr::filter(kp23_1290 > 0) %>% 
+  dplyr::filter(kp23_650l1 > 0) %>%
+  dplyr::filter(kp23_650k1 > 0)
+```
+
+```{r, include = FALSE}
+# install.packages(Statamarkdown)
+library(Statamarkdown)
+```
+
+```{stata, include=FALSE,  collectcode=TRUE}
+use "GLES_Panel_wave23.dta"
+keep kp23_1290 kp23_1483* kp23_650* lfdn
+keep if kp23_1290 > 0
+keep if kp23_650l1 > 0
+keep if kp23_650k1 > 0
+```
+
+::: panel-tabset
+## R
+
+```{r, echo=TRUE}
+# Run bivariate regression for Habeck
+summary(lm(kp23_650l1 ~ kp23_1290, data = data)) 
+```
+
+## Stata
+
+```{stata, echo=TRUE}
+* Run bivariate regression for Habeck
+reg kp23_650l1 kp23_1290
+```
+:::
+
+## Step 3: Basic Analysis 2
+
+::: panel-tabset
+## R
+
+```{r, echo=TRUE}
+# Run bivariate regression for Soeder 
+summary(lm(kp23_650k1 ~ kp23_1290, data = data))
+```
+
+## Stata
+
+```{stata, echo=TRUE}
+* Run bivariate regression for Soeder 
+reg kp23_650k1 kp23_1290
+```
+:::
+
+## Helpful Resources
+
+-   Getting Started in Data Analysis using Stata. https://www.princeton.edu/\~otorres/StataTutorial.pdf
+
+-   "Introduction to R for Data Analysis", GESIS Summer School in Survey Methodology, 2022. https://github.com/StefanJuenger/r-intro-gesis-2022
+
+## Data - Parties
+
+-   ParlGov: https://www.parlgov.org
+
+-   Manifesto Project: https://manifesto-project.wzb.eu/
+
+-   CHES: https://www.chesdata.eu/
+
+-   The PopuList: https://popu-list.org/
+
+## Task for Today
+
+-   Import your own data (or use the GLES Panel wave 23 on Ilias)
+
+-   Create a data set
+
+-   Run a first analysis (descriptives, basic regression, plot, ...)
+
+# Your Turn!
+
+# Have a nice semester break!

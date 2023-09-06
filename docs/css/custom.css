@@ -1,0 +1,10 @@
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+#quarto-sidebar > div.pt-lg-2.mt-2.text-center.sidebar-header > a > img {
+  transform: scale(0.9);
+}
+
+div.callout-note.callout {
+  border-left-color: #8399B0;
+}

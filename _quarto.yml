@@ -1,0 +1,44 @@
+project:
+  type: website
+  output-dir: docs
+
+
+website:
+  title: "The Politics of Climate Change - Course Website"
+  page-footer:
+    right: "This page is built with [Quarto](https://quarto.org/)."
+    left: "The Politics of Climate Change | Spring 2023 | University of Mannheim"  
+  sidebar:
+    background: "#8399B0"
+    logo: "images/hex_sticker.png"
+    pinned: true
+    align: center
+    tools:
+      - icon: slack
+        href: https://the-politics-of-cc.slack.com
+        text: Slack
+      - icon: bank
+        href: https://ilias.uni-mannheim.de/goto.php?target=crs_1333381&client_id=ILIAS
+        text: Ilias
+      - icon: book
+        href: https://www.perusall.com/
+        text: Perusall
+    style: docked
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: syllabus.qmd
+        text: Syllabus
+      - href: material.qmd
+        text: Material
+        
+format:
+  html:
+    theme: 
+      - default
+      - css/theme.scss
+    css: css/custom.css
+    toc: true
+
+
+

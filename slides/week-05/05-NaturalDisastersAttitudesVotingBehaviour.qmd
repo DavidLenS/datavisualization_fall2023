@@ -1,0 +1,218 @@
+---
+title: "Natural Disasters, Attitudes and Voting Behaviour"
+subtitle: "Week5"
+author: "David Schweizer"
+date: "March 14, 2023"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: serif
+    slide-number: c/t #< collapsed/total
+    footer: "The Politics of Climate Change | Spring 2023 | University of Mannheim"
+editor: visual
+---
+
+## Plan for Today
+
+-   Orga: Research Proposal & Presentations \~ 15 min
+
+-   Last week & Discussion of readings \~ 30 min
+
+-   First research question \~ 45 min
+
+    -   Finding data
+
+    -   Importing data in R or Stata
+
+    -   (Generating a first data set)
+
+    -   Short discussion
+
+-   Outlook next week
+
+# Research Proposal
+
+## Research Proposal - General
+
+-   Developing your research question for the final term paper
+
+    -   It gives the motivation for your research question
+
+    -   ... and presents a short (preliminary) overview of related literature,
+
+    -   .... which can already lead to hypotheses.
+
+-   Term paper can be based on your proposal but does not have to.
+
+-   Chance of early feedback in the semester
+
+## Research Proposal - Feedback
+
+-   If you opt for the research proposal, then you have to review (two) proposals of your peers
+
+-   Double-Blind-Review: Reviewer and author are "anonymous"
+
+-   Benefits of reviewing:
+
+    -   Chance to see what others are working on
+
+    -   Learning how to give constructive feedback
+
+-   You will get a checklist what to consider when reviewing a research proposal
+
+## Research Proposal - Formal
+
+-   Length: 700 -- 800 words (excluding references, +/- 10% , 12pt font - Times New Roman or Calibri, and 1.5 line spacing)
+
+-   Can be written in English or German.
+
+-   Submission of Research Proposal as PDF via ILIAS. **Deadline: April 18, 2023, 20:00**
+
+-   Submission of Feedback as PDF via ILIAS. **Deadline: May 02, 2023, 20:00**
+
+-   Let me know by **March 28** if you want to opt in!
+
+# Presentations
+
+## Presentations - General
+
+-   Short group presentations (max. 10-12 minutes, 2-3 people)
+
+-   Choose one of the papers of the mandatory or additional readings in the sessions after the Easter Break.
+
+-   \~2 presentations per session
+
+::: {.callout-tip style="color: green"}
+## Paper selection for presentation
+
+Please indicate your preferences [here](https://docs.google.com/spreadsheets/d/1o9_mNOUgjVo8BTL0NOycDaNBBKsW4eFoXBtBbylBsPE/edit?usp=sharing) until next week!
+:::
+
+## Presentations - General
+
+-   Brief, concise presentation of the literature; critical discussion of further literature and own reflections.
+
+-   Think about the following when presenting:
+
+    -   Arguments in the literature
+
+    -   Alternative viewpoints and critique?
+
+    -   Own assessment of the problem
+
+    -   Answer to the question(s) of the paper
+
+-   More detailed checklist on the course website and ILIAS
+
+# Last Week
+
+## Climate Change & Public Opinion
+
+::: panel-tabset
+## Gender
+
+-   Gender gap in wealthy but not in poor countries
+
+    -   Men tend to attach greater material costs to mitigation
+
+    -   Men tend to express more support for group-based dominance (correlated with climate skepticism)
+
+-   Implications
+
+    -   Women's greater role in climate policy may lead to more decisive climate action
+
+## Predictors
+
+-   Predictors of public climate change awareness:
+
+    -   Educational attainment
+
+-   Predictors of climate risk perception:
+
+    -   Understanding the anthropogenic cause of climate change (Europe, Latin America)
+
+    -   Perception of local temperature change (Africa, Asia)
+:::
+
+# Readings
+
+## Discussion Mandatory Readings
+
+-   Who wrote the article? What's their background?
+
+-   General summary of the article
+
+-   Strengths & Weaknesses
+
+-   How does it connect to other readings?
+
+-   How does it connect to current events?
+
+-   What do you take away for your own research agenda?
+
+## Discussion Questions
+
+-   What role does the media coverage play?
+
+-   Why have such events only short-lived effects (for nationwide salience)? What about less "sudden" events?
+
+-   Did the green party not manage to capitalize of a topic that is basically their domain? Climate issue as "second-order" issue?
+
+-   Do natural disaster increase the vote share in favor of the parties with environmental purposes in other countries? Is there something such as a threshold?
+
+# Research Question - Data
+
+## Finding Data - Surveys
+
+-   [GLES](https://search.gesis.org/?source=%7B%22query%22%3A%7B%22bool%22%3A%7B%22must%22%3A%7B%22match_all%22%3A%7B%7D%7D%2C%22filter%22%3A%5B%7B%22term%22%3A%7B%22type%22%3A%22research_data%22%7D%7D%2C%7B%22term%22%3A%7B%22study_group.keyword%22%3A%22German%20Longitudinal%20Election%20Study%20(GLES)%22%7D%7D%5D%7D%7D%7D) (German Longitudinal Election Study)
+
+-   [ESS](https://www.europeansocialsurvey.org/) (European Social Survey)
+
+-   [Eurobarometer](https://www.europarl.europa.eu/at-your-service/de/be-heard/eurobarometer) (harmonized data provided by [GESIS](https://search.gesis.org/research_data/SDN-10.7802-2458?doi=10.7802/2458))
+
+-   ... there are many more!
+
+## Finding Data - Statistics/Indicators
+
+-   [V-Dem](https://www.v-dem.net/) (Varieties of Democracy)
+
+-   [QoG](https://www.gu.se/en/quality-government/qog-data) (Quality of Government)
+
+-   [World Bank](https://data.worldbank.org/)
+
+-   [OECD](https://data.oecd.org/)
+
+-   [Eurostat](https://ec.europa.eu/eurostat/de/)
+
+-   [EEA](http://pam.apps.eea.europa.eu/?source=%7B%22track_total_hits%22%3Atrue%2C%22query%22%3A%7B%22match_all%22%3A%7B%7D%7D%2C%22display_type%22%3A%22tabular%22%2C%22sort%22%3A%5B%7B%22Country%22%3A%7B%22order%22%3A%22asc%22%7D%7D%2C%7B%22ID_of_policy_or_measure%22%3A%7B%22order%22%3A%22asc%22%7D%7D%5D%2C%22highlight%22%3A%7B%22fields%22%3A%7B%22*%22%3A%7B%7D%7D%7D%7D) (European Environment Agency)
+
+-   [IMF](https://climatedata.imf.org/pages/climatechange-data) (International Monetary Fund)
+
+## Import Data - 'Easy' Way in Stata
+
+![Import .dta files in Stata](stata.png)
+
+## Import Data - 'Easy' Way in R
+
+![Import .dta files in R](r.png)
+
+# Your Turn!
+
+## Before the Easter Break
+
+-   **Until 21.03**: Indicate your paper preferences for the presentation
+
+-   **Until 28.03**: Let me know by e-mail if you want to opt-in for the research proposal
+
+-   Next session (21.03.): Data management
+
+-   Session before Easter (28.03.): Descriptives & basic data analysis
+
+## (Until) Next Week
+
+-   BLOCK II - Political Behaviour (3): Natural Disasters and Political Accountability. Add comments, discussion questions, etc. for the mandatory readings. Try Perusall:
+
+    -   Gasper, J. T., & Reeves, A. (2011). Make it rain? Retrospection and the attentive electorate in the context of natural disasters. American Journal of Political Science, 55(2), 340-355.
+
+    -   Healy, A., & Malhotra, N. (2009). Myopic voters and natural disaster policy. American Political Science Review, 103(3), 387-406.

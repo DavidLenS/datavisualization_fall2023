@@ -1,0 +1,63 @@
+---
+title: "Natural Disasters, Climate Attitudes and Voting Behaviour"
+subtitle: "Week 05"
+description: ""
+author: ""
+date: "March 14, 2023"
+listing:
+  - id: slides
+    contents:
+      - ../slides/week-05/*.qmd
+    type: table
+    fields: [title, subtitle, date]
+    #date-format: "ddd, MMM DD"
+    field-display-names:
+      title: "Topic"
+      subtitle: "Session"
+      date: "Date"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+  # - id: assignments
+  #   contents:
+  #     - ../hw/w1-*.qmd
+  #     - ../labs/w1-*.qmd
+  #   type: table
+  #   fields: [categories, title, date]
+  #   date-format: "ddd, MMM DD"
+  #   field-display-names:
+  #     categories: "Assignment"
+  #     title: "Title"
+  #     date: "Due"
+  #   sort: [date]
+  #   sort-ui: false
+  #   filter-ui: false
+tbl-colwidths: [10,50,40]
+---
+
+# Seminar slides
+
+::: {#slides}
+:::
+
+# Readings
+
+Mandatory readings for this week are:
+
+-   Garside, S., & Zhai, H. (2022). If not now, when? Climate disaster and the
+Green vote following the 2021 Germany floods. Research & Politics, 9(4). \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368417_download&client_id=ILIAS)\]
+
+-   Hilbig, H., & Riaz, S. (2021). Natural Disasters and Electoral Support for
+Green Parties-Evidence from the 2021 Flood in Germany. OSF Preprints. \[[Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1368418_download&client_id=ILIAS)\]
+
+Further readings and materials include:
+
+-   Baccini, L., & Leemann, L. (2021). Do natural disasters help the environment? How voters respond and what that means. Political Science Research and
+Methods, 9(3), 468-484.
+
+-  Egan, P. J., & Mullin, M. (2012). Turning personal experience into political attitudes: The effect of local weather on Americans’ perceptions about global warming. The Journal of Politics, 74(3), 796-809.
+
+-   Hazlett, C., & Mildenberger, M. (2020). Wildfire exposure increases proenvironment voting within democratic but not republican areas. American Political Science Review, 114(4), 1359-1365.
+
+-   Quoß, F., & Rudolph, L. (2022). Operationalisation matters: Weather extremes as noisy natural experiment show no influence on political attitudes. OSF
+Preprints.

@@ -1,0 +1,159 @@
+---
+title: "Climate Change as Collective Action Problem?"
+subtitle: "Week3"
+author: "David Schweizer"
+date: "February 28, 2023"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: serif
+    slide-number: c/t #< collapsed/total
+    footer: "The Politics of Climate Change | Spring 2023 | University of Mannheim"
+editor: visual
+---
+
+## Plan for Today
+
+-   Last week & Discussion of readings \~ 20 min
+
+-   Group work: Case studies \~ 45 min
+
+    -   Distributive conflict vs. collective action
+
+    -   How to overcome?
+
+-   Short presentations & discussions \~ 25 min
+
+-   Outlook next week
+
+## Climate ⟶ Social Outcomes
+
+::: panel-tabset
+#### Mechanism
+
+![Figure 1 (Carleton & Hsiang, 2016)](fig1_carleton_hsiang.jpg){alt="Figure 1 (Carleton & Hsiang, 2016)" fig-align="center" width="45%"}
+
+#### Pathways
+
+**Direct**
+
+-   Change in distribution of weather leads to change in distribution of events experienced by individuals
+
+**Informational**
+
+-   Individuals expect specific distributions of weather events and their effects
+:::
+
+## Aklin & Mildenberger
+
+. . .
+
+-   Collective action theory: Incentives for free-riding need to be overcome by international cooperation
+
+-   But states do not seem to follow this logic. Rather: Climate outcomes vs. policies
+
+    -   Policies are shaped by political competition
+
+-   Distributive conflict as main constraint for policy-making
+
+-   Successful international agreements: Strengthen pro-climate groups & neutralize veto players
+
+## Breetz et al. (1)
+
+. . .
+
+-   Energy transitions are characterized by prices and quantities
+
+    -   Relationship between these factors: *Experience* or *learning curves*
+
+-   But: Policy and politics not taken into account
+
+    -   Affects both price and quantity
+
+    -   Effects differ depending on current stage of the experience curve
+
+## Breetz et al. (1)
+
+. . .
+
+![](fig2_breetz_et_al.jpg){width="75%"}
+
+## Discussion Questions
+
+-   Energy transition in Europe / Germany? Possible to neutralize fossil fuel interests, when COP28 is being held in an oil rich country?
+
+-   What role does Germany play in terms of climate protection compared to pivotal players (per capita)? Is Germany even a pivotal player? Can climate agreements be enforced? Monitoring & "punishment"
+
+-   US exceptionalism? "For me the large fraction of the US population who supports climate action regardless of what other countries do is surprising."
+
+## Group Work: Last Week
+
+**Task**
+
+Prepare a short presentation (max. 5 mins - 1 slide per question) addressing the following questions (choose specific scenarios!)
+
+-   What kind of impact (economic, social, political) does climate change have for *your* country?
+
+-   Describe possible pathways
+
+-   Are there adaptation gaps?
+
+## Group Work: Case Studies (1)
+
+**Task**
+
+Prepare a short presentation (max. 5 mins - 2-3 slides) addressing the following questions for your case study of last week:
+
+-   Distributive conflict vs. collective action?
+
+-   How to overcome?
+
+## Group Work: Case Studies (2)
+
+Your turn!
+
+-   Country profiles are available on ILIAS. Of course, you can look for additional information.
+
+-   Please send me your presentations via e-mail.
+
+```{r countdown-package, include=FALSE}
+#remotes::install_github("gadenbuie/countdown")
+library(countdown)
+```
+
+```{r, echo = FALSE}
+countdown(minutes = 45, seconds = 00, 
+          left = 0, right = 0,
+          padding = "25px",
+          margin = "5%",
+          font_size = "5em",
+          #color_border = solarized$magenta,
+          color_text = "#000",
+          color_running_background  = "#f0f1eb",
+          #color_running_text        = solarized$base02,
+          color_finished_background = "#f0f1eb")
+          #color_finished_text       = solarized$base3)
+```
+
+## Presentations
+
+**Order**
+
+1.  Bangladesh
+
+2.  Brazil
+
+3.  Ethiopia
+
+4.  Germany
+
+5.  United Kingdom
+
+## (Until) Next Week
+
+-   BLOCK II - Political Behaviour (1): Public Opinion on Climate Change. Add comments, discussion questions, etc. for the mandatory readings. Try Perusall:
+
+    -   Bush, S. S., & Clayton, A. (2022). Facing change: Gender and climate change attitudes worldwide. American Political Science Review, 1-18.
+
+    -   Lee, T. M., Markowitz, E. M., Howe, P. D., Ko, C. Y., & Leiserowitz, A. A. (2015). Predictors of public climate change awareness and risk perception around the world. Nature climate change, 5(11), 1014-1020.
