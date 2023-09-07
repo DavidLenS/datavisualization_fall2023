@@ -232,7 +232,9 @@ editor: visual
 
 -   Chapter 2: The Five Qualities of Great Visualizations in Cairo, The Truthful Art
 
--   Chapter 3: The Truth Continuum in Cairo, The Truthful Art
+-   Chapter 2: Visualizing data: Mapping data onto aesthetics, in Wilke, Fundamentals of Data Visualization
+
+-   *Chapter 3: Make a Plot in Healy, Data Visualization*
 
 ## Think
 
