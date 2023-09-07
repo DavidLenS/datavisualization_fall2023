@@ -1,13 +1,13 @@
 ---
-title: "Space"
-subtitle: "Week 12"
+title: "Geospatial Data"
+subtitle: "Week 10"
 author: "David Schweizer"
-date: "November 23, 2023"
+date: "November 09, 2023"
 date-format: long
 institute: "University of Mannheim"
 format: 
   revealjs:
-    theme: serif
+    theme: simple
     slide-number: c/t #< collapsed/total
     footer: "Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
 editor: visual

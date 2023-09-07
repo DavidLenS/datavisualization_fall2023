@@ -40,3 +40,16 @@ tbl-colwidths: [10,50,40]
 
 ::: {#slides}
 :::
+
+# To Do's before our session
+
+- None. We will have an introductory session to get to know each other, go
+over the plan for the semester, and talk about both your and
+my expectations for the course.
+
+- Although our sessions are in the "Methodenlabor" and you
+will have access to computers, I encourage you to bring your
+own laptop (if you have one). That way, you can also work on
+assignments during the semester and the final examination at
+home. We will have time tomorrow to ensure everybody can
+install a working version of R and RStudio.

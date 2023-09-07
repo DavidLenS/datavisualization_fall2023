@@ -14,14 +14,14 @@ website:
     align: center
     tools:
       - icon: slack
-        href: https://the-politics-of-cc.slack.com
+        href: https://datavis-fall2023.slack.com
         text: Slack
       - icon: bank
-        href: https://ilias.uni-mannheim.de/goto.php?target=crs_1333381&client_id=ILIAS
+        href: https://ilias.uni-mannheim.de/goto.php?target=crs_1413212&client_id=ILIAS
         text: Ilias
-      - icon: book
-        href: https://www.perusall.com/
-        text: Perusall
+      - icon: rocket
+        href: https://www.dataquest.io/
+        text: Dataquest
     style: docked
     contents:
       - href: index.qmd

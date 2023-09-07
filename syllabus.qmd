@@ -6,15 +6,18 @@ editor:
     wrap: 72
 ---
 
-|                 |                                                                                                         |
-|-----------------|-------------------------------------------------------|
-| Seminar:        | Übung - Methoden der Vergleichenden Regierungslehre                                                     |
-| Time:           | Thu 13:45 -- 15:15, September 07 to December 07                                                         |
-| Place:          | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C                                             |
-| Language:       | English                                                                                                 |
-| Instructor:     | David Schweizer, M.A., david.schweizer\@uni-mannheim.de                                                 |
-| Office hours:   | In-person (A 340) or via Zoom, Thu 15:30 -- 16:30, please make an appointment by e-mail                 |
-| Course website: | [Link](https://datavisualizationfall2023.netlify.app/ "https://datavisualizationfall2023.netlify.app/") |
+## **Course details**
+
+|                 |                                                                                                           |
+|---------------|---------------------------------------------------------|
+| Seminar:        | Übung - Methoden der Vergleichenden Regierungslehre                                                       |
+| Time:           | Thu 13:45 -- 15:15, September 07 to December 07                                                           |
+| Place:          | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)                                              |
+| Language:       | English                                                                                                   |
+| Instructor:     | David Schweizer, M.A., david.schweizer\@uni-mannheim.de                                                   |
+| Office hours:   | In-person (A 340) or via Zoom, Thu 15:30 -- 16:30, please make an appointment by e-mail                   |
+| Course website: | [Link](https://datavisualizationfall2023.netlify.app/ "https://datavisualizationfall2023.netlify.app/")   |
+| Syllabus as PDF | [Download via ILIAS](https://ilias.uni-mannheim.de/goto.php?target=file_1425430_download&client_id=ILIAS) |
 
 ## **Course description**
 
@@ -36,41 +39,62 @@ graphs from own data is a great way to a better understanding of graphs
 -- as well as their strengths or shortcomings -- presented in research
 journals or the media.
 
-## Course Requirements
+## **Seminar goals**
 
-\- Active participation
+This course equips you with the necessary skills
 
-\- Group assignments during the semester: Participiation in
-\[TidyTuesday\](https://github.com/rfordatascience/tidytuesday) and
-presentation of visualizations
+-   to process large quantities of data
 
-\- Final visualization project (100% of your grade)
+-   to clean and arrange datasets
 
-## (Recommended) Readings
+-   to explore and understand patterns of data
 
-The primary readings for this seminar are chapters from the following
-books:
+-   to communicate these patterns and findings
 
--   Cairo, Alberto*. The truthful art: Data, charts, and maps for
-    communication*. New Riders, 2016. *Free access via Katalog Primo (UB
-    Mannheim)*
+-   to understand and question critically visualizations in research
+    articles and the media
 
--   Healy, Kieran. *Data visualization: a practical introduction*.
-    Princeton University Press, 2018. *Free access via Katalog Primo and
-    free online: https://socviz.co/*
+## **Prerequisites**
 
--   Wilke, Claus E. *Fundamentals of Data Visualization*. O\'Reilly
-    Media, 2018). *Free access via Katalog Primo and free online:
-    https://clauswilke.com/dataviz/*
+There are no prerequisites for this course, except the willingness to
+familiarise yourself with R.
 
-## Organization & Learning Resources
+## **Course requirements**
+
+**Active participation and preparation:**
+
+Attending the weekly sessions and reading assigned articles and chapters
+before class. Use Slack to post any questions or discuss with your peers
+if you do not understand concepts. Usually, I post questions to think
+about regarding the readings. Keep them in mind while reading.
+
+**"TidyTuesday" participation and short presentation of graphics**
+
+Throughout the semester, I will assign you in groups of 2-3 to
+participate in the TidyTuesday challenge
+(<https://github.com/rfordatascience/tidytuesday>). The goal is to
+produce anything from simple plots to advanced graphics and present your
+work process in the next session.
+
+**Visualization project (100% of your grade):**
+
+Creation of multiple visualizations of (political) data. While it is
+possible to produce static visualizations and hand in a PDF, ideally the
+visualizations are part of an interactive (web) dashboard. The
+visualization project has to be submitted via ILIAS. Late submissions
+will result in deductions of 1/3 of a grade point per day. **In case of
+any questions or problems, please get in touch with me early.**
+
+**Deadline:** January 18, 2024, 23:59.
+
+## **Organization & Learning Resources**
 
 **Course website, Slack, and ILIAS:**
 
 The plan is to use primarily the course website and Slack for providing
 the structure of the seminar and communication, respectively.
-Nevertheless, make sure to regularly check your university e-mail
-address for announcements via ILIAS.
+Nevertheless, you will also receive mails via ILIAS. Make sure to
+regularly check your university e-mail address.
 
 -   You can find the course website here:
     [Link](https://datavisualizationfall2023.netlify.app/ "https://datavisualizationfall2023.netlify.app/")
@@ -122,22 +146,39 @@ consent. Further counseling services offered by the university can be
 found via this
 [link](https://www.uni-mannheim.de/studium/beratung-und-service/beratungswegweiser/).
 
-## Course Schedule
+## **Textbooks**
 
-|         |            |                                      |
-|---------|------------|--------------------------------------|
-| Session | Date       | Topic                                |
-| 1       | 07.09.2023 | Intro Session                        |
-| 2       | 14.09.2023 | Grammar of Graphics                  |
-| 3       | 21.09.2023 | (Tidy) Data                          |
-| 4       | 28.09.2023 | Amounts, Distributions & Proportions |
-| 5       | 05.10.2023 | Themes & Refining Plots              |
-| 6       | 12.10.2023 | Relationships                        |
-| 7       | 19.10.2023 | Comparisons                          |
-| 8       | 26.10.2023 | Uncertainty                          |
-| 9       | 02.11.2023 | Time Series & Trends                 |
-| 10      | 09.11.2023 | Geospatial Data                      |
-| 11      | 16.11.2023 | Annotations                          |
-| 12      | 23.11.2023 | Interactivity I                      |
-| 13      | 30.11.2023 | Interactivity II                     |
-| 14      | 07.12.2023 | Closing Session                      |
+The primary readings for this seminar are chapters from the following
+books:
+
+-   Cairo, Alberto*. The truthful art: Data, charts, and maps for
+    communication*. New Riders, 2016. *Free access via Katalog Primo (UB
+    Mannheim)*
+
+-   Healy, Kieran. *Data visualization: a practical introduction*.
+    Princeton University Press, 2018. *Free access via Katalog Primo and
+    free online: https://socviz.co/*
+
+-   Wilke, Claus E. *Fundamentals of Data Visualization*. O'Reilly
+    Media, 2018). *Free access via Katalog Primo and free online:
+    https://clauswilke.com/dataviz/*
+
+## **Course Schedule**
+
+|         |            |                         |
+|---------|------------|-------------------------|
+| Session | Date       | Topic                   |
+| 1       | 07.09.2023 | Intro Session           |
+| 2       | 14.09.2023 | Grammar of Graphics     |
+| 3       | 21.09.2023 | (Tidy) Data             |
+| 4       | 28.09.2023 | Amounts & Proportions   |
+| 5       | 05.10.2023 | Themes & Refining Plots |
+| 6       | 12.10.2023 | Relationships           |
+| 7       | 19.10.2023 | Comparisons             |
+| 8       | 26.10.2023 | Uncertainty             |
+| 9       | 02.11.2023 | Time Series & Trends    |
+| 10      | 09.11.2023 | Geospatial Data         |
+| 11      | 16.11.2023 | Annotations             |
+| 12      | 23.11.2023 | Interactivity I         |
+| 13      | 30.11.2023 | Interactivity II        |
+| 14      | 07.12.2023 | Closing Session         |

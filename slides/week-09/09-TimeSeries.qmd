@@ -1,13 +1,13 @@
 ---
-title: "Comparisons"
-subtitle: "Week 8"
+title: "Time Series & Trends"
+subtitle: "Week 9"
 author: "David Schweizer"
-date: "October 26, 2023"
+date: "November 02, 2023"
 date-format: long
 institute: "University of Mannheim"
 format: 
   revealjs:
-    theme: serif
+    theme: simple
     slide-number: c/t #< collapsed/total
     footer: "Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
 editor: visual

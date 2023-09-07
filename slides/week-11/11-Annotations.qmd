@@ -1,13 +1,13 @@
 ---
-title: "Relationships"
-subtitle: "Week 7"
+title: "Annotations"
+subtitle: "Week 11"
 author: "David Schweizer"
-date: "October 19, 2023"
+date: "November 16, 2023"
 date-format: long
 institute: "University of Mannheim"
 format: 
   revealjs:
-    theme: serif
+    theme: simple
     slide-number: c/t #< collapsed/total
     footer: "Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
 editor: visual

@@ -39,3 +39,39 @@ tbl-colwidths: [10,50,40]
 
 ::: {#slides}
 :::
+
+# To Do's before our session
+
+::: panel-tabset
+## Install & Join
+
+-   Make sure R and RStudio is installed and works
+
+    -   Instructions can be found on the course website
+
+-   Join the course Slack channel!
+
+    -   Invitation will follow tomorrow
+
+-   Join the Dataquest team!
+
+    -   Invitation will follow in the next days
+
+## Read
+
+-   Chapter 1: Look at data in Healy, Data Visualization
+
+-   Chapter 2: The Five Qualities of Great Visualizations in Cairo, The Truthful Art
+
+-   Chapter 3: The Truth Continuum in Cairo, The Truthful Art
+
+## Think
+
+-   Questions to think about for the readings
+
+    -   Why do we use visualizations?
+
+    -   What do we need in order to create great visualizations?
+
+    -   How do we determine what kind of visualization should be used? (Bar plot, pie chart,...)
+:::
