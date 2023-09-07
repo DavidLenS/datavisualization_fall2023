@@ -144,7 +144,7 @@
     "href": "syllabus.html#course-requirements",
     "title": "Syllabus: Data Visualization for Comparative Politics",
     "section": "Course Requirements",
-    "text": "Course Requirements\nParticipation:\nVisualization project (100% of your grade):"
+    "text": "Course Requirements\n- Active participation\n- Group assignments during the semester: Participiation in [TidyTuesday](https://github.com/rfordatascience/tidytuesday) and presentation of visualizations\n- Final visualization project (100% of your grade)"
   },
   {
     "objectID": "syllabus.html#recommended-readings",
@@ -165,7 +165,7 @@
     "href": "syllabus.html#course-schedule",
     "title": "Syllabus: Data Visualization for Comparative Politics",
     "section": "Course Schedule",
-    "text": "Course Schedule\n\n\n\nSession\nDate\nTopic\n\n\n1\n07.09.2023\nIntro Session\n\n\n2\n14.09.2023\nGrammar of Graphics\n\n\n3\n21.09.2023\nData\n\n\n4\n28.09.2023\nAmounts and Proportions\n\n\n5\n05.10.2023\nThemes\n\n\n6\n12.10.2023\nUncertainty\n\n\n7\n19.10.2023\nRelationships\n\n\n8\n26.10.2023\nComparisons\n\n\n9\n02.11.2023\nAnnotations\n\n\n10\n09.11.2023\nInteractivity I\n\n\n11\n16.11.2023\nTime\n\n\n12\n23.11.2023\nSpace\n\n\n13\n30.11.2023\nInteractivity II\n\n\n14\n07.12.2023\nClosing Session"
+    "text": "Course Schedule\n\n\n\nSession\nDate\nTopic\n\n\n1\n07.09.2023\nIntro Session\n\n\n2\n14.09.2023\nGrammar of Graphics\n\n\n3\n21.09.2023\n(Tidy) Data\n\n\n4\n28.09.2023\nAmounts, Distributions & Proportions\n\n\n5\n05.10.2023\nThemes & Refining Plots\n\n\n6\n12.10.2023\nRelationships\n\n\n7\n19.10.2023\nComparisons\n\n\n8\n26.10.2023\nUncertainty\n\n\n9\n02.11.2023\nTime Series & Trends\n\n\n10\n09.11.2023\nGeospatial Data\n\n\n11\n16.11.2023\nAnnotations\n\n\n12\n23.11.2023\nInteractivity I\n\n\n13\n30.11.2023\nInteractivity II\n\n\n14\n07.12.2023\nClosing Session"
   },
   {
     "objectID": "syllabus.html#course-schedule-and-reading-material",
@@ -2182,5 +2182,152 @@
     "title": "Material",
     "section": "",
     "text": "Week\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nGrammar of Graphics\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nData\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nClosing Session\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#plan-for-today",
+    "href": "slides/week-01/01-IntroSession.html#plan-for-today",
+    "title": "Intro Session",
+    "section": "Plan for today",
+    "text": "Plan for today\n\nIntroduction round: Getting to know each other\nCourse content and schedule\nYour expectations\nMy expectations & course requirements\nMotivation for the course"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#introduction-round",
+    "href": "slides/week-01/01-IntroSession.html#introduction-round",
+    "title": "Intro Session",
+    "section": "Introduction round",
+    "text": "Introduction round\n\nI’ll go first. A few words about me\nYou’re next. Groups of 2-3\n\nIntroduce yourselves to your classmates\nWhat is your name? Where are you from? What do you study? Did you pick up a new hobby recently?\n\nPlenum\n\nIn a few sentences, present yourself to the plenum and tell the others one thing about the person you just met"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#about-me",
+    "href": "slides/week-01/01-IntroSession.html#about-me",
+    "title": "Intro Session",
+    "section": "About me",
+    "text": "About me\n\nPhD candidate in Political Science at the CDSS and research associate at the Chair of Comparative Government since fall 2021\nFocus on party competition and intra-party politics\nAcademic Background:\n\nM.A. Political Science (LMU)\nB.Sc. Economics (Goethe University)\n\nNew hobby: mountaineering"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#your-turn",
+    "href": "slides/week-01/01-IntroSession.html#your-turn",
+    "title": "Intro Session",
+    "section": "Your turn!",
+    "text": "Your turn!"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#course-content-and-structure",
+    "href": "slides/week-01/01-IntroSession.html#course-content-and-structure",
+    "title": "Intro Session",
+    "section": "Course content and structure",
+    "text": "Course content and structure\n\n\n\nSession\nDate\nTopic\n\n\n1\n07.09.2023\nIntro Session\n\n\n2\n14.09.2023\nGrammar of Graphics\n\n\n3\n21.09.2023\n(Tidy) Data\n\n\n4\n28.09.2023\nAmounts, Distributions & Proportions\n\n\n5\n05.10.2023\nThemes & Refining Plots\n\n\n6\n12.10.2023\nRelationships\n\n\n7\n19.10.2023\nComparisons\n\n\n8\n26.10.2023\nUncertainty\n\n\n9\n02.11.2023\nTime Series & Trends\n\n\n10\n09.11.2023\nGeospatial Data\n\n\n11\n16.11.2023\nAnnotations\n\n\n12\n23.11.2023\nInteractivity I\n\n\n13\n30.11.2023\nInteractivity II\n\n\n14\n07.12.2023\nClosing Session"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#your-expectations",
+    "href": "slides/week-01/01-IntroSession.html#your-expectations",
+    "title": "Intro Session",
+    "section": "Your expectations",
+    "text": "Your expectations"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#my-expectations-course-requirements",
+    "href": "slides/week-01/01-IntroSession.html#my-expectations-course-requirements",
+    "title": "Intro Session",
+    "section": "My expectations & course requirements",
+    "text": "My expectations & course requirements\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#experience-interests",
+    "href": "slides/week-01/01-IntroSession.html#experience-interests",
+    "title": "Intro Session",
+    "section": "Experience & Interests",
+    "text": "Experience & Interests"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#schedule-i",
+    "href": "slides/week-01/01-IntroSession.html#schedule-i",
+    "title": "Intro Session",
+    "section": "Schedule I",
+    "text": "Schedule I\n\n\n\nSession\nDate\nTopic\n\n\n1\n07.09.2023\nIntro Session\n\n\n2\n14.09.2023\nGrammar of Graphics\n\n\n3\n21.09.2023\n(Tidy) Data\n\n\n4\n28.09.2023\nAmounts & Proportions\n\n\n5\n05.10.2023\nThemes & Refining Plots\n\n\n6\n12.10.2023\nRelationships\n\n\n7\n19.10.2023\nComparisons"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#schedule-ii",
+    "href": "slides/week-01/01-IntroSession.html#schedule-ii",
+    "title": "Intro Session",
+    "section": "Schedule II",
+    "text": "Schedule II\n\n\n\nSession\nDate\nTopic\n\n\n8\n26.10.2023\nUncertainty\n\n\n9\n02.11.2023\nTime Series & Trends\n\n\n10\n09.11.2023\nGeospatial Data\n\n\n11\n16.11.2023\nAnnotations\n\n\n12\n23.11.2023\nInteractivity I\n\n\n13\n30.11.2023\nInteractivity II\n\n\n14\n07.12.2023\nClosing Session"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#plan-expectations",
+    "href": "slides/week-01/01-IntroSession.html#plan-expectations",
+    "title": "Intro Session",
+    "section": "Plan & expectations",
+    "text": "Plan & expectations\n\nWe are a relatively small class. Great!\nMix of lecture-style input, live coding, group exercises, and discussion.\nActive participation in class and preparation\nWillingness to invest time to learn a (new) programming language, look for solutions on your own, and keep trying"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#course-requirements",
+    "href": "slides/week-01/01-IntroSession.html#course-requirements",
+    "title": "Intro Session",
+    "section": "Course requirements",
+    "text": "Course requirements\n\nActive participation\nGroup assignments during the semester: Participiation in TidyTuesday and presentation of visualizations\nFinal visualization project (100% of your grade)"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#motivation",
+    "href": "slides/week-01/01-IntroSession.html#motivation",
+    "title": "Intro Session",
+    "section": "Motivation",
+    "text": "Motivation"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#why-data-visualization",
+    "href": "slides/week-01/01-IntroSession.html#why-data-visualization",
+    "title": "Intro Session",
+    "section": "Why data visualization?",
+    "text": "Why data visualization?\n\nSkillsFox NewsMisleading?Truth?\n\n\n\nIt’s very difficult to gain insights from raw data\nThis course equips you with the necessary skills\n\nto process large quantities of data\nto clean and arrange datasets\nto explore and understand patterns of data\nto communicate these patterns and findings"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#why-r",
+    "href": "slides/week-01/01-IntroSession.html#why-r",
+    "title": "Intro Session",
+    "section": "Why R?",
+    "text": "Why R?\n\nBenefitsLearningRewardOpportunity\n\n\n\nVersatile: Visualizations, statistical analysis, programming, incorporation of other programming languages\nFree and open source\n\nLarge community, there is basically an answer to every question you will have online: Stackoverflow, ChatGPT, …\n\nIncreasing popularity in academia & industry"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#organisation",
+    "href": "slides/week-01/01-IntroSession.html#organisation",
+    "title": "Intro Session",
+    "section": "Organisation",
+    "text": "Organisation\n\nMaterials will be provided via the course website (and ILIAS: Ü Methoden der Vergleichenden Regierungslehre: Data Visualization for Comparative Politics [WÜB] [1. PG] (HWS 2023).\nCommunication via ILIAS and Slack. Make sure that you have access to the course on ILIAS and that emails that are sent over ILIAS are forwarded to the email account you check regularly.\nWeekly office hours after the course. Please make an appointment via e-mail."
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#primary-readings",
+    "href": "slides/week-01/01-IntroSession.html#primary-readings",
+    "title": "Intro Session",
+    "section": "Primary readings",
+    "text": "Primary readings\n\nCairo, Alberto. The truthful art: Data, charts, and maps for communication. New Riders, 2016. (Free access via Katalog Primo, UB Mannheim)\nHealy, Kieran. Data visualization: a practical introduction. Princeton University Press, 2018. (Free access via Katalog Primo and free online: https://socviz.co/)\nWilke, Claus E. Fundamentals of Data Visualization. O’Reilly Media, 2018. (Free access via Katalog Primo and free online: https://clauswilke.com/dataviz/)"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#until-next-week",
+    "href": "slides/week-01/01-IntroSession.html#until-next-week",
+    "title": "Intro Session",
+    "section": "Until next week",
+    "text": "Until next week\n\nInstallReadThink\n\n\n\nMake sure R and RStudio is installed and works\n\nInstructions can be found on the course website\n\nJoin the course Slack channel!\n\nInvitation will follow tomorrow\n\nJoin the Dataquest team!\n\nInvitation will follow in the next days\n\n\n\n\n\nChapter 1: Look at data in Healy, Data Visualization\nChapter 2: The Five Qualities of Great Visualizations in Cairo, The Truthful Art\nChapter 3: The Truth Continuum in Cairo, The Truthful Art\n\n\n\n\nQuestions to think about for the readings\n\nWhy do we use visualizations?\nWhat do we need in order to create great visualizations?\nHow do we determine what kind of visualization should be used? (Bar plot, pie chart,…)"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#organisation-resources",
+    "href": "slides/week-01/01-IntroSession.html#organisation-resources",
+    "title": "Intro Session",
+    "section": "Organisation & Resources",
+    "text": "Organisation & Resources\n\nMaterials will be provided via the course website (and ILIAS)\nCommunication via ILIAS and Slack. Make sure that you have access to the course on ILIAS and that emails that are sent over ILIAS are forwarded to the email account you check regularly\nWeekly office hours after the course. Please make an appointment via e-mail\nAccess to Dataquest (Online learning platform for programming languages and more)"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#until-our-next-session",
+    "href": "slides/week-01/01-IntroSession.html#until-our-next-session",
+    "title": "Intro Session",
+    "section": "Until our next session",
+    "text": "Until our next session\n\nInstall & JoinReadThink\n\n\n\nMake sure R and RStudio is installed and works\n\nInstructions can be found on the course website\n\nJoin the course Slack channel!\n\nInvitation will follow tomorrow\n\nJoin the Dataquest team!\n\nInvitation will follow in the next days\n\n\n\n\n\nChapter 1: Look at data in Healy, Data Visualization\nChapter 2: The Five Qualities of Great Visualizations in Cairo, The Truthful Art\nChapter 3: The Truth Continuum in Cairo, The Truthful Art\n\n\n\n\nQuestions to think about for the readings\n\nWhy do we use visualizations?\nWhat do we need in order to create great visualizations?\nHow do we determine what kind of visualization should be used? (Bar plot, pie chart,…)"
+  },
+  {
+    "objectID": "slides/week-01/01-IntroSession.html#important",
+    "href": "slides/week-01/01-IntroSession.html#important",
+    "title": "Intro Session",
+    "section": "Important!",
+    "text": "Important!\n\nCovid-19DisabilitiesSupport\n\n\n\nIf you feel ill or have symptoms, please be considerate of your fellow students and yourself(!). Just let me know by e-mail.\n\n\n\n\nPlease contact me or the Office of Student Affairs if you need special assistance due to disabilities or chronic illnesses.\nAnd please do this early in the semester so that we can make the appropriate arrangements immediately.\n\n\n\n\nOf course, you can always talk directly to me if you feel comfortable with the question. It is important to note that the University’s Equality and Diversity Office supports and advises you in cases of discrimination or sexual harassment. The responsible contact person in such a case is Dipl.-Psych. Ute Pfründer. She is trained to deal with such incidents and will keep everything strictly confidential. No action will be taken without your express consent."
   }
 ]

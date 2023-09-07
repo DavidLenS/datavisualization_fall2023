@@ -38,9 +38,13 @@ journals or the media.
 
 ## Course Requirements
 
-**Participation:**
+\- Active participation
 
-**Visualization project (100% of your grade):**
+\- Group assignments during the semester: Participiation in
+\[TidyTuesday\](https://github.com/rfordatascience/tidytuesday) and
+presentation of visualizations
+
+\- Final visualization project (100% of your grade)
 
 ## (Recommended) Readings
 
@@ -120,20 +124,20 @@ found via this
 
 ## Course Schedule
 
-|         |            |                         |
-|---------|------------|-------------------------|
-| Session | Date       | Topic                   |
-| 1       | 07.09.2023 | Intro Session           |
-| 2       | 14.09.2023 | Grammar of Graphics     |
-| 3       | 21.09.2023 | Data                    |
-| 4       | 28.09.2023 | Amounts and Proportions |
-| 5       | 05.10.2023 | Themes                  |
-| 6       | 12.10.2023 | Uncertainty             |
-| 7       | 19.10.2023 | Relationships           |
-| 8       | 26.10.2023 | Comparisons             |
-| 9       | 02.11.2023 | Annotations             |
-| 10      | 09.11.2023 | Interactivity I         |
-| 11      | 16.11.2023 | Time                    |
-| 12      | 23.11.2023 | Space                   |
-| 13      | 30.11.2023 | Interactivity II        |
-| 14      | 07.12.2023 | Closing Session         |
+|         |            |                                      |
+|---------|------------|--------------------------------------|
+| Session | Date       | Topic                                |
+| 1       | 07.09.2023 | Intro Session                        |
+| 2       | 14.09.2023 | Grammar of Graphics                  |
+| 3       | 21.09.2023 | (Tidy) Data                          |
+| 4       | 28.09.2023 | Amounts, Distributions & Proportions |
+| 5       | 05.10.2023 | Themes & Refining Plots              |
+| 6       | 12.10.2023 | Relationships                        |
+| 7       | 19.10.2023 | Comparisons                          |
+| 8       | 26.10.2023 | Uncertainty                          |
+| 9       | 02.11.2023 | Time Series & Trends                 |
+| 10      | 09.11.2023 | Geospatial Data                      |
+| 11      | 16.11.2023 | Annotations                          |
+| 12      | 23.11.2023 | Interactivity I                      |
+| 13      | 30.11.2023 | Interactivity II                     |
+| 14      | 07.12.2023 | Closing Session                      |

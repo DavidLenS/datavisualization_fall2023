@@ -7,50 +7,242 @@ date-format: long
 institute: "University of Mannheim"
 format: 
   revealjs:
-    theme: serif
+    theme: simple
     slide-number: c/t #< collapsed/total
     footer: "Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
 editor: visual
 ---
 
-# Plan for today:
+## Plan for today
 
--   Introduction round
-    -   Getting to know each other
--   Course content and structure
-    -   What will we do in this course?
+-   Introduction round: Getting to know each other
+-   Course content and schedule
 -   Your expectations
-    -   What are you interested in?
--   Course requirements and basic information
-    -   What do you need to do in this course?
+-   My expectations & course requirements
+-   Motivation for the course
 
-# Introduction round
+## Introduction round
 
 -   I'll go first. A few words about me
 
 -   You're next. Groups of 2-3
 
     -   Introduce yourselves to your classmates
-    -   Name, background, what do you study, interests, personal interests and hobbies, ...
+    -   What is your name? Where are you from? What do you study? Did you pick up a new hobby recently?
 
 -   Plenum
 
-    -   In a few sentences, present yourself to the plenum and tell also one thing about the persons you just met
+    -   In a few sentences, present yourself to the plenum and tell the others one thing about the person you just met
 
-# About me
+## About me
 
--   PhD candidate in Political Science since fall 2021, focus on party competition and intra-party politics
+-   PhD candidate in Political Science at the CDSS and research associate at the Chair of Comparative Government since fall 2021
+
+-   Focus on party competition and intra-party politics
 
 -   Academic Background:
 
-    -   Political Science (LMU) and Economics (Goethe University)
+    -   M.A. Political Science (LMU)
+    -   B.Sc. Economics (Goethe University)
 
--   Interested in all kinds of sports & fantasy books
+-   New hobby: mountaineering
 
-# Your turn!
+# Your turn
 
-# Course content and structure
+## Experience & Interests
 
-# Your expectations
+::: {style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;"}
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/alk4zwu92do4ayv4vcx8dfd72i343fwu/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
 
-# Course requirements and basic information
+</iframe>
+:::
+
+## Schedule I
+
+|         |            |                         |
+|---------|------------|-------------------------|
+| Session | Date       | Topic                   |
+| 1       | 07.09.2023 | Intro Session           |
+| 2       | 14.09.2023 | Grammar of Graphics     |
+| 3       | 21.09.2023 | (Tidy) Data             |
+| 4       | 28.09.2023 | Amounts & Proportions   |
+| 5       | 05.10.2023 | Themes & Refining Plots |
+| 6       | 12.10.2023 | Relationships           |
+| 7       | 19.10.2023 | Comparisons             |
+
+## Schedule II
+
+|         |            |                      |
+|---------|------------|----------------------|
+| Session | Date       | Topic                |
+| 8       | 26.10.2023 | Uncertainty          |
+| 9       | 02.11.2023 | Time Series & Trends |
+| 10      | 09.11.2023 | Geospatial Data      |
+| 11      | 16.11.2023 | Annotations          |
+| 12      | 23.11.2023 | Interactivity I      |
+| 13      | 30.11.2023 | Interactivity II     |
+| 14      | 07.12.2023 | Closing Session      |
+
+## Your expectations
+
+::: {style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;"}
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/aldbebssedk1ftofnpbo2689okpvwguz/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
+
+</iframe>
+:::
+
+## Plan & expectations
+
+-   We are a relatively small class. Great!
+
+-   Mix of lecture-style input, live coding, group exercises, and discussion.
+
+-   Active participation in class and preparation
+
+-   Willingness to invest time to learn a (new) programming language, look for solutions on your own, and keep trying
+
+## Organisation & Resources
+
+-   Materials will be provided via the course website (and ILIAS)
+
+-   Communication via ILIAS and Slack. Make sure that you have access to the course on ILIAS and that emails that are sent over ILIAS are forwarded to the email account you check regularly
+
+-   Weekly office hours after the course. Please make an appointment via e-mail
+
+-   Access to Dataquest (Online learning platform for programming languages and more)
+
+## Primary readings
+
+-   Cairo, Alberto. The truthful art: Data, charts, and maps for communication. New Riders, 2016. (Free access via Katalog Primo, UB Mannheim)
+
+-   Healy, Kieran. Data visualization: a practical introduction. Princeton University Press, 2018. (Free access via Katalog Primo and free online: <https://socviz.co/>)
+
+-   Wilke, Claus E. Fundamentals of Data Visualization. O'Reilly Media, 2018. (Free access via Katalog Primo and free online: <https://clauswilke.com/dataviz/>)
+
+## Course requirements
+
+-   Active participation
+
+-   Group assignments during the semester: Participiation in [TidyTuesday](https://github.com/rfordatascience/tidytuesday) and presentation of visualizations
+
+-   Final visualization project (100% of your grade)
+
+## Important!
+
+::: panel-tabset
+## Covid-19
+
+-   If you feel ill or have symptoms, please be considerate of your fellow students and yourself(!). Just let me know by e-mail.
+
+## Disabilities
+
+-   Please contact me or the Office of Student Affairs if you need special assistance due to disabilities or chronic illnesses.
+
+-   And please do this early in the semester so that we can make the appropriate arrangements immediately.
+
+## Support
+
+-   Of course, you can always talk directly to me if you feel comfortable with the question. It is important to note that the University's Equality and Diversity Office supports and advises you in cases of discrimination or sexual harassment. The responsible contact person in such a case is Dipl.-Psych. Ute Pfründer. She is trained to deal with such incidents and will keep everything strictly confidential. No action will be taken without your express consent.
+:::
+
+## Motivation
+
+::: {style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;"}
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/al8qafxbx4hdh52r4augiycj1segzj88/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
+
+</iframe>
+:::
+
+## Why data visualization?
+
+::: panel-tabset
+## Skills
+
+-   It's very difficult to gain insights from raw data
+
+-   This course equips you with the necessary skills
+
+    -   to process large quantities of data
+
+    -   to clean and arrange datasets
+
+    -   to explore and understand patterns of data
+
+    -   to communicate these patterns and findings
+
+## Fox News
+
+![](tuckercarlson.jpg){fig-align="center" width="853"}
+
+## Misleading?
+
+[![](misleading.png){width="798"}](https://socviz.co/lookatdata.html#what-makes-bad-figures-bad)
+
+## Truth?
+
+[![](truth.png){width="719"}](https://socviz.co/lookatdata.html#what-makes-bad-figures-bad)
+:::
+
+## Why R?
+
+::: panel-tabset
+#### Benefits
+
+-   Versatile: Visualizations, statistical analysis, programming, incorporation of other programming languages
+
+-   Free and open source
+
+    -   Large community, there is basically an answer to every question you will have online: Stackoverflow, ChatGPT, ...
+
+-   Increasing popularity in academia & industry
+
+#### Learning
+
+[![](LearningR.png)](https://devhumor.com/media/trying-to-learn-any-programming-language-100)
+
+#### Reward
+
+[![](nicegraphs.png){width="1440"}](https://bbc.github.io/rcookbook/)
+
+#### Opportunity
+
+[![](shinyapp.png){width="1699"}](https://vac-lshtm.shinyapps.io/ncov_tracker/)
+:::
+
+## Until our next session
+
+::: panel-tabset
+## Install & Join
+
+-   Make sure R and RStudio is installed and works
+
+    -   Instructions can be found on the course website
+
+-   Join the course Slack channel!
+
+    -   Invitation will follow tomorrow
+
+-   Join the Dataquest team!
+
+    -   Invitation will follow in the next days
+
+## Read
+
+-   Chapter 1: Look at data in Healy, Data Visualization
+
+-   Chapter 2: The Five Qualities of Great Visualizations in Cairo, The Truthful Art
+
+-   Chapter 3: The Truth Continuum in Cairo, The Truthful Art
+
+## Think
+
+-   Questions to think about for the readings
+
+    -   Why do we use visualizations?
+
+    -   What do we need in order to create great visualizations?
+
+    -   How do we determine what kind of visualization should be used? (Bar plot, pie chart,...)
+:::
+
+# Any open questions?
