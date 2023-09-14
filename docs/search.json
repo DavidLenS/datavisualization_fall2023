@@ -25,7 +25,7 @@
     "href": "material.html",
     "title": "Material",
     "section": "",
-    "text": "Week\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nGrammar of Graphics\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nData\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nClosing Session\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "Week\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nDesigning a Graph\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nData\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nClosing Session\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "material.html#assignments",
@@ -121,9 +121,9 @@
   {
     "objectID": "weeks/week-02.html",
     "href": "weeks/week-02.html",
-    "title": "Grammar of Graphics",
+    "title": "Designing a Graph",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nGrammar of Graphics\n\n\nWeek 2\n\n\nSep 14, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nTo Do’s before our session\n\nInstall & JoinReadThink\n\n\n\nMake sure R and RStudio is installed and works\n\nInstructions can be found on the course website\n\nJoin the course Slack channel!\n\nInvitation will follow tomorrow\n\nJoin the Dataquest team!\n\nInvitation will follow in the next days\n\n\n\n\n\nChapter 1: Look at data in Healy, Data Visualization\n\nLink to free online version\n\nChapter 2: The Five Qualities of Great Visualizations in Cairo, The Truthful Art\n\nPlease access the chapter via Katalog Primo (University library)\n\nChapter 2: Visualizing data: Mapping data onto aesthetics, in Wilke, Fundamentals of Data Visualization\n\nLink to free online version\n\nFurther reading:\nChapter 3: Make a Plot in Healy, Data Visualization\n\nLink to free online version\n\n\n\n\n\nQuestions to think about for the readings\n\nWhy do we use visualizations?\nWhat do we need in order to create great visualizations?\nHow do we determine what kind of visualization should be used? (Bar plot, pie chart,…)"
+    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nDesigning a Graph\n\n\nWeek 2\n\n\nSep 14, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nTo Do’s before our session\n\nInstall & JoinReadThink\n\n\n\nMake sure R and RStudio is installed and works\n\nInstructions can be found on the course website\n\nJoin the course Slack channel!\n\nInvitation will follow tomorrow\n\nJoin the Dataquest team!\n\nInvitation will follow in the next days\n\n\n\n\n\nChapter 1: Look at data in Healy, Data Visualization\n\nLink to free online version\n\nChapter 2: The Five Qualities of Great Visualizations in Cairo, The Truthful Art\n\nPlease access the chapter via Katalog Primo (University library)\n\nChapter 2: Visualizing data: Mapping data onto aesthetics, in Wilke, Fundamentals of Data Visualization\n\nLink to free online version\n\nFurther reading:\nChapter 3: Make a Plot in Healy, Data Visualization\n\nLink to free online version\n\n\n\n\n\nQuestions to think about for the readings\n\nWhy do we use visualizations?\nWhat do we need in order to create great visualizations?\nHow do we determine what kind of visualization should be used? (Bar plot, pie chart,…)"
   },
   {
     "objectID": "slides/week-01/01-Intro.html",
@@ -179,7 +179,7 @@
     "href": "weeks/week-03.html",
     "title": "Data",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nData\n\n\nWeek 3\n\n\nSep 21, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\n(Tidy) Data\n\n\nWeek 3\n\n\nSep 21, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "weeks/week-04.html",
@@ -2181,7 +2181,7 @@
     "href": "material.html#section",
     "title": "Material",
     "section": "",
-    "text": "Week\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nGrammar of Graphics\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nData\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nClosing Session\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "Week\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nDesigning a Graph\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nData\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nClosing Session\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "slides/week-01/01-IntroSession.html#plan-for-today",
@@ -2532,5 +2532,54 @@
     "title": "Designing a Graph",
     "section": "Coding",
     "text": "Coding\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-06/06-Relationships.html",
+    "href": "slides/week-06/06-Relationships.html",
+    "title": "Relationships",
+    "section": "",
+    "text": "TBA"
+  },
+  {
+    "objectID": "slides/week-07/07-Comparisons.html",
+    "href": "slides/week-07/07-Comparisons.html",
+    "title": "Comparisons",
+    "section": "",
+    "text": "TBA"
+  },
+  {
+    "objectID": "slides/week-08/08-Uncertainty.html",
+    "href": "slides/week-08/08-Uncertainty.html",
+    "title": "Uncertainty",
+    "section": "",
+    "text": "TBA"
+  },
+  {
+    "objectID": "slides/week-09/09-TimeSeries.html",
+    "href": "slides/week-09/09-TimeSeries.html",
+    "title": "Time Series & Trends",
+    "section": "",
+    "text": "TBA"
+  },
+  {
+    "objectID": "slides/week-10/10-Geospatial.html",
+    "href": "slides/week-10/10-Geospatial.html",
+    "title": "Geospatial Data",
+    "section": "",
+    "text": "TBA"
+  },
+  {
+    "objectID": "slides/week-11/11-Annotations.html",
+    "href": "slides/week-11/11-Annotations.html",
+    "title": "Annotations",
+    "section": "",
+    "text": "TBA"
+  },
+  {
+    "objectID": "slides/week-12/12-InteractivityI.html",
+    "href": "slides/week-12/12-InteractivityI.html",
+    "title": "Interactivity I",
+    "section": "",
+    "text": "TBA"
   }
 ]

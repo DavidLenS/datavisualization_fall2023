@@ -1,5 +1,5 @@
 ---
-title: "Grammar of Graphics"
+title: "Designing a Graph"
 subtitle: "Week 02"
 description: ""
 author: ""
