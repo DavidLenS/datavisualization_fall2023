@@ -12,7 +12,7 @@ The goal of this course is to equip the students with the necessary skills to co
 ## **Course details**
 
 |                 |                                                                                                           |
-|---------------------|---------------------------------------------------|
+|-----------------|-----------------------------------------------------------------------------------------------------------|
 | Seminar:        | Übung - Methoden der Vergleichenden Regierungslehre                                                       |
 | Time:           | Thu 13:45 -- 15:15, September 07 to December 07                                                           |
 | Place:          | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)                                              |

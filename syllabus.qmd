@@ -9,7 +9,7 @@ editor:
 ## **Course details**
 
 |                 |                                                                                                           |
-|---------------|---------------------------------------------------------|
+|-----------------|-------------------------------------------------------|
 | Seminar:        | Übung - Methoden der Vergleichenden Regierungslehre                                                       |
 | Time:           | Thu 13:45 -- 15:15, September 07 to December 07                                                           |
 | Place:          | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)                                              |
@@ -169,8 +169,8 @@ books:
 |---------|------------|-------------------------|
 | Session | Date       | Topic                   |
 | 1       | 07.09.2023 | Intro Session           |
-| 2       | 14.09.2023 | Grammar of Graphics     |
-| 3       | 21.09.2023 | (Tidy) Data             |
+| 2       | 14.09.2023 | Designing a Graph       |
+| 3       | 21.09.2023 | Mapping (Tidy) Data     |
 | 4       | 28.09.2023 | Amounts & Proportions   |
 | 5       | 05.10.2023 | Themes & Refining Plots |
 | 6       | 12.10.2023 | Relationships           |

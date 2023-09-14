@@ -1,5 +1,5 @@
 ---
-title: "Material"
+title: "Schedule"
 listing:
   - id: material
     contents:
@@ -18,7 +18,11 @@ listing:
 editor: visual
 ---
 
-## 
+## **Material**
+
+You can find all course materials below. This includes slides, R scripts, readings, etc.
+
+Just click on the topic of the respective week.
 
 ::: {#material}
 :::

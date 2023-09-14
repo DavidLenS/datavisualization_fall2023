@@ -139,27 +139,27 @@ Edward Tufte (1983). *The Visual Display of Quantitative Information*, p. 51.
 
 ## Maximize Data-Ink Ratio
 
-![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di1](ink1.png){alt="Bray, Tim. http://www.tbray.org/ongoing/data-ink/di1"}
+![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di1](ink1.png)
 
 ## Remove Grid
 
-![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di2](ink2.png){alt="Bray, Tim. http://www.tbray.org/ongoing/data-ink/di2"}
+![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di2](ink2.png)
 
 ## Remove Background
 
-![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di3](ink3.png){alt="Bray, Tim. http://www.tbray.org/ongoing/data-ink/di3"}
+![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di3](ink3.png)
 
 ## Remove Box
 
-![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di4](ink4.png){alt="Bray, Tim. http://www.tbray.org/ongoing/data-ink/di4"}
+![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di4](ink4.png)
 
 ## Add horizontal "line"
 
-![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di5](ink5.png){alt="Bray, Tim. http://www.tbray.org/ongoing/data-ink/di5"}
+![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di5](ink5.png)
 
 ## Remove axis line and ticks
 
-![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di6](ink6.png){alt="Bray, Tim. http://www.tbray.org/ongoing/data-ink/di6"}
+![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di6](ink6.png)
 
 ## Design prinicples
 
@@ -171,7 +171,7 @@ Why would we care about design principles? What is our goal?
 
 -   Following design principles, we can fulfill the criteria of great visualizations.
 
-## CRAP 
+## CRAP
 
 ::: columns
 ::: {.column width="50%"}

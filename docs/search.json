@@ -23,9 +23,9 @@
   {
     "objectID": "material.html",
     "href": "material.html",
-    "title": "Material",
+    "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nDesigning a Graph\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nMapping (Tidy) Data\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nClosing Session\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "You can find all course materials below. This includes slides, R scripts, readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nDesigning a Graph\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nMapping (Tidy) Data\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nClosing Session\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "material.html#assignments",
@@ -165,7 +165,7 @@
     "href": "syllabus.html#course-schedule",
     "title": "Syllabus: Data Visualization for Comparative Politics",
     "section": "Course Schedule",
-    "text": "Course Schedule\n\n\n\nSession\nDate\nTopic\n\n\n1\n07.09.2023\nIntro Session\n\n\n2\n14.09.2023\nGrammar of Graphics\n\n\n3\n21.09.2023\n(Tidy) Data\n\n\n4\n28.09.2023\nAmounts & Proportions\n\n\n5\n05.10.2023\nThemes & Refining Plots\n\n\n6\n12.10.2023\nRelationships\n\n\n7\n19.10.2023\nComparisons\n\n\n8\n26.10.2023\nUncertainty\n\n\n9\n02.11.2023\nTime Series & Trends\n\n\n10\n09.11.2023\nGeospatial Data\n\n\n11\n16.11.2023\nAnnotations\n\n\n12\n23.11.2023\nInteractivity I\n\n\n13\n30.11.2023\nInteractivity II\n\n\n14\n07.12.2023\nClosing Session"
+    "text": "Course Schedule\n\n\n\nSession\nDate\nTopic\n\n\n1\n07.09.2023\nIntro Session\n\n\n2\n14.09.2023\nDesigning a Graph\n\n\n3\n21.09.2023\nMapping (Tidy) Data\n\n\n4\n28.09.2023\nAmounts & Proportions\n\n\n5\n05.10.2023\nThemes & Refining Plots\n\n\n6\n12.10.2023\nRelationships\n\n\n7\n19.10.2023\nComparisons\n\n\n8\n26.10.2023\nUncertainty\n\n\n9\n02.11.2023\nTime Series & Trends\n\n\n10\n09.11.2023\nGeospatial Data\n\n\n11\n16.11.2023\nAnnotations\n\n\n12\n23.11.2023\nInteractivity I\n\n\n13\n30.11.2023\nInteractivity II\n\n\n14\n07.12.2023\nClosing Session"
   },
   {
     "objectID": "syllabus.html#course-schedule-and-reading-material",
@@ -2181,7 +2181,7 @@
     "href": "material.html#section",
     "title": "Material",
     "section": "",
-    "text": "Week\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nDesigning a Graph\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nMapping (Tidy) Data\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nClosing Session\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "You can find all course materials below. This includes slides, R scripts, readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nDesigning a Graph\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nMapping (Tidy) Data\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nClosing Session\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "slides/week-01/01-IntroSession.html#plan-for-today",
@@ -2581,5 +2581,12 @@
     "title": "Interactivity I",
     "section": "",
     "text": "TBA"
+  },
+  {
+    "objectID": "material.html#material",
+    "href": "material.html#material",
+    "title": "Schedule",
+    "section": "",
+    "text": "You can find all course materials below. This includes slides, R scripts, readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nDesigning a Graph\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nMapping (Tidy) Data\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nClosing Session\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
   }
 ]
