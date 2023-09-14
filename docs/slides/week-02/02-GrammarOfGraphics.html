@@ -12,7 +12,7 @@
 
   <meta name="author" content="David Schweizer">
   <meta name="dcterms.date" content="2023-09-14">
-  <title>Data Visualization for Comparative Politics - Course Website - Grammar of Graphics</title>
+  <title>Data Visualization for Comparative Politics - Course Website - Designing a Graph</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -326,7 +391,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Grammar of Graphics</h1>
+  <h1 class="title">Designing a Graph</h1>
   <p class="subtitle">Week 2</p>
 
 <div class="quarto-title-authors">
@@ -342,15 +407,324 @@ David Schweizer
 
   <p class="date">September 14, 2023</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
-
+<section id="plan-for-today" class="slide level2">
+<h2>Plan for today</h2>
+<p>Input:</p>
+<ul>
+<li>Why do we need visualizations? What makes a great visualization?</li>
+<li>Data-ink ratio &amp; CRAP principle</li>
+</ul>
+<p>Coding:</p>
+<ul>
+<li><p>R Basics - Projects</p></li>
+<li><p>Motivating example: Visualizing surveys</p></li>
+<li><p>Your very first plot or take it to the next level</p></li>
+</ul>
 </section>
+<section id="look-at-your-data" class="slide level2">
+<h2>Look at your data!</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">The data</a></li><li><a href="#tabset-1-2">Summary statistics</a></li><li><a href="#tabset-1-3">Visual inspection</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Have a look at the first 10 data points:</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">head</span>(data, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        V1      V2
+1  55.3846 97.1795
+2  51.5385 96.0256
+3  46.1538 94.4872
+4  42.8205 91.4103
+5  40.7692 88.3333
+6  38.7179 84.8718
+7  35.6410 79.8718
+8  33.0769 77.5641
+9  28.9744 74.4872
+10 26.1538 71.4103</code></pre>
+</div>
+</div>
+<p>For a deep dive, have a look at <a href="https://www.research.autodesk.com/publications/same-stats-different-graphs/">this blog post by Autodesk</a>, <a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html">this post by Alberto Cairo</a>, or <a href="https://cran.r-project.org/web/packages/datasauRus/vignettes/Datasaurus.html">this R package</a>.</p>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Inspect mean of V1</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">mean</span>(data<span class="sc">$</span>V1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 54.26327</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Inspect mean of V2</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">mean</span>(data<span class="sc">$</span>V2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 47.83225</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Inspect the correlation between V1 and V2</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">cor</span>(data<span class="sc">$</span>V1, data<span class="sc">$</span>V2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.06447185</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html"><img data-src="datasaurus.png" width="695"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-datasaurus-dozen" class="slide level2">
+<h2>The datasaurus dozen</h2>
 
-<section id="section" class="title-slide slide level1 center">
-<h1></h1>
+<img data-src="DinoSequentialSmaller.gif" class="r-stretch quarto-figure-center"></section>
+<section id="what-makes-a-great-visualization" class="slide level2">
+<h2>What makes a great visualization?</h2>
+<p>Five qualities of a great visualization according to Cairo:</p>
+<div class="fragment">
+<ul>
+<li>Truthful - Based on thorough and honest research</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Functional - Accurate depiction of the data</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Beautiful - Aesthetically pleasing for its intended audience</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Insightful - Communicate new evidence</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Enlightening - Change your audience’s mind</li>
+</ul>
+</div>
+</section>
+<section id="what-makes-a-great-visualization-1" class="slide level2">
+<h2>What makes a great visualization?</h2>
+<p>Qualities of a great visualization according to Hiely:</p>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Aesthetics</a></li><li><a href="#tabset-2-2">Substance</a></li><li><a href="#tabset-2-3">Perception</a></li><li><a href="#tabset-2-4">Honesty</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="hiely1.png" width="533"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="hiely2.png" width="666"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-2-3">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="hiely3.png" width="801"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-2-4">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="hiely4.png" width="495"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="hiely5.png" width="495"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-about-this" class="slide level2">
+<h2>How about this?</h2>
 
-<div class="footer footer-default">
+<img data-src="trump.jfif" class="r-stretch quarto-figure-center"></section>
+<section id="and-this" class="slide level2">
+<h2>And this?</h2>
+
+<img data-src="flatten-the-curve-1536x589-1.jpg" class="r-stretch quarto-figure-center"></section>
+<section id="what-makes-a-great-visualization-2" class="slide level2">
+<h2>What makes a great visualization?</h2>
+<p>Graphical excellence is the <strong>well-designed presentation</strong> of <strong>interesting data</strong>—a matter of substance, of statistics, and of design … [It] consists of complex ideas communicated with clarity, precision, and efficiency. … [It] is that which gives to the viewer the <strong>greatest number of ideas in the shortest time with the least ink in the smallest space</strong> … [It] is nearly always multivariate … And graphical excellence requires <strong>telling the truth</strong> about the data.&nbsp;</p>
+<p><br>
+Edward Tufte (1983). <em>The Visual Display of Quantitative Information</em>, p.&nbsp;51.</p>
+</section>
+<section id="maximize-data-ink-ratio" class="slide level2">
+<h2>Maximize Data-Ink Ratio</h2>
+
+<img data-src="ink1.png" class="r-stretch quarto-figure-center"><p class="caption">Bray, Tim. http://www.tbray.org/ongoing/data-ink/di1</p></section>
+<section id="remove-grid" class="slide level2">
+<h2>Remove Grid</h2>
+
+<img data-src="ink2.png" class="r-stretch quarto-figure-center"><p class="caption">Bray, Tim. http://www.tbray.org/ongoing/data-ink/di2</p></section>
+<section id="remove-background" class="slide level2">
+<h2>Remove Background</h2>
+
+<img data-src="ink3.png" class="r-stretch quarto-figure-center"><p class="caption">Bray, Tim. http://www.tbray.org/ongoing/data-ink/di3</p></section>
+<section id="remove-box" class="slide level2">
+<h2>Remove Box</h2>
+
+<img data-src="ink4.png" class="r-stretch quarto-figure-center"><p class="caption">Bray, Tim. http://www.tbray.org/ongoing/data-ink/di4</p></section>
+<section id="add-horizontal-line" class="slide level2">
+<h2>Add horizontal “line”</h2>
+
+<img data-src="ink5.png" class="r-stretch quarto-figure-center"><p class="caption">Bray, Tim. http://www.tbray.org/ongoing/data-ink/di5</p></section>
+<section id="remove-axis-line-and-ticks" class="slide level2">
+<h2>Remove axis line and ticks</h2>
+
+<img data-src="ink6.png" class="r-stretch quarto-figure-center"><p class="caption">Bray, Tim. http://www.tbray.org/ongoing/data-ink/di6</p></section>
+<section id="design-prinicples" class="slide level2">
+<h2>Design prinicples</h2>
+<p>Why would we care about design principles? What is our goal?</p>
+<div class="fragment">
+<ul>
+<li><p>Communicating our data in different forms to specific audiences.</p></li>
+<li><p>Following design principles, we can fulfill the criteria of great visualizations.</p></li>
+</ul>
+</div>
+</section>
+<section id="crap" class="slide level2">
+<h2>CRAP</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p><strong>C</strong>ontrast</p></li>
+<li><p><strong>R</strong>epetition</p></li>
+<li><p><strong>A</strong>lignment</p></li>
+<li><p><strong>P</strong>roximity</p></li>
+</ul>
+<p>These design principles apply in all areas of life: Art, architecture, …, and graphs.</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Bild0.png"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="contrast" class="slide level2">
+<h2>Contrast</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We want to <strong>contras</strong>t various elements to get a reader’s attention.</p>
+<ul>
+<li><p>It creates a hierarchy among different elements of your graph making it more interesting.</p></li>
+<li><p>However, <strong>contrast must be strong</strong>!</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/"><img data-src="Bild1.png" width="398"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/"><img data-src="Bild2.png" width="425"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="repetition" class="slide level2">
+<h2>Repetition</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We want to <strong>repeat</strong> design aspects throughout the graph for consistency.</p>
+<ul>
+<li><p>Elements might include bullet points, typefaces, lines, colors, …</p></li>
+<li><p>Repetition makes it easier for a reader to recognize patterns and capture the graph’s message.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/"><img data-src="Bild3.png" width="326"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/"><img data-src="Bild4.png" width="311"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="alignment" class="slide level2">
+<h2>Alignment</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We want to <strong>align</strong> the elements of our graph.</p>
+<ul>
+<li><p>To keep our graph consistent, align every object with an edge of any other object.</p></li>
+<li><p>Strong alignments allow you to break them occasionally to make a point without making it look like a mistake.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/"><img data-src="Bild5.png" width="294"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/"><img data-src="Bild6.png" width="332"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="proximity" class="slide level2">
+<h2>Proximity</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We want to <strong>group together</strong> related elements of our graph.</p>
+<ul>
+<li><p>Group elements into closer proximity if they are related.</p></li>
+<li><p>Separate elements that are not directly related.</p></li>
+<li><p>Vary space between groups and elements.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/"><img data-src="Bild7.png" width="365"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/"><img data-src="Bild8.png" width="354"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="coding" class="slide level2">
+<h2>Coding</h2>
+
+<img data-src="DataVis_Bild1_13092021.png" class="r-stretch"></section>
+<section id="coding-1" class="slide level2">
+<h2>Coding</h2>
+
+
+<img data-src="wahlrecht.png" class="r-stretch"><div class="footer footer-default">
 <p>Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim</p>
 </div>
 </section>
@@ -565,6 +939,44 @@ David Schweizer
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

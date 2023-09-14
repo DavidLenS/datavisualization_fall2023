@@ -1,5 +1,5 @@
 ---
-title: "Grammar of Graphics"
+title: "Designing a Graph"
 subtitle: "Week 2"
 author: "David Schweizer"
 date: "September 14, 2023"
@@ -13,6 +13,262 @@ format:
 editor: visual
 ---
 
-# TBA
+## Plan for today
 
-# 
+Input:
+
+-   Why do we need visualizations? What makes a great visualization?
+-   Data-ink ratio & CRAP principle
+
+Coding:
+
+-   R Basics - Projects
+
+-   Motivating example: Visualizing surveys
+
+-   Your very first plot or take it to the next level
+
+## Look at your data!
+
+::: panel-tabset
+## The data
+
+```{r, include=FALSE}
+data <- read.csv("C:/Users/David/Desktop/datavisualization_fall2023/slides/week-02/Datasaurus_data.csv", header=FALSE)
+
+```
+
+```{r, echo=TRUE}
+# Have a look at the first 10 data points:
+head(data, n = 10)
+```
+
+For a deep dive, have a look at [this blog post by Autodesk](https://www.research.autodesk.com/publications/same-stats-different-graphs/), [this post by Alberto Cairo](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html), or [this R package](https://cran.r-project.org/web/packages/datasauRus/vignettes/Datasaurus.html).
+
+## Summary statistics
+
+```{r, echo=TRUE}
+# Inspect mean of V1
+mean(data$V1)
+
+# Inspect mean of V2
+mean(data$V2)
+
+# Inspect the correlation between V1 and V2
+cor(data$V1, data$V2)
+
+```
+
+## Visual inspection
+
+[![](datasaurus.png){width="695"}](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html)
+:::
+
+## The datasaurus dozen
+
+[![](DinoSequentialSmaller.gif)](https://www.research.autodesk.com/publications/same-stats-different-graphs/)
+
+## What makes a great visualization?
+
+Five qualities of a great visualization according to Cairo:
+
+. . .
+
+-   Truthful - Based on thorough and honest research
+
+. . .
+
+-   Functional - Accurate depiction of the data
+
+. . .
+
+-   Beautiful - Aesthetically pleasing for its intended audience
+
+. . .
+
+-   Insightful - Communicate new evidence
+
+. . .
+
+-   Enlightening - Change your audience's mind
+
+## What makes a great visualization?
+
+Qualities of a great visualization according to Hiely:
+
+::: panel-tabset
+## Aesthetics
+
+![](hiely1.png){fig-align="center" width="533"}
+
+## Substance
+
+![](hiely2.png){fig-align="center" width="666"}
+
+## Perception
+
+![](hiely3.png){fig-align="center" width="801"}
+
+## Honesty
+
+::: columns
+::: {.column width="50%"}
+![](hiely4.png){fig-align="center" width="495"}
+:::
+
+::: {.column width="50%"}
+![](hiely5.png){fig-align="center" width="495"}
+:::
+:::
+:::
+
+## How about this?
+
+[![](trump.jfif)](https://twitter.com/IvankaTrump/status/1179480507505168384?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1179480507505168384%7Ctwgr%5Ea87fac9329dfb548428a034205e2269d7eceaace%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.washingtonpost.com%2Fbusiness%2F2019%2F10%2F14%2Fyouve-been-reading-charts-wrong-heres-how-pro-does-it%2F)
+
+## And this?
+
+[![](flatten-the-curve-1536x589-1.jpg){fig-align="center"}](https://flattenthecurve.com/)
+
+## What makes a great visualization?
+
+Graphical excellence is the **well-designed presentation** of **interesting data**---a matter of substance, of statistics, and of design ... \[It\] consists of complex ideas communicated with clarity, precision, and efficiency. ... \[It\] is that which gives to the viewer the **greatest number of ideas in the shortest time with the least ink in the smallest space** ... \[It\] is nearly always multivariate ... And graphical excellence requires **telling the truth** about the data. 
+
+\
+Edward Tufte (1983). *The Visual Display of Quantitative Information*, p. 51.
+
+## Maximize Data-Ink Ratio
+
+![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di1](ink1.png){alt="Bray, Tim. http://www.tbray.org/ongoing/data-ink/di1"}
+
+## Remove Grid
+
+![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di2](ink2.png){alt="Bray, Tim. http://www.tbray.org/ongoing/data-ink/di2"}
+
+## Remove Background
+
+![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di3](ink3.png){alt="Bray, Tim. http://www.tbray.org/ongoing/data-ink/di3"}
+
+## Remove Box
+
+![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di4](ink4.png){alt="Bray, Tim. http://www.tbray.org/ongoing/data-ink/di4"}
+
+## Add horizontal "line"
+
+![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di5](ink5.png){alt="Bray, Tim. http://www.tbray.org/ongoing/data-ink/di5"}
+
+## Remove axis line and ticks
+
+![Bray, Tim. http://www.tbray.org/ongoing/data-ink/di6](ink6.png){alt="Bray, Tim. http://www.tbray.org/ongoing/data-ink/di6"}
+
+## Design prinicples
+
+Why would we care about design principles? What is our goal?
+
+. . .
+
+-   Communicating our data in different forms to specific audiences.
+
+-   Following design principles, we can fulfill the criteria of great visualizations.
+
+## CRAP 
+
+::: columns
+::: {.column width="50%"}
+-   **C**ontrast
+
+-   **R**epetition
+
+-   **A**lignment
+
+-   **P**roximity
+
+These design principles apply in all areas of life: Art, architecture, ..., and graphs.
+:::
+
+::: {.column width="50%"}
+![](Bild0.png){fig-align="center"}
+:::
+:::
+
+## Contrast
+
+::: columns
+::: {.column width="50%"}
+We want to **contras**t various elements to get a reader's attention.
+
+-   It creates a hierarchy among different elements of your graph making it more interesting.
+
+-   However, **contrast must be strong**!
+:::
+
+::: {.column width="50%"}
+[![](Bild1.png){width="398"}](https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/)
+
+[![](Bild2.png){width="425"}](https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/)
+:::
+:::
+
+## Repetition
+
+::: columns
+::: {.column width="50%"}
+We want to **repeat** design aspects throughout the graph for consistency.
+
+-   Elements might include bullet points, typefaces, lines, colors, ...
+
+-   Repetition makes it easier for a reader to recognize patterns and capture the graph's message.
+:::
+
+::: {.column width="50%"}
+[![](Bild3.png){width="326"}](https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/)
+
+[![](Bild4.png){width="311"}](https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/)
+:::
+:::
+
+## Alignment
+
+::: columns
+::: {.column width="50%"}
+We want to **align** the elements of our graph.
+
+-   To keep our graph consistent, align every object with an edge of any other object.
+
+-   Strong alignments allow you to break them occasionally to make a point without making it look like a mistake.
+:::
+
+::: {.column width="50%"}
+[![](Bild5.png){width="294"}](https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/)
+
+[![](Bild6.png){width="332"}](https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/)
+:::
+:::
+
+## Proximity
+
+::: columns
+::: {.column width="50%"}
+We want to **group together** related elements of our graph.
+
+-   Group elements into closer proximity if they are related.
+
+-   Separate elements that are not directly related.
+
+-   Vary space between groups and elements.
+:::
+
+::: {.column width="50%"}
+[![](Bild7.png){width="365"}](https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/)
+
+[![](Bild8.png){width="354"}](https://alumni.sae.edu/2016/01/25/good-design-is-a-c-r-a-p/)
+:::
+:::
+
+## Coding
+
+![](DataVis_Bild1_13092021.png)
+
+## Coding
+
+![](wahlrecht.png)

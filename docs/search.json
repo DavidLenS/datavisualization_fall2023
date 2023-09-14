@@ -2364,5 +2364,173 @@
     "title": "Data Visualization for Comparative Politics",
     "section": "Course details",
     "text": "Course details\n\n\n\nSeminar:\nÜbung - Methoden der Vergleichenden Regierungslehre\n\n\nTime:\nThu 13:45 – 15:15, September 07 to December 07\n\n\nPlace:\nC -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)\n\n\nLanguage:\nEnglish\n\n\nInstructor:\nDavid Schweizer, M.A., david.schweizer@uni-mannheim.de\n\n\nOffice hours:\nIn-person (A 340) or via Zoom, Thu 15:30 – 16:30, please make an appointment by e-mail\n\n\nCourse website:\nLink\n\n\nSyllabus as PDF\nDownload via ILIAS"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#plan-for-today",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#plan-for-today",
+    "title": "Designing a Graph",
+    "section": "Plan for today",
+    "text": "Plan for today\nInput:\n\nWhy do we need visualizations? What makes a great visualization?\nData-ink ratio & CRAP principle\n\nCoding:\n\nR Basics - Projects\nMotivating example: Visualizing surveys\nYour very first plot or take it to the next level"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#look-at-your-data",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#look-at-your-data",
+    "title": "Designing a Graph",
+    "section": "Look at your data!",
+    "text": "Look at your data!\n\nThe dataSummary statisticsVisual inspection\n\n\n\n# Have a look at the first 10 data points:\nhead(data, n = 10)\n\n        V1      V2\n1  55.3846 97.1795\n2  51.5385 96.0256\n3  46.1538 94.4872\n4  42.8205 91.4103\n5  40.7692 88.3333\n6  38.7179 84.8718\n7  35.6410 79.8718\n8  33.0769 77.5641\n9  28.9744 74.4872\n10 26.1538 71.4103\n\n\nFor a deep dive, have a look at this blog post by Autodesk, this post by Alberto Cairo, or this R package.\n\n\n\n# Inspect mean of V1\nmean(data$V1)\n\n[1] 54.26327\n\n# Inspect mean of V2\nmean(data$V2)\n\n[1] 47.83225\n\n# Inspect the correlation between V1 and V2\ncor(data$V1, data$V2)\n\n[1] -0.06447185"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#look-at-your-data-1",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#look-at-your-data-1",
+    "title": "Designing a Graph",
+    "section": "Look at your data!",
+    "text": "Look at your data!\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#the-datasaurus-dozen",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#the-datasaurus-dozen",
+    "title": "Designing a Graph",
+    "section": "The datasaurus dozen",
+    "text": "The datasaurus dozen"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#what-makes-a-great-visualization",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#what-makes-a-great-visualization",
+    "title": "Designing a Graph",
+    "section": "What makes a great visualization?",
+    "text": "What makes a great visualization?\nFive qualities of a great visualization according to Cairo:\n\n\nTruthful - Based on thorough and honest research\n\n\n\n\nFunctional - Accurate depiction of the data\n\n\n\n\nBeautiful - Aesthetically pleasing for its intended audience\n\n\n\n\nInsightful - Communicate new evidence\n\n\n\n\nEnlightening - Change your audience’s mind"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#what-makes-a-great-visualization---cairo",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#what-makes-a-great-visualization---cairo",
+    "title": "Designing a Graph",
+    "section": "What makes a great visualization - Cairo?",
+    "text": "What makes a great visualization - Cairo?\nTruthful - Based on thorough and honest research\nFunctional - Accurate depiction of the data\nBeautiful - Aesthetically pleasing for its intended audience\nInsightful - Communicate new evidence\nEnlightening - Change your audience’s mind\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#what-makes-a-great-visualization-1",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#what-makes-a-great-visualization-1",
+    "title": "Designing a Graph",
+    "section": "What makes a great visualization?",
+    "text": "What makes a great visualization?\nQualities of a great visualization according to Hiely:\n\nAestheticsSubstancePerceptionHonesty"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#what-makes-a-great-visualization-2",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#what-makes-a-great-visualization-2",
+    "title": "Designing a Graph",
+    "section": "What makes a great visualization?",
+    "text": "What makes a great visualization?\nGraphical excellence is the well-designed presentation of interesting data—a matter of substance, of statistics, and of design … [It] consists of complex ideas communicated with clarity, precision, and efficiency. … [It] is that which gives to the viewer the greatest number of ideas in the shortest time with the least ink in the smallest space … [It] is nearly always multivariate … And graphical excellence requires telling the truth about the data. \n\nEdward Tufte (1983). The Visual Display of Quantitative Information, p. 51."
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#how-about-this",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#how-about-this",
+    "title": "Designing a Graph",
+    "section": "How about this?",
+    "text": "How about this?"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#and-this",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#and-this",
+    "title": "Designing a Graph",
+    "section": "And this?",
+    "text": "And this?"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#maximize-data-ink-ratio",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#maximize-data-ink-ratio",
+    "title": "Designing a Graph",
+    "section": "Maximize Data-Ink Ratio",
+    "text": "Maximize Data-Ink Ratio\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di1"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#remove-grid",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#remove-grid",
+    "title": "Designing a Graph",
+    "section": "Remove Grid",
+    "text": "Remove Grid\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di2"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#remove-background",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#remove-background",
+    "title": "Designing a Graph",
+    "section": "Remove Background",
+    "text": "Remove Background\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di3"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#remove-box",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#remove-box",
+    "title": "Designing a Graph",
+    "section": "Remove Box",
+    "text": "Remove Box\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di4"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#add-horizontal-line",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#add-horizontal-line",
+    "title": "Designing a Graph",
+    "section": "Add horizontal “line”",
+    "text": "Add horizontal “line”\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di5"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#remove-axis-line-and-ticks",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#remove-axis-line-and-ticks",
+    "title": "Designing a Graph",
+    "section": "Remove axis line and ticks",
+    "text": "Remove axis line and ticks\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di6"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#design-prinicples",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#design-prinicples",
+    "title": "Designing a Graph",
+    "section": "Design prinicples",
+    "text": "Design prinicples\nWhy would we care about design principles? What is our goal?\n\n\nCommunicating our data in different forms to specific audiences.\nFollowing design principles, we can fulfill the criteria of great visualizations."
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#crap",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#crap",
+    "title": "Designing a Graph",
+    "section": "CRAP",
+    "text": "CRAP\n\n\n\nContrast\nRepetition\nAlignment\nProximity\n\nThese design principles apply in all areas of life: Art, architecture, …, and graphs."
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#contrast",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#contrast",
+    "title": "Designing a Graph",
+    "section": "Contrast",
+    "text": "Contrast\n\n\nWe want to contrast various elements to get a reader’s attention.\n\nIt creates a hierarchy among different elements of your graph making it more interesting.\nHowever, contrast must be strong!"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#repetition",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#repetition",
+    "title": "Designing a Graph",
+    "section": "Repetition",
+    "text": "Repetition\n\n\nWe want to repeat design aspects throughout the graph for consistency.\n\nElements might include bullet points, typefaces, lines, colors, …\nRepetition makes it easier for a reader to recognize patterns and capture the graph’s message."
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#alignment",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#alignment",
+    "title": "Designing a Graph",
+    "section": "Alignment",
+    "text": "Alignment\n\n\nWe want to align the elements of our graph.\n\nTo keep our graph consistent, align every object with an edge of any other object.\nStrong alignments allow you to break them occasionally to make a point without making it look like a mistake."
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#proximity",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#proximity",
+    "title": "Designing a Graph",
+    "section": "Proximity",
+    "text": "Proximity\n\n\nWe want to group together related elements of our graph.\n\nGroup elements into closer proximity if they are related.\nSeparate elements that are not directly related.\nVary space between groups and elements."
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#coding",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#coding",
+    "title": "Designing a Graph",
+    "section": "Coding",
+    "text": "Coding"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html#coding-1",
+    "href": "slides/week-02/02-GrammarOfGraphics.html#coding-1",
+    "title": "Designing a Graph",
+    "section": "Coding",
+    "text": "Coding\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
   }
 ]
