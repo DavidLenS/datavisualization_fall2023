@@ -1,5 +1,5 @@
 ---
-title: "(Tidy) Data"
+title: "Mapping (Tidy) Data"
 subtitle: "Week 3"
 author: "David Schweizer"
 date: "September 21, 2023"

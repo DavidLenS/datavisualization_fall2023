@@ -1,5 +1,5 @@
 ---
-title: "Data"
+title: "Mapping (Tidy) Data"
 subtitle: "Week 03"
 description: ""
 author: ""
@@ -38,4 +38,34 @@ tbl-colwidths: [10,50,40]
 # Seminar slides
 
 ::: {#slides}
+:::
+
+# To Do's before our session
+
+::: panel-tabset
+## First plots
+
+Using the R script from week 2, try to plot different data (filter different continents and/or years) with *geom_point().*
+
+Don't be frustrated if it won't work! We will go in detail over the structure of *ggplot()* in this session.
+
+## Read
+
+-   Chapter 3: Make a Plot in Healy, Data Visualization. [Link to free online version](https://socviz.co/makeplot.html)
+
+-   Chapter 2: Visualizing data: Mapping data onto aesthetics, in Wilke, Fundamentals of Data Visualization. [Link to free online version](https://clauswilke.com/dataviz/aesthetic-mapping.html)
+
+    Further reading:
+
+-   If you struggle with R Studio in general and feel overwhelmed, have a look at Chapter 2: Get Started in Healy, Data Visualization. [Link to free online verison](https://socviz.co/gettingstarted.html#gettingstarted)
+
+-   More advanced: This [blog post by Cédric Scherer](https://www.cedricscherer.com/2019/05/17/the-evolution-of-a-ggplot-ep.-1/) gives a nice overview of how to customize a plot. Give it a try to understand and run the code.
+
+## Think
+
+-   Questions to think about for the readings:
+
+    -   What does *mapping data onto aesthetics* mean?
+
+    -   At what point should we stop editing our graph? Can we always do "more"?
 :::
