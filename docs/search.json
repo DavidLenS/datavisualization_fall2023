@@ -2369,8 +2369,8 @@
     "objectID": "slides/week-02/02-GrammarOfGraphics.html#plan-for-today",
     "href": "slides/week-02/02-GrammarOfGraphics.html#plan-for-today",
     "title": "Designing a Graph",
-    "section": "Plan for today",
-    "text": "Plan for today\nInput:\n\nWhy do we need visualizations? What makes a great visualization?\nData-ink ratio & CRAP principle\n\nCoding:\n\nR Basics - Projects\nMotivating example: Visualizing surveys\nYour very first plot or take it to the next level"
+    "section": "",
+    "text": "Input:\n\nWhy do we need visualizations? What makes a great visualization?\nData-ink ratio & CRAP principle\n\nCoding:\n\nR Basics - Projects\nMotivating example: Visualizing surveys\nYour very first plot or take it to the next level"
   },
   {
     "objectID": "slides/week-02/02-GrammarOfGraphics.html#look-at-your-data",
@@ -2398,7 +2398,7 @@
     "href": "slides/week-02/02-GrammarOfGraphics.html#what-makes-a-great-visualization",
     "title": "Designing a Graph",
     "section": "What makes a great visualization?",
-    "text": "What makes a great visualization?\nFive qualities of a great visualization according to Cairo:\n\n\nTruthful - Based on thorough and honest research\n\n\n\n\nFunctional - Accurate depiction of the data\n\n\n\n\nBeautiful - Aesthetically pleasing for its intended audience\n\n\n\n\nInsightful - Communicate new evidence\n\n\n\n\nEnlightening - Change your audience’s mind"
+    "text": "What makes a great visualization?\nFive qualities of a great visualization according to Cairo:\n. . .\n\nTruthful - Based on thorough and honest research\n\n. . .\n\nFunctional - Accurate depiction of the data\n\n. . .\n\nBeautiful - Aesthetically pleasing for its intended audience\n\n. . .\n\nInsightful - Communicate new evidence\n\n. . .\n\nEnlightening - Change your audience’s mind"
   },
   {
     "objectID": "slides/week-02/02-GrammarOfGraphics.html#what-makes-a-great-visualization---cairo",
@@ -2440,49 +2440,49 @@
     "href": "slides/week-02/02-GrammarOfGraphics.html#maximize-data-ink-ratio",
     "title": "Designing a Graph",
     "section": "Maximize Data-Ink Ratio",
-    "text": "Maximize Data-Ink Ratio\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di1"
+    "text": "Maximize Data-Ink Ratio\n\n\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di1"
   },
   {
     "objectID": "slides/week-02/02-GrammarOfGraphics.html#remove-grid",
     "href": "slides/week-02/02-GrammarOfGraphics.html#remove-grid",
     "title": "Designing a Graph",
     "section": "Remove Grid",
-    "text": "Remove Grid\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di2"
+    "text": "Remove Grid\n\n\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di2"
   },
   {
     "objectID": "slides/week-02/02-GrammarOfGraphics.html#remove-background",
     "href": "slides/week-02/02-GrammarOfGraphics.html#remove-background",
     "title": "Designing a Graph",
     "section": "Remove Background",
-    "text": "Remove Background\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di3"
+    "text": "Remove Background\n\n\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di3"
   },
   {
     "objectID": "slides/week-02/02-GrammarOfGraphics.html#remove-box",
     "href": "slides/week-02/02-GrammarOfGraphics.html#remove-box",
     "title": "Designing a Graph",
     "section": "Remove Box",
-    "text": "Remove Box\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di4"
+    "text": "Remove Box\n\n\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di4"
   },
   {
     "objectID": "slides/week-02/02-GrammarOfGraphics.html#add-horizontal-line",
     "href": "slides/week-02/02-GrammarOfGraphics.html#add-horizontal-line",
     "title": "Designing a Graph",
     "section": "Add horizontal “line”",
-    "text": "Add horizontal “line”\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di5"
+    "text": "Add horizontal “line”\n\n\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di5"
   },
   {
     "objectID": "slides/week-02/02-GrammarOfGraphics.html#remove-axis-line-and-ticks",
     "href": "slides/week-02/02-GrammarOfGraphics.html#remove-axis-line-and-ticks",
     "title": "Designing a Graph",
     "section": "Remove axis line and ticks",
-    "text": "Remove axis line and ticks\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di6"
+    "text": "Remove axis line and ticks\n\n\n\nBray, Tim. http://www.tbray.org/ongoing/data-ink/di6"
   },
   {
     "objectID": "slides/week-02/02-GrammarOfGraphics.html#design-prinicples",
     "href": "slides/week-02/02-GrammarOfGraphics.html#design-prinicples",
     "title": "Designing a Graph",
     "section": "Design prinicples",
-    "text": "Design prinicples\nWhy would we care about design principles? What is our goal?\n\n\nCommunicating our data in different forms to specific audiences.\nFollowing design principles, we can fulfill the criteria of great visualizations."
+    "text": "Design prinicples\nWhy would we care about design principles? What is our goal?\n. . .\n\nCommunicating our data in different forms to specific audiences.\nFollowing design principles, we can fulfill the criteria of great visualizations."
   },
   {
     "objectID": "slides/week-02/02-GrammarOfGraphics.html#crap",
@@ -2531,7 +2531,7 @@
     "href": "slides/week-02/02-GrammarOfGraphics.html#coding-1",
     "title": "Designing a Graph",
     "section": "Coding",
-    "text": "Coding\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+    "text": "Coding"
   },
   {
     "objectID": "slides/week-06/06-Relationships.html",
@@ -2588,5 +2588,12 @@
     "title": "Schedule",
     "section": "",
     "text": "You can find all course materials below. This includes slides, R scripts, readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nDesigning a Graph\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nMapping (Tidy) Data\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nClosing Session\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "slides/week-02/02-GrammarOfGraphics.html",
+    "href": "slides/week-02/02-GrammarOfGraphics.html",
+    "title": "Designing a Graph",
+    "section": "",
+    "text": "Input:\n\nWhy do we need visualizations? What makes a great visualization?\nData-ink ratio & CRAP principle\n\nCoding:\n\nR Basics - Projects\nMotivating example: Visualizing surveys\nYour very first plot or take it to the next level"
   }
 ]

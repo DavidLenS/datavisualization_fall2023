@@ -20,8 +20,8 @@ website:
         href: https://ilias.uni-mannheim.de/goto.php?target=crs_1413212&client_id=ILIAS
         text: Ilias
       - icon: rocket
-        href: https://www.dataquest.io/
-        text: Dataquest
+        href: https://www.datacamp.com/
+        text: Datacamp
     style: docked
     contents:
       - href: index.qmd
