@@ -40,6 +40,11 @@ tbl-colwidths: [10,50,40]
 ::: {#slides}
 :::
 
+# Materials
+
+There is no R script for this session.
+
+
 # To Do's before our session
 
 ::: panel-tabset
