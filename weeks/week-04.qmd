@@ -39,3 +39,32 @@ tbl-colwidths: [10,50,40]
 
 ::: {#slides}
 :::
+
+# To Do's before our session
+
+::: panel-tabset
+## Gapminder and V-Dem
+
+Try to import data - either Gapminder or V-Dem (if you are more advanced already) - transform it using dplyr functions and make a simple plot.
+
+Of course, you can use the code in the slides and adapt it to your needs.
+
+## Read
+
+-   Chapter 6: Exploring Data with Simple Charts in Cairo, The Truthful Art
+
+    -   Please access the chapter via Katalog Primo (University library)
+
+-   Chapter 6: Visualizing amounts, in Wilke, Fundamentals of Data Visualization. [Link to free online version](https://clauswilke.com/dataviz/visualizing-amounts.html)
+
+-   Chapter 10: Visualizing proportions, in Wilke, Fundamentals of Data Visualization. [Link to free online version](https://clauswilke.com/dataviz/visualizing-proportions.html)
+
+
+## Think
+
+-   Questions to think about for the readings:
+
+    -   Do you analyze data at the moment for another course? How could you benefit from visualizing amounts and proportions? 
+    
+    - Many argue against pie charts for data visualization. In what cases might they be a good choice?  
+:::
