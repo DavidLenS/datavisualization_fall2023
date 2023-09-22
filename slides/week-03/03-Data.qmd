@@ -533,11 +533,11 @@ ggplot(data = gapminder %>% filter(year==2007)) +
 ::: panel-tabset
 ## Foundational
 
-![](ggplot-layers-short@4x.png)
+![](ggplot-layers-short@4x.png){width="798"}
 
 ## Additional
 
-![](ggplot-layers@4x.png)
+![](ggplot-layers@4x.png){width="425"}
 :::
 
 ## Building a ggplot step-by-step
