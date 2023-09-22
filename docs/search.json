@@ -2595,5 +2595,334 @@
     "title": "Designing a Graph",
     "section": "",
     "text": "Input:\n\nWhy do we need visualizations? What makes a great visualization?\nData-ink ratio & CRAP principle\n\nCoding:\n\nR Basics - Projects\nMotivating example: Visualizing surveys\nYour very first plot or take it to the next level"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#importing-data",
+    "href": "slides/week-03/03-Data.html#importing-data",
+    "title": "Mapping (Tidy) Data",
+    "section": "Importing data",
+    "text": "Importing data\n\nR: use load(\"filename.RData\") or readRDS(\"filename.RDS\").\nExcel: e.g., load library(\"xlsx\") and use read.xlsx(\"filename.xlsx\").\nStata: e.g., load library(\"haven\") and use read_dta(\"filename.dta\").\n\nConsult the R documentation (e.g. type ?read.xlsx) to get an overview about options (e.g. sheetIndex or startRow)."
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#importing-data-manually",
+    "href": "slides/week-03/03-Data.html#importing-data-manually",
+    "title": "Mapping (Tidy) Data",
+    "section": "Importing data manually",
+    "text": "Importing data manually\n\nChoose file formatChoose file"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#built-in-data",
+    "href": "slides/week-03/03-Data.html#built-in-data",
+    "title": "Mapping (Tidy) Data",
+    "section": "Built-in data",
+    "text": "Built-in data\nThere are also many built-in data sets in R. You can have a look at them by using data()."
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#gapminder-data",
+    "href": "slides/week-03/03-Data.html#gapminder-data",
+    "title": "Mapping (Tidy) Data",
+    "section": "Gapminder data",
+    "text": "Gapminder data\nHowever, we will use the gapminder data set during this session. Therefore, we have to install the package install.packages(\"gapminder\") first and load it with library(\"gapminder\").\n\n\n\n\n\ncountry\ncontinent\nyear\nlifeExp\npop\ngdpPercap\n\n\n\n\nAfghanistan\nAsia\n2007\n43.828\n31889923\n974.5803\n\n\nAlbania\nEurope\n2007\n76.423\n3600523\n5937.0295\n\n\nAlgeria\nAfrica\n2007\n72.301\n33333216\n6223.3675\n\n\nAngola\nAfrica\n2007\n42.731\n12420476\n4797.2313"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#transform-data",
+    "href": "slides/week-03/03-Data.html#transform-data",
+    "title": "Mapping (Tidy) Data",
+    "section": "Transform data",
+    "text": "Transform data\n“Getting the data into shape” for exploration and analysis.\nCommon steps for data transformation include:\n\nrenaming variables\nselecting a subset of variables\nfiltering a subset of cases\nrecoding variables or values (also missing values)\ncreating new variables\n\n80% of your time goes into data transformation and 20% into analysis"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#tidyverse",
+    "href": "slides/week-03/03-Data.html#tidyverse",
+    "title": "Mapping (Tidy) Data",
+    "section": "Tidyverse",
+    "text": "Tidyverse\n\n\nThe tidyverse is a collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures (Tidyverse website).\nIt is a coherent system of packages for data manipulation, exploration and visualization that share a common design philosophy (Rickert, 2017)."
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#tidyverse---benefits",
+    "href": "slides/week-03/03-Data.html#tidyverse---benefits",
+    "title": "Mapping (Tidy) Data",
+    "section": "Tidyverse - Benefits",
+    "text": "Tidyverse - Benefits\nData transformation with base R is possible, but not as intuitive and more verbose.\n\nMore difficult to learn, remember and read\n\nTidyverse syntax is designed to increase human-readability.\n\nAttractive for R beginners as it can facilitate the experience of self-efficacy (see Robinson, 2017)\n\n\n\nThe tidyverse also aims for consistency (e.g., data frame as first argument and output)"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#tidyverse---caution",
+    "href": "slides/week-03/03-Data.html#tidyverse---caution",
+    "title": "Mapping (Tidy) Data",
+    "section": "Tidyverse - Caution",
+    "text": "Tidyverse - Caution\nOften, tidyverse functions are under development:\n\nThey change and can potentially break your code\nExample: Converting tables into long or wide format\n\nYou can learn more about the tidyverse lifecycle in this talk by Hadley Wickham."
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#tidyverse-1",
+    "href": "slides/week-03/03-Data.html#tidyverse-1",
+    "title": "Mapping (Tidy) Data",
+    "section": "Tidyverse",
+    "text": "Tidyverse\nInstall all tidyverse packages at once (for the full list of tidyverse packages see https://www.tidyverse.org/packages/)\n\ninstall.packages(\"tidyverse\")\n\n\nLoad core tidyverse packages To save time and reduce namespace conflicts you can also load tidyverse packages individually (e.g., dplyr, ggplot)\n\nlibrary(\"tidyverse\")"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#tidyverse-concepts",
+    "href": "slides/week-03/03-Data.html#tidyverse-concepts",
+    "title": "Mapping (Tidy) Data",
+    "section": "Tidyverse: Concepts",
+    "text": "Tidyverse: Concepts\nThere is much more to the tidyverse, but two important concepts that you should be familiar with, if you want to use it, are:\n\nTidy data\nPipes"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#tidy-data",
+    "href": "slides/week-03/03-Data.html#tidy-data",
+    "title": "Mapping (Tidy) Data",
+    "section": "Tidy data",
+    "text": "Tidy data\nThe data should be in a so-called “tidy” format for ggplot and the tidyverse’s packages in general. Tidy refers to the structure of the data.\n\nVariablesObservationsValues\n\n\nEach variable has its own column.\n\n\n\n\n\n\n\nEach observation has its own row.\n\n\n\n\n\n\n\nEach value has its own cell."
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#wide-vs.-long",
+    "href": "slides/week-03/03-Data.html#wide-vs.-long",
+    "title": "Mapping (Tidy) Data",
+    "section": "Wide vs. Long",
+    "text": "Wide vs. Long"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#example-tidy-data",
+    "href": "slides/week-03/03-Data.html#example-tidy-data",
+    "title": "Mapping (Tidy) Data",
+    "section": "Example: Tidy data",
+    "text": "Example: Tidy data\nTidy version of the V-Dem data\n\n\n\n\n\nCountry\niso3c\nCOWcode\nYear\nDimension\nscore\n\n\n\n\nMexico\nMEX\n70\n1789\nElectoral\n0.026\n\n\nMexico\nMEX\n70\n1790\nElectoral\n0.026\n\n\nMexico\nMEX\n70\n1791\nElectoral\n0.026\n\n\nMexico\nMEX\n70\n1792\nElectoral\n0.026\n\n\nMexico\nMEX\n70\n1793\nElectoral\n0.026"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#pipes-1",
+    "href": "slides/week-03/03-Data.html#pipes-1",
+    "title": "Mapping (Tidy) Data",
+    "section": "Pipes",
+    "text": "Pipes\nThe %&gt;% pipe used in the tidyverse is part of the magrittr package which also includes other specialized types of pipes.\n\nRStudio offers a keyboard shortcut for inserting the %&gt;% pipe: Ctrl + Shift + M (Windows & Linux)/Cmd + Shift + M (Mac)\nSince version 4.1.0, base R also offers its own pipe |&gt;, which is similar to but not the same as the %&gt;% pipe"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#citing-free-and-open-source-software-foss-citation",
+    "href": "slides/week-03/03-Data.html#citing-free-and-open-source-software-foss-citation",
+    "title": "Mapping (Tidy) Data",
+    "section": "Citing free and open-source software (FOSS): citation()",
+    "text": "Citing free and open-source software (FOSS): citation()\n\n\n\nTo cite R in publications use:\n\n  R Core Team (2022). R: A language and environment for statistical\n  computing. R Foundation for Statistical Computing, Vienna, Austria.\n  URL https://www.R-project.org/.\n\nEin BibTeX-Eintrag für LaTeX-Benutzer ist\n\n  @Manual{,\n    title = {R: A Language and Environment for Statistical Computing},\n    author = {{R Core Team}},\n    organization = {R Foundation for Statistical Computing},\n    address = {Vienna, Austria},\n    year = {2022},\n    url = {https://www.R-project.org/},\n  }\n\nWe have invested a lot of time and effort in creating R, please cite it\nwhen using it for data analysis. See also 'citation(\"pkgname\")' for\nciting R packages.\n\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#example-untidy-data",
+    "href": "slides/week-03/03-Data.html#example-untidy-data",
+    "title": "Mapping (Tidy) Data",
+    "section": "Example: Untidy data",
+    "text": "Example: Untidy data\nUntidy V-Dem data\n\n\n\n\n\nCountry\niso3c\nCOWcode\nYear\nElectoral\nLiberal\nParticipatory\nDeliberative\nEgalitarian\n\n\n\n\nMexico\nMEX\n70\n1789\n0.026\n0.041\n0.007\nNA\nNA\n\n\nMexico\nMEX\n70\n1790\n0.026\n0.041\n0.007\nNA\nNA\n\n\nMexico\nMEX\n70\n1791\n0.026\n0.041\n0.007\nNA\nNA\n\n\nMexico\nMEX\n70\n1792\n0.026\n0.041\n0.007\nNA\nNA\n\n\nMexico\nMEX\n70\n1793\n0.026\n0.041\n0.007\nNA\nNA"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#citing-free-and-open-source-software",
+    "href": "slides/week-03/03-Data.html#citing-free-and-open-source-software",
+    "title": "Mapping (Tidy) Data",
+    "section": "Citing free and open-source software",
+    "text": "Citing free and open-source software\n\ncitation()\n\n\nTo cite R in publications use:\n\n  R Core Team (2022). R: A language and environment for statistical\n  computing. R Foundation for Statistical Computing, Vienna, Austria.\n  URL https://www.R-project.org/.\n\nEin BibTeX-Eintrag für LaTeX-Benutzer ist\n\n  @Manual{,\n    title = {R: A Language and Environment for Statistical Computing},\n    author = {{R Core Team}},\n    organization = {R Foundation for Statistical Computing},\n    address = {Vienna, Austria},\n    year = {2022},\n    url = {https://www.R-project.org/},\n  }\n\nWe have invested a lot of time and effort in creating R, please cite it\nwhen using it for data analysis. See also 'citation(\"pkgname\")' for\nciting R packages."
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#back-to-gapminder-tidyverse",
+    "href": "slides/week-03/03-Data.html#back-to-gapminder-tidyverse",
+    "title": "Mapping (Tidy) Data",
+    "section": "Back to Gapminder & tidyverse",
+    "text": "Back to Gapminder & tidyverse\nThe tidyverse examples in the following will make use of functions from the dplyr package:\n\ndplyr functions are verbs that signal an action\nfirst argument is always the a data frame\nthe output is also (normally) a data frame (tibble)\ncolumns (= variables in a tidy data frame) can be referenced without quotation marks (non-standard evaluation)\nactions (verbs) can be applied to columns (variables) and rows (cases/observations)"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#dplyrglimpse",
+    "href": "slides/week-03/03-Data.html#dplyrglimpse",
+    "title": "Mapping (Tidy) Data",
+    "section": "dplyr::glimpse",
+    "text": "dplyr::glimpse\n\n\n\nglimpse(): gives a first informative look at the data (especially helpful when working with data sets that contain many columns/variables).\n\n\n\ngapminder %&gt;% \n  glimpse()\n\nRows: 1,704\nColumns: 6\n$ country   &lt;fct&gt; \"Afghanistan\", \"Afghanistan\", \"Afghanistan\", \"Afghanistan\", …\n$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …\n$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, …\n$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…\n$ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12…\n$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, …"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#dplyrselect",
+    "href": "slides/week-03/03-Data.html#dplyrselect",
+    "title": "Mapping (Tidy) Data",
+    "section": "dplyr::select",
+    "text": "dplyr::select\n\n\nselect(): select variables to reduce or create a new dataframe to only include a subset of specific variables.\n\ngapminder_pop &lt;- gapminder %&gt;%\n  select(country, \n         year, \n         pop) \n\n\n\n\n# A tibble: 1,704 × 3\n   country      year      pop\n   &lt;fct&gt;       &lt;int&gt;    &lt;int&gt;\n 1 Afghanistan  1952  8425333\n 2 Afghanistan  1957  9240934\n 3 Afghanistan  1962 10267083\n 4 Afghanistan  1967 11537966\n 5 Afghanistan  1972 13079460\n 6 Afghanistan  1977 14880372\n 7 Afghanistan  1982 12881816\n 8 Afghanistan  1987 13867957\n 9 Afghanistan  1992 16317921\n10 Afghanistan  1997 22227415\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#dplyr-select---range-of-variables",
+    "href": "slides/week-03/03-Data.html#dplyr-select---range-of-variables",
+    "title": "Mapping (Tidy) Data",
+    "section": "dplyr:: select - Range of variables",
+    "text": "dplyr:: select - Range of variables\n\n\n\ngapminder_lifeExp_1 &lt;- gapminder %&gt;%\n  select(country: lifeExp)\n\n\n\n# A tibble: 1,704 × 4\n   country     continent  year lifeExp\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;\n 1 Afghanistan Asia       1952    28.8\n 2 Afghanistan Asia       1957    30.3\n 3 Afghanistan Asia       1962    32.0\n 4 Afghanistan Asia       1967    34.0\n 5 Afghanistan Asia       1972    36.1\n 6 Afghanistan Asia       1977    38.4\n 7 Afghanistan Asia       1982    39.9\n 8 Afghanistan Asia       1987    40.8\n 9 Afghanistan Asia       1992    41.7\n10 Afghanistan Asia       1997    41.8\n# ℹ 1,694 more rows\n\n\n\n\ngapminder_lifeExp_2 &lt;- gapminder %&gt;%\n  select(1:4)\n\n\n\n# A tibble: 1,704 × 4\n   country     continent  year lifeExp\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;\n 1 Afghanistan Asia       1952    28.8\n 2 Afghanistan Asia       1957    30.3\n 3 Afghanistan Asia       1962    32.0\n 4 Afghanistan Asia       1967    34.0\n 5 Afghanistan Asia       1972    36.1\n 6 Afghanistan Asia       1977    38.4\n 7 Afghanistan Asia       1982    39.9\n 8 Afghanistan Asia       1987    40.8\n 9 Afghanistan Asia       1992    41.7\n10 Afghanistan Asia       1997    41.8\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#dplyr-select---unselect-variables",
+    "href": "slides/week-03/03-Data.html#dplyr-select---unselect-variables",
+    "title": "Mapping (Tidy) Data",
+    "section": "dplyr:: select - Unselect variables",
+    "text": "dplyr:: select - Unselect variables\n\ngapminder %&gt;%\n  select(-c(continent, lifeExp, gdpPercap))\n\n# A tibble: 1,704 × 3\n   country      year      pop\n   &lt;fct&gt;       &lt;int&gt;    &lt;int&gt;\n 1 Afghanistan  1952  8425333\n 2 Afghanistan  1957  9240934\n 3 Afghanistan  1962 10267083\n 4 Afghanistan  1967 11537966\n 5 Afghanistan  1972 13079460\n 6 Afghanistan  1977 14880372\n 7 Afghanistan  1982 12881816\n 8 Afghanistan  1987 13867957\n 9 Afghanistan  1992 16317921\n10 Afghanistan  1997 22227415\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#dplyrrename",
+    "href": "slides/week-03/03-Data.html#dplyrrename",
+    "title": "Mapping (Tidy) Data",
+    "section": "dplyr::rename",
+    "text": "dplyr::rename\n\ngapminder_new &lt;- gapminder %&gt;% \n  rename(Country = country, \n  # new_name = old_name\n  Continent = continent)\nnames(gapminder_new)\n\n[1] \"Country\"   \"Continent\" \"year\"      \"lifeExp\"   \"pop\"       \"gdpPercap\""
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#dplyr---select-and-rename-in-one-step",
+    "href": "slides/week-03/03-Data.html#dplyr---select-and-rename-in-one-step",
+    "title": "Mapping (Tidy) Data",
+    "section": "dplyr - select and rename in one step",
+    "text": "dplyr - select and rename in one step\n\ngapminder_new &lt;- gapminder %&gt;% \n  select(Country = country, \n  Continent = continent,\n  Year = year,\n  LifeExp = lifeExp,\n  Population = pop)\nnames(gapminder_new)\n\n[1] \"Country\"    \"Continent\"  \"Year\"       \"LifeExp\"    \"Population\""
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#exercise-1",
+    "href": "slides/week-03/03-Data.html#exercise-1",
+    "title": "Mapping (Tidy) Data",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\nImport the Gapminder data into R\nTake a look at the data with the glimpse or header function\nSelect a subset of the data\nRename the columns\nBonus: Select and rename in one step"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#dplyrfilter",
+    "href": "slides/week-03/03-Data.html#dplyrfilter",
+    "title": "Mapping (Tidy) Data",
+    "section": "dplyr::filter",
+    "text": "dplyr::filter\nThe dplyr solution for filtering rows/observations is filter():\n\ngapminder_germany &lt;- gapminder %&gt;%\n  filter(country == \"Germany\")\n\nWe can also filter based on multiple conditions (by default: logical AND):\n\ngapminder_germany &lt;- gapminder %&gt;%\n  filter(country == \"Germany\", year &gt; 2000)\n\nLogical OR:\n\ngapminder_germany &lt;- gapminder %&gt;%\n  filter(country == \"Germany\"|\n              year &gt; 2000)"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#dplyrmutate",
+    "href": "slides/week-03/03-Data.html#dplyrmutate",
+    "title": "Mapping (Tidy) Data",
+    "section": "dplyr::mutate",
+    "text": "dplyr::mutate\nThe dplyr package provides a very versatile function for creating and transforming variables: mutate(), which you can also use to create a new variable that is a constant:\n\ngapminder &lt;- gapminder %&gt;%\n  mutate(constant = 1)\n\nWe can also apply a simple transformation to an existing variable:\n\ngapminder &lt;- gapminder %&gt;%\n  mutate(pop_new = pop / 1000)\n\nOr change the data type of an existing variable:\n\ngapminder &lt;- gapminder %&gt;%\n  mutate(pop_char = as.character(pop))"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#dplyrarrange",
+    "href": "slides/week-03/03-Data.html#dplyrarrange",
+    "title": "Mapping (Tidy) Data",
+    "section": "dplyr::arrange",
+    "text": "dplyr::arrange\narrange() allows us to sort a dataframe according to a variable:\n\ngapminder %&gt;%\n  arrange(desc(gdpPercap)) %&gt;% \n  head(n=5)\n\n# A tibble: 5 × 9\n  country continent  year lifeExp    pop gdpPercap constant pop_new pop_char\n  &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   \n1 Kuwait  Asia       1957    58.0 212846   113523.        1    213. 212846  \n2 Kuwait  Asia       1972    67.7 841934   109348.        1    842. 841934  \n3 Kuwait  Asia       1952    55.6 160000   108382.        1    160  160000  \n4 Kuwait  Asia       1962    60.5 358266    95458.        1    358. 358266  \n5 Kuwait  Asia       1967    64.6 575003    80895.        1    575. 575003"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#dylyr---group_by-summarise",
+    "href": "slides/week-03/03-Data.html#dylyr---group_by-summarise",
+    "title": "Mapping (Tidy) Data",
+    "section": "dylyr - group_by & summarise",
+    "text": "dylyr - group_by & summarise\nFurther, we can (for example) group the data by continent and then return the mean of life expectancy by continent:\n\ngapminder %&gt;%\n  select(continent, lifeExp, year) %&gt;%\n  filter(year==2007) %&gt;%\n  group_by(continent) %&gt;%\n  summarise(mean = mean(lifeExp))\n\n# A tibble: 5 × 2\n  continent  mean\n  &lt;fct&gt;     &lt;dbl&gt;\n1 Africa     54.8\n2 Americas   73.6\n3 Asia       70.7\n4 Europe     77.6\n5 Oceania    80.7"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#exercise-2",
+    "href": "slides/week-03/03-Data.html#exercise-2",
+    "title": "Mapping (Tidy) Data",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nLook for a data set online. (You can always use V-Dem: http://v-dem.net/vdemds.html) and import the data into R.\nRepeat the steps from Exercise 1. You might want to look at the codebook first! (The “V-Dem High-Level Democracy Indices” are probably most interesting )\nFilter the data with multiple conditions (focus on a subset of countries and years, e.g., Germany between 2010 and 2020)\nBonus:Create a new score variable based on existing scores or transform a score with mutate."
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#grammar-of-graphics",
+    "href": "slides/week-03/03-Data.html#grammar-of-graphics",
+    "title": "Mapping (Tidy) Data",
+    "section": "Grammar of graphics",
+    "text": "Grammar of graphics\nIn general:\n\nggplot(data = DATA) +\n  GEOM_FUNCTION(mapping = aes(AESTHETIC MAPPINGS))\n\nFor our Gapminder data:\n\nggplot(data = gapminder) +\n  geom_point(mapping = aes(x = gdpPercap,\n                           y = lifeExp,\n                           color = continent))"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#section",
+    "href": "slides/week-03/03-Data.html#section",
+    "title": "Mapping (Tidy) Data",
+    "section": "",
+    "text": "ggplot(data = gapminder %&gt;% filter(year==2007)) +\n  geom_point(mapping = aes(x = gdpPercap,\n                           y = lifeExp,\n                           color = continent))"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#mapping-data-to-aesthetics",
+    "href": "slides/week-03/03-Data.html#mapping-data-to-aesthetics",
+    "title": "Mapping (Tidy) Data",
+    "section": "Mapping data to aesthetics",
+    "text": "Mapping data to aesthetics\n\nggplot(data = gapminder %&gt;% filter(year==2007)) +\n  geom_point(mapping = aes(x = gdpPercap,\n                           y = lifeExp,\n                           color = continent))\n\n\n\n\nData\nAesthetics - aes()\nGeometry - geom\n\n\n\n\nWealth (GDP per capita)\nx\ngeom_point\n\n\nHealth (Life expectancy)\ny\ngeom_point\n\n\nContinent\ncolor\ngeom_point\n\n\n?\n?\n?"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#health-and-wealth",
+    "href": "slides/week-03/03-Data.html#health-and-wealth",
+    "title": "Mapping (Tidy) Data",
+    "section": "Health and wealth",
+    "text": "Health and wealth\n\nggplot(data = gapminder %&gt;% filter(year==2007)) +\n  geom_point(mapping = aes(x = gdpPercap,\n                           y = lifeExp,\n                           color = continent,\n                           size = pop)) +\n  scale_x_log10()"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#grammatical-layers",
+    "href": "slides/week-03/03-Data.html#grammatical-layers",
+    "title": "Mapping (Tidy) Data",
+    "section": "Grammatical Layers",
+    "text": "Grammatical Layers\n\nFoundationalAdditional"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step",
+    "href": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step",
+    "title": "Mapping (Tidy) Data",
+    "section": "Building a ggplot step-by-step",
+    "text": "Building a ggplot step-by-step\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp,\n  color = continent))\n\nPackages to reproduce the plots:\n\nlibrary(tidyverse)\nlibrary(ggplot2)\nlibrary(gapminder)\nlibrary(viridis)\nlibrary(ggrepel)\nlibrary(gganimate)\nlibrary(xlsx)\nlibrary(haven)\nlibrary(gghighlight)"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-1",
+    "href": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-1",
+    "title": "Mapping (Tidy) Data",
+    "section": "Building a ggplot step-by-step",
+    "text": "Building a ggplot step-by-step\nAdd geom_point()\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp,\n  color = continent)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-2",
+    "href": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-2",
+    "title": "Mapping (Tidy) Data",
+    "section": "Building a ggplot step-by-step",
+    "text": "Building a ggplot step-by-step\nAdd a scale()\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp,\n  color = continent)) +\n  geom_point() +\n  scale_x_log10()"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-3",
+    "href": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-3",
+    "title": "Mapping (Tidy) Data",
+    "section": "Building a ggplot step-by-step",
+    "text": "Building a ggplot step-by-step\nAdd geom_smooth()\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp,\n  color = continent)) +\n  geom_point() +\n  scale_x_log10() +\n  geom_smooth(method = \"lm\")"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-4",
+    "href": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-4",
+    "title": "Mapping (Tidy) Data",
+    "section": "Building a ggplot step-by-step",
+    "text": "Building a ggplot step-by-step\nAdd different color scale\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp,\n  color = continent)) +\n  geom_point() +\n  scale_x_log10() +\n  geom_smooth(method = \"lm\") +\n  scale_color_viridis_d()"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-5",
+    "href": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-5",
+    "title": "Mapping (Tidy) Data",
+    "section": "Building a ggplot step-by-step",
+    "text": "Building a ggplot step-by-step\nUse facets\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp,\n  color = continent)) +\n  geom_point() +\n  scale_x_log10() +\n  geom_smooth(method = \"lm\") +\n  scale_color_viridis_d() +\n  facet_wrap(vars(continent), ncol = 2)"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-6",
+    "href": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-6",
+    "title": "Mapping (Tidy) Data",
+    "section": "Building a ggplot step-by-step",
+    "text": "Building a ggplot step-by-step\nAdd titles, subtitles, etc.\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp,\n  color = continent)) +\n  geom_point() +\n  scale_x_log10() +\n  geom_smooth(method = \"lm\") +\n  scale_color_viridis_d() +\n  facet_wrap(vars(continent), ncol = 2) +\n  labs(x = \"GDP per capita\", y = \"Life expectancy\",\n  color = \"Continent\",\n  title = \"Wealth = Health?\",\n  subtitle = \"gdpPercap/lifeExp\",\n  caption = \"Gapminder dataset\")"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-7",
+    "href": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-7",
+    "title": "Mapping (Tidy) Data",
+    "section": "Building a ggplot step-by-step",
+    "text": "Building a ggplot step-by-step\nAdd a theme\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp,\n  color = continent)) +\n  geom_point() +\n  scale_x_log10() +\n  geom_smooth(method = \"lm\") +\n  scale_color_viridis_d() +\n  facet_wrap(vars(continent), ncol = 2) +\n  labs(x = \"GDP per capita\", y = \"Life expectancy\",\n  color = \"Continent\",\n  title = \"Wealth = Health?\",\n  subtitle = \"gdpPercap/lifeExp\",\n  caption = \"Gapminder dataset\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-8",
+    "href": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-8",
+    "title": "Mapping (Tidy) Data",
+    "section": "Building a ggplot step-by-step",
+    "text": "Building a ggplot step-by-step\nAdd a theme\n\n\n\nggplot(data = gapminder %&gt;% filter(year==2007),\n  aes(x = gdpPercap, y = lifeExp,\n  color = continent)) +\n  geom_point() +\n  scale_x_log10() +\n  geom_smooth(method = \"lm\") +\n  scale_color_viridis_d() +\n  facet_wrap(vars(continent), ncol = 2) +\n  labs(x = \"GDP per capita\", y = \"Life expectancy\",\n  color = \"Continent\",\n  title = \"Wealth = Health?\",\n  subtitle = \"gdpPercap/lifeExp\",\n  caption = \"Gapminder dataset\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-9",
+    "href": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-9",
+    "title": "Mapping (Tidy) Data",
+    "section": "Building a ggplot step-by-step",
+    "text": "Building a ggplot step-by-step\nOther geometries\n\n\n\nggplot(data = filter(gapminder, year %in% c(2007)),\naes(x = lifeExp,\nfill = continent)) +\ngeom_histogram(binwidth = 5,\ncolor = \"grey\") +\nscale_fill_viridis_d() +\nfacet_wrap(vars(continent), ncol = 2) +\nguides(fill = \"none\") +\ntheme_minimal()"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-10",
+    "href": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-10",
+    "title": "Mapping (Tidy) Data",
+    "section": "Building a ggplot step-by-step",
+    "text": "Building a ggplot step-by-step\nOther geometries\n\n\n\ncolors &lt;- c(\"red\", \"orange\", \"yellow\", \"green\", \"blue\")\n\nggplot(data = filter(gapminder, year %in% c(2007)),\n  aes(x = continent,\n  y = lifeExp,\n  fill = continent)) +\n  geom_boxplot(alpha = 0.5) +\n  scale_fill_manual(values = colors) +\n  guides(fill = \"none\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-11",
+    "href": "slides/week-03/03-Data.html#building-a-ggplot-step-by-step-11",
+    "title": "Mapping (Tidy) Data",
+    "section": "Building a ggplot step-by-step",
+    "text": "Building a ggplot step-by-step\nOther geometries\n\n\n\nggplot(gapminder, aes(x = year, y = lifeExp,\n  group = country)) +\n  geom_line(alpha = 0.2, color=\"grey\") +\n  geom_line(data = gapminder %&gt;%\n    filter(country %in% c(\n    \"Germany\",\n    \"India\",\n    \"Rwanda\")),\n    lwd = 1) + # thicker line\n  gghighlight(country %in% c(\"Germany\", \"India\", \"Rwanda\")) +\n  theme_minimal()"
   }
 ]

@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -342,8 +407,1092 @@ David Schweizer
 
   <p class="date">September 21, 2023</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
+<section>
+<section id="plan-for-today" class="title-slide slide level1 center">
+<h1>Plan for today</h1>
+<p>Input &amp; Coding</p>
+<ul>
+<li><p>How to import data</p></li>
+<li><p>Tidy data</p></li>
+<li><p>How to transform data</p></li>
+<li><p><em>Coding I</em></p></li>
+<li><p>Grammar of graphics</p></li>
+<li><p><em>Coding II</em></p></li>
+</ul>
+</section>
+<section id="importing-data" class="slide level2">
+<h2>Importing data</h2>
+<ul>
+<li><p><strong>R:</strong> use <code>load("filename.RData")</code> or <code>readRDS("filename.RDS")</code>.</p></li>
+<li><p><strong>Excel:</strong> e.g., load <code>library("xlsx")</code> and use <code>read.xlsx("filename.xlsx")</code>.</p></li>
+<li><p><strong>Stata:</strong> e.g., load <code>library("haven")</code> and use <code>read_dta("filename.dta")</code>.</p></li>
+</ul>
+<p>Consult the R documentation (e.g.&nbsp;type <code>?read.xlsx</code>) to get an overview about options (e.g.&nbsp;<code>sheetIndex</code> or <code>startRow</code>).</p>
+</section>
+<section id="importing-data-manually" class="slide level2">
+<h2>Importing data manually</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Choose file format</a></li><li><a href="#tabset-1-2">Choose file</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p><img data-src="import1.png" width="875"></p>
+</div>
+<div id="tabset-1-2">
+<p><img data-src="import2.png" width="867"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="built-in-data" class="slide level2">
+<h2>Built-in data</h2>
+<p>There are also many built-in data sets in R. You can have a look at them by using <code>data()</code>.</p>
+
+<img data-src="data.png" width="637" class="r-stretch"></section>
+<section id="gapminder-data" class="slide level2">
+<h2>Gapminder data</h2>
+<p>However, we will use the gapminder data set during this session. Therefore, we have to install the package <code>install.packages("gapminder")</code> first and load it with <code>library("gapminder")</code>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">country</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">continent</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">lifeExp</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">pop</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">gdpPercap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: left;">Asia</td>
+<td style="text-align: right;">2007</td>
+<td style="text-align: right;">43.828</td>
+<td style="text-align: right;">31889923</td>
+<td style="text-align: right;">974.5803</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Albania</td>
+<td style="text-align: left;">Europe</td>
+<td style="text-align: right;">2007</td>
+<td style="text-align: right;">76.423</td>
+<td style="text-align: right;">3600523</td>
+<td style="text-align: right;">5937.0295</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Algeria</td>
+<td style="text-align: left;">Africa</td>
+<td style="text-align: right;">2007</td>
+<td style="text-align: right;">72.301</td>
+<td style="text-align: right;">33333216</td>
+<td style="text-align: right;">6223.3675</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Angola</td>
+<td style="text-align: left;">Africa</td>
+<td style="text-align: right;">2007</td>
+<td style="text-align: right;">42.731</td>
+<td style="text-align: right;">12420476</td>
+<td style="text-align: right;">4797.2313</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="transform-data" class="slide level2">
+<h2>Transform data</h2>
+<p>“Getting the data into shape” for exploration and analysis.</p>
+<p>Common steps for data transformation include:</p>
+<ul>
+<li><p><strong>renaming</strong> variables</p></li>
+<li><p><strong>selecting</strong> a subset of variables</p></li>
+<li><p><strong>filtering</strong> a subset of cases</p></li>
+<li><p><strong>recoding</strong> variables or values (also missing values)</p></li>
+<li><p><strong>creating</strong> new variables</p></li>
+</ul>
+<p><em>80%</em> of your time goes into data transformation and <em>20%</em> into analysis</p>
+</section>
+<section id="tidyverse" class="slide level2">
+<h2>Tidyverse</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>The tidyverse is a collection of R packages designed for data science. All packages share an underlying <strong>design philosophy, grammar, and data structures</strong> (<a href="https://www.tidyverse.org/"><em>Tidyverse website</em></a>).</p>
+<p>It is a coherent system of packages for data manipulation, exploration and visualization that share a common design philosophy (<a href="https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/"><em>Rickert, 2017</em></a>).</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="tidyverse.png" width="357"></p>
+</div>
+</div>
+</section>
+<section id="tidyverse---benefits" class="slide level2">
+<h2>Tidyverse - Benefits</h2>
+<p>Data transformation with base R is possible, <strong>but</strong> not as intuitive and more verbose.</p>
+<ul>
+<li>More difficult to learn, remember and read</li>
+</ul>
+<p>Tidyverse syntax is designed to increase <em>human-readability</em>.</p>
+<ul>
+<li>Attractive for R beginners as it can facilitate the experience of self-efficacy (see <a href="http://varianceexplained.org/r/teach-tidyverse/"><em>Robinson, 2017</em></a>)</li>
+</ul>
+<!-- -->
+<ul>
+<li>The tidyverse also aims for consistency (e.g., data frame as first argument and output)</li>
+</ul>
+</section>
+<section id="tidyverse---caution" class="slide level2">
+<h2>Tidyverse - Caution</h2>
+<p>Often, tidyverse functions are under development:</p>
+<ul>
+<li><p>They change and can potentially break your code</p></li>
+<li><p>Example: Converting tables into long or wide format</p></li>
+</ul>
+<p>You can learn more about the tidyverse lifecycle in <a href="https://www.youtube.com/watch?v=izFssYRsLZs"><em>this talk</em></a> by Hadley Wickham.</p>
+</section>
+<section id="tidyverse-1" class="slide level2">
+<h2>Tidyverse</h2>
+<p><strong>Install all tidyverse packages at once</strong> (for the full list of tidyverse packages see https://www.tidyverse.org/packages/)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><strong>Load core tidyverse packages</strong> To save time and reduce namespace conflicts you can also load tidyverse packages individually (e.g., dplyr, ggplot)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tidyverse-concepts" class="slide level2">
+<h2>Tidyverse: Concepts</h2>
+<p>There is much more to the tidyverse, but two important concepts that you should be familiar with, if you want to use it, are:</p>
+<ul>
+<li><p><strong>Tidy data</strong></p></li>
+<li><p><strong>Pipes</strong></p></li>
+</ul>
+</section>
+<section id="tidy-data" class="slide level2">
+<h2>Tidy data</h2>
+<p>The data should be in a so-called “tidy” format for ggplot and the tidyverse’s packages in general. Tidy refers to the <strong>structure of the data</strong>.</p>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Variables</a></li><li><a href="#tabset-2-2">Observations</a></li><li><a href="#tabset-2-3">Values</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<p>Each variable has its own column.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://r4ds.had.co.nz/tidy-data.html"><img data-src="tidy11.png"></a></p>
+</figure>
+</div>
+</div>
+<div id="tabset-2-2">
+<p>Each observation has its own row.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://r4ds.had.co.nz/tidy-data.html"><img data-src="tidy12.png"></a></p>
+</figure>
+</div>
+</div>
+<div id="tabset-2-3">
+<p>Each value has its own cell.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://r4ds.had.co.nz/tidy-data.html"><img data-src="tidy13.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="wide-vs.-long" class="slide level2">
+<h2>Wide vs.&nbsp;Long</h2>
+
+<img data-src="tidyr-pivoting.gif" class="r-stretch quarto-figure-center"></section>
+<section id="example-untidy-data" class="slide level2">
+<h2>Example: Untidy data</h2>
+<p>Untidy V-Dem data</p>
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Country</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">iso3c</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">COWcode</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Electoral</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Liberal</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Participatory</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Deliberative</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Egalitarian</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mexico</td>
+<td style="text-align: left;">MEX</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">1789</td>
+<td style="text-align: right;">0.026</td>
+<td style="text-align: right;">0.041</td>
+<td style="text-align: right;">0.007</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mexico</td>
+<td style="text-align: left;">MEX</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">1790</td>
+<td style="text-align: right;">0.026</td>
+<td style="text-align: right;">0.041</td>
+<td style="text-align: right;">0.007</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mexico</td>
+<td style="text-align: left;">MEX</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">1791</td>
+<td style="text-align: right;">0.026</td>
+<td style="text-align: right;">0.041</td>
+<td style="text-align: right;">0.007</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mexico</td>
+<td style="text-align: left;">MEX</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">1792</td>
+<td style="text-align: right;">0.026</td>
+<td style="text-align: right;">0.041</td>
+<td style="text-align: right;">0.007</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mexico</td>
+<td style="text-align: left;">MEX</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">1793</td>
+<td style="text-align: right;">0.026</td>
+<td style="text-align: right;">0.041</td>
+<td style="text-align: right;">0.007</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="example-tidy-data" class="slide level2">
+<h2>Example: Tidy data</h2>
+<p>Tidy version of the V-Dem data</p>
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Country</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">iso3c</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">COWcode</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Year</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Dimension</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mexico</td>
+<td style="text-align: left;">MEX</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">1789</td>
+<td style="text-align: left;">Electoral</td>
+<td style="text-align: right;">0.026</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mexico</td>
+<td style="text-align: left;">MEX</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">1790</td>
+<td style="text-align: left;">Electoral</td>
+<td style="text-align: right;">0.026</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mexico</td>
+<td style="text-align: left;">MEX</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">1791</td>
+<td style="text-align: left;">Electoral</td>
+<td style="text-align: right;">0.026</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mexico</td>
+<td style="text-align: left;">MEX</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">1792</td>
+<td style="text-align: left;">Electoral</td>
+<td style="text-align: right;">0.026</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mexico</td>
+<td style="text-align: left;">MEX</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">1793</td>
+<td style="text-align: left;">Electoral</td>
+<td style="text-align: right;">0.026</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section></section>
+<section>
+<section id="pipes" class="title-slide slide level1 center">
+<h1>Pipes</h1>
+<p>Usually, in R we apply functions as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">f</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In the logic of pipes this function is written as:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>x <span class="sc">%&gt;%</span> <span class="fu">f</span>(.)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here, object x is <em>piped</em> into function f, becoming (by default) its first argument. We can use pipes with more than one function, too:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>x <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">f_1</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">f_2</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">f_3</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="pipes-1" class="slide level2">
+<h2>Pipes</h2>
+<p>The %&gt;% pipe used in the tidyverse is part of the <a href="https://magrittr.tidyverse.org/"><em>magrittr package</em></a> which also includes other specialized types of pipes.</p>
+<ul>
+<li><p>RStudio offers a keyboard shortcut for inserting the %&gt;% pipe: <em>Ctrl + Shift + M (Windows &amp; Linux)/Cmd + Shift + M (Mac)</em></p></li>
+<li><p>Since version 4.1.0, base R also offers its own pipe <em>|&gt;</em>, which is similar to but not the same as the %&gt;% pipe</p></li>
+</ul>
+</section>
+<section id="citing-free-and-open-source-software" class="slide level2">
+<h2>Citing free and open-source software</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">citation</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+To cite R in publications use:
+
+  R Core Team (2022). R: A language and environment for statistical
+  computing. R Foundation for Statistical Computing, Vienna, Austria.
+  URL https://www.R-project.org/.
+
+Ein BibTeX-Eintrag für LaTeX-Benutzer ist
+
+  @Manual{,
+    title = {R: A Language and Environment for Statistical Computing},
+    author = {{R Core Team}},
+    organization = {R Foundation for Statistical Computing},
+    address = {Vienna, Austria},
+    year = {2022},
+    url = {https://www.R-project.org/},
+  }
+
+We have invested a lot of time and effort in creating R, please cite it
+when using it for data analysis. See also 'citation("pkgname")' for
+citing R packages.</code></pre>
+</div>
+</div>
+</section>
+<section id="back-to-gapminder-tidyverse" class="slide level2">
+<h2>Back to Gapminder &amp; tidyverse</h2>
+<p>The tidyverse examples in the following will make use of functions from the dplyr package:</p>
+<ul>
+<li>dplyr functions are verbs that signal an action</li>
+<li>first argument is always the a data frame</li>
+<li>the output is also (normally) a data frame (tibble)</li>
+<li>columns (= variables in a tidy data frame) can be referenced without quotation marks (non-standard evaluation)</li>
+<li>actions (verbs) can be applied to columns (variables) and rows (cases/observations)</li>
+</ul>
+</section>
+<section id="dplyrglimpse" class="slide level2">
+<h2>dplyr::glimpse</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="columns">
+<p><em>glimpse()</em>: gives a first informative look at the data (especially helpful when working with data sets that contain many columns/variables).</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,704
+Columns: 6
+$ country   &lt;fct&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan", …
+$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …
+$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, …
+$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…
+$ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12…
+$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, …</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dplyrselect" class="slide level2">
+<h2>dplyr::select</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><code>select()</code>: select variables to reduce or create a new dataframe to only include a subset of specific variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>gapminder_pop <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">select</span>(country, </span>
+<span id="cb10-3"><a href="#cb10-3"></a>         year, </span>
+<span id="cb10-4"><a href="#cb10-4"></a>         pop) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 3
+   country      year      pop
+   &lt;fct&gt;       &lt;int&gt;    &lt;int&gt;
+ 1 Afghanistan  1952  8425333
+ 2 Afghanistan  1957  9240934
+ 3 Afghanistan  1962 10267083
+ 4 Afghanistan  1967 11537966
+ 5 Afghanistan  1972 13079460
+ 6 Afghanistan  1977 14880372
+ 7 Afghanistan  1982 12881816
+ 8 Afghanistan  1987 13867957
+ 9 Afghanistan  1992 16317921
+10 Afghanistan  1997 22227415
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dplyr-select---range-of-variables" class="slide level2">
+<h2>dplyr:: select - Range of variables</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>gapminder_lifeExp_1 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">select</span>(country<span class="sc">:</span> lifeExp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 4
+   country     continent  year lifeExp
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8
+ 2 Afghanistan Asia       1957    30.3
+ 3 Afghanistan Asia       1962    32.0
+ 4 Afghanistan Asia       1967    34.0
+ 5 Afghanistan Asia       1972    36.1
+ 6 Afghanistan Asia       1977    38.4
+ 7 Afghanistan Asia       1982    39.9
+ 8 Afghanistan Asia       1987    40.8
+ 9 Afghanistan Asia       1992    41.7
+10 Afghanistan Asia       1997    41.8
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>gapminder_lifeExp_2 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 4
+   country     continent  year lifeExp
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8
+ 2 Afghanistan Asia       1957    30.3
+ 3 Afghanistan Asia       1962    32.0
+ 4 Afghanistan Asia       1967    34.0
+ 5 Afghanistan Asia       1972    36.1
+ 6 Afghanistan Asia       1977    38.4
+ 7 Afghanistan Asia       1982    39.9
+ 8 Afghanistan Asia       1987    40.8
+ 9 Afghanistan Asia       1992    41.7
+10 Afghanistan Asia       1997    41.8
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dplyr-select---unselect-variables" class="slide level2">
+<h2>dplyr:: select - Unselect variables</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(continent, lifeExp, gdpPercap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 3
+   country      year      pop
+   &lt;fct&gt;       &lt;int&gt;    &lt;int&gt;
+ 1 Afghanistan  1952  8425333
+ 2 Afghanistan  1957  9240934
+ 3 Afghanistan  1962 10267083
+ 4 Afghanistan  1967 11537966
+ 5 Afghanistan  1972 13079460
+ 6 Afghanistan  1977 14880372
+ 7 Afghanistan  1982 12881816
+ 8 Afghanistan  1987 13867957
+ 9 Afghanistan  1992 16317921
+10 Afghanistan  1997 22227415
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="dplyrrename" class="slide level2">
+<h2><strong>dplyr::rename</strong></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>gapminder_new <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">rename</span>(<span class="at">Country =</span> country, </span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="co"># new_name = old_name</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="at">Continent =</span> continent)</span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="fu">names</span>(gapminder_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Country"   "Continent" "year"      "lifeExp"   "pop"       "gdpPercap"</code></pre>
+</div>
+</div>
+</section>
+<section id="dplyr---select-and-rename-in-one-step" class="slide level2">
+<h2>dplyr - select and rename in one step</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>gapminder_new <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">select</span>(<span class="at">Country =</span> country, </span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="at">Continent =</span> continent,</span>
+<span id="cb20-4"><a href="#cb20-4"></a>  <span class="at">Year =</span> year,</span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="at">LifeExp =</span> lifeExp,</span>
+<span id="cb20-6"><a href="#cb20-6"></a>  <span class="at">Population =</span> pop)</span>
+<span id="cb20-7"><a href="#cb20-7"></a><span class="fu">names</span>(gapminder_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Country"    "Continent"  "Year"       "LifeExp"    "Population"</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-1" class="slide level2">
+<h2>Exercise 1</h2>
+<ul>
+<li><p>Import the Gapminder data into R</p></li>
+<li><p>Take a look at the data with the glimpse or header function</p></li>
+<li><p>Select a subset of the data</p></li>
+<li><p>Rename the columns</p></li>
+<li><p>Bonus: Select and rename in one step</p></li>
+</ul>
+</section>
+<section id="dplyrfilter" class="slide level2">
+<h2>dplyr::filter</h2>
+<p>The&nbsp;<em>dplyr</em>&nbsp;solution for filtering rows/observations is&nbsp;<code>filter()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>gapminder_germany <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can also filter based on multiple conditions (by default: logical AND):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>gapminder_germany <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span>, year <span class="sc">&gt;</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Logical OR:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>gapminder_germany <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Germany"</span><span class="sc">|</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a>              year <span class="sc">&gt;</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dplyrmutate" class="slide level2">
+<h2>dplyr::mutate</h2>
+<p>The dplyr package provides a very versatile function for creating and transforming variables: mutate(), which you can also use to create a new variable that is a constant:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>gapminder <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">mutate</span>(<span class="at">constant =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can also apply a simple transformation to an existing variable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>gapminder <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">mutate</span>(<span class="at">pop_new =</span> pop <span class="sc">/</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Or change the data type of an existing variable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>gapminder <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">mutate</span>(<span class="at">pop_char =</span> <span class="fu">as.character</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dplyrarrange" class="slide level2">
+<h2>dplyr::arrange</h2>
+<p>arrange() allows us to sort a dataframe according to a variable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(gdpPercap)) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 9
+  country continent  year lifeExp    pop gdpPercap constant pop_new pop_char
+  &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   
+1 Kuwait  Asia       1957    58.0 212846   113523.        1    213. 212846  
+2 Kuwait  Asia       1972    67.7 841934   109348.        1    842. 841934  
+3 Kuwait  Asia       1952    55.6 160000   108382.        1    160  160000  
+4 Kuwait  Asia       1962    60.5 358266    95458.        1    358. 358266  
+5 Kuwait  Asia       1967    64.6 575003    80895.        1    575. 575003  </code></pre>
+</div>
+</div>
+</section>
+<section id="dylyr---group_by-summarise" class="slide level2">
+<h2>dylyr - group_by &amp; summarise</h2>
+<p>Further, we can (for example) group the data by continent and then return the mean of life expectancy by continent:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">select</span>(continent, lifeExp, year) <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>  <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb30-5"><a href="#cb30-5"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(lifeExp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  continent  mean
+  &lt;fct&gt;     &lt;dbl&gt;
+1 Africa     54.8
+2 Americas   73.6
+3 Asia       70.7
+4 Europe     77.6
+5 Oceania    80.7</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-2" class="slide level2">
+<h2>Exercise 2</h2>
+<ul>
+<li><p>Look for a data set online. (You can always use V-Dem: <a href="http://v-dem.net/vdemds.html" class="uri">http://v-dem.net/vdemds.html</a>) and import the data into R.</p></li>
+<li><p>Repeat the steps from Exercise 1. You might want to look at the <strong>codebook first</strong>! (The “V-Dem High-Level Democracy Indices” are probably most interesting )</p></li>
+<li><p>Filter the data with multiple conditions (focus on a subset of countries and years, e.g., Germany between 2010 and 2020)</p></li>
+<li><p>Bonus:Create a new score variable based on existing scores or transform a score with <code>mutate</code>.</p></li>
+</ul>
+</section>
+<section id="grammar-of-graphics" class="slide level2">
+<h2>Grammar of graphics</h2>
+<p>In general:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> DATA) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">GEOM_FUNCTION</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(AESTHETIC MAPPINGS))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For our Gapminder data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder) <span class="sc">+</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap,</span>
+<span id="cb33-3"><a href="#cb33-3"></a>                           <span class="at">y =</span> lifeExp,</span>
+<span id="cb33-4"><a href="#cb33-4"></a>                           <span class="at">color =</span> continent))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mapping-data-to-aesthetics" class="slide level2">
+<h2>Mapping data to aesthetics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>)) <span class="sc">+</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap,</span>
+<span id="cb34-3"><a href="#cb34-3"></a>                           <span class="at">y =</span> lifeExp,</span>
+<span id="cb34-4"><a href="#cb34-4"></a>                           <span class="at">color =</span> continent))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>Aesthetics - aes()</th>
+<th>Geometry - geom</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Wealth (GDP per capita)</td>
+<td>x</td>
+<td>geom_point</td>
+</tr>
+<tr class="even">
+<td>Health (Life expectancy)</td>
+<td>y</td>
+<td>geom_point</td>
+</tr>
+<tr class="odd">
+<td>Continent</td>
+<td>color</td>
+<td>geom_point</td>
+</tr>
+<tr class="even">
+<td>?</td>
+<td>?</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="health-and-wealth" class="slide level2">
+<h2>Health and wealth</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>)) <span class="sc">+</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap,</span>
+<span id="cb35-3"><a href="#cb35-3"></a>                           <span class="at">y =</span> lifeExp,</span>
+<span id="cb35-4"><a href="#cb35-4"></a>                           <span class="at">color =</span> continent,</span>
+<span id="cb35-5"><a href="#cb35-5"></a>                           <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a>  <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="03-Data_files/figure-revealjs/unnamed-chunk-33-1.png" width="960" class="r-stretch"></section>
+<section id="grammatical-layers" class="slide level2">
+<h2>Grammatical Layers</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Foundational</a></li><li><a href="#tabset-3-2">Additional</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<p><img data-src="ggplot-layers-short@4x.png"></p>
+</div>
+<div id="tabset-3-2">
+<p><img data-src="ggplot-layers@4x.png"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-ggplot-step-by-step" class="slide level2">
+<h2>Building a ggplot step-by-step</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
+<span id="cb36-3"><a href="#cb36-3"></a>  <span class="at">color =</span> continent))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Packages to reproduce the plots:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb37-3"><a href="#cb37-3"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb37-4"><a href="#cb37-4"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb37-5"><a href="#cb37-5"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb37-6"><a href="#cb37-6"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb37-7"><a href="#cb37-7"></a><span class="fu">library</span>(xlsx)</span>
+<span id="cb37-8"><a href="#cb37-8"></a><span class="fu">library</span>(haven)</span>
+<span id="cb37-9"><a href="#cb37-9"></a><span class="fu">library</span>(gghighlight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03-Data_files/figure-revealjs/unnamed-chunk-36-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-ggplot-step-by-step-1" class="slide level2">
+<h2>Building a ggplot step-by-step</h2>
+<p>Add geom_point()</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
+<span id="cb38-3"><a href="#cb38-3"></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03-Data_files/figure-revealjs/unnamed-chunk-38-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-ggplot-step-by-step-2" class="slide level2">
+<h2>Building a ggplot step-by-step</h2>
+<p>Add a scale()</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
+<span id="cb39-3"><a href="#cb39-3"></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb39-4"><a href="#cb39-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb39-5"><a href="#cb39-5"></a>  <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03-Data_files/figure-revealjs/unnamed-chunk-40-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-ggplot-step-by-step-3" class="slide level2">
+<h2>Building a ggplot step-by-step</h2>
+<p>Add geom_smooth()</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
+<span id="cb40-3"><a href="#cb40-3"></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb40-5"><a href="#cb40-5"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb40-6"><a href="#cb40-6"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03-Data_files/figure-revealjs/unnamed-chunk-42-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-ggplot-step-by-step-4" class="slide level2">
+<h2>Building a ggplot step-by-step</h2>
+<p>Add different color scale</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
+<span id="cb41-3"><a href="#cb41-3"></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb41-6"><a href="#cb41-6"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb41-7"><a href="#cb41-7"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03-Data_files/figure-revealjs/unnamed-chunk-44-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-ggplot-step-by-step-5" class="slide level2">
+<h2>Building a ggplot step-by-step</h2>
+<p>Use facets</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
+<span id="cb42-3"><a href="#cb42-3"></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb42-4"><a href="#cb42-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb42-5"><a href="#cb42-5"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb42-6"><a href="#cb42-6"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb42-7"><a href="#cb42-7"></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb42-8"><a href="#cb42-8"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03-Data_files/figure-revealjs/unnamed-chunk-46-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-ggplot-step-by-step-6" class="slide level2">
+<h2>Building a ggplot step-by-step</h2>
+<p>Add titles, subtitles, etc.</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
+<span id="cb43-3"><a href="#cb43-3"></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb43-5"><a href="#cb43-5"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb43-6"><a href="#cb43-6"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb43-7"><a href="#cb43-7"></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb43-8"><a href="#cb43-8"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb43-9"><a href="#cb43-9"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"GDP per capita"</span>, <span class="at">y =</span> <span class="st">"Life expectancy"</span>,</span>
+<span id="cb43-10"><a href="#cb43-10"></a>  <span class="at">color =</span> <span class="st">"Continent"</span>,</span>
+<span id="cb43-11"><a href="#cb43-11"></a>  <span class="at">title =</span> <span class="st">"Wealth = Health?"</span>,</span>
+<span id="cb43-12"><a href="#cb43-12"></a>  <span class="at">subtitle =</span> <span class="st">"gdpPercap/lifeExp"</span>,</span>
+<span id="cb43-13"><a href="#cb43-13"></a>  <span class="at">caption =</span> <span class="st">"Gapminder dataset"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03-Data_files/figure-revealjs/unnamed-chunk-48-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-ggplot-step-by-step-7" class="slide level2">
+<h2>Building a ggplot step-by-step</h2>
+<p>Add a theme</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
+<span id="cb44-3"><a href="#cb44-3"></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb44-6"><a href="#cb44-6"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb44-7"><a href="#cb44-7"></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb44-8"><a href="#cb44-8"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb44-9"><a href="#cb44-9"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"GDP per capita"</span>, <span class="at">y =</span> <span class="st">"Life expectancy"</span>,</span>
+<span id="cb44-10"><a href="#cb44-10"></a>  <span class="at">color =</span> <span class="st">"Continent"</span>,</span>
+<span id="cb44-11"><a href="#cb44-11"></a>  <span class="at">title =</span> <span class="st">"Wealth = Health?"</span>,</span>
+<span id="cb44-12"><a href="#cb44-12"></a>  <span class="at">subtitle =</span> <span class="st">"gdpPercap/lifeExp"</span>,</span>
+<span id="cb44-13"><a href="#cb44-13"></a>  <span class="at">caption =</span> <span class="st">"Gapminder dataset"</span>) <span class="sc">+</span></span>
+<span id="cb44-14"><a href="#cb44-14"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03-Data_files/figure-revealjs/unnamed-chunk-50-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-ggplot-step-by-step-8" class="slide level2">
+<h2>Building a ggplot step-by-step</h2>
+<p>Add a theme</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>),</span>
+<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp,</span>
+<span id="cb45-3"><a href="#cb45-3"></a>  <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb45-4"><a href="#cb45-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb45-6"><a href="#cb45-6"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb45-7"><a href="#cb45-7"></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb45-8"><a href="#cb45-8"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb45-9"><a href="#cb45-9"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"GDP per capita"</span>, <span class="at">y =</span> <span class="st">"Life expectancy"</span>,</span>
+<span id="cb45-10"><a href="#cb45-10"></a>  <span class="at">color =</span> <span class="st">"Continent"</span>,</span>
+<span id="cb45-11"><a href="#cb45-11"></a>  <span class="at">title =</span> <span class="st">"Wealth = Health?"</span>,</span>
+<span id="cb45-12"><a href="#cb45-12"></a>  <span class="at">subtitle =</span> <span class="st">"gdpPercap/lifeExp"</span>,</span>
+<span id="cb45-13"><a href="#cb45-13"></a>  <span class="at">caption =</span> <span class="st">"Gapminder dataset"</span>) <span class="sc">+</span></span>
+<span id="cb45-14"><a href="#cb45-14"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03-Data_files/figure-revealjs/unnamed-chunk-52-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-ggplot-step-by-step-9" class="slide level2">
+<h2>Building a ggplot step-by-step</h2>
+<p>Other geometries</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">filter</span>(gapminder, year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2007</span>)),</span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">aes</span>(<span class="at">x =</span> lifeExp,</span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="at">fill =</span> continent)) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a><span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>,</span>
+<span id="cb46-5"><a href="#cb46-5"></a><span class="at">color =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb46-6"><a href="#cb46-6"></a><span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb46-7"><a href="#cb46-7"></a><span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb46-8"><a href="#cb46-8"></a><span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb46-9"><a href="#cb46-9"></a><span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03-Data_files/figure-revealjs/unnamed-chunk-54-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-ggplot-step-by-step-10" class="slide level2">
+<h2>Building a ggplot step-by-step</h2>
+<p>Other geometries</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>)</span>
+<span id="cb47-2"><a href="#cb47-2"></a></span>
+<span id="cb47-3"><a href="#cb47-3"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">filter</span>(gapminder, year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2007</span>)),</span>
+<span id="cb47-4"><a href="#cb47-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> continent,</span>
+<span id="cb47-5"><a href="#cb47-5"></a>  <span class="at">y =</span> lifeExp,</span>
+<span id="cb47-6"><a href="#cb47-6"></a>  <span class="at">fill =</span> continent)) <span class="sc">+</span></span>
+<span id="cb47-7"><a href="#cb47-7"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb47-8"><a href="#cb47-8"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> colors) <span class="sc">+</span></span>
+<span id="cb47-9"><a href="#cb47-9"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb47-10"><a href="#cb47-10"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03-Data_files/figure-revealjs/unnamed-chunk-56-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-ggplot-step-by-step-11" class="slide level2">
+<h2>Building a ggplot step-by-step</h2>
+<p>Other geometries</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> lifeExp,</span>
+<span id="cb48-2"><a href="#cb48-2"></a>  <span class="at">group =</span> country)) <span class="sc">+</span></span>
+<span id="cb48-3"><a href="#cb48-3"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">color=</span><span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb48-4"><a href="#cb48-4"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb48-5"><a href="#cb48-5"></a>    <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb48-6"><a href="#cb48-6"></a>    <span class="st">"Germany"</span>,</span>
+<span id="cb48-7"><a href="#cb48-7"></a>    <span class="st">"India"</span>,</span>
+<span id="cb48-8"><a href="#cb48-8"></a>    <span class="st">"Rwanda"</span>)),</span>
+<span id="cb48-9"><a href="#cb48-9"></a>    <span class="at">lwd =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="co"># thicker line</span></span>
+<span id="cb48-10"><a href="#cb48-10"></a>  <span class="fu">gghighlight</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Germany"</span>, <span class="st">"India"</span>, <span class="st">"Rwanda"</span>)) <span class="sc">+</span></span>
+<span id="cb48-11"><a href="#cb48-11"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03-Data_files/figure-revealjs/unnamed-chunk-58-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section id="your-turn" class="title-slide slide level1 center">
+<h1>Your turn!</h1>
 
 <div class="footer footer-default">
 <p>Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim</p>
@@ -560,6 +1709,44 @@ David Schweizer
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

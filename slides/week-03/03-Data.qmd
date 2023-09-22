@@ -13,4 +13,969 @@ format:
 editor: visual
 ---
 
-# TBA
+```{r packages, include=FALSE}
+pacman::p_load(
+  "tidyverse",
+  "ggplot2",
+  "gapminder",
+  "viridis",
+  "ggrepel",
+  "gganimate",
+  "xlsx",
+  "haven",
+  "gghighlight",
+  "knitr"
+)
+```
+
+# Plan for today
+
+Input & Coding
+
+-   How to import data
+
+-   Tidy data
+
+-   How to transform data
+
+-   *Coding I*
+
+-   Grammar of graphics
+
+-   *Coding II*
+
+## Importing data
+
+-   **R:** use `load("filename.RData")` or `readRDS("filename.RDS")`.
+
+-   **Excel:** e.g., load `library("xlsx")` and use `read.xlsx("filename.xlsx")`.
+
+-   **Stata:** e.g., load `library("haven")` and use `read_dta("filename.dta")`.
+
+Consult the R documentation (e.g. type `?read.xlsx`) to get an overview about options (e.g. `sheetIndex` or `startRow`).
+
+## Importing data manually
+
+::: panel-tabset
+## Choose file format
+
+![](import1.png){width="875"}
+
+## Choose file
+
+![](import2.png){width="867"}
+:::
+
+## Built-in data
+
+There are also many built-in data sets in R. You can have a look at them by using `data()`.
+
+![](data.png){width="637"}
+
+## Gapminder data
+
+However, we will use the gapminder data set during this session. Therefore, we have to install the package `install.packages("gapminder")` first and load it with `library("gapminder")`.
+
+```{r, echo=FALSE, out.width = "30%"}
+knitr::kable(head(gapminder %>% filter(year==2007),n = 4L), format = 'html')
+```
+
+## Transform data
+
+"Getting the data into shape" for exploration and analysis.
+
+Common steps for data transformation include:
+
+-   **renaming** variables
+
+-   **selecting** a subset of variables
+
+-   **filtering** a subset of cases
+
+-   **recoding** variables or values (also missing values)
+
+-   **creating** new variables
+
+*80%* of your time goes into data transformation and *20%* into analysis
+
+## Tidyverse
+
+::: columns
+::: {.column width="70%"}
+The tidyverse is a collection of R packages designed for data science. All packages share an underlying **design philosophy, grammar, and data structures** ([*Tidyverse website*](https://www.tidyverse.org/)).
+
+It is a coherent system of packages for data manipulation, exploration and visualization that share a common design philosophy ([*Rickert, 2017*](https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/)).
+:::
+
+::: {.column width="30%"}
+![](tidyverse.png){width="357"}
+:::
+:::
+
+## Tidyverse - Benefits
+
+Data transformation with base R is possible, **but** not as intuitive and more verbose.
+
+-   More difficult to learn, remember and read
+
+Tidyverse syntax is designed to increase *human-readability*.
+
+-   Attractive for R beginners as it can facilitate the experience of self-efficacy (see [*Robinson, 2017*](http://varianceexplained.org/r/teach-tidyverse/))
+
+<!-- -->
+
+-   The tidyverse also aims for consistency (e.g., data frame as first argument and output)
+
+## Tidyverse - Caution
+
+Often, tidyverse functions are under development:
+
+-   They change and can potentially break your code
+
+-   Example: Converting tables into long or wide format
+
+You can learn more about the tidyverse lifecycle in [*this talk*](https://www.youtube.com/watch?v=izFssYRsLZs) by Hadley Wickham.
+
+## Tidyverse
+
+**Install all tidyverse packages at once** (for the full list of tidyverse packages see https://www.tidyverse.org/packages/)
+
+```{r, echo = TRUE, eval = FALSE}
+install.packages("tidyverse")
+```
+
+<br>
+
+**Load core tidyverse packages** To save time and reduce namespace conflicts you can also load tidyverse packages individually (e.g., dplyr, ggplot)
+
+```{r, echo=TRUE, eval=FALSE}
+library("tidyverse")
+```
+
+## Tidyverse: Concepts
+
+There is much more to the tidyverse, but two important concepts that you should be familiar with, if you want to use it, are:
+
+-   **Tidy data**
+
+-   **Pipes**
+
+## Tidy data
+
+The data should be in a so-called "tidy" format for ggplot and the tidyverse's packages in general. Tidy refers to the **structure of the data**.
+
+::: panel-tabset
+## Variables
+
+Each variable has its own column.
+
+[![](tidy11.png)](https://r4ds.had.co.nz/tidy-data.html)
+
+## Observations
+
+Each observation has its own row.
+
+[![](tidy12.png)](https://r4ds.had.co.nz/tidy-data.html)
+
+## Values
+
+Each value has its own cell.
+
+[![](tidy13.png)](https://r4ds.had.co.nz/tidy-data.html)
+:::
+
+## Wide vs. Long
+
+[![](tidyr-pivoting.gif)](https://www.garrickadenbuie.com/project/tidyexplain/)
+
+## Example: Untidy data
+
+Untidy V-Dem data
+
+```{r, include=FALSE}
+# define "file" as path of file
+file <- "vdem_select.csv"
+
+# read in "file", "," as seperator (csv).
+vdem.select <- read.table(file, sep = ",", header = TRUE, encoding = "UTF-8")
+
+# vdem.select <- slice_head(vdem.select, n = 2000)
+
+# select the main dimensions of interest: see quickstart guide: 
+# https://www.v-dem.net/files/25/quickstartguide.pdf
+# - Electoral democracy index (D) (v2x_polyarchy)
+# - Liberal democracy index (D) (v2x_libdem)
+# - Participatory democracy index (D) (v2x_partipdem)
+# - Deliberative democracy index (D) (v2x_delibdem)
+# - Egalitarian democracy index (D) (v2x_egaldem)
+
+# vdem.select <- V_Dem_CY_Core_v11_1 %>%
+#   # we select "country_name" and rename it to "Country" / "country_text_id" and rename it to "iso3c" / "COWcode" / "year" and rename it to "Year" / and select the main dimensions of interest (see above) and renamee them accordingly
+#   select(Country = country_name, iso3c = country_text_id, COWcode,
+#          Year = year,
+#          Electoral = v2x_polyarchy,
+#          Liberal = v2x_libdem,
+#          Participatory = v2x_partipdem,
+#          Deliberative = v2x_delibdem,
+#          Egalitarian = v2x_egaldem) %>%
+#   # tibble (data structure) %>%
+#   filter(Country == "Mexico") %>% 
+#   as_tibble()
+# # 
+#  write.csv(vdem.select, file="vdem_select.csv")
+```
+
+```{r, echo=FALSE, out.width = "10%"}
+knitr::kable(head(vdem.select %>% select(-X), n = 5L), format = 'html')
+```
+
+## Example: Tidy data
+
+Tidy version of the V-Dem data
+
+```{r,include=FALSE}
+# manipulate data, that we can plot it with ggplot:
+# Therefore, the scores should not be in different columns.
+
+# we use gather. Dimension takes the names of all columns as values not excluded by -. Therefore it takes names of the vdem dimensions. The score column takes the respective actual values of the vdem dimensions.  
+vdem <- vdem.select %>%
+  select(-X) %>% 
+  gather(Dimension, score, -Country, -iso3c, -COWcode, -Year)
+```
+
+```{r, echo=FALSE, out.width = "10%"}
+knitr::kable(head(vdem, n = 5L), format = 'html')
+```
+
+# Pipes
+
+Usually, in R we apply functions as follows:
+
+```{r, echo=TRUE, eval=FALSE}
+f(x)
+```
+
+In the logic of pipes this function is written as:
+
+```{r, echo=TRUE, eval=FALSE}
+x %>% f(.)
+```
+
+Here, object x is *piped* into function f, becoming (by default) its first argument. We can use pipes with more than one function, too:
+
+```{r, echo=TRUE, eval=FALSE}
+x %>% 
+  f_1() %>% 
+  f_2() %>% 
+  f_3()
+```
+
+## Pipes
+
+The %\>% pipe used in the tidyverse is part of the [*magrittr package*](https://magrittr.tidyverse.org/) which also includes other specialized types of pipes.
+
+-   RStudio offers a keyboard shortcut for inserting the %\>% pipe: *Ctrl + Shift + M (Windows & Linux)/Cmd + Shift + M (Mac)*
+
+-   Since version 4.1.0, base R also offers its own pipe *\|\>*, which is similar to but not the same as the %\>% pipe
+
+## Citing free and open-source software
+
+```{r, echo = TRUE}
+citation()
+```
+
+## Back to Gapminder & tidyverse
+
+The tidyverse examples in the following will make use of functions from the dplyr package:
+
+-   dplyr functions are verbs that signal an action
+-   first argument is always the a data frame
+-   the output is also (normally) a data frame (tibble)
+-   columns (= variables in a tidy data frame) can be referenced without quotation marks (non-standard evaluation)
+-   actions (verbs) can be applied to columns (variables) and rows (cases/observations)
+
+## dplyr::glimpse
+
+::: columns
+::: {.column width="50%"}
+::: columns
+*glimpse()*: gives a first informative look at the data (especially helpful when working with data sets that contain many columns/variables).
+:::
+:::
+
+::: {.column width="50%"}
+```{r, echo=TRUE}
+gapminder %>% 
+  glimpse()
+```
+:::
+:::
+
+## dplyr::select
+
+::: columns
+::: {.column width="50%"}
+`select()`: select variables to reduce or create a new dataframe to only include a subset of specific variables.
+
+```{r, eval = FALSE, echo=TRUE}
+gapminder_pop <- gapminder %>%
+  select(country, 
+         year, 
+         pop) 
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=FALSE}
+gapminder %>%
+  select(country, 
+         year, 
+         pop) 
+```
+:::
+:::
+
+## dplyr:: select - Range of variables
+
+::: columns
+::: {.column width="50%"}
+```{r, echo=TRUE, eval=FALSE}
+gapminder_lifeExp_1 <- gapminder %>%
+  select(country: lifeExp)
+```
+
+```{r, echo=FALSE}
+gapminder %>%
+  select(country: lifeExp)
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=TRUE, eval=FALSE}
+gapminder_lifeExp_2 <- gapminder %>%
+  select(1:4)
+```
+
+```{r, echo=FALSE}
+gapminder %>%
+  select(1:4)
+```
+:::
+:::
+
+## dplyr:: select - Unselect variables
+
+```{r, echo = TRUE}
+gapminder %>%
+  select(-c(continent, lifeExp, gdpPercap))
+```
+
+## **dplyr::rename**
+
+```{r, echo=TRUE}
+gapminder_new <- gapminder %>% 
+  rename(Country = country, 
+  # new_name = old_name
+  Continent = continent)
+names(gapminder_new)
+```
+
+## dplyr - select and rename in one step
+
+```{r, echo=T}
+gapminder_new <- gapminder %>% 
+  select(Country = country, 
+  Continent = continent,
+  Year = year,
+  LifeExp = lifeExp,
+  Population = pop)
+names(gapminder_new)
+```
+
+## Exercise 1
+
+-   Import the Gapminder data into R
+
+-   Take a look at the data with the glimpse or header function
+
+-   Select a subset of the data
+
+-   Rename the columns
+
+-   Bonus: Select and rename in one step
+
+## dplyr::filter
+
+The *dplyr* solution for filtering rows/observations is `filter()`:
+
+```{r, echo=TRUE}
+gapminder_germany <- gapminder %>%
+  filter(country == "Germany")
+```
+
+We can also filter based on multiple conditions (by default: logical AND):
+
+```{r, echo=TRUE}
+gapminder_germany <- gapminder %>%
+  filter(country == "Germany", year > 2000)
+```
+
+Logical OR:
+
+```{r, echo=TRUE}
+gapminder_germany <- gapminder %>%
+  filter(country == "Germany"|
+              year > 2000)
+```
+
+## dplyr::mutate
+
+The dplyr package provides a very versatile function for creating and transforming variables: mutate(), which you can also use to create a new variable that is a constant:
+
+```{r, echo=TRUE}
+gapminder <- gapminder %>%
+  mutate(constant = 1)
+```
+
+We can also apply a simple transformation to an existing variable:
+
+```{r, echo=TRUE}
+gapminder <- gapminder %>%
+  mutate(pop_new = pop / 1000)
+```
+
+Or change the data type of an existing variable:
+
+```{r, echo=TRUE}
+gapminder <- gapminder %>%
+  mutate(pop_char = as.character(pop))
+```
+
+## dplyr::arrange
+
+arrange() allows us to sort a dataframe according to a variable:
+
+```{r, echo=TRUE}
+gapminder %>%
+  arrange(desc(gdpPercap)) %>% 
+  head(n=5)
+```
+
+## dylyr - group_by & summarise
+
+Further, we can (for example) group the data by continent and then return the mean of life expectancy by continent:
+
+```{r, echo=TRUE}
+gapminder %>%
+  select(continent, lifeExp, year) %>%
+  filter(year==2007) %>%
+  group_by(continent) %>%
+  summarise(mean = mean(lifeExp))
+```
+
+## Exercise 2
+
+-   Look for a data set online. (You can always use V-Dem: <http://v-dem.net/vdemds.html>) and import the data into R.
+
+-   Repeat the steps from Exercise 1. You might want to look at the **codebook first**! (The "V-Dem High-Level Democracy Indices" are probably most interesting )
+
+-   Filter the data with multiple conditions (focus on a subset of countries and years, e.g., Germany between 2010 and 2020)
+
+-   Bonus:Create a new score variable based on existing scores or transform a score with `mutate`.
+
+## Grammar of graphics
+
+In general:
+
+```{r, echo=T, eval=F}
+ggplot(data = DATA) +
+  GEOM_FUNCTION(mapping = aes(AESTHETIC MAPPINGS))
+```
+
+For our Gapminder data:
+
+```{r, echo=T, eval=F}
+ggplot(data = gapminder) +
+  geom_point(mapping = aes(x = gdpPercap,
+                           y = lifeExp,
+                           color = continent))
+```
+
+## Mapping data to aesthetics
+
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007)) +
+  geom_point(mapping = aes(x = gdpPercap,
+                           y = lifeExp,
+                           color = continent))
+```
+
+| Data                     | Aesthetics - aes() | Geometry - geom |
+|--------------------------|--------------------|-----------------|
+| Wealth (GDP per capita)  | x                  | geom_point      |
+| Health (Life expectancy) | y                  | geom_point      |
+| Continent                | color              | geom_point      |
+| ?                        | ?                  | ?               |
+
+## Health and wealth
+
+```{r, echo =T}
+ggplot(data = gapminder %>% filter(year==2007)) +
+  geom_point(mapping = aes(x = gdpPercap,
+                           y = lifeExp,
+                           color = continent,
+                           size = pop)) +
+  scale_x_log10()
+```
+
+## Grammatical Layers
+
+::: panel-tabset
+## Foundational
+
+![](ggplot-layers-short@4x.png)
+
+## Additional
+
+![](ggplot-layers@4x.png)
+:::
+
+## Building a ggplot step-by-step
+
+::: columns
+::: {.column width="40%"}
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent))
+```
+
+Packages to reproduce the plots:
+
+```{r, echo=T, eval=F}
+library(tidyverse)
+library(ggplot2)
+library(gapminder)
+library(viridis)
+library(ggrepel)
+library(gganimate)
+library(xlsx)
+library(haven)
+library(gghighlight)
+```
+:::
+
+::: {.column width="60%"}
+::: fragment
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent))
+```
+:::
+:::
+:::
+
+## Building a ggplot step-by-step
+
+Add geom_point()
+
+::: columns
+::: {.column width="40%"}
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point()
+```
+:::
+
+::: {.column width="60%"}
+::: fragment
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point()
+```
+:::
+:::
+:::
+
+## Building a ggplot step-by-step
+
+Add a scale()
+
+::: columns
+::: {.column width="40%"}
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10()
+```
+:::
+
+::: {.column width="60%"}
+::: fragment
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10()
+```
+:::
+:::
+:::
+
+## Building a ggplot step-by-step
+
+Add geom_smooth()
+
+::: columns
+::: {.column width="40%"}
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm")
+```
+:::
+
+::: {.column width="60%"}
+::: fragment
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm")
+```
+:::
+:::
+:::
+
+## Building a ggplot step-by-step
+
+Add different color scale
+
+::: columns
+::: {.column width="40%"}
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm") +
+  scale_color_viridis_d()
+```
+:::
+
+::: {.column width="60%"}
+::: fragment
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm")  +
+  scale_color_viridis_d()
+```
+:::
+:::
+:::
+
+## Building a ggplot step-by-step
+
+Use facets
+
+::: columns
+::: {.column width="40%"}
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm") +
+  scale_color_viridis_d() +
+  facet_wrap(vars(continent), ncol = 2)
+```
+:::
+
+::: {.column width="60%"}
+::: fragment
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm")  +
+  scale_color_viridis_d() +
+  facet_wrap(vars(continent), ncol = 2)
+```
+:::
+:::
+:::
+
+## Building a ggplot step-by-step
+
+Add titles, subtitles, etc.
+
+::: columns
+::: {.column width="40%"}
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm") +
+  scale_color_viridis_d() +
+  facet_wrap(vars(continent), ncol = 2) +
+  labs(x = "GDP per capita", y = "Life expectancy",
+  color = "Continent",
+  title = "Wealth = Health?",
+  subtitle = "gdpPercap/lifeExp",
+  caption = "Gapminder dataset")
+```
+:::
+
+::: {.column width="60%"}
+::: fragment
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm")  +
+  scale_color_viridis_d() +
+  facet_wrap(vars(continent), ncol = 2) +
+  labs(x = "GDP per capita", y = "Life expectancy",
+  color = "Continent",
+  title = "Wealth = Health?",
+  subtitle = "gdpPercap/lifeExp",
+  caption = "Gapminder dataset")
+```
+:::
+:::
+:::
+
+## Building a ggplot step-by-step
+
+Add a theme
+
+::: columns
+::: {.column width="40%"}
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm") +
+  scale_color_viridis_d() +
+  facet_wrap(vars(continent), ncol = 2) +
+  labs(x = "GDP per capita", y = "Life expectancy",
+  color = "Continent",
+  title = "Wealth = Health?",
+  subtitle = "gdpPercap/lifeExp",
+  caption = "Gapminder dataset") +
+  theme_minimal()
+```
+:::
+
+::: {.column width="60%"}
+::: fragment
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm")  +
+  scale_color_viridis_d() +
+  facet_wrap(vars(continent), ncol = 2) +
+  labs(x = "GDP per capita", y = "Life expectancy",
+  color = "Continent",
+  title = "Wealth = Health?",
+  subtitle = "gdpPercap/lifeExp",
+  caption = "Gapminder dataset") +
+  theme_minimal()
+```
+:::
+:::
+:::
+
+## Building a ggplot step-by-step
+
+Add a theme
+
+::: columns
+::: {.column width="40%"}
+```{r, echo=T, eval=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm") +
+  scale_color_viridis_d() +
+  facet_wrap(vars(continent), ncol = 2) +
+  labs(x = "GDP per capita", y = "Life expectancy",
+  color = "Continent",
+  title = "Wealth = Health?",
+  subtitle = "gdpPercap/lifeExp",
+  caption = "Gapminder dataset") +
+  theme_minimal()
+```
+:::
+
+::: {.column width="60%"}
+::: fragment
+```{r, echo=F}
+ggplot(data = gapminder %>% filter(year==2007),
+  aes(x = gdpPercap, y = lifeExp,
+  color = continent)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm")  +
+  scale_color_viridis_d() +
+  facet_wrap(vars(continent), ncol = 2) +
+  labs(x = "GDP per capita", y = "Life expectancy",
+  color = "Continent",
+  title = "Wealth = Health?",
+  subtitle = "gdpPercap/lifeExp",
+  caption = "Gapminder dataset") +
+  theme_minimal()
+```
+:::
+:::
+:::
+
+## Building a ggplot step-by-step
+
+Other geometries
+
+::: columns
+::: {.column width="40%"}
+```{r, echo=T, eval=F}
+ggplot(data = filter(gapminder, year %in% c(2007)),
+aes(x = lifeExp,
+fill = continent)) +
+geom_histogram(binwidth = 5,
+color = "grey") +
+scale_fill_viridis_d() +
+facet_wrap(vars(continent), ncol = 2) +
+guides(fill = "none") +
+theme_minimal()
+```
+:::
+
+::: {.column width="60%"}
+::: fragment
+```{r, echo=F}
+ggplot(data = filter(gapminder, year %in% c(2007)),
+aes(x = lifeExp,
+fill = continent)) +
+geom_histogram(binwidth = 5,
+color = "grey") +
+scale_fill_viridis_d() +
+facet_wrap(vars(continent), ncol = 2) +
+guides(fill = "none") +
+theme_minimal()
+```
+:::
+:::
+:::
+
+## Building a ggplot step-by-step
+
+Other geometries
+
+::: columns
+::: {.column width="40%"}
+```{r, echo=T, eval=F}
+colors <- c("red", "orange", "yellow", "green", "blue")
+
+ggplot(data = filter(gapminder, year %in% c(2007)),
+  aes(x = continent,
+  y = lifeExp,
+  fill = continent)) +
+  geom_boxplot(alpha = 0.5) +
+  scale_fill_manual(values = colors) +
+  guides(fill = "none") +
+  theme_minimal()
+```
+:::
+
+::: {.column width="60%"}
+::: fragment
+```{r, echo=F}
+colors <- c("red", "orange", "yellow", "green", "blue")
+
+ggplot(data = filter(gapminder, year %in% c(2007)),
+  aes(x = continent,
+  y = lifeExp,
+  fill = continent)) +
+  geom_boxplot(alpha = 0.5) +
+  scale_fill_manual(values = colors) +
+  guides(fill = "none") +
+  theme_minimal()
+```
+:::
+:::
+:::
+
+## Building a ggplot step-by-step
+
+Other geometries
+
+::: columns
+::: {.column width="40%"}
+```{r, echo=T, eval=F}
+ggplot(gapminder, aes(x = year, y = lifeExp,
+  group = country)) +
+  geom_line(alpha = 0.2, color="grey") +
+  geom_line(data = gapminder %>%
+    filter(country %in% c(
+    "Germany",
+    "India",
+    "Rwanda")),
+    lwd = 1) + # thicker line
+  gghighlight(country %in% c("Germany", "India", "Rwanda")) +
+  theme_minimal()
+```
+:::
+
+::: {.column width="60%"}
+::: fragment
+```{r, echo=F}
+ggplot(gapminder, aes(x = year, y = lifeExp,
+  group = country)) +
+  geom_line(alpha = 0.2, color="grey") +
+  geom_line(data = gapminder %>%
+    filter(country %in% c(
+    "Germany",
+    "India",
+    "Rwanda")),
+    lwd = 1) + # thicker line
+  gghighlight(country %in% c("Germany", 
+                             "India", 
+                             "Rwanda")) +
+  theme_minimal()
+```
+:::
+:::
+:::
+
+# Your turn!
