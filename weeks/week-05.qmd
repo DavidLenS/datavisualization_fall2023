@@ -39,3 +39,36 @@ tbl-colwidths: [10,50,40]
 
 ::: {#slides}
 :::
+
+# Materials
+
+TBA
+
+# To Do's before our session
+
+::: panel-tabset
+## Visualizing amounts 
+
+"Beginner"
+
+-   Try to run the ggparliament R markdown script (see Materials for week 4)
+
+"Advanced"
+
+-   Have a look at [TidyTuesday](https://github.com/rfordatascience/tidytuesday), choose one of the data sets, and visualize amounts
+
+## Read
+
+-   Chapter 8: Refine your plots, in Hiely, Data Visualization. [Link to free online version](https://socviz.co/refineplots.html)
+
+```{=html}
+<!-- -->
+```
+-   Chapter 22: Titles, captions, and tables in Wilke, Fundamentals of Data Visualization. [Link to free online version](https://clauswilke.com/dataviz/figure-titles-captions.html)
+
+## Think
+
+-   Questions to think about for the readings:
+
+    -   Do you still remember the CRAP principles? How do they relate to theme elements (e.g., title, captions, labels, ...) in ggplot?
+:::

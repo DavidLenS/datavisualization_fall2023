@@ -1,0 +1,138 @@
+---
+title: "Week 04 - ggparliament"
+author: "David Schweizer"
+date: "28 9 2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r packages, include=FALSE}
+# install.packages("pacman")
+
+pacman::p_load(
+  "tidyverse",
+  "ggplot2",
+  "ggparliament",
+  "ggpubr")
+```
+
+# ggparliament: plots of parliaments
+
+The ggparliament package is a ggplot2 extension and enables plots of a parliament's composition (seats by party). You can find the vignette here:https://cran.r-project.org/web/packages/ggparliament/vignettes/basic-parliament-plots_1.html.A data frame containing party name and number of seats is required as input.
+
+```{r build data frame}
+# we create our "custom" dataframe based on the seat distribution in the German Bundestag for 2017 and 2021
+
+# first, for 2017:
+# we store a vector mit party names in the object "party2017"
+party2017 <- c("CDU/CSU", "SPD", "AfD", "FDP", "LINKE", "GRUNE")
+
+# next, we store a vector with the respective number of seats in the object "seats2017"
+seats2017 <- c(246,153,94,80,69,67)
+
+# finally, we store a vector with the respective party colors in the object "colour2017"
+colour2017 <- c("#000000", "#EB001F","#009EE0", "#FFED00", "#BE3075", "#64A12D")
+
+# now, we can use the data.frame() function to create our data frame
+germany_election_data_2017 <- data.frame(party2017, seats2017, colour2017)
+
+
+# we repeat the same process for 2021, but update parties, seats and colours
+party2021 <- c("SPD", "CDU/CSU","Grüne", "FDP", "AfD", "Linke", "SSW")
+seats2021 <- c(206,196,118,92,83,39,1)
+colour2021 <- c("#EB001F", "#000000","#64A12D", "#FFED00", "#009EE0", "#BE3075", "#000088")
+
+
+germany_election_data_2021 <- data.frame(party2021, seats2021, colour2021)
+```
+
+
+```{r bundestag 2017}
+#2017
+
+# using the parliament_data() function from the ggparliament package, we create the object to be plotted:
+germany2017 <- parliament_data(
+  # provide data frame
+  election_data = germany_election_data_2017, 
+  # rows in parliament
+  parl_rows = 10,
+  # shape of parliament
+  type = "semicircle",
+  # provide the function the column containing the number of seats
+  party_seats = germany_election_data_2017$seats2017)
+
+# now we can plot, here we store the ggplot as an object in "bundestag2017"
+bundestag2017 <- ggplot(germany2017,  #data
+                        aes(x, 
+                            y, 
+                            colour = party2017)) + # colour by party
+  geom_parliament_seats(size = 2) +
+  labs(colour="Party") +  # rename legend label to "Party"
+  draw_majoritythreshold(n = 355, label = TRUE, type = "semicircle") + # draws a line at the majority threshold
+  theme_ggparliament(legend = TRUE) +
+  scale_colour_manual(values = germany2017$colour2017, 
+                      limits = germany2017$party2017)
+
+# this plots our ggplot
+bundestag2017
+```
+
+```{r bundestag 2021}
+# 2021
+
+# the code works the same as above: we need to update the data frame! 
+germany2021 <- parliament_data(election_data = germany_election_data_2021, 
+                           parl_rows = 10,
+                           type = "semicircle",
+                           party_seats = germany_election_data_2021$seats2021)
+
+bundestag2021 <- ggplot(germany2021, aes(x, y, colour = party2021)) +
+  geom_parliament_seats(size = 2) +
+  labs(colour="Party") +  
+  draw_majoritythreshold(n = 368, label = TRUE, type = "semicircle") +
+  theme_ggparliament(legend = TRUE) +
+  scale_colour_manual(values = germany2021$colour2021, 
+                     limits = germany2021$party2021) 
+bundestag2021
+```
+
+```{r bundestag 2017 vs 2021}
+# 2017 vs 2021
+
+# ggarrange allows us to plot both graphs together
+figure <- ggarrange(bundestag2017, bundestag2021,
+                    labels = c("2017", "2021"),
+                    common.legend = FALSE, # remove legend
+                    ncol = 1, # number of columns 
+                    nrow = 2) # number of rows
+figure
+```
+
+```{r share of women 2017}
+# we can also highlight the nnumber seats in parliament won by women (here for 2017)
+
+
+women_in_bundestag <- rep(c(1, 0), times = 6)
+# The number of women in the 2017 by party: e.g. 49 (number of women in CDU/CSU), 197 (number of men in CDU/CSU). -> w/m ordered by party.
+number_of_women <- c(49,197, 64, 89, 10, 84, 18, 62, 37, 32, 39, 28)
+
+# Use rep and mutate to append the binary variable to the parliamentary data. This allows us to highlight the seats won by women later on.
+germany2017 <- germany2017 %>% 
+  mutate(women = rep(women_in_bundestag, number_of_women))
+
+bundestag2017 <- ggplot(germany2017, aes(x, y, colour = party2017)) +
+  geom_parliament_seats(size = 2) +
+  geom_emphasize_parliamentarians(women == 1) +  #this highlights the number of seats won by women
+  labs(colour="Party") +  
+  theme_ggparliament(legend = TRUE) +
+  labs(title = "Women in the 19th Bundestag") +
+  scale_colour_manual(values = germany2017$colour2017, 
+                      limits = germany2017$party2017)
+
+bundestag2017
+```
+
+

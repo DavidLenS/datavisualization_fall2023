@@ -40,6 +40,10 @@ tbl-colwidths: [10,50,40]
 ::: {#slides}
 :::
 
+# Materials
+
+You can find the R Markdown script for this session [**here**](https://ilias.uni-mannheim.de/goto.php?target=file_1436809_download&client_id=ILIAS).
+
 # To Do's before our session
 
 ::: panel-tabset
@@ -59,12 +63,11 @@ Of course, you can use the code in the slides and adapt it to your needs.
 
 -   Chapter 10: Visualizing proportions, in Wilke, Fundamentals of Data Visualization. [Link to free online version](https://clauswilke.com/dataviz/visualizing-proportions.html)
 
-
 ## Think
 
 -   Questions to think about for the readings:
 
-    -   Do you analyze data at the moment for another course? How could you benefit from visualizing amounts and proportions? 
-    
-    - Many argue against pie charts for data visualization. In what cases might they be a good choice?  
+    -   Do you analyze data at the moment for another course? How could you benefit from visualizing amounts and proportions?
+
+    -   Many argue against pie charts for data visualization. In what cases might they be a good choice?\
 :::
