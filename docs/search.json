@@ -2924,5 +2924,229 @@
     "title": "Mapping (Tidy) Data",
     "section": "Building a ggplot step-by-step",
     "text": "Building a ggplot step-by-step\nOther geometries\n\n\n\nggplot(gapminder, aes(x = year, y = lifeExp,\n  group = country)) +\n  geom_line(alpha = 0.2, color=\"grey\") +\n  geom_line(data = gapminder %&gt;%\n    filter(country %in% c(\n    \"Germany\",\n    \"India\",\n    \"Rwanda\")),\n    lwd = 1) + # thicker line\n  gghighlight(country %in% c(\"Germany\", \"India\", \"Rwanda\")) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#reproducibility-r",
+    "href": "slides/week-04/04-AmountsAndProportions.html#reproducibility-r",
+    "title": "Amounts & Proportions",
+    "section": "Reproducibility ⟶ R",
+    "text": "Reproducibility ⟶ R\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#plan-for-today",
+    "href": "slides/week-04/04-AmountsAndProportions.html#plan-for-today",
+    "title": "Amounts & Proportions",
+    "section": "Plan for today",
+    "text": "Plan for today\nInput\n\nReproducibility\nAmounts\nProportion\n\nCoding\n\nCoding example\nGapminder, parliaments, or TidyTuesday"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#reproducibility-why-r",
+    "href": "slides/week-04/04-AmountsAndProportions.html#reproducibility-why-r",
+    "title": "Amounts & Proportions",
+    "section": "Reproducibility ⟶ Why R?",
+    "text": "Reproducibility ⟶ Why R?\n… and not just Excel? R …\n\n… can deal with more data faster.\n… is open-source and free.\n… allows us to reproduce results and understand data processing steps."
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#but-what-could-go-wrong",
+    "href": "slides/week-04/04-AmountsAndProportions.html#but-what-could-go-wrong",
+    "title": "Amounts & Proportions",
+    "section": "But what could go wrong?",
+    "text": "But what could go wrong?"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#a-lot",
+    "href": "slides/week-04/04-AmountsAndProportions.html#a-lot",
+    "title": "Amounts & Proportions",
+    "section": "… a lot!",
+    "text": "… a lot!"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#and-there-is-more",
+    "href": "slides/week-04/04-AmountsAndProportions.html#and-there-is-more",
+    "title": "Amounts & Proportions",
+    "section": "… and there is more …",
+    "text": "… and there is more …\n\n\nResult: Economic growth slows when a country’s debt is higher than 90% of GDP\nImplication: e.g., cited by Republican Paul Ryan in his proposed 2013 budget: The Path to Prosperity: A Blueprint for American Renewal"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#section",
+    "href": "slides/week-04/04-AmountsAndProportions.html#section",
+    "title": "Amounts & Proportions",
+    "section": "…",
+    "text": "…\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#wrong-basis-for-policy-decisions",
+    "href": "slides/week-04/04-AmountsAndProportions.html#wrong-basis-for-policy-decisions",
+    "title": "Amounts & Proportions",
+    "section": "… wrong basis for policy decisions",
+    "text": "… wrong basis for policy decisions"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#how-can-we-avoid-this",
+    "href": "slides/week-04/04-AmountsAndProportions.html#how-can-we-avoid-this",
+    "title": "Amounts & Proportions",
+    "section": "How can we avoid this?",
+    "text": "How can we avoid this?\n\nDo not change the raw data!\n\nIf there is no other way, document and explain what you did extensively.\n\nUse open formats\n\ne.g., .csv and not .xlsx\n\nUse reproducible code\n\nR Markdown & Quarto"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#r-markdown---airbnb",
+    "href": "slides/week-04/04-AmountsAndProportions.html#r-markdown---airbnb",
+    "title": "Amounts & Proportions",
+    "section": "R Markdown - AirBnb",
+    "text": "R Markdown - AirBnb"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#r-markdown---uk-government",
+    "href": "slides/week-04/04-AmountsAndProportions.html#r-markdown---uk-government",
+    "title": "Amounts & Proportions",
+    "section": "R Markdown - UK Government",
+    "text": "R Markdown - UK Government\nFormerly, a typical statistics production process in government agencies in the UK:\n\n\n\n\n\n\nProne to errors & time-consuming ⟶ Development to a reproducible analytical pipeline:"
+  },
+  {
+    "objectID": "test.html",
+    "href": "test.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "test &lt;- \"this is a test\"\n\n\nprint(test)\n\n[1] \"this is a test\""
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#r-markdown",
+    "href": "slides/week-04/04-AmountsAndProportions.html#r-markdown",
+    "title": "Amounts & Proportions",
+    "section": "R Markdown",
+    "text": "R Markdown\nR Markdown provides an unified authoring framework for data science, combining your code, its results, and your prose commentary. R Markdown documents are fully reproducible and support dozens of output formats, like PDFs, Word files, slideshows, and more.\nR for Data Science"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#why-should-we-use-r-markdown",
+    "href": "slides/week-04/04-AmountsAndProportions.html#why-should-we-use-r-markdown",
+    "title": "Amounts & Proportions",
+    "section": "Why should we use R Markdown?",
+    "text": "Why should we use R Markdown?\n\nCommunication of our analysis with a focus on conclusions and not on the code.\nCollaboration with other researchers who want to understand your data analysis and your code.\nAnnotation of the codes and thoughts regarding the coding and data analysis can be stored in the same document.\n\nR for Data Science"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#moving-to-quarto",
+    "href": "slides/week-04/04-AmountsAndProportions.html#moving-to-quarto",
+    "title": "Amounts & Proportions",
+    "section": "Moving to Quarto",
+    "text": "Moving to Quarto\n\nQuarto is not an R package as R Markdown, but an command line interface tool.\nIt gives you the same functionality as R Markdown as well as other packages.\nIt extends R Markdown through native support for other programming languages such as Python.\nThe “new” way to produce articles & reports, presentations, interactive documents, websites or books.\n\nR for Data Science"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#pie-charts-vs.-bar-plots",
+    "href": "slides/week-04/04-AmountsAndProportions.html#pie-charts-vs.-bar-plots",
+    "title": "Amounts & Proportions",
+    "section": "Pie charts vs. bar plots",
+    "text": "Pie charts vs. bar plots\nFor readers, it is in general much easier to differentiate between the length of lines than the size of areas."
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#when-to-use-pie-charts",
+    "href": "slides/week-04/04-AmountsAndProportions.html#when-to-use-pie-charts",
+    "title": "Amounts & Proportions",
+    "section": "When to use pie charts?",
+    "text": "When to use pie charts?\n\n\n\n\n\n\nFor more details: Look here."
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#bad-bar-plots",
+    "href": "slides/week-04/04-AmountsAndProportions.html#bad-bar-plots",
+    "title": "Amounts & Proportions",
+    "section": "Bad bar plots",
+    "text": "Bad bar plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStart at zero: Do not truncate the y-axis.\nOr: Do not use bar plots"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#bar-plots-summary-statistics",
+    "href": "slides/week-04/04-AmountsAndProportions.html#bar-plots-summary-statistics",
+    "title": "Amounts & Proportions",
+    "section": "Bar plots & summary statistics ⛔",
+    "text": "Bar plots & summary statistics ⛔\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nbarbarplots"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#show-the-data",
+    "href": "slides/week-04/04-AmountsAndProportions.html#show-the-data",
+    "title": "Amounts & Proportions",
+    "section": "Show the data!",
+    "text": "Show the data!\n\n\n\nggplot(animals, \n       aes(x = animal_type, \n           y = weight, \n           color = animal_type)) +\n  geom_point(position = \n               position_jitter(height = 0),\n             size = 1) +\n  labs(x = NULL, \n       y = \"Weight\") +\n  guides(color = \"none\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#beeswarm-plots",
+    "href": "slides/week-04/04-AmountsAndProportions.html#beeswarm-plots",
+    "title": "Amounts & Proportions",
+    "section": "Beeswarm plots",
+    "text": "Beeswarm plots\n\n\n\nlibrary(ggbeeswarm)\n\nggplot(animals, \n       aes(x = animal_type, \n           y = weight, \n           color = animal_type)) +\n  geom_beeswarm(size = 1) + #&lt;&lt;\n  labs(x = NULL, y = \"Weight\") +\n  guides(color = \"none\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#points-and-boxplots",
+    "href": "slides/week-04/04-AmountsAndProportions.html#points-and-boxplots",
+    "title": "Amounts & Proportions",
+    "section": "Points and boxplots",
+    "text": "Points and boxplots\n\n\n\nggplot(animals, \n       aes(x = animal_type, \n           y = weight, \n           color = animal_type)) +\n  geom_boxplot(width = 0.5) +\n  geom_point(position = \n               position_jitter(height = 0),\n             size = 1, \n             alpha = 0.5) +\n  labs(x = NULL, \n       y = \"Weight\") +\n  guides(color = \"none\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#points-and-violins",
+    "href": "slides/week-04/04-AmountsAndProportions.html#points-and-violins",
+    "title": "Amounts & Proportions",
+    "section": "Points and violins",
+    "text": "Points and violins\n\n\n\nggplot(animals, \n       aes(x = animal_type, \n           y = weight, \n           color = animal_type)) +\n  geom_violin(width = 0.5) +\n  geom_point(position = \n               position_jitter(height = 0),\n             size = 1, alpha = 0.5) + \n  labs(x = NULL, \n       y = \"Weight\") +\n  guides(color = \"none\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#ridgeplots",
+    "href": "slides/week-04/04-AmountsAndProportions.html#ridgeplots",
+    "title": "Amounts & Proportions",
+    "section": "Ridgeplots",
+    "text": "Ridgeplots\n\n\n\nlibrary(ggridges)\n\nggplot(animals, \n       aes(x = weight, \n           y = animal_type, \n           fill = animal_type)) +\n  geom_density_ridges() + \n  labs(x = \"Weight\", \n       y = NULL) +\n  guides(fill = \"none\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#take-aways-barplots",
+    "href": "slides/week-04/04-AmountsAndProportions.html#take-aways-barplots",
+    "title": "Amounts & Proportions",
+    "section": "Take-aways: Barplots",
+    "text": "Take-aways: Barplots\n\nStart barplots always at zero!\nThe entire bar length matters. But: Often only the endpoint is relevant.\nDo not use bar charts do display summary statistics. You probably loose information."
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#alternatives-to-standard-bar-charts",
+    "href": "slides/week-04/04-AmountsAndProportions.html#alternatives-to-standard-bar-charts",
+    "title": "Amounts & Proportions",
+    "section": "Alternatives to standard bar charts",
+    "text": "Alternatives to standard bar charts\n\n\n\ngapminder_continents &lt;- gapminder %&gt;% \n  filter(year == 2007) %&gt;%  \n  count(continent) %&gt;%  \n  arrange(desc(n)) %&gt;%  \n  mutate(continent = fct_inorder(continent))\n\n\nggplot(gapminder_continents, \n       aes(x = continent, \n           y = n, \n           fill = continent)) +\n  geom_col() +\n  guides(fill = \"none\") +\n  labs(x = NULL, \n       y = \"Number of countries\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#lollipop-charts---emphasize-endpoints",
+    "href": "slides/week-04/04-AmountsAndProportions.html#lollipop-charts---emphasize-endpoints",
+    "title": "Amounts & Proportions",
+    "section": "Lollipop charts - Emphasize endpoints",
+    "text": "Lollipop charts - Emphasize endpoints\n\n\n\nggplot(gapminder_continents,\n       aes(x = continent,\n           y = n, \n           color = continent)) +\n  geom_pointrange(aes(ymin = 0, \n                      ymax = n)) + \n  guides(color = \"none\") +\n  labs(x = NULL, \n       y = \"Number of countries\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#waffle-charts",
+    "href": "slides/week-04/04-AmountsAndProportions.html#waffle-charts",
+    "title": "Amounts & Proportions",
+    "section": "Waffle charts",
+    "text": "Waffle charts\n\n\n\nlibrary(waffle)\n\nwaffle_data &lt;- waffle_iron(mpg, aes_d(group = class))\n\nggplot(gapminder_continents,\n       aes(x = continent, \n           y = n, \n           fill = continent)) +\n  geom_waffle(aes(values = n), \n              n_rows = 9, \n              flip = TRUE) + \n  labs(fill = NULL) +\n  coord_equal()  + \n  theme_void()\n\n\n\n#| fig-width: 8\n#| fig-height: 5\n#| out-width: 8in\n#| out-height: 5in\nggplot(gapminder_continents,\n       aes(x = continent, \n           y = n, \n           fill = continent)) +\n  geom_waffle(aes(values = n), \n              n_rows = 9, \n              flip = TRUE) + \n  labs(fill = NULL) +\n  coord_equal()  + \n  theme_void()"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#proportions",
+    "href": "slides/week-04/04-AmountsAndProportions.html#proportions",
+    "title": "Amounts & Proportions",
+    "section": "Proportions",
+    "text": "Proportions\n\nComparisons of values across a whole population instead of raw counts\nMost common option: pie charts\nExample: Parliaments"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#ggparliament---bundestag-2021",
+    "href": "slides/week-04/04-AmountsAndProportions.html#ggparliament---bundestag-2021",
+    "title": "Amounts & Proportions",
+    "section": "Ggparliament - Bundestag 2021",
+    "text": "Ggparliament - Bundestag 2021\n\nparty2021 &lt;- c(\"SPD\", \"CDU/CSU\",\"Grüne\", \"FDP\", \"AfD\", \"Linke\", \"SSW\")\nseats2021 &lt;- c(206,196,118,92,83,39,1)\ncolour2021 &lt;- c(\"#EB001F\", \"#000000\",\"#64A12D\", \"#FFED00\", \"#009EE0\", \"#BE3075\", \"#000088\")\n\n\ngermany_election_data_2021 &lt;- data.frame(party2021, seats2021, colour2021)\n\n\ngermany2021 &lt;- parliament_data(election_data = germany_election_data_2021, \n                           parl_rows = 10,\n                           type = \"semicircle\",\n                           party_seats = germany_election_data_2021$seats)\n\nggplot(germany2021, aes(x, y, colour = party2021)) +\n  geom_parliament_seats(size = 2) +\n  labs(colour=\"Party\") +  \n  draw_majoritythreshold(n = 735, \n                         label = TRUE, \n                         type = \"semicircle\") +\n  theme_ggparliament(legend = TRUE) +\n  scale_colour_manual(values = germany2021$colour2021, limits = germany2021$party2021)"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#your-turn",
+    "href": "slides/week-04/04-AmountsAndProportions.html#your-turn",
+    "title": "Amounts & Proportions",
+    "section": "Your turn",
+    "text": "Your turn\n“Beginner”\n\nTry to run the ggparliament R markdown script\n\n“Advanced”\n\nHave a look at TidyTuesday\nTry waffle charts\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-04/04-AmountsAndProportions.html#ggparliament---bundestag-2021-1",
+    "href": "slides/week-04/04-AmountsAndProportions.html#ggparliament---bundestag-2021-1",
+    "title": "Amounts & Proportions",
+    "section": "Ggparliament - Bundestag 2021",
+    "text": "Ggparliament - Bundestag 2021"
   }
 ]

@@ -13,4 +13,637 @@ format:
 editor: visual
 ---
 
-# TBA
+```{r packages, include=FALSE}
+pacman::p_load(
+  "tidyverse",
+  "ggplot2",
+  "gapminder",
+  "viridis",
+  "ggrepel",
+  "gganimate",
+  "xlsx",
+  "haven",
+  "gghighlight",
+  "knitr",
+  "ggparliament",
+  "ggpubr",
+  "scales",
+  "ggbeeswarm",
+  "ggridges"
+)
+```
+
+## Plan for today
+
+Input
+
+-   Reproducibility
+
+-   Amounts
+
+-   Proportion
+
+Coding
+
+-   Coding example
+
+-   Gapminder, parliaments, or TidyTuesday
+
+# Reproducibility
+
+## Reproducibility ⟶ Why R?
+
+... and not just Excel? R ...
+
+-   ... can deal with more data faster.
+
+-   ... is open-source and free.
+
+-   ... allows us to reproduce results and understand data processing steps.
+
+## But what could go wrong?
+
+[![](genes.png)](https://www.theverge.com/2020/8/6/21355674/human-genes-rename-microsoft-excel-misreading-dates)
+
+## ... a lot!
+
+[![](genes2.png){width="632"}](https://www.economist.com/graphic-detail/2016/09/07/excel-errors-and-science-papers)
+
+## ... and there is more ...
+
+![](budget1.png)
+
+-   **Result:** Economic growth slows when a country's debt is higher than 90% of GDP
+
+-   **Implication:** e.g., cited by Republican Paul Ryan in his [proposed 2013 budge](http://budget.house.gov/prosperity/fy2013.htm)t: *The Path to Prosperity: A Blueprint for American Renewal*
+
+## ... wrong basis for policy decisions
+
+![](budget3.png){fig-align="center"}
+
+## How can we avoid this?
+
+-   Do not change the raw data!
+
+    -   If there is no other way, document and explain what you did extensively.
+
+-   Use open formats
+
+    -   e.g., .csv and not .xlsx
+
+-   Use reproducible code
+
+    -   **R Markdown & Quarto**
+
+## R Markdown
+
+*R Markdown provides an **unified authoring framework** for data science, **combining your code, its results, and your prose commentary.** R Markdown documents are **fully reproducible** and support dozens of output formats, like PDFs, Word files, slideshows, and more.*
+
+[R for Data Science](https://r4ds.had.co.nz/r-markdown.html#r-markdown)
+
+## Why should we use R Markdown?
+
+1.  Communication of our analysis with a focus on conclusions and not on the code.
+
+2.  Collaboration with other researchers who want to understand your data analysis and your code.
+
+3.  Annotation of the codes and thoughts regarding the coding and data analysis can be stored in the same document.
+
+[R for Data Science](https://r4ds.had.co.nz/r-markdown.html#r-markdown)
+
+## R Markdown - AirBnb
+
+[![](airbnb.png)](https://peerj.com/preprints/3182.pdf)
+
+## R Markdown - UK Government
+
+Formerly, a typical statistics production process in government agencies in the UK:
+
+[![](govuk2.png){width="1348"}](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/)
+
+. . .
+
+Prone to errors & time-consuming ⟶ Development to a reproducible analytical pipeline:
+
+[![](govuk.png){width="443"}](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/)
+
+## Moving to Quarto
+
+-   Quarto is not an R package as R Markdown, but an command line interface tool.
+
+-   It gives you the s**ame functionality as R Markdown** as well as other packages.
+
+-   It **extends R Markdown** through native support for other programming languages such as Python.
+
+-   The "new" way to produce articles & reports, presentations, interactive documents, websites or books.
+
+[R for Data Science](https://r4ds.hadley.nz/quarto.html#introduction)
+
+# Amounts
+
+## Pie charts vs. bar plots
+
+For readers, it is in general much easier to differentiate between the length of lines than the size of areas.
+
+::: columns
+::: {.column width="50%"}
+```{r, include=F}
+gapminder_GDP_EU <- gapminder %>%
+  select(continent, country, pop, year, gdpPercap) %>%
+  mutate(GDP = gdpPercap * pop) %>%
+  filter(country %in% c( "Italy", "United Kingdom", "France", "Germany")) %>%
+  filter(year == 2007)
+```
+
+```{r,echo=FALSE}
+#| fig-width: 4
+#| fig-height: 4
+#| out-width: 4in
+#| out-height: 4in
+gapminder_GDP_EU %>%
+  mutate(country = fct_reorder(country,GDP, .desc=TRUE)) %>%
+ggplot(aes(x="", y=GDP, fill=country)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) +
+  labs(fill = "Country") +
+  theme_void() +
+  labs(title= "GDP (2007) - European G8 members")
+```
+:::
+
+::: {.column width="50%"}
+```{r,echo=FALSE}
+#| fig-width: 6
+#| fig-height: 4
+#| out-width: 6in
+#| out-height: 4in
+gapminder_GDP_EU %>%
+  mutate(country = fct_reorder(country,GDP, .desc=TRUE)) %>%
+ggplot(aes(country,GDP, fill=country)) +
+  geom_bar(stat="identity") +
+  labs(fill = "Country") +
+  theme_void() +
+  labs(title= "GDP (2007) - European G8 members")
+```
+:::
+:::
+
+## When to use pie charts?
+
+. . .
+
+[![](pie.png){width="519"}](https://academy.datawrapper.de/article/127-what-to-consider-when-creating-a-pie-chart)
+
+For more details: [Look here.](https://www.storytellingwithdata.com/blog/2020/5/14/what-is-a-pie-chart)
+
+## Bad bar plots
+
+::: columns
+::: {.column width="50%"}
+[![](DataVis_Session04_Bild01.png){width="842"}](https://www.mediamatters.org/fox-news/dishonest-fox-charts-obamacare-enrollment-edition)
+:::
+
+::: {.column width="50%"}
+[![](DataVis_Session04_Bild02.png){width="829"}](https://www.mediamatters.org/fox-news/dishonest-fox-charts-obamacare-enrollment-edition)
+:::
+:::
+
+-   **Start at zero:** Do not truncate the y-axis.
+
+-   Or: Do not use bar plots
+
+## Bar plots & summary statistics ⛔
+
+```{r, include = F}
+set.seed(1234)
+
+#dogs
+weight <- rnorm(10000, 30, 3)
+animal_type <- rep("Dogs", 100)
+
+dogs <- data.frame(animal_type, weight)
+
+#cats
+n <- 10000
+bin <- rbinom(n, 1, 0.5)
+weight <- rnorm(n, mean = 40, sd = 3) * bin +
+      rnorm(n, mean = 20, sd =2) * (1 - bin)
+animal_type <- rep("Cats", 100)
+
+cats <- data.frame(animal_type, weight)
+
+cat <- sample_n(cats, 1000)
+dog <- sample_n(dogs, 1000)
+
+animals <- merge(cat,dog,all = T)
+```
+
+::: columns
+::: {.column width="50%"}
+```{r, echo=FALSE}
+#| fig-width: 7
+#| fig-height: 5
+#| out-width: 7in
+#| out-height: 5in
+animals %>%
+  group_by(animal_type) %>%
+  mutate(mean=mean(weight)) %>%
+ggplot(aes(x = animal_type, y = mean, fill = animal_type)) +
+  geom_bar(stat="identity") +
+  labs(x = NULL, y = "Weight") +
+  guides(fill = "none") + 
+  theme_minimal()
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=FALSE}
+#| fig-width: 7
+#| fig-height: 5
+#| out-width: 7in
+#| out-height: 5in
+ggplot(animals, aes(x = animal_type, y = weight, color = animal_type)) +
+  geom_point(position = position_jitter(height = 0),
+             size = 1) +
+  labs(x = NULL, y = "Weight") +
+  guides(color = "none") +
+  theme_minimal()
+```
+:::
+:::
+
+[barbarplots](https://barbarplots.github.io/)
+
+## Show the data!
+
+::: columns
+::: {.column width="50%"}
+```{r, eval=FALSE, echo=TRUE}
+ggplot(animals, 
+       aes(x = animal_type, 
+           y = weight, 
+           color = animal_type)) +
+  geom_point(position = 
+               position_jitter(height = 0),
+             size = 1) +
+  labs(x = NULL, 
+       y = "Weight") +
+  guides(color = "none") +
+  theme_minimal()
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=F}
+#| fig-width: 8
+#| fig-height: 5
+#| out-width: 8in
+#| out-height: 5in
+ggplot(animals, 
+       aes(x = animal_type, 
+           y = weight, 
+           color = animal_type)) +
+  geom_point(position = 
+               position_jitter(height = 0),
+             size = 1) +
+  labs(x = NULL, 
+       y = "Weight") +
+  guides(color = "none") +
+  theme_minimal()
+```
+:::
+:::
+
+## Beeswarm plots
+
+::: columns
+::: {.column width="50%"}
+```{r, eval=FALSE, echo=TRUE}
+library(ggbeeswarm)
+
+ggplot(animals, 
+       aes(x = animal_type, 
+           y = weight, 
+           color = animal_type)) +
+  geom_beeswarm(size = 1) + #<<
+  labs(x = NULL, y = "Weight") +
+  guides(color = "none") +
+  theme_minimal()
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=F}
+#| fig-width: 8
+#| fig-height: 5
+#| out-width: 8in
+#| out-height: 5in
+ggplot(animals, 
+       aes(x = animal_type, 
+           y = weight, 
+           color = animal_type)) +
+  geom_beeswarm(size = 1) + #<<
+  labs(x = NULL, y = "Weight") +
+  guides(color = "none") +
+  theme_minimal()
+```
+:::
+:::
+
+## Points and boxplots
+
+::: columns
+::: {.column width="50%"}
+```{r, eval=FALSE, echo=TRUE}
+ggplot(animals, 
+       aes(x = animal_type, 
+           y = weight, 
+           color = animal_type)) +
+  geom_boxplot(width = 0.5) +
+  geom_point(position = 
+               position_jitter(height = 0),
+             size = 1, 
+             alpha = 0.5) +
+  labs(x = NULL, 
+       y = "Weight") +
+  guides(color = "none") +
+  theme_minimal()
+
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=F}
+#| fig-width: 8
+#| fig-height: 5
+#| out-width: 8in
+#| out-height: 5in
+ggplot(animals, 
+       aes(x = animal_type, 
+           y = weight, 
+           color = animal_type)) +
+  geom_boxplot(width = 0.5) +
+  geom_point(position = 
+               position_jitter(height = 0),
+             size = 1, 
+             alpha = 0.5) +
+  labs(x = NULL, 
+       y = "Weight") +
+  guides(color = "none") +
+  theme_minimal()
+```
+:::
+:::
+
+## Points and violins
+
+::: columns
+::: {.column width="50%"}
+```{r, eval=FALSE, echo=TRUE}
+ggplot(animals, 
+       aes(x = animal_type, 
+           y = weight, 
+           color = animal_type)) +
+  geom_violin(width = 0.5) +
+  geom_point(position = 
+               position_jitter(height = 0),
+             size = 1, alpha = 0.5) + 
+  labs(x = NULL, 
+       y = "Weight") +
+  guides(color = "none") +
+  theme_minimal()
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo = F}
+#| fig-width: 8
+#| fig-height: 5
+#| out-width: 8in
+#| out-height: 5in
+ggplot(animals, 
+       aes(x = animal_type, 
+           y = weight, 
+           color = animal_type)) +
+  geom_violin(width = 0.5) +
+  geom_point(position = 
+               position_jitter(height = 0),
+             size = 1, alpha = 0.5) + 
+  labs(x = NULL, 
+       y = "Weight") +
+  guides(color = "none") +
+  theme_minimal()
+```
+:::
+:::
+
+## Ridgeplots
+
+::: columns
+::: {.column width="50%"}
+```{r, eval=FALSE, echo=TRUE}
+library(ggridges)
+
+ggplot(animals, 
+       aes(x = weight, 
+           y = animal_type, 
+           fill = animal_type)) +
+  geom_density_ridges() + 
+  labs(x = "Weight", 
+       y = NULL) +
+  guides(fill = "none") +
+  theme_minimal()
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=FALSE}
+#| fig-width: 8
+#| fig-height: 5
+#| out-width: 8in
+#| out-height: 5in
+ggplot(animals, 
+       aes(x = weight, 
+           y = animal_type, 
+           fill = animal_type)) +
+  geom_density_ridges() + 
+  labs(x = "Weight", 
+       y = NULL) +
+  guides(fill = "none") +
+  theme_minimal()
+```
+:::
+:::
+
+## Take-aways: Barplots
+
+-   Start barplots **always** at zero!
+
+-   The entire bar length matters. But: Often only the endpoint is relevant.
+
+-   Do not use bar charts do display summary statistics. You probably loose information.
+
+## Alternatives to standard bar charts 
+
+::: columns
+::: {.column width="50%"}
+```{r, echo=TRUE}
+gapminder_continents <- gapminder %>% 
+  filter(year == 2007) %>%  
+  count(continent) %>%  
+  arrange(desc(n)) %>%  
+  mutate(continent = fct_inorder(continent))
+```
+
+```{r, eval=FALSE, echo=TRUE}
+ggplot(gapminder_continents, 
+       aes(x = continent, 
+           y = n, 
+           fill = continent)) +
+  geom_col() +
+  guides(fill = "none") +
+  labs(x = NULL, 
+       y = "Number of countries") +
+  theme_minimal()
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=FALSE}
+#| fig-width: 8
+#| fig-height: 5
+#| out-width: 8in
+#| out-height: 5in
+ggplot(gapminder_continents, 
+       aes(x = continent, 
+           y = n, 
+           fill = continent)) +
+  geom_col() +
+  guides(fill = "none") +
+  labs(x = NULL, 
+       y = "Number of countries") +
+  theme_minimal()
+```
+:::
+:::
+
+## Lollipop charts - Emphasize endpoints
+
+::: columns
+::: {.column width="50%"}
+```{r, eval=FALSE, echo=TRUE}
+ggplot(gapminder_continents,
+       aes(x = continent,
+           y = n, 
+           color = continent)) +
+  geom_pointrange(aes(ymin = 0, 
+                      ymax = n)) + 
+  guides(color = "none") +
+  labs(x = NULL, 
+       y = "Number of countries") +
+  theme_minimal()
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=FALSE}
+#| fig-width: 8
+#| fig-height: 5
+#| out-width: 8in
+#| out-height: 5in
+ggplot(gapminder_continents,
+       aes(x = continent,
+           y = n, 
+           color = continent)) +
+  geom_pointrange(aes(ymin = 0, 
+                      ymax = n)) + 
+  guides(color = "none") +
+  labs(x = NULL, 
+       y = "Number of countries") +
+  theme_minimal()
+```
+:::
+:::
+
+## Proportions
+
+-   Comparisons of values across a whole population instead of raw counts
+
+-   Most common option: pie charts
+
+-   Example: Parliaments
+
+## Ggparliament - Bundestag 2021
+
+```{r, include = F}
+party2021 <- c("SPD", "CDU/CSU","Grüne", "FDP", "AfD", "Linke", "SSW")
+seats2021 <- c(206,196,118,92,83,39,1)
+colour2021 <- c("#EB001F", "#000000","#64A12D", "#FFED00", "#009EE0", "#BE3075", "#000088")
+
+
+germany_election_data_2021 <- data.frame(party2021, seats2021, colour2021)
+```
+
+```{r, eval = F, echo=T}
+party2021 <- c("SPD", "CDU/CSU","Grüne", "FDP", "AfD", "Linke", "SSW")
+seats2021 <- c(206,196,118,92,83,39,1)
+colour2021 <- c("#EB001F", "#000000","#64A12D", "#FFED00", "#009EE0", "#BE3075", "#000088")
+
+
+germany_election_data_2021 <- data.frame(party2021, seats2021, colour2021)
+```
+
+```{r, eval = F, echo=T}
+germany2021 <- parliament_data(election_data = germany_election_data_2021, 
+                           parl_rows = 10,
+                           type = "semicircle",
+                           party_seats = germany_election_data_2021$seats)
+
+ggplot(germany2021, aes(x, y, colour = party2021)) +
+  geom_parliament_seats(size = 2) +
+  labs(colour="Party") +  
+  draw_majoritythreshold(n = 735, 
+                         label = TRUE, 
+                         type = "semicircle") +
+  theme_ggparliament(legend = TRUE) +
+  scale_colour_manual(values = germany2021$colour2021, limits = germany2021$party2021) 
+```
+
+## Ggparliament - Bundestag 2021
+
+```{r, echo=F}
+#| fig-width: 10
+#| fig-height: 5
+#| out-width: 10in
+#| out-height: 5in
+germany2021 <- parliament_data(election_data = 
+                                 germany_election_data_2021, 
+                           parl_rows = 10,
+                           type = "semicircle",
+                           party_seats = 
+                             germany_election_data_2021$seats)
+
+ggplot(germany2021, aes(x, 
+                        y, 
+                        colour = party2021)) +
+  geom_parliament_seats(size = 2) +
+  labs(colour="Party") +  
+  draw_majoritythreshold(n = 735, 
+                         label = TRUE, 
+                         type = "semicircle") +
+  theme_ggparliament(legend = TRUE) +
+  scale_colour_manual(values = germany2021$colour2021, 
+                     limits = germany2021$party2021) 
+```
+
+## Your turn
+
+"Beginner"
+
+-   Try to run the ggparliament R markdown script
+
+"Advanced"
+
+-   Have a look at TidyTuesday
+
+-   Try waffle charts

@@ -1,0 +1,12 @@
+---
+title: "Untitled"
+editor: visual
+---
+
+```{r}
+test <- "this is a test"
+```
+
+```{r}
+print(test)
+```
