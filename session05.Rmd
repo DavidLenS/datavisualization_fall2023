@@ -1,0 +1,101 @@
+---
+title: "Session 05"
+author: "David Schweizer"
+date: "2023-10-05"
+output: html_document
+---
+
+### Load libraries
+```{r load-libraries}
+pacman::p_load(    # List all packages needed
+  "readr",
+  "dplyr",
+  "ggplot2")
+```
+
+
+### Load election data
+
+Here, we load data on the constituency level from the 2021 German federal election.
+
+```{r load-election-data}
+# You can find the data to download also here: https://www.bundeswahlleiterin.de/bundestagswahlen/2021/ergebnisse.html
+btw21_kerg2 <- read_delim("C:/Users/David/Downloads/btw21_kerg2.csv", # you have to adapt the file path
+     delim = ";",  # set semicolon as delimiter,
+     locale = locale(decimal_mark = ","), # decimal mark used in the csv file is "," and not "."
+     escape_double = FALSE, 
+     trim_ws = TRUE, 
+     skip = 9) # skip the first 9 rows
+```
+### Transfrom election data
+
+Next, we transform the election data. We want to keep the vote share of the AfD at the constituency level. In addition, we want to keep the constituency number to merge the election data with structural data from the Federal Returning Officer (e.g., unemployment rate).
+
+```{r transform-election-data}
+btw21_election <- btw21_kerg2 %>% 
+  # we want to get rid of all rows regarding the federal and regional level, and keep the constituency level.
+  filter(Gebietsart == "Wahlkreis") %>% 
+  # in additiom, we are interested in the "Zweitstimme"
+  filter(Stimme == 2) %>% 
+  # next, we are primarily interested in party name and the relative share. We directly rename the variables while selecting. Further, we need the constituency number to merge the election results with structural data provided by the Federal Returning Officer.
+  select(constituency_number = Gebietsnummer, 
+         party = Gruppenname,
+         vote_share = Prozent) %>% 
+  # in particular we want to investigate the vote share of the radical right party, the AfD:
+  filter(party == "AfD")
+```
+
+### Load structural data
+
+Here, we load structural data on the constituency level from 2021 provided by the Federal Returning Officer.
+
+```{r load-structural-data}
+# You can find the data also here: https://www.bundeswahlleiterin.de/en/bundestagswahlen/2021/strukturdaten.html
+btw21_structural <- read_delim("C:/Users/David/Downloads/btw21_strukturdaten.csv", # you have to adapt the file path
+    delim = ";", # set semicolon as delimiter
+    locale = locale(decimal_mark = ","), # decimal mark used in the csv file is "," and not "."
+    escape_double = FALSE, 
+    trim_ws = TRUE, 
+    skip = 8) # skip the first 8 rows
+```
+### Merge election and structural data
+
+```{r merge-election-data-with-structural-data}
+btw21 <- btw21_election %>% 
+  # we merge both data sets by the constituency number: 
+  left_join(btw21_structural, by = c("constituency_number" = "Wahlkreis-Nr.")) %>% 
+  # next we rename the total unemployment variable 
+  rename("unemployment_rate" = "Arbeitslosenquote Februar 2021 - insgesamt") %>% 
+  # further, we create a binary variable: East/West Germany
+  # the code below creates a new column "East" and assigns the value "1" if the value of the column "Land" is either Brandenburg","Mecklenburg-Vorpommern", "Sachsen", "Sachsen-Anhalt", or "Thüringen" and "0" otherwise.
+  mutate(east = case_when(Land %in% c("Brandenburg",
+                                      "Mecklenburg-Vorpommern", 
+                                      "Sachsen", 
+                                      "Sachsen-Anhalt", 
+                                      "Thüringen") ~ 1,
+                          TRUE ~ 0)) %>% 
+  # finally, we transfrom our "east" variable to a factor variable
+  mutate(east = as.factor(east))
+```
+
+### Plot relationships between structural data and AfD vote share
+
+First, we plot the relationship between the unemployment rate and the AfD vote share at the constituency level.
+
+```{r plot-relationship-AfD-vote-share-unemployment-rate}
+ggplot(data = btw21,
+       mapping = aes(x = unemployment_rate,
+                     y = vote_share)) +
+  geom_point()
+```
+
+Next, we highlight if the constituencies are in East or West Germany.
+
+```{r plot-relationship-AfD-vote-share-unemployment-rate-east-west}
+ggplot(data = btw21,
+       mapping = aes(x = unemployment_rate,
+                     y = vote_share,
+                     color = east)) +
+  geom_point()
+```
+

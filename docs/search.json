@@ -3162,5 +3162,110 @@
     "title": "Week 04 - ggparliament",
     "section": "",
     "text": "ggparliament: plots of parliaments\nThe ggparliament package is a ggplot2 extension and enables plots of a parliament’s composition (seats by party). You can find the vignette here:https://cran.r-project.org/web/packages/ggparliament/vignettes/basic-parliament-plots_1.html.A data frame containing party name and number of seats is required as input.\n\n# we create our \"custom\" dataframe based on the seat distribution in the German Bundestag for 2017 and 2021\n\n# first, for 2017:\n# we store a vector mit party names in the object \"party2017\"\nparty2017 &lt;- c(\"CDU/CSU\", \"SPD\", \"AfD\", \"FDP\", \"LINKE\", \"GRUNE\")\n\n# next, we store a vector with the respective number of seats in the object \"seats2017\"\nseats2017 &lt;- c(246,153,94,80,69,67)\n\n# finally, we store a vector with the respective party colors in the object \"colour2017\"\ncolour2017 &lt;- c(\"#000000\", \"#EB001F\",\"#009EE0\", \"#FFED00\", \"#BE3075\", \"#64A12D\")\n\n# now, we can use the data.frame() function to create our data frame\ngermany_election_data_2017 &lt;- data.frame(party2017, seats2017, colour2017)\n\n\n# we repeat the same process for 2021, but update parties, seats and colours\nparty2021 &lt;- c(\"SPD\", \"CDU/CSU\",\"Grüne\", \"FDP\", \"AfD\", \"Linke\", \"SSW\")\nseats2021 &lt;- c(206,196,118,92,83,39,1)\ncolour2021 &lt;- c(\"#EB001F\", \"#000000\",\"#64A12D\", \"#FFED00\", \"#009EE0\", \"#BE3075\", \"#000088\")\n\n\ngermany_election_data_2021 &lt;- data.frame(party2021, seats2021, colour2021)\n\n\n#2017\n\n# using the parliament_data() function from the ggparliament package, we create the object to be plotted:\ngermany2017 &lt;- parliament_data(\n  # provide data frame\n  election_data = germany_election_data_2017, \n  # rows in parliament\n  parl_rows = 10,\n  # shape of parliament\n  type = \"semicircle\",\n  # provide the function the column containing the number of seats\n  party_seats = germany_election_data_2017$seats2017)\n\n# now we can plot, here we store the ggplot as an object in \"bundestag2017\"\nbundestag2017 &lt;- ggplot(germany2017,  #data\n                        aes(x, \n                            y, \n                            colour = party2017)) + # colour by party\n  geom_parliament_seats(size = 2) +\n  labs(colour=\"Party\") +  # rename legend label to \"Party\"\n  draw_majoritythreshold(n = 355, label = TRUE, type = \"semicircle\") + # draws a line at the majority threshold\n  theme_ggparliament(legend = TRUE) +\n  scale_colour_manual(values = germany2017$colour2017, \n                      limits = germany2017$party2017)\n\n# this plots our ggplot\nbundestag2017\n\n\n\n\n\n# 2021\n\n# the code works the same as above: we need to update the data frame! \ngermany2021 &lt;- parliament_data(election_data = germany_election_data_2021, \n                           parl_rows = 10,\n                           type = \"semicircle\",\n                           party_seats = germany_election_data_2021$seats2021)\n\nbundestag2021 &lt;- ggplot(germany2021, aes(x, y, colour = party2021)) +\n  geom_parliament_seats(size = 2) +\n  labs(colour=\"Party\") +  \n  draw_majoritythreshold(n = 368, label = TRUE, type = \"semicircle\") +\n  theme_ggparliament(legend = TRUE) +\n  scale_colour_manual(values = germany2021$colour2021, \n                     limits = germany2021$party2021) \nbundestag2021\n\n\n\n\n\n# 2017 vs 2021\n\n# ggarrange allows us to plot both graphs together\nfigure &lt;- ggarrange(bundestag2017, bundestag2021,\n                    labels = c(\"2017\", \"2021\"),\n                    common.legend = FALSE, # remove legend\n                    ncol = 1, # number of columns \n                    nrow = 2) # number of rows\nfigure\n\n\n\n\n\n# we can also highlight the nnumber seats in parliament won by women (here for 2017)\n\n\nwomen_in_bundestag &lt;- rep(c(1, 0), times = 6)\n# The number of women in the 2017 by party: e.g. 49 (number of women in CDU/CSU), 197 (number of men in CDU/CSU). -&gt; w/m ordered by party.\nnumber_of_women &lt;- c(49,197, 64, 89, 10, 84, 18, 62, 37, 32, 39, 28)\n\n# Use rep and mutate to append the binary variable to the parliamentary data. This allows us to highlight the seats won by women later on.\ngermany2017 &lt;- germany2017 %&gt;% \n  mutate(women = rep(women_in_bundestag, number_of_women))\n\nbundestag2017 &lt;- ggplot(germany2017, aes(x, y, colour = party2017)) +\n  geom_parliament_seats(size = 2) +\n  geom_emphasize_parliamentarians(women == 1) +  #this highlights the number of seats won by women\n  labs(colour=\"Party\") +  \n  theme_ggparliament(legend = TRUE) +\n  labs(title = \"Women in the 19th Bundestag\") +\n  scale_colour_manual(values = germany2017$colour2017, \n                      limits = germany2017$party2017)\n\nbundestag2017"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#plan-for-today",
+    "href": "slides/week-05/05-Themes.html#plan-for-today",
+    "title": "Themes & Refining Plots",
+    "section": "Plan for today",
+    "text": "Plan for today\nShort input\n\nThemes in ggplot\n\nCoding\n\nCoding example\nYour turn!"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#crap-and-ggplot",
+    "href": "slides/week-05/05-Themes.html#crap-and-ggplot",
+    "title": "Themes & Refining Plots",
+    "section": "CRAP and ggplot?",
+    "text": "CRAP and ggplot?"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#crap",
+    "href": "slides/week-05/05-Themes.html#crap",
+    "title": "Themes & Refining Plots",
+    "section": "CRAP",
+    "text": "CRAP\nDesign principles - CRAP:\n\nContrast\nRepetition\nAlignment\nProximity"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#crap-and-gpplot",
+    "href": "slides/week-05/05-Themes.html#crap-and-gpplot",
+    "title": "Themes & Refining Plots",
+    "section": "CRAP and gpplot",
+    "text": "CRAP and gpplot\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#design-principles---crap",
+    "href": "slides/week-05/05-Themes.html#design-principles---crap",
+    "title": "Themes & Refining Plots",
+    "section": "Design principles - CRAP",
+    "text": "Design principles - CRAP\n\n\nContrast\nRepetition\nAlignment\nProximity"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#crap-and-ggplot-1",
+    "href": "slides/week-05/05-Themes.html#crap-and-ggplot-1",
+    "title": "Themes & Refining Plots",
+    "section": "CRAP and ggplot!",
+    "text": "CRAP and ggplot!\n\nFollowing CRAP principles makes it easy to improve our plots!\nWe can apply these principles in ggplot using the theme() function\nYou can find great examples in Wilke’s book in chapter 22 and in Part II: Principles of Figure Design in general\nAnd you can find one applied example under the Materials section for this week"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#themes",
+    "href": "slides/week-05/05-Themes.html#themes",
+    "title": "Themes & Refining Plots",
+    "section": "Themes",
+    "text": "Themes\nMake use of existing themes:\n\nhrbrthemes\nggthemes\nggtech\nggpomological\n…\n\nThere are many more!"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#hrbrthemes",
+    "href": "slides/week-05/05-Themes.html#hrbrthemes",
+    "title": "Themes & Refining Plots",
+    "section": "hrbrthemes",
+    "text": "hrbrthemes\n\nggplot(data = btw21,\n       aes(x = unemployment_rate, y = vote_share, color = east)) +\n  geom_point() +\n  hrbrthemes::theme_ipsum_ps()"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#hrbrthemes-1",
+    "href": "slides/week-05/05-Themes.html#hrbrthemes-1",
+    "title": "Themes & Refining Plots",
+    "section": "hrbrthemes",
+    "text": "hrbrthemes\n\nggplot(data = btw21,        \n       aes(x = unemployment_rate, y = vote_share, color = east)) +   \n  geom_point() +   \n  hrbrthemes::theme_modern_rc()"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#ggthemes",
+    "href": "slides/week-05/05-Themes.html#ggthemes",
+    "title": "Themes & Refining Plots",
+    "section": "ggthemes",
+    "text": "ggthemes\n\nggplot(data = btw21,        \n       aes(x = unemployment_rate, y = vote_share, color = east)) +   \n  geom_point() +   \n  ggthemes::theme_economist()"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#ggtech",
+    "href": "slides/week-05/05-Themes.html#ggtech",
+    "title": "Themes & Refining Plots",
+    "section": "ggtech",
+    "text": "ggtech\n\nggplot(data = btw21,        \n       aes(x = unemployment_rate, y = vote_share, color = east)) +   \n  geom_point() +   \n  theme_tech(theme=\"airbnb\")"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#ggtech-1",
+    "href": "slides/week-05/05-Themes.html#ggtech-1",
+    "title": "Themes & Refining Plots",
+    "section": "ggtech",
+    "text": "ggtech\n\nggplot(data = btw21,        \n       aes(x = unemployment_rate, y = vote_share, color = east)) +   \n  geom_point() +   \n  scale_color_tech(theme=\"airbnb\") + theme_tech(theme=\"airbnb\")"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#ggpomological",
+    "href": "slides/week-05/05-Themes.html#ggpomological",
+    "title": "Themes & Refining Plots",
+    "section": "ggpomological",
+    "text": "ggpomological\n\nggplot(data = btw21,        \n       aes(x = unemployment_rate, y = vote_share, color = east)) +   \n  geom_point() +   \n  scale_color_pomological() + theme_pomological_fancy()"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#theme",
+    "href": "slides/week-05/05-Themes.html#theme",
+    "title": "Themes & Refining Plots",
+    "section": "theme()",
+    "text": "theme()"
+  },
+  {
+    "objectID": "slides/week-05/05-Themes.html#how-to-learn-theme-arguments",
+    "href": "slides/week-05/05-Themes.html#how-to-learn-theme-arguments",
+    "title": "Themes & Refining Plots",
+    "section": "How to learn theme() arguments?",
+    "text": "How to learn theme() arguments?\n\nThere are 94 possible arguments for the theme() function\nMany of them are very specific. E.g., axis.ticks.length.x.top\nBest way: Trial and error. Practice makes (almost) perfect\nTry the ggThemeAssist package\nDocumentation: Modify components of a theme and ggplot complete themes\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
   }
 ]

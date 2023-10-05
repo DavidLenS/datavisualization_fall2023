@@ -13,4 +13,187 @@ format:
 editor: visual
 ---
 
-# TBA
+```{r packages, include=FALSE}
+pacman::p_load(
+  "tidyverse",
+  "hrbrthemes",
+  "ggthemes"
+)
+
+library(ggtech)
+library(ggpomological)
+
+btw21 <- readRDS("btw21.rds")
+```
+
+## Plan for today
+
+Short input
+
+-   Themes in ggplot
+
+Coding
+
+-   Coding example
+
+-   Your turn!
+
+## Design principles - CRAP
+
+. . .
+
+-   Contrast
+
+-   Repetition
+
+-   Alignment
+
+-   Proximity
+
+## CRAP and ggplot?
+
+```{r, echo = F}
+ggplot(data = btw21,
+       mapping = aes(x = unemployment_rate,
+                     y = vote_share,
+                     color = east)) +
+  geom_point()
+```
+
+## CRAP and ggplot!
+
+-   Following CRAP principles makes it easy to improve our plots!
+
+-   We can apply these principles in ggplot using the *theme()* function
+
+-   You can find great examples in [Wilke's book in chapter 22](https://clauswilke.com/dataviz/figure-titles-captions.html) and in *Part II: Principles of Figure Design* in general
+
+-   And you can find one applied example under the *Materials* section for this week
+
+## Themes
+
+Make use of existing themes:
+
+-   [hrbrthemes](https://github.com/hrbrmstr/hrbrthemes)
+
+-   [ggthemes](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/)
+
+-   [ggtech]
+
+-   [ggpomological](https://www.garrickadenbuie.com/project/ggpomological/)
+
+-   ...
+
+There are many more!
+
+## hrbrthemes
+
+```{r, eval=FALSE, echo=TRUE}
+ggplot(data = btw21,
+       aes(x = unemployment_rate, y = vote_share, color = east)) +
+  geom_point() +
+  hrbrthemes::theme_ipsum_ps()
+```
+
+```{r, echo=FALSE, fig.align='center'}
+ggplot(data = btw21,
+       aes(x = unemployment_rate, y = vote_share, color = east)) +
+  geom_point() +
+  hrbrthemes::theme_ipsum_ps()
+```
+
+## hrbrthemes
+
+```{r, eval=FALSE, echo=TRUE}
+ggplot(data = btw21,        
+       aes(x = unemployment_rate, y = vote_share, color = east)) +   
+  geom_point() +   
+  hrbrthemes::theme_modern_rc()
+```
+
+```{r, echo=FALSE, fig.align='center'}
+ggplot(data = btw21,        
+       aes(x = unemployment_rate, y = vote_share, color = east)) +   
+  geom_point() +   
+  hrbrthemes::theme_modern_rc()
+```
+
+## ggthemes
+
+```{r, eval=FALSE, echo=TRUE}
+ggplot(data = btw21,        
+       aes(x = unemployment_rate, y = vote_share, color = east)) +   
+  geom_point() +   
+  ggthemes::theme_economist()
+```
+
+```{r, echo=FALSE, fig.align='center'}
+ggplot(data = btw21,        
+       aes(x = unemployment_rate, y = vote_share, color = east)) +   
+  geom_point() +   
+  ggthemes::theme_economist()
+```
+
+## ggtech
+
+```{r, eval=FALSE, echo=TRUE}
+ggplot(data = btw21,        
+       aes(x = unemployment_rate, y = vote_share, color = east)) +   
+  geom_point() +   
+  theme_tech(theme="airbnb")
+```
+
+```{r, echo=FALSE, fig.align='center'}
+ggplot(data = btw21,        
+       aes(x = unemployment_rate, y = vote_share, color = east)) +   
+  geom_point() +   
+ theme_tech(theme="airbnb")
+```
+
+## ggtech
+
+```{r, eval=FALSE, echo=TRUE}
+ggplot(data = btw21,        
+       aes(x = unemployment_rate, y = vote_share, color = east)) +   
+  geom_point() +   
+  scale_color_tech(theme="airbnb") + theme_tech(theme="airbnb")
+```
+
+```{r, echo=FALSE, fig.align='center'}
+ggplot(data = btw21,        
+       aes(x = unemployment_rate, y = vote_share, color = east)) +   
+  geom_point() +   
+  scale_color_tech(theme="airbnb") + theme_tech(theme="airbnb")
+```
+
+## ggpomological
+
+```{r, eval=FALSE, echo=TRUE}
+ggplot(data = btw21,        
+       aes(x = unemployment_rate, y = vote_share, color = east)) +   
+  geom_point() +   
+  scale_color_pomological() + theme_pomological_fancy()
+```
+
+```{r, echo=FALSE, fig.align='center'}
+ggplot(data = btw21,        
+       aes(x = unemployment_rate, y = vote_share, color = east)) +   
+  geom_point() +   
+  scale_color_pomological() + theme_pomological_fancy()
+```
+
+## theme()
+
+[![](theme_elements.png)](https://henrywang.nl/ggplot2-theme-elements-demonstration/)
+
+## How to learn theme() arguments?
+
+-   There are **94** possible arguments for the *theme()* function
+
+-   Many of them are very specific. E.g., *axis.ticks.length.x.top*
+
+-   Best way: Trial and error. Practice makes (almost) perfect
+
+-   Try the **ggThemeAssist** **package**
+
+-   Documentation: [Modify components of a theme](https://ggplot2.tidyverse.org/reference/theme.html) and [ggplot complete themes](https://ggplot2.tidyverse.org/reference/ggtheme.html)
