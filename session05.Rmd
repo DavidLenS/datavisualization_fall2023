@@ -10,7 +10,9 @@ output: html_document
 pacman::p_load(    # List all packages needed
   "readr",
   "dplyr",
-  "ggplot2")
+  "ggplot2",
+  "ggThemeAssist",
+  "janitor")
 ```
 
 
@@ -27,6 +29,7 @@ btw21_kerg2 <- read_delim("C:/Users/David/Downloads/btw21_kerg2.csv", # you have
      trim_ws = TRUE, 
      skip = 9) # skip the first 9 rows
 ```
+
 ### Transfrom election data
 
 Next, we transform the election data. We want to keep the vote share of the AfD at the constituency level. In addition, we want to keep the constituency number to merge the election data with structural data from the Federal Returning Officer (e.g., unemployment rate).
@@ -86,7 +89,8 @@ First, we plot the relationship between the unemployment rate and the AfD vote s
 ggplot(data = btw21,
        mapping = aes(x = unemployment_rate,
                      y = vote_share)) +
-  geom_point()
+  geom_point() +
+  geom_smooth()
 ```
 
 Next, we highlight if the constituencies are in East or West Germany.
@@ -99,3 +103,15 @@ ggplot(data = btw21,
   geom_point()
 ```
 
+### ggThemeAssist
+
+In order to manipulate the ggplot theme using the ggThemeAssist package:
+
+- highlight the code including the ggplot() function
+- click on "Addins"
+- select "ggplot Theme Asssistant"
+- style the plot however you like
+
+### Add the data for the 2017 federal election
+
+Download the data here: https://www.bundeswahlleiterin.de/bundestagswahlen/2017.html. The workflow is exactly the same as for the 2021 data!

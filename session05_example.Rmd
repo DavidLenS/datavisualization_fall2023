@@ -1,0 +1,220 @@
+---
+title: "session05 - example"
+author: "David Schweizer"
+date: "2023-10-05"
+output: html_document
+---
+
+# Load libraries
+```{r load-libraries, message=FALSE, warning=FALSE}
+pacman::p_load(    # List all packages needed
+  "readr",
+  "dplyr",
+  "ggplot2",
+  "scales",
+  "gapminder",
+  "showtext")
+```
+
+# Basic plot
+
+```{r basic-plot}
+# Once again, we work with the gapminder data set. 
+# First we filter that we keep only years after 2000.
+gapminder_filtered <- gapminder %>% 
+  filter(year > 2000)
+
+# We create a basic ggplot:
+basic_plot <- ggplot(data = gapminder_filtered,
+                    mapping = aes(x = gdpPercap, 
+                                  y = lifeExp, 
+                                  color = continent, 
+                                  size = pop)) +
+  geom_point() +
+  # Use dollars as x-axis label and loose the cents (i.e. $100 instead of $100.00)
+  scale_x_log10(labels = label_dollar(accuracy = 1)) +
+  # Format with commas
+  scale_size_continuous(labels = label_comma()) +
+  # Use the viridis color sheme
+  scale_color_viridis_d(option = "plasma", end = 0.85) +
+  labs(x = "GDP per capita", 
+       y = "Life expectancy",
+       color = "Continent", 
+       size = "Population",
+       title = "Insert your title here",
+       subtitle = "And a subtitle here",
+       caption = "Source: The Gapminder Project") +
+  # facets by year
+  facet_wrap(vars(year))
+
+# print our basic plot
+basic_plot
+```
+
+# Improve basic plot step-by-step
+
+## theme_minimal()
+
+```{r}
+# here, we add the minimal theme
+basic_plot +
+  theme_minimal()
+```
+
+## gridlines
+
+```{r}
+# next, we remove the minor grid lines
+basic_plot +
+  theme_minimal() +
+  # we can remove them by using "element_blank()"
+  theme(panel.grid.minor = element_blank())
+```
+
+### Create and apply a custom theme
+
+Here, we load a Google font. You can select any font from here: https://fonts.google.com/.
+
+```{r load-google-fonts}
+font_add_google("Montserrat", "mont")
+
+# or try: font_add_google("Fredericka the Great", "fredericka")
+# 
+```
+
+The function below activates the loaded fonts.
+
+```{r enable-automatic-use-of-showtext}
+showtext::showtext_auto()
+```
+
+Now, we create our custom theme.
+
+```{r create-and-store-fancy-theme}
+custom_theme <- theme_minimal(base_family = "mont",         # you can change "mont" to "federicka" for example
+                              base_size = 12) +
+  theme(panel.grid.minor = element_blank(),                 # remove minor grid lines
+        plot.title = element_text(face = "bold",            # make title bold
+                                  size = rel(1.75)),        # using rel() allows us to scale the size relative to the base size specified in theme_minimal() above
+        plot.subtitle = element_text(face = "plain",        # make subtitle plain
+                                     size = rel(1.25), 
+                                     color = "grey60"),     # change color
+        plot.caption = element_text(face = "italic",        # make caption italic
+                                    size = rel(0.75), 
+                                    color = "grey60", 
+                                    hjust = 0),             # left-align caption
+        legend.title = element_text(face = "bold"),
+        strip.text = element_text(face = "bold",            # bold facet titles
+                                  size = rel(1.25), 
+                                  hjust = 0),
+        axis.title = element_text(face = "bold"),           # bold axis titles
+        axis.title.x = element_text(margin = margin(t = 10),# add space above x-axis title 
+                                    hjust = 0),
+        axis.title.y = element_text(margin = margin(r = 10), 
+                                    hjust = 1),             # make y-axis title top-aligned
+        strip.background = element_rect(fill = "grey90",    # add light grey background facet titles, no borders
+                                        color = NA),
+        panel.border = element_rect(color = "grey90",       # add thin grey border around plots
+                                    fill = NA))
+```
+
+
+## Add theme() arguments to improve our plot
+
+```{r}
+plot_with_theme_arguments <- basic_plot +
+  theme_minimal(base_family = "mont",         # you can change "mont" to "federicka" for example
+                              base_size = 12) +
+  theme(panel.grid.minor = element_blank(),                 # remove minor grid lines
+        plot.title = element_text(face = "bold",            # make title bold
+                                  size = rel(1.75)),        # using rel() allows us to scale the size relative to the base size specified in theme_minimal() above
+        plot.subtitle = element_text(face = "plain",        # make subtitle plain
+                                     size = rel(1.25), 
+                                     color = "grey60"),     # change color
+        plot.caption = element_text(face = "italic",        # make caption italic
+                                    size = rel(0.75), 
+                                    color = "grey60", 
+                                    hjust = 0),             # left-align caption
+        legend.title = element_text(face = "bold"),
+        strip.text = element_text(face = "bold",            # bold facet titles
+                                  size = rel(1.25), 
+                                  hjust = 0),
+        axis.title = element_text(face = "bold"),           # bold axis titles
+        axis.title.x = element_text(margin = margin(t = 10),# add space above x-axis title 
+                                    hjust = 0),
+        axis.title.y = element_text(margin = margin(r = 10), 
+                                    hjust = 1))
+
+plot_with_theme_arguments
+```
+
+```{r}
+plot_with_theme_arguments +
+  theme(strip.background = element_rect(fill = "grey90",    # add light grey background facet titles, no borders
+                                        color = NA),
+        panel.border = element_rect(color = "grey90",       # add thin grey border around plots
+                                    fill = NA))
+```
+
+## Store the theme
+
+```{r}
+custom_theme <- theme_minimal(base_family = "mont",         # you can change "mont" to "federicka" for example
+                              base_size = 12) +
+  theme(panel.grid.minor = element_blank(),                 # remove minor grid lines
+        plot.title = element_text(face = "bold",            # make title bold
+                                  size = rel(1.75)),        # using rel() allows us to scale the size relative to the base size specified in theme_minimal() above
+        plot.subtitle = element_text(face = "plain",        # make subtitle plain
+                                     size = rel(1.25), 
+                                     color = "grey60"),     # change color
+        plot.caption = element_text(face = "italic",        # make caption italic
+                                    size = rel(0.75), 
+                                    color = "grey60", 
+                                    hjust = 0),             # left-align caption
+        legend.title = element_text(face = "bold"),
+        strip.text = element_text(face = "bold",            # bold facet titles
+                                  size = rel(1.25), 
+                                  hjust = 0),
+        axis.title = element_text(face = "bold"),           # bold axis titles
+        axis.title.x = element_text(margin = margin(t = 10),# add space above x-axis title 
+                                    hjust = 0),
+        axis.title.y = element_text(margin = margin(r = 10), 
+                                    hjust = 1),             # make y-axis title top-aligned
+        strip.background = element_rect(fill = "grey90",    # add light grey background facet titles, no borders
+                                        color = NA),
+        panel.border = element_rect(color = "grey90",       # add thin grey border around plots
+                                    fill = NA))
+```
+
+## You can now also apply it to different data!
+
+```{r}
+# increase time period
+gapminder_filtered_new <- gapminder %>% 
+  filter(year > 1996)
+
+ggplot(data = gapminder_filtered_new, # our data frame with the increased time period
+                    mapping = aes(x = gdpPercap, 
+                                  y = lifeExp, 
+                                  color = continent, 
+                                  size = pop)) +
+  geom_point() +
+  # Use dollars as x-axis label and loose the cents (i.e. $100 instead of $100.00)
+  scale_x_log10(labels = label_dollar(accuracy = 1), 
+                guide = guide_axis(check.overlap = TRUE)) + # avoid overlapping labels on the x-axis
+  # Format with commas
+  scale_size_continuous(labels = label_comma()) +
+  # Use the viridis color sheme
+  scale_color_viridis_d(option = "plasma", end = 0.85) +
+  labs(x = "GDP per capita", 
+       y = "Life expectancy",
+       color = "Continent", 
+       size = "Population",
+       title = "Insert your title here",
+       subtitle = "And a subtitle here",
+       caption = "Source: The Gapminder Project") +
+  # facets by year
+  facet_wrap(vars(year)) +
+  # add our custom theme!
+  custom_theme 
+```

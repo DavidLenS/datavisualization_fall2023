@@ -216,7 +216,7 @@ Date
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1696456800000" data-listing-file-modified-sort="1694100034117" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="Themes &amp; Refining Plots" data-listing-filename-sort="05-Themes.qmd">
+<tr data-index="0" data-listing-date-sort="1696456800000" data-listing-file-modified-sort="1696503524289" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-title-sort="Themes &amp; Refining Plots" data-listing-filename-sort="05-Themes.qmd">
 <td>
 <a href="../slides/week-05/05-Themes.html" class="title listing-title">Themes &amp; Refining Plots</a>
 </td>
@@ -237,7 +237,25 @@ No matching items
 </section>
 <section id="materials" class="level1">
 <h1>Materials</h1>
-<p>TBA</p>
+<p>For this week, have a look at these R markdown files:</p>
+<ul>
+<li><p>The first R markdown file demonstrates how to create a nice custom theme for ggplot using the gapminder data. You can find it <a href="https://ilias.uni-mannheim.de/goto.php?target=file_1439663_download&amp;client_id=ILIAS">here</a>.</p></li>
+<li><p>The second R markdown file shows how to import data from the Federal Returning Officer in Germany and create a scatterplot of unemployment rate and AfD vote share at the constituency level for the 2021 German federal elections. You can find it <a href="https://ilias.uni-mannheim.de/goto.php?target=file_1439664_download&amp;client_id=ILIAS">here</a>.</p></li>
+</ul>
+<p>Try to run both R markdown files. As always, you can try out new arguments or change values (e.g., colors, title size, …). If this works, try to extend the code in the second R markdown file:</p>
+<ul>
+<li>First, you will see that the code also imports data from the 2017 German federal election.</li>
+<li>Next, create a new data frame that contains the 2017 and 2021 data.</li>
+<li>Third, create a scatterplot of unemployment rate and AfD vote share and use year as facet.</li>
+<li>Finally, apply the custom theme from the first R markdown file to this new plot.</li>
+</ul>
+<p>Does your plot look like this?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="afd_plot.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>You can find the solution <a href="../session05_example_solution.html">here</a>. <strong>Try first without looking!</strong></p>
 </section>
 <section id="to-dos-before-our-session" class="level1">
 <h1>To Do’s before our session</h1>
@@ -257,9 +275,6 @@ No matching items
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <ul>
 <li>Chapter 8: Refine your plots, in Hiely, Data Visualization. <a href="https://socviz.co/refineplots.html">Link to free online version</a></li>
-</ul>
-<!-- -->
-<ul>
 <li>Chapter 22: Titles, captions, and tables in Wilke, Fundamentals of Data Visualization. <a href="https://clauswilke.com/dataviz/figure-titles-captions.html">Link to free online version</a></li>
 </ul>
 </div>

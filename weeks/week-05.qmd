@@ -42,12 +42,29 @@ tbl-colwidths: [10,50,40]
 
 # Materials
 
-TBA
+For this week, have a look at these R markdown files:
+
+-   The first R markdown file demonstrates how to create a nice custom theme for ggplot using the gapminder data. You can find it [here](https://ilias.uni-mannheim.de/goto.php?target=file_1439663_download&client_id=ILIAS).
+
+-   The second R markdown file shows how to import data from the Federal Returning Officer in Germany and create a scatterplot of unemployment rate and AfD vote share at the constituency level for the 2021 German federal elections. You can find it [here](https://ilias.uni-mannheim.de/goto.php?target=file_1439664_download&client_id=ILIAS).
+
+Try to run both R markdown files. As always, you can try out new arguments or change values (e.g., colors, title size, ...). If this works, try to extend the code in the second R markdown file:
+
+-   First, you will see that the code also imports data from the 2017 German federal election.
+-   Next, create a new data frame that contains the 2017 and 2021 data.
+-   Third, create a scatterplot of unemployment rate and AfD vote share and use year as facet.
+-   Finally, apply the custom theme from the first R markdown file to this new plot.
+
+Does your plot look like this?
+
+![](afd_plot.png){fig-align="center"}
+
+You can find the solution [here](../session05_example_solution.qmd). **Try first without looking!**
 
 # To Do's before our session
 
 ::: panel-tabset
-## Visualizing amounts 
+## Visualizing amounts
 
 "Beginner"
 
@@ -60,10 +77,6 @@ TBA
 ## Read
 
 -   Chapter 8: Refine your plots, in Hiely, Data Visualization. [Link to free online version](https://socviz.co/refineplots.html)
-
-```{=html}
-<!-- -->
-```
 -   Chapter 22: Titles, captions, and tables in Wilke, Fundamentals of Data Visualization. [Link to free online version](https://clauswilke.com/dataviz/figure-titles-captions.html)
 
 ## Think
