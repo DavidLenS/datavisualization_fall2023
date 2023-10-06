@@ -46,7 +46,7 @@ For this week, have a look at these R markdown files:
 
 -   The first R markdown file demonstrates how to create a nice custom theme for ggplot using the gapminder data. You can find it [here](https://ilias.uni-mannheim.de/goto.php?target=file_1439663_download&client_id=ILIAS).
 
--   The second R markdown file shows how to import data from the Federal Returning Officer in Germany and create a scatterplot of unemployment rate and AfD vote share at the constituency level for the 2021 German federal elections. You can find it [here](https://ilias.uni-mannheim.de/goto.php?target=file_1439664_download&client_id=ILIAS).
+-   The second R markdown file shows how to import data from the Federal Returning Officer in Germany and create a scatterplot of unemployment rate and AfD vote share at the constituency level for the 2021 German federal elections. You can find it [here](https://ilias.uni-mannheim.de/goto.php?target=file_1439664_download&client_id=ILIAS). You can download the .csv files either yourself (see the links in the R markdown files) or from [ILIAS](https://ilias.uni-mannheim.de/goto.php?target=fold_1439661&client_id=ILIAS).
 
 Try to run both R markdown files. As always, you can try out new arguments or change values (e.g., colors, title size, ...). If this works, try to extend the code in the second R markdown file:
 
