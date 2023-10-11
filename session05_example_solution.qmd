@@ -1,5 +1,5 @@
 ---
-title: "Applied example - Relationship between unemplyment and AfD vote share at the consituency level"
+title: "Applied example - Relationship between unemployment and AfD vote share at the constituency level"
 format: html
 editor: visual
 ---

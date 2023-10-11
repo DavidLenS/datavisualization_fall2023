@@ -57,13 +57,13 @@ This is not a mandatory exercise. However, I strongly recommend that you try to 
 
 -   Chapter 4 and 11 in Cairo, The Truthful Art
     -   Please access the chapter via Katalog Primo (University library)
--   Chapter 7: Titles, captions, and tables in Wilke, Fundamentals of Data Visualization. [Link to free online version](https://clauswilke.com/dataviz/histograms-density-plots.html)
+-   Chapter 7: Visualizing distributions: Histograms and density plots in Wilke, Fundamentals of Data Visualization. [Link to free online version](https://clauswilke.com/dataviz/histograms-density-plots.html)
 
 **Helpful and interesting readings:**
 
 -   [Blog post by Cedric Scherer](https://www.cedricscherer.com/2021/06/06/visualizing-distributions-with-raincloud-plots-and-how-to-create-them-with-ggplot2/)
 
--   Chapter 16: Titles, captions, and tables in Wilke, Fundamentals of Data Visualization. [Link to free online version](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
+-   Chapter 16: Visualizing uncertainty in Wilke, Fundamentals of Data Visualization. [Link to free online version](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
 
 -   Chapter 7 in Cairo, The Truthful Art
 
