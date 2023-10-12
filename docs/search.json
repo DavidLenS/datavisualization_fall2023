@@ -200,7 +200,7 @@
     "href": "weeks/week-06.html",
     "title": "Uncertainty",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nRelationships\n\n\nWeek 6\n\n\nOct 12, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA\n\n\nTo Do’s before our session\n\n(Voluntary) exerciseReadThink\n\n\nTry to run both R markdown files under Materials in week 5 and extend the code as described.\nThis is not a mandatory exercise. However, I strongly recommend that you try to do it. Being able to extend existing code will be essential for creating a great visualization for your final examination! If there are any questions, please do not hesitate to contact me via e-mail before our next session.\n\n\n\nChapter 4 and 11 in Cairo, The Truthful Art\n\nPlease access the chapter via Katalog Primo (University library)\n\nChapter 7: Visualizing distributions: Histograms and density plots in Wilke, Fundamentals of Data Visualization. Link to free online version\n\nHelpful and interesting readings:\n\nBlog post by Cedric Scherer\nChapter 16: Visualizing uncertainty in Wilke, Fundamentals of Data Visualization. Link to free online version\nChapter 7 in Cairo, The Truthful Art\n\nPlease access the chapter via Katalog Primo (University library)\n\n\n\n\n\nQuestions to think about for the readings:\n\nWhy is it important to communicate uncertainty in our plots?"
+    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nUncertainty\n\n\nWeek 6\n\n\nOct 12, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA\n\n\nTo Do’s before our session\n\n(Voluntary) exerciseReadThink\n\n\nTry to run both R markdown files under Materials in week 5 and extend the code as described.\nThis is not a mandatory exercise. However, I strongly recommend that you try to do it. Being able to extend existing code will be essential for creating a great visualization for your final examination! If there are any questions, please do not hesitate to contact me via e-mail before our next session.\n\n\n\nChapter 4 and 11 in Cairo, The Truthful Art\n\nPlease access the chapter via Katalog Primo (University library)\n\nChapter 7: Visualizing distributions: Histograms and density plots in Wilke, Fundamentals of Data Visualization. Link to free online version\n\nHelpful and interesting readings:\n\nBlog post by Cedric Scherer\nChapter 16: Visualizing uncertainty in Wilke, Fundamentals of Data Visualization. Link to free online version\nChapter 7 in Cairo, The Truthful Art\n\nPlease access the chapter via Katalog Primo (University library)\n\n\n\n\n\nQuestions to think about for the readings:\n\nWhy is it important to communicate uncertainty in our plots?"
   },
   {
     "objectID": "weeks/week-07.html",
@@ -2936,8 +2936,8 @@
     "objectID": "slides/week-04/04-AmountsAndProportions.html#plan-for-today",
     "href": "slides/week-04/04-AmountsAndProportions.html#plan-for-today",
     "title": "Amounts & Proportions",
-    "section": "Plan for today",
-    "text": "Plan for today\nInput\n\nReproducibility\nAmounts\nProportion\n\nCoding\n\nCoding example\nGapminder, parliaments, or TidyTuesday"
+    "section": "",
+    "text": "Input\n\nReproducibility\nAmounts\nProportion\n\nCoding\n\nCoding example\nGapminder, parliaments, or TidyTuesday"
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#reproducibility-why-r",
@@ -3000,7 +3000,7 @@
     "href": "slides/week-04/04-AmountsAndProportions.html#r-markdown---uk-government",
     "title": "Amounts & Proportions",
     "section": "R Markdown - UK Government",
-    "text": "R Markdown - UK Government\nFormerly, a typical statistics production process in government agencies in the UK:\n\n\n\n\n\n\nProne to errors & time-consuming ⟶ Development to a reproducible analytical pipeline:"
+    "text": "R Markdown - UK Government\nFormerly, a typical statistics production process in government agencies in the UK:\n\n\n\n\n\n. . .\nProne to errors & time-consuming ⟶ Development to a reproducible analytical pipeline:"
   },
   {
     "objectID": "test.html",
@@ -3042,7 +3042,7 @@
     "href": "slides/week-04/04-AmountsAndProportions.html#when-to-use-pie-charts",
     "title": "Amounts & Proportions",
     "section": "When to use pie charts?",
-    "text": "When to use pie charts?\n\n\n\n\n\n\nFor more details: Look here."
+    "text": "When to use pie charts?\n. . .\n\n\n\n\n\nFor more details: Look here."
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#bad-bar-plots",
@@ -3140,7 +3140,7 @@
     "href": "slides/week-04/04-AmountsAndProportions.html#your-turn",
     "title": "Amounts & Proportions",
     "section": "Your turn",
-    "text": "Your turn\n“Beginner”\n\nTry to run the ggparliament R markdown script\n\n“Advanced”\n\nHave a look at TidyTuesday, choose one of the data sets, and visualize amounts\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+    "text": "Your turn\n“Beginner”\n\nTry to run the ggparliament R markdown script\n\n“Advanced”\n\nHave a look at TidyTuesday, choose one of the data sets, and visualize amounts"
   },
   {
     "objectID": "slides/week-04/04-AmountsAndProportions.html#ggparliament---bundestag-2021-1",
