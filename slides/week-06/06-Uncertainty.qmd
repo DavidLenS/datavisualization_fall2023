@@ -1,0 +1,848 @@
+---
+title: "Uncertainty"
+subtitle: "Week 6"
+author: "David Schweizer"
+date: "October 12, 2023"
+date-format: long
+institute: "University of Mannheim"
+format: 
+  revealjs:
+    theme: simple
+    slide-number: c/t #< collapsed/total
+    footer: "Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+editor: visual
+---
+
+```{r packages, include=FALSE}
+pacman::p_load(
+  "tidyverse",
+  "gapminder",
+  "ggridges",
+  "gghalves"
+)
+```
+
+```{r, include = F}
+gapminder <- gapminder
+```
+
+```{r, include = F}
+set.seed(1234)
+
+#dogs
+weight <- rnorm(10000, 30, 3)
+animal_type <- rep("Dogs", 100)
+
+dogs <- data.frame(animal_type, weight)
+
+#cats
+n <- 10000
+bin <- rbinom(n, 1, 0.5)
+weight <- rnorm(n, mean = 40, sd = 3) * bin +
+      rnorm(n, mean = 20, sd =2) * (1 - bin)
+animal_type <- rep("Cats", 100)
+
+cats <- data.frame(animal_type, weight)
+
+cat <- sample_n(cats, 1000)
+dog <- sample_n(dogs, 1000)
+
+animals <- merge(cat,dog,all = T)
+```
+
+## Plan for today
+
+Input
+
+-   Why is it hard to communicate uncertainty?
+-   How to visualize uncertainty?
+
+Coding
+
+-   Coding example
+
+-   Your turn!
+
+# Why is it hard to communicate uncertainty?
+
+## (Mis)perceptions of probability: Chance
+
+[![Wilke. Visualizing uncertainty. Figure 16.1](success_failure.png){width="1368"}](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
+
+## (Mis)perceptions of probability: Rain
+
+::: panel-tabset
+## Right now?
+
+![](weather_mannheim.png){fig-align="center" width="707"}
+
+## Why is it (not) raining?
+
+[![](rain1.png){width="798"}](https://www.stmweather.com/blog/meteorology-101/what-does-50-chance-of-rain-really-mean/)
+
+## Chance of rain
+
+[![](rain2.png){width="794"}](https://www.stmweather.com/blog/meteorology-101/what-does-50-chance-of-rain-really-mean/)
+:::
+
+## Do we do better?
+
+![](coinflip.png){fig-align="center"}
+
+## Election forecast - FiveThirtyEight
+
+[![](utah_forecast.png)](https://projects.fivethirtyeight.com/2018-midterm-election-forecast/senate/utah/)
+
+## Election forecast - FiveThirtyEight
+
+[![](texas_forecast.png)](https://projects.fivethirtyeight.com/2018-midterm-election-forecast/senate/texas/)
+
+## Election forecast - NYT
+
+[![](needle_live.gif){fig-align="center" width="550"}](https://gen.medium.com/how-i-learned-to-stop-worrying-and-love-the-needle-9bfed8f41023)
+
+## Election forecast - NYT
+
+[![The New York Times](needle_static.png){width="1491"}](https://www.nytimes.com/interactive/2022/11/08/us/elections/results-needle-forecast.html)
+
+## (Recently) in Germany
+
+![](afd.jpg)
+
+## Also in Germany: Zweitstimme.org & SZ
+
+[![](sz.png)](https://www.sueddeutsche.de/politik/bundestagswahl-prognose-vorhersage-1.5385101)
+
+# How to visualize uncertainty?
+
+## Why single numbers are problematic - Remember?
+
+::: columns
+::: {.column width="50%"}
+```{r, echo=FALSE}
+#| fig-width: 7
+#| fig-height: 4
+#| out-width: 7in
+#| out-height: 4in
+animals %>%
+  group_by(animal_type) %>%
+  mutate(mean=mean(weight)) %>%
+ggplot(aes(x = animal_type, y = mean, fill = animal_type)) +
+  geom_bar(stat="identity") +
+  labs(x = NULL, y = "Weight") +
+  guides(fill = "none") + 
+  theme_minimal()
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=FALSE}
+#| fig-width: 7
+#| fig-height: 4
+#| out-width: 7in
+#| out-height: 4in
+ggplot(animals, aes(x = animal_type, y = weight, color = animal_type)) +
+  geom_point(position = position_jitter(height = 0),
+             size = 1) +
+  labs(x = NULL, y = "Weight") +
+  guides(color = "none") +
+  theme_minimal()
+```
+:::
+:::
+
+Have a look at [barbarplots](https://barbarplots.github.io/).
+
+## Again: We benefit from more information
+
+-   We should not visualize only single numbers if we have access to a full range or distribution of numbers
+
+-   We can visualize uncertainty in
+
+    -   single variables
+
+    -   across multiple variables
+
+    -   and in regression models
+
+# Singe variables
+
+## Single variables: Histograms
+
+::: panel-tabset
+## Code
+
+*geom_histogram* puts data into equally spaced *bins* and plots how many *rows* are in each bin.
+
+```{r, echo=TRUE, eval=FALSE}
+library(gapminder)
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_histogram()
+```
+
+## Plot
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_histogram()
+```
+:::
+
+## geom_histogram - bin width
+
+::: panel-tabset
+## Set bin width
+
+There is no general rule what bin width is best. This also depends on your data and what you want to show!
+
+```{r, echo=TRUE, eval=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_histogram(binwidth = 2)
+```
+
+## 0.1
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_histogram(binwidth = 0.1)
+```
+
+## 50
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_histogram(binwidth = 50)
+```
+
+## 2
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_histogram(binwidth = 2)
+```
+:::
+
+## Improving histograms - Border lines
+
+::: panel-tabset
+## Code
+
+We can add a (white) border to the bars to improve readability.
+
+```{r, echo=TRUE, eval=FALSE}
+
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_histogram(binwidth = 2,
+                 color = "white")
+```
+
+## "Old" plot
+
+```{r, echo=FALSE}
+
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_histogram(binwidth = 2)
+```
+
+## Improved?!
+
+```{r, echo=FALSE}
+
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_histogram(binwidth = 2,
+                 color = "white")
+```
+:::
+
+## Improving histograms - Set boundary
+
+::: panel-tabset
+## Code
+
+We can also change the boundary to improve readability: For example, that bins range from 50 to 55 instead of 47.5 to 52.5.
+
+```{r, echo=TRUE, eval=FALSE}
+
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_histogram(binwidth = 5,
+                 color = "white",
+                 boundary = 50)
+```
+
+## Old plot
+
+```{r, echo=FALSE}
+
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_histogram(binwidth = 5,
+                 color = "white")
+```
+
+## Improved?!
+
+```{r, echo=FALSE}
+
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_histogram(binwidth = 5,
+                 color = "white",
+                 boundary = "50")
+```
+:::
+
+## Density plots
+
+::: panel-tabset
+## Code
+
+We can show the probability of each value on the x-axis:
+
+```{r, echo=TRUE, eval=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_density(fill = "grey80",
+               color = "grey20")
+
+```
+
+## Plot
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_density(fill = "grey80",
+               color = "grey20")
+
+```
+:::
+
+## Density plots: Bandwidths
+
+::: panel-tabset
+## Code
+
+We can set different bandwidths to change the shape of our plot.
+
+```{r, echo=TRUE, eval=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_density(fill = "grey80",
+               color = "grey20",
+               bw = "nrd0")
+```
+
+## bw = 1
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_density(fill = "grey80",
+               color = "grey20",
+               bw = 1)
+```
+
+## bw = 10
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_density(fill = "grey80",
+               color = "grey20",
+               bw = 10)
+```
+
+## bw = "nrd0" (default)
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_density(fill = "grey80",
+               color = "grey20",
+               bw = "nrd0")
+```
+:::
+
+## Density plots: Kernels
+
+::: panel-tabset
+## Code
+
+The same holds true for changing the *kernel* option:
+
+```{r, echo=TRUE, eval=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_density(fill = "grey80",
+               color = "grey20",
+               kernel = "gaussian")
+```
+
+## gaussian
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_density(fill = "grey80",
+               color = "grey20",
+               kernel = "gaussian")
+```
+
+## rectangular
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_density(fill = "grey80",
+               color = "grey20",
+               kernel = "rectangular")
+```
+
+## cosine
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_density(fill = "grey80",
+               color = "grey20",
+               kernel = "cosine")
+```
+:::
+
+## Boxplots
+
+::: panel-tabset
+## Code
+
+Using boxplots, we can display specific values such as the median or the interquartile range.
+
+```{r, echo=TRUE, eval=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_boxplot()
+```
+
+## Plot
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp)) +
+  geom_boxplot()
+```
+:::
+
+## Boxplots
+
+[![Towards data science. Understanding boxplots by Michael Galarnyk](boxplot.png)](https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51)
+
+## Violin and boxplots combined
+
+::: panel-tabset
+## Code
+
+We can also combine multiple plot types to show more information:
+
+```{r, echo=TRUE, eval=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = "", 
+           y = lifeExp)) +
+  geom_violin() +
+  geom_boxplot(width = 0.1)
+```
+
+## Plot
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = "", 
+           y = lifeExp)) +
+  geom_violin() +
+  geom_boxplot(width = 0.1)
+```
+:::
+
+# Multiple variables
+
+## Uncertainty across multiple variables
+
+::: panel-tabset
+## Code: fill
+
+We **could** use the *fill* aesthetic to visualize the distribution of a single variable across different groups - i.e., continents:
+
+```{r, echo=TRUE, eval=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp,
+           fill = continent)) +
+  geom_histogram(binwidth = 5, 
+                 color = "white", 
+                 boundary = 50)
+```
+
+## Plot
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp,
+           fill = continent)) +
+  geom_histogram(binwidth = 5, 
+                 color = "white", 
+                 boundary = 50)
+```
+
+## Code: facet
+
+**Better!** We can facet by the different continents:
+
+```{r, echo=TRUE, eval=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp,
+           fill = continent)) +
+  geom_histogram(binwidth = 5, 
+                 color = "white", 
+                 boundary = 50) +
+  guides(fill = "none") +
+  facet_wrap(vars(continent))
+```
+
+## Plot
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp,
+           fill = continent)) +
+  geom_histogram(binwidth = 5, 
+                 color = "white", 
+                 boundary = 50) +
+  guides(fill = "none") +
+  facet_wrap(vars(continent))
+```
+:::
+
+## Pyramid histograms
+
+::: panel-tabset
+## Code
+
+```{r, echo=TRUE, eval=FALSE}
+gapminder_pyramid <- gapminder %>% 
+  filter(year == 2002) %>% 
+  mutate(africa = case_when(continent == "Africa" ~ "Africa",
+                            TRUE ~ "Not Africa")) %>% 
+  mutate(age = cut(lifeExp, breaks = seq(30, 90, by = 5))) %>% 
+  group_by(africa, age_buckets) %>% 
+  summarize(total = n()) 
+  
+ggplot(gapminder_pyramid, 
+       aes(y = age,
+           x = case_when(africa == "Africa" ~ total,
+                         TRUE ~ -total),
+           fill = africa)) +
+  geom_col(width = 1, 
+           color = "white")
+```
+
+## Plot
+
+```{r, echo=FALSE}
+gapminder_pyramid <- gapminder %>% 
+  filter(year == 2002) %>% 
+  mutate(africa = case_when(continent == "Africa" ~ "Africa",
+                            TRUE ~ "Not Africa")) %>% 
+  mutate(age = cut(lifeExp, breaks = seq(30, 90, by = 5))) %>% 
+  group_by(africa, age) %>% 
+  summarize(total = n()) 
+  
+ggplot(gapminder_pyramid, 
+       aes(y = age,
+           x = case_when(africa == "Africa" ~ total,
+                         TRUE ~ -total),
+           fill = africa)) +
+  geom_col(width = 1, 
+           color = "white")
+```
+:::
+
+## Showing multiple densities
+
+::: panel-tabset
+## Code
+
+We can show multiple densities by adjusting the transparency with the *alpha* option.
+
+```{r, echo=TRUE, eval=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002) %>% 
+  filter(continent != "Oceania")
+
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp,
+           fill = continent)) +
+  geom_density(alpha = 0.4)
+```
+
+## Plot
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002) %>% 
+  filter(continent != "Oceania")
+
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp,
+           fill = continent)) +
+  geom_density(alpha = 0.4)
+```
+:::
+
+## Showing multiple densities
+
+::: panel-tabset
+## Code
+
+We can also show multiple densities by using **ridgeplots**:
+
+```{r, echo=TRUE, eval=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002) %>% 
+  filter(continent != "Oceania")
+
+library(ggridges)
+
+ggplot(gapminder_2002,
+       aes(x = lifeExp,
+           fill = continent,
+           y = continent)) +
+  geom_density_ridges()
+```
+
+## Plot
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002) %>% 
+  filter(continent != "Oceania")
+
+
+library(ggridges)
+ggplot(gapminder_2002,
+       aes(x = lifeExp,
+           fill = continent,
+           y = continent)) +
+  geom_density_ridges()
+```
+:::
+
+## Ridgeplots & the US congress
+
+::: panel-tabset
+## Original example
+
+[![](congress.png){width="630"}](https://rpubs.com/ianrmcdonald/293304)
+
+## Extension
+
+[![](congress1.png){width="630"}](https://rpubs.com/caddigan/asymmetric_polarization)
+:::
+
+## Using multiple geoms - gghalves
+
+::: panel-tabset
+## Code
+
+Using gghalves, we can plot boxplots and points side-by-side:
+
+```{r, echo=TRUE, eval=FALSE}
+library(gghalves)
+
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002) %>% 
+  filter(continent != "Oceania")
+
+ggplot(gapminder_2002,
+       aes(y = lifeExp,
+           x = continent,
+           color = continent)) +
+  geom_half_boxplot(side = "l") +
+  geom_half_point(side = "r")
+```
+
+## Plot
+
+```{r, echo=FALSE}
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002) %>% 
+  filter(continent != "Oceania")
+
+ggplot(gapminder_2002,
+       aes(y = lifeExp,
+           x = continent,
+           color = continent)) +
+  geom_half_boxplot(side = "l") +
+  geom_half_point(side = "r")
+```
+:::
+
+## Using multiple geoms - Raincloud plots
+
+::: panel-tabset
+## Code
+
+We can combine boxplots, violin plots, and points:
+
+```{r, echo=TRUE, eval=FALSE}
+library(gghalves)
+
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002) %>% 
+  filter(continent != "Oceania")
+
+ggplot(gapminder_2002,
+       aes(y = lifeExp, x = continent,
+           color = continent)) +
+   geom_half_point(side = "l", size = 0.3) + 
+  geom_half_boxplot(side = "l", width = 0.5, alpha = 0.3, nudge = 0.1) +
+  geom_half_violin(aes(fill = continent), side = "r") +
+  guides(fill = "none", color = "none") +
+  coord_flip()
+```
+
+## Plot
+
+```{r, echo=FALSE}
+library(gghalves)
+
+gapminder_2002 <- gapminder %>% 
+  filter(year == 2002) %>% 
+  filter(continent != "Oceania")
+
+ggplot(gapminder_2002,
+       aes(y = lifeExp, x = continent,
+           color = continent)) +
+   geom_half_point(side = "l", size = 0.3) + 
+  geom_half_boxplot(side = "l", width = 0.5, 
+                    alpha = 0.3, nudge = 0.1) +
+  geom_half_violin(aes(fill = continent), 
+                   side = "r") +
+  guides(fill = "none", color = "none") +
+  coord_flip()
+```
+:::
+
+# Regression models
+
+## Uncertainty in model estimates
+
+![](soepcoeffull.png){fig-align="center" width="474"}
+
+## Uncertainty in model effects
+
+[![Oshri et al. (2022) Risk Aversion and the Gender Gap in the Vote for Populist Radical Right Parties](ajps12696-fig-0003-m.png){width="563"}](https://onlinelibrary.wiley.com/doi/10.1111/ajps.12696)
+
+## Uncertainty in model outcomes
+
+[![Source: FiveThirtyEight](538.png){width="395"}](https://projects.fivethirtyeight.com/2022-election-forecast/house/)
+
+# Coding example

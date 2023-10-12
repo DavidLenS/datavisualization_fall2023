@@ -3358,5 +3358,264 @@
     "title": "session05 - example",
     "section": "You can now also apply it to different data!",
     "text": "You can now also apply it to different data!\n\n# increase time period\ngapminder_filtered_new &lt;- gapminder %&gt;% \n  filter(year &gt; 1996)\n\nggplot(data = gapminder_filtered_new, # our data frame with the increased time period\n                    mapping = aes(x = gdpPercap, \n                                  y = lifeExp, \n                                  color = continent, \n                                  size = pop)) +\n  geom_point() +\n  # Use dollars as x-axis label and loose the cents (i.e. $100 instead of $100.00)\n  scale_x_log10(labels = label_dollar(accuracy = 1), \n                guide = guide_axis(check.overlap = TRUE)) + # avoid overlapping labels on the x-axis\n  # Format with commas\n  scale_size_continuous(labels = label_comma()) +\n  # Use the viridis color sheme\n  scale_color_viridis_d(option = \"plasma\", end = 0.85) +\n  labs(x = \"GDP per capita\", \n       y = \"Life expectancy\",\n       color = \"Continent\", \n       size = \"Population\",\n       title = \"Insert your title here\",\n       subtitle = \"And a subtitle here\",\n       caption = \"Source: The Gapminder Project\") +\n  # facets by year\n  facet_wrap(vars(year)) +\n  # add our custom theme!\n  custom_theme"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#plan-for-today",
+    "href": "slides/week-06/06-Uncertainty.html#plan-for-today",
+    "title": "Uncertainty",
+    "section": "Plan for today",
+    "text": "Plan for today\nInput\n\nWhy is it hard to communicate uncertainty?\nHow to visualize uncertainty?\n\nCoding\n\nCoding example\nYour turn!"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#misperceptions-of-probability-chance",
+    "href": "slides/week-06/06-Uncertainty.html#misperceptions-of-probability-chance",
+    "title": "Uncertainty",
+    "section": "(Mis)perceptions of probability: Chance",
+    "text": "(Mis)perceptions of probability: Chance\n\nWilke. Visualizing uncertainty. Figure 16.1"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#misperceptions-of-probability-rain",
+    "href": "slides/week-06/06-Uncertainty.html#misperceptions-of-probability-rain",
+    "title": "Uncertainty",
+    "section": "(Mis)perceptions of probability: Rain",
+    "text": "(Mis)perceptions of probability: Rain\n\nRight now?Why is it (not) raining?Chance of rain"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#do-we-do-better",
+    "href": "slides/week-06/06-Uncertainty.html#do-we-do-better",
+    "title": "Uncertainty",
+    "section": "Do we do better?",
+    "text": "Do we do better?"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#misperceptions-of-probability-election-forecast",
+    "href": "slides/week-06/06-Uncertainty.html#misperceptions-of-probability-election-forecast",
+    "title": "Uncertainty",
+    "section": "(Mis)perceptions of probability: Election forecast",
+    "text": "(Mis)perceptions of probability: Election forecast"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#misperceptions-of-probability-election-forecast-1",
+    "href": "slides/week-06/06-Uncertainty.html#misperceptions-of-probability-election-forecast-1",
+    "title": "Uncertainty",
+    "section": "(Mis)perceptions of probability: Election forecast",
+    "text": "(Mis)perceptions of probability: Election forecast"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#also-in-germany-zweitstimme.org-sz",
+    "href": "slides/week-06/06-Uncertainty.html#also-in-germany-zweitstimme.org-sz",
+    "title": "Uncertainty",
+    "section": "Also in Germany: Zweitstimme.org & SZ",
+    "text": "Also in Germany: Zweitstimme.org & SZ"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#misperceptions-of-probability-election-forecast-live-coverage",
+    "href": "slides/week-06/06-Uncertainty.html#misperceptions-of-probability-election-forecast-live-coverage",
+    "title": "Uncertainty",
+    "section": "(Mis)perceptions of probability: Election forecast & Live coverage",
+    "text": "(Mis)perceptions of probability: Election forecast & Live coverage"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#misperceptions-of-probability-election-forecast-live-coverage-1",
+    "href": "slides/week-06/06-Uncertainty.html#misperceptions-of-probability-election-forecast-live-coverage-1",
+    "title": "Uncertainty",
+    "section": "(Mis)perceptions of probability: Election forecast & Live coverage",
+    "text": "(Mis)perceptions of probability: Election forecast & Live coverage\n\nThe New York Times"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#election-forecast---fivethirtyeight",
+    "href": "slides/week-06/06-Uncertainty.html#election-forecast---fivethirtyeight",
+    "title": "Uncertainty",
+    "section": "Election forecast - FiveThirtyEight",
+    "text": "Election forecast - FiveThirtyEight"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#election-forecast---fivethirtyeight-1",
+    "href": "slides/week-06/06-Uncertainty.html#election-forecast---fivethirtyeight-1",
+    "title": "Uncertainty",
+    "section": "Election forecast - FiveThirtyEight",
+    "text": "Election forecast - FiveThirtyEight"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#election-forecast---nyt",
+    "href": "slides/week-06/06-Uncertainty.html#election-forecast---nyt",
+    "title": "Uncertainty",
+    "section": "Election forecast - NYT",
+    "text": "Election forecast - NYT"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#election-forecast---nyt-1",
+    "href": "slides/week-06/06-Uncertainty.html#election-forecast---nyt-1",
+    "title": "Uncertainty",
+    "section": "Election forecast - NYT",
+    "text": "Election forecast - NYT\n\nThe New York Times"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#why-single-numbers-are-problematic---remember",
+    "href": "slides/week-06/06-Uncertainty.html#why-single-numbers-are-problematic---remember",
+    "title": "Uncertainty",
+    "section": "Why single numbers are problematic - Remember?",
+    "text": "Why single numbers are problematic - Remember?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHave a look at barbarplots."
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#again-we-benefit-from-more-information",
+    "href": "slides/week-06/06-Uncertainty.html#again-we-benefit-from-more-information",
+    "title": "Uncertainty",
+    "section": "Again: We benefit from more information",
+    "text": "Again: We benefit from more information\n\nWe should not visualize only single numbers if we have access to a full range or distribution of numbers\nWe can visualize uncertainty in\n\nsingle variables\nacross multiple variables\nand in regression models"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#uncertainty-in-single-variables-histograms",
+    "href": "slides/week-06/06-Uncertainty.html#uncertainty-in-single-variables-histograms",
+    "title": "Uncertainty",
+    "section": "Uncertainty in single variables: Histograms",
+    "text": "Uncertainty in single variables: Histograms\n\nCodePlot\n\n\n\nlibrary(gapminder)\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002)\n\nggplot(gapminder_2002,\n       aes(x = lifeExp)) +\n  geom_histogram()\n\n\n\n\n\n\n\n\n\n\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#single-variables-histograms",
+    "href": "slides/week-06/06-Uncertainty.html#single-variables-histograms",
+    "title": "Uncertainty",
+    "section": "Single variables: Histograms",
+    "text": "Single variables: Histograms\n\nCodePlot\n\n\ngeom_histogram puts data into equally spaced bins and plots how many rows are in each bin.\n\nlibrary(gapminder)\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002)\n\nggplot(gapminder_2002,\n       aes(x = lifeExp)) +\n  geom_histogram()"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#geom_histogram---bin-width",
+    "href": "slides/week-06/06-Uncertainty.html#geom_histogram---bin-width",
+    "title": "Uncertainty",
+    "section": "geom_histogram - bin width",
+    "text": "geom_histogram - bin width\n\nSet bin width0.1502\n\n\nThere is no general rule what bin width is best. This also depends on your data and what you want to show!\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002)\n\nggplot(gapminder_2002,\n       aes(x = lifeExp)) +\n  geom_histogram(binwidth = 2)"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#improving-histograms---border-lines",
+    "href": "slides/week-06/06-Uncertainty.html#improving-histograms---border-lines",
+    "title": "Uncertainty",
+    "section": "Improving histograms - Border lines",
+    "text": "Improving histograms - Border lines\n\nCode“Old” plotImproved?!\n\n\nWe can add a (white) border to the bars to improve readability.\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002)\n\nggplot(gapminder_2002,\n       aes(x = lifeExp)) +\n  geom_histogram(binwidth = 2,\n                 color = \"white\")"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#improving-histograms---set-boundary",
+    "href": "slides/week-06/06-Uncertainty.html#improving-histograms---set-boundary",
+    "title": "Uncertainty",
+    "section": "Improving histograms - Set boundary",
+    "text": "Improving histograms - Set boundary\n\nCodeOld plotImproved?!\n\n\nWe can also change the boundary to improve readability: For example, that bins range from 50 to 55 instead of 47.5 to 52.5.\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002)\n\nggplot(gapminder_2002,\n       aes(x = lifeExp)) +\n  geom_histogram(binwidth = 5,\n                 color = \"white\",\n                 boundary = 50)"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#density-plots",
+    "href": "slides/week-06/06-Uncertainty.html#density-plots",
+    "title": "Uncertainty",
+    "section": "Density plots",
+    "text": "Density plots\n\nCodePlot\n\n\nWe can show the probability of each value on the x-axis:\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002)\n\nggplot(gapminder_2002,\n       aes(x = lifeExp)) +\n  geom_density(fill = \"grey80\",\n               color = \"grey20\")"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#density-plots-bandwidths",
+    "href": "slides/week-06/06-Uncertainty.html#density-plots-bandwidths",
+    "title": "Uncertainty",
+    "section": "Density plots: Bandwidths",
+    "text": "Density plots: Bandwidths\n\nCodebw = 1bw = 10bw = “nrd0” (default)\n\n\nWe can set different bandwidths to change the shape of our plot.\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002)\n\nggplot(gapminder_2002,\n       aes(x = lifeExp)) +\n  geom_density(fill = \"grey80\",\n               color = \"grey20\",\n               bw = \"nrd0\")"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#density-plots-kernels",
+    "href": "slides/week-06/06-Uncertainty.html#density-plots-kernels",
+    "title": "Uncertainty",
+    "section": "Density plots: Kernels",
+    "text": "Density plots: Kernels\n\nCodegaussianrectangularcosine\n\n\nThe same holds true for changing the kernel option:\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002)\n\nggplot(gapminder_2002,\n       aes(x = lifeExp)) +\n  geom_density(fill = \"grey80\",\n               color = \"grey20\",\n               kernel = \"gaussian\")"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#boxplots",
+    "href": "slides/week-06/06-Uncertainty.html#boxplots",
+    "title": "Uncertainty",
+    "section": "Boxplots",
+    "text": "Boxplots\n\nCodePlot\n\n\nUsing boxplots, we can display specific values such as the median or the interquartile range.\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002)\n\nggplot(gapminder_2002,\n       aes(x = lifeExp)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#boxplots-1",
+    "href": "slides/week-06/06-Uncertainty.html#boxplots-1",
+    "title": "Uncertainty",
+    "section": "Boxplots",
+    "text": "Boxplots\n\nTowards data science. Understanding boxplots by Michael Galarnyk"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#violin-and-boxplots-combined",
+    "href": "slides/week-06/06-Uncertainty.html#violin-and-boxplots-combined",
+    "title": "Uncertainty",
+    "section": "Violin and boxplots combined",
+    "text": "Violin and boxplots combined\n\nCodePlot\n\n\nWe can also combine multiple plot types to show more information:\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002)\n\nggplot(gapminder_2002,\n       aes(x = \"\", \n           y = lifeExp)) +\n  geom_violin() +\n  geom_boxplot(width = 0.1)"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#uncertainty-across-multiple-variables",
+    "href": "slides/week-06/06-Uncertainty.html#uncertainty-across-multiple-variables",
+    "title": "Uncertainty",
+    "section": "Uncertainty across multiple variables",
+    "text": "Uncertainty across multiple variables\n\nCode: fillPlotCode: facetPlot\n\n\nWe could use the fill aesthetic to visualize the distribution of a single variable across different groups - i.e., continents:\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002)\n\nggplot(gapminder_2002,\n       aes(x = lifeExp,\n           fill = continent)) +\n  geom_histogram(binwidth = 5, \n                 color = \"white\", \n                 boundary = 50)\n\n\n\n\n\n\n\n\n\n\nBetter! We can facet by the different continents:\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002)\n\nggplot(gapminder_2002,\n       aes(x = lifeExp,\n           fill = continent)) +\n  geom_histogram(binwidth = 5, \n                 color = \"white\", \n                 boundary = 50) +\n  guides(fill = \"none\") +\n  facet_wrap(vars(continent))"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#pyramid-histograms",
+    "href": "slides/week-06/06-Uncertainty.html#pyramid-histograms",
+    "title": "Uncertainty",
+    "section": "Pyramid histograms",
+    "text": "Pyramid histograms\n\nCodePlot\n\n\n\ngapminder_pyramid &lt;- gapminder %&gt;% \n  filter(year == 2002) %&gt;% \n  mutate(africa = case_when(continent == \"Africa\" ~ \"Africa\",\n                            TRUE ~ \"Not Africa\")) %&gt;% \n  mutate(age = cut(lifeExp, breaks = seq(30, 90, by = 5))) %&gt;% \n  group_by(africa, age_buckets) %&gt;% \n  summarize(total = n()) \n  \nggplot(gapminder_pyramid, \n       aes(y = age,\n           x = case_when(africa == \"Africa\" ~ total,\n                         TRUE ~ -total),\n           fill = africa)) +\n  geom_col(width = 1, \n           color = \"white\")"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#showing-multiple-densities",
+    "href": "slides/week-06/06-Uncertainty.html#showing-multiple-densities",
+    "title": "Uncertainty",
+    "section": "Showing multiple densities",
+    "text": "Showing multiple densities\n\nCodePlot\n\n\nWe can show multiple densities by adjusting the transparency with the alpha option.\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002) %&gt;% \n  filter(continent != \"Oceania\")\n\n\nggplot(gapminder_2002,\n       aes(x = lifeExp,\n           fill = continent)) +\n  geom_density(alpha = 0.4)"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#showing-multiple-densities-1",
+    "href": "slides/week-06/06-Uncertainty.html#showing-multiple-densities-1",
+    "title": "Uncertainty",
+    "section": "Showing multiple densities",
+    "text": "Showing multiple densities\n\nCodePlot\n\n\nWe can also show multiple densities by using ridgeplots:\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002) %&gt;% \n  filter(continent != \"Oceania\")\n\nlibrary(ggridges)\n\nggplot(gapminder_2002,\n       aes(x = lifeExp,\n           fill = continent,\n           y = continent)) +\n  geom_density_ridges()"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#ridgeplots-the-us-congress",
+    "href": "slides/week-06/06-Uncertainty.html#ridgeplots-the-us-congress",
+    "title": "Uncertainty",
+    "section": "Ridgeplots & the US congress",
+    "text": "Ridgeplots & the US congress\n\nOriginal exampleExtension"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#using-multiple-geoms---gghalves",
+    "href": "slides/week-06/06-Uncertainty.html#using-multiple-geoms---gghalves",
+    "title": "Uncertainty",
+    "section": "Using multiple geoms - gghalves",
+    "text": "Using multiple geoms - gghalves\n\nCodePlot\n\n\nUsing gghalves, we can plot boxplots and points side-by-side:\n\nlibrary(gghalves)\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002) %&gt;% \n  filter(continent != \"Oceania\")\n\nggplot(gapminder_2002,\n       aes(y = lifeExp,\n           x = continent,\n           color = continent)) +\n  geom_half_boxplot(side = \"l\") +\n  geom_half_point(side = \"r\")"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#using-multiple-geoms---raincloud-plots",
+    "href": "slides/week-06/06-Uncertainty.html#using-multiple-geoms---raincloud-plots",
+    "title": "Uncertainty",
+    "section": "Using multiple geoms - Raincloud plots",
+    "text": "Using multiple geoms - Raincloud plots\n\nCodePlot\n\n\nWe can combine boxplots, violin plots, and points:\n\nlibrary(gghalves)\n\ngapminder_2002 &lt;- gapminder %&gt;% \n  filter(year == 2002) %&gt;% \n  filter(continent != \"Oceania\")\n\nggplot(gapminder_2002,\n       aes(y = lifeExp, x = continent,\n           color = continent)) +\n   geom_half_point(side = \"l\", size = 0.3) + \n  geom_half_boxplot(side = \"l\", width = 0.5, alpha = 0.3, nudge = 0.1) +\n  geom_half_violin(aes(fill = continent), side = \"r\") +\n  guides(fill = \"none\", color = \"none\") +\n  coord_flip()"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#uncertainty-in-model-estimates",
+    "href": "slides/week-06/06-Uncertainty.html#uncertainty-in-model-estimates",
+    "title": "Uncertainty",
+    "section": "Uncertainty in model estimates",
+    "text": "Uncertainty in model estimates"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#uncertainty-in-model-effects",
+    "href": "slides/week-06/06-Uncertainty.html#uncertainty-in-model-effects",
+    "title": "Uncertainty",
+    "section": "Uncertainty in model effects",
+    "text": "Uncertainty in model effects\n\nOshri et al. (2022) Risk Aversion and the Gender Gap in the Vote for Populist Radical Right Parties"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#uncertainty-in-model-outcomes",
+    "href": "slides/week-06/06-Uncertainty.html#uncertainty-in-model-outcomes",
+    "title": "Uncertainty",
+    "section": "Uncertainty in model outcomes",
+    "text": "Uncertainty in model outcomes\n\nSource: FiveThirtyEight"
+  },
+  {
+    "objectID": "slides/week-06/06-Uncertainty.html#recently-in-germany",
+    "href": "slides/week-06/06-Uncertainty.html#recently-in-germany",
+    "title": "Uncertainty",
+    "section": "(Recently) in Germany",
+    "text": "(Recently) in Germany"
   }
 ]

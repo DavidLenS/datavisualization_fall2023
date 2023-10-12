@@ -12,7 +12,7 @@
 
   <meta name="author" content="David Schweizer">
   <meta name="dcterms.date" content="2023-10-12">
-  <title>Data Visualization for Comparative Politics - Course Website - Relationships</title>
+  <title>Data Visualization for Comparative Politics - Course Website - Uncertainty</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -326,7 +391,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Relationships</h1>
+  <h1 class="title">Uncertainty</h1>
   <p class="subtitle">Week 6</p>
 
 <div class="quarto-title-authors">
@@ -342,8 +407,689 @@ David Schweizer
 
   <p class="date">October 12, 2023</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
+<section id="plan-for-today" class="slide level2">
+<h2>Plan for today</h2>
+<p>Input</p>
+<ul>
+<li>Why is it hard to communicate uncertainty?</li>
+<li>How to visualize uncertainty?</li>
+</ul>
+<p>Coding</p>
+<ul>
+<li><p>Coding example</p></li>
+<li><p>Your turn!</p></li>
+</ul>
+</section>
+<section>
+<section id="why-is-it-hard-to-communicate-uncertainty" class="title-slide slide level1 center">
+<h1>Why is it hard to communicate uncertainty?</h1>
+
+</section>
+<section id="misperceptions-of-probability-chance" class="slide level2">
+<h2>(Mis)perceptions of probability: Chance</h2>
+
+<img data-src="success_failure.png" width="1368" class="r-stretch quarto-figure-center"><p class="caption">Wilke. Visualizing uncertainty. Figure 16.1</p></section>
+<section id="misperceptions-of-probability-rain" class="slide level2">
+<h2>(Mis)perceptions of probability: Rain</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Right now?</a></li><li><a href="#tabset-1-2">Why is it (not) raining?</a></li><li><a href="#tabset-1-3">Chance of rain</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="weather_mannheim.png" width="707"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.stmweather.com/blog/meteorology-101/what-does-50-chance-of-rain-really-mean/"><img data-src="rain1.png" width="798"></a></p>
+</figure>
+</div>
+</div>
+<div id="tabset-1-3">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.stmweather.com/blog/meteorology-101/what-does-50-chance-of-rain-really-mean/"><img data-src="rain2.png" width="794"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="do-we-do-better" class="slide level2">
+<h2>Do we do better?</h2>
+
+<img data-src="coinflip.png" class="r-stretch quarto-figure-center"></section>
+<section id="election-forecast---fivethirtyeight" class="slide level2">
+<h2>Election forecast - FiveThirtyEight</h2>
+
+<img data-src="utah_forecast.png" class="r-stretch quarto-figure-center"></section>
+<section id="election-forecast---fivethirtyeight-1" class="slide level2">
+<h2>Election forecast - FiveThirtyEight</h2>
+
+<img data-src="texas_forecast.png" class="r-stretch quarto-figure-center"></section>
+<section id="election-forecast---nyt" class="slide level2">
+<h2>Election forecast - NYT</h2>
+
+<img data-src="needle_live.gif" width="550" class="r-stretch quarto-figure-center"></section>
+<section id="election-forecast---nyt-1" class="slide level2">
+<h2>Election forecast - NYT</h2>
+
+<img data-src="needle_static.png" width="1491" class="r-stretch quarto-figure-center"><p class="caption">The New York Times</p></section>
+<section id="recently-in-germany" class="slide level2">
+<h2>(Recently) in Germany</h2>
+
+<img data-src="afd.jpg" class="r-stretch"></section>
+<section id="also-in-germany-zweitstimme.org-sz" class="slide level2">
+<h2>Also in Germany: Zweitstimme.org &amp; SZ</h2>
+
+<img data-src="sz.png" class="r-stretch quarto-figure-center"></section></section>
+<section>
+<section id="how-to-visualize-uncertainty" class="title-slide slide level1 center">
+<h1>How to visualize uncertainty?</h1>
+
+</section>
+<section id="why-single-numbers-are-problematic---remember" class="slide level2">
+<h2>Why single numbers are problematic - Remember?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-3-1.png" style="width:7in;height:4in"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-4-1.png" style="width:7in;height:4in"></p>
+</div>
+</div>
+</div>
+</div>
+<p>Have a look at <a href="https://barbarplots.github.io/">barbarplots</a>.</p>
+</section>
+<section id="again-we-benefit-from-more-information" class="slide level2">
+<h2>Again: We benefit from more information</h2>
+<ul>
+<li><p>We should not visualize only single numbers if we have access to a full range or distribution of numbers</p></li>
+<li><p>We can visualize uncertainty in</p>
+<ul>
+<li><p>single variables</p></li>
+<li><p>across multiple variables</p></li>
+<li><p>and in regression models</p></li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="singe-variables" class="title-slide slide level1 center">
+<h1>Singe variables</h1>
+
+</section>
+<section id="single-variables-histograms" class="slide level2">
+<h2>Single variables: Histograms</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Code</a></li><li><a href="#tabset-2-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<p><em>geom_histogram</em> puts data into equally spaced <em>bins</em> and plots how many <em>rows</em> are in each bin.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb1-6"><a href="#cb1-6"></a>       <span class="fu">aes</span>(<span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="geom_histogram---bin-width" class="slide level2">
+<h2>geom_histogram - bin width</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Set bin width</a></li><li><a href="#tabset-3-2">0.1</a></li><li><a href="#tabset-3-3">50</a></li><li><a href="#tabset-3-4">2</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<p>There is no general rule what bin width is best. This also depends on your data and what you want to show!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>       <span class="fu">aes</span>(<span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div id="tabset-3-3">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div id="tabset-3-4">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="improving-histograms---border-lines" class="slide level2">
+<h2>Improving histograms - Border lines</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Code</a></li><li><a href="#tabset-4-2">“Old” plot</a></li><li><a href="#tabset-4-3">Improved?!</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<p>We can add a (white) border to the bars to improve readability.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb3-5"><a href="#cb3-5"></a>       <span class="fu">aes</span>(<span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>,</span>
+<span id="cb3-7"><a href="#cb3-7"></a>                 <span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div id="tabset-4-3">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="improving-histograms---set-boundary" class="slide level2">
+<h2>Improving histograms - Set boundary</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Code</a></li><li><a href="#tabset-5-2">Old plot</a></li><li><a href="#tabset-5-3">Improved?!</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<p>We can also change the boundary to improve readability: For example, that bins range from 50 to 55 instead of 47.5 to 52.5.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb4-5"><a href="#cb4-5"></a>       <span class="fu">aes</span>(<span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>,</span>
+<span id="cb4-7"><a href="#cb4-7"></a>                 <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8"></a>                 <span class="at">boundary =</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div id="tabset-5-3">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="density-plots" class="slide level2">
+<h2>Density plots</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Code</a></li><li><a href="#tabset-6-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<p>We can show the probability of each value on the x-axis:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb5-5"><a href="#cb5-5"></a>       <span class="fu">aes</span>(<span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"grey80"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7"></a>               <span class="at">color =</span> <span class="st">"grey20"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-6-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="density-plots-bandwidths" class="slide level2">
+<h2>Density plots: Bandwidths</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Code</a></li><li><a href="#tabset-7-2">bw = 1</a></li><li><a href="#tabset-7-3">bw = 10</a></li><li><a href="#tabset-7-4">bw = “nrd0” (default)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<p>We can set different bandwidths to change the shape of our plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb6-5"><a href="#cb6-5"></a>       <span class="fu">aes</span>(<span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"grey80"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7"></a>               <span class="at">color =</span> <span class="st">"grey20"</span>,</span>
+<span id="cb6-8"><a href="#cb6-8"></a>               <span class="at">bw =</span> <span class="st">"nrd0"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-7-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div id="tabset-7-3">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div id="tabset-7-4">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-22-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="density-plots-kernels" class="slide level2">
+<h2>Density plots: Kernels</h2>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Code</a></li><li><a href="#tabset-8-2">gaussian</a></li><li><a href="#tabset-8-3">rectangular</a></li><li><a href="#tabset-8-4">cosine</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<p>The same holds true for changing the <em>kernel</em> option:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>       <span class="fu">aes</span>(<span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"grey80"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7"></a>               <span class="at">color =</span> <span class="st">"grey20"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8"></a>               <span class="at">kernel =</span> <span class="st">"gaussian"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-8-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div id="tabset-8-3">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div id="tabset-8-4">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="boxplots" class="slide level2">
+<h2>Boxplots</h2>
+<div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Code</a></li><li><a href="#tabset-9-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<p>Using boxplots, we can display specific values such as the median or the interquartile range.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>       <span class="fu">aes</span>(<span class="at">x =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-9-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-28-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="boxplots-1" class="slide level2">
+<h2>Boxplots</h2>
+
+<img data-src="boxplot.png" class="r-stretch quarto-figure-center"><p class="caption">Towards data science. Understanding boxplots by Michael Galarnyk</p></section>
+<section id="violin-and-boxplots-combined" class="slide level2">
+<h2>Violin and boxplots combined</h2>
+<div class="panel-tabset">
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Code</a></li><li><a href="#tabset-10-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1">
+<p>We can also combine multiple plot types to show more information:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb9-5"><a href="#cb9-5"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, </span>
+<span id="cb9-6"><a href="#cb9-6"></a>           <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-10-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-30-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="multiple-variables" class="title-slide slide level1 center">
+<h1>Multiple variables</h1>
+
+</section>
+<section id="uncertainty-across-multiple-variables" class="slide level2">
+<h2>Uncertainty across multiple variables</h2>
+<div class="panel-tabset">
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Code: fill</a></li><li><a href="#tabset-11-2">Plot</a></li><li><a href="#tabset-11-3">Code: facet</a></li><li><a href="#tabset-11-4">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1">
+<p>We <strong>could</strong> use the <em>fill</em> aesthetic to visualize the distribution of a single variable across different groups - i.e., continents:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb10-5"><a href="#cb10-5"></a>       <span class="fu">aes</span>(<span class="at">x =</span> lifeExp,</span>
+<span id="cb10-6"><a href="#cb10-6"></a>           <span class="at">fill =</span> continent)) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, </span>
+<span id="cb10-8"><a href="#cb10-8"></a>                 <span class="at">color =</span> <span class="st">"white"</span>, </span>
+<span id="cb10-9"><a href="#cb10-9"></a>                 <span class="at">boundary =</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-11-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-32-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div id="tabset-11-3">
+<p><strong>Better!</strong> We can facet by the different continents:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb11-5"><a href="#cb11-5"></a>       <span class="fu">aes</span>(<span class="at">x =</span> lifeExp,</span>
+<span id="cb11-6"><a href="#cb11-6"></a>           <span class="at">fill =</span> continent)) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, </span>
+<span id="cb11-8"><a href="#cb11-8"></a>                 <span class="at">color =</span> <span class="st">"white"</span>, </span>
+<span id="cb11-9"><a href="#cb11-9"></a>                 <span class="at">boundary =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-11-4">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-34-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="pyramid-histograms" class="slide level2">
+<h2>Pyramid histograms</h2>
+<div class="panel-tabset">
+<ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Code</a></li><li><a href="#tabset-12-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>gapminder_pyramid <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">mutate</span>(<span class="at">africa =</span> <span class="fu">case_when</span>(continent <span class="sc">==</span> <span class="st">"Africa"</span> <span class="sc">~</span> <span class="st">"Africa"</span>,</span>
+<span id="cb12-4"><a href="#cb12-4"></a>                            <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Not Africa"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">mutate</span>(<span class="at">age =</span> <span class="fu">cut</span>(lifeExp, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">30</span>, <span class="dv">90</span>, <span class="at">by =</span> <span class="dv">5</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">group_by</span>(africa, age_buckets) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">summarize</span>(<span class="at">total =</span> <span class="fu">n</span>()) </span>
+<span id="cb12-8"><a href="#cb12-8"></a>  </span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="fu">ggplot</span>(gapminder_pyramid, </span>
+<span id="cb12-10"><a href="#cb12-10"></a>       <span class="fu">aes</span>(<span class="at">y =</span> age,</span>
+<span id="cb12-11"><a href="#cb12-11"></a>           <span class="at">x =</span> <span class="fu">case_when</span>(africa <span class="sc">==</span> <span class="st">"Africa"</span> <span class="sc">~</span> total,</span>
+<span id="cb12-12"><a href="#cb12-12"></a>                         <span class="cn">TRUE</span> <span class="sc">~</span> <span class="sc">-</span>total),</span>
+<span id="cb12-13"><a href="#cb12-13"></a>           <span class="at">fill =</span> africa)) <span class="sc">+</span></span>
+<span id="cb12-14"><a href="#cb12-14"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="dv">1</span>, </span>
+<span id="cb12-15"><a href="#cb12-15"></a>           <span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-12-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-36-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="showing-multiple-densities" class="slide level2">
+<h2>Showing multiple densities</h2>
+<div class="panel-tabset">
+<ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">Code</a></li><li><a href="#tabset-13-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1">
+<p>We can show multiple densities by adjusting the transparency with the <em>alpha</em> option.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">filter</span>(continent <span class="sc">!=</span> <span class="st">"Oceania"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4"></a></span>
+<span id="cb13-5"><a href="#cb13-5"></a></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb13-7"><a href="#cb13-7"></a>       <span class="fu">aes</span>(<span class="at">x =</span> lifeExp,</span>
+<span id="cb13-8"><a href="#cb13-8"></a>           <span class="at">fill =</span> continent)) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-13-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-38-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="showing-multiple-densities-1" class="slide level2">
+<h2>Showing multiple densities</h2>
+<div class="panel-tabset">
+<ul id="tabset-14" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-14-1">Code</a></li><li><a href="#tabset-14-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-14-1">
+<p>We can also show multiple densities by using <strong>ridgeplots</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">filter</span>(continent <span class="sc">!=</span> <span class="st">"Oceania"</span>)</span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb14-6"><a href="#cb14-6"></a></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb14-8"><a href="#cb14-8"></a>       <span class="fu">aes</span>(<span class="at">x =</span> lifeExp,</span>
+<span id="cb14-9"><a href="#cb14-9"></a>           <span class="at">fill =</span> continent,</span>
+<span id="cb14-10"><a href="#cb14-10"></a>           <span class="at">y =</span> continent)) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11"></a>  <span class="fu">geom_density_ridges</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-14-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-40-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ridgeplots-the-us-congress" class="slide level2">
+<h2>Ridgeplots &amp; the US congress</h2>
+<div class="panel-tabset">
+<ul id="tabset-15" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-15-1">Original example</a></li><li><a href="#tabset-15-2">Extension</a></li></ul>
+<div class="tab-content">
+<div id="tabset-15-1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://rpubs.com/ianrmcdonald/293304"><img data-src="congress.png" width="630"></a></p>
+</figure>
+</div>
+</div>
+<div id="tabset-15-2">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://rpubs.com/caddigan/asymmetric_polarization"><img data-src="congress1.png" width="630"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-multiple-geoms---gghalves" class="slide level2">
+<h2>Using multiple geoms - gghalves</h2>
+<div class="panel-tabset">
+<ul id="tabset-16" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-16-1">Code</a></li><li><a href="#tabset-16-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-16-1">
+<p>Using gghalves, we can plot boxplots and points side-by-side:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">library</span>(gghalves)</span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">filter</span>(continent <span class="sc">!=</span> <span class="st">"Oceania"</span>)</span>
+<span id="cb15-6"><a href="#cb15-6"></a></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb15-8"><a href="#cb15-8"></a>       <span class="fu">aes</span>(<span class="at">y =</span> lifeExp,</span>
+<span id="cb15-9"><a href="#cb15-9"></a>           <span class="at">x =</span> continent,</span>
+<span id="cb15-10"><a href="#cb15-10"></a>           <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a>  <span class="fu">geom_half_boxplot</span>(<span class="at">side =</span> <span class="st">"l"</span>) <span class="sc">+</span></span>
+<span id="cb15-12"><a href="#cb15-12"></a>  <span class="fu">geom_half_point</span>(<span class="at">side =</span> <span class="st">"r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-16-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-42-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-multiple-geoms---raincloud-plots" class="slide level2">
+<h2>Using multiple geoms - Raincloud plots</h2>
+<div class="panel-tabset">
+<ul id="tabset-17" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-17-1">Code</a></li><li><a href="#tabset-17-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-17-1">
+<p>We can combine boxplots, violin plots, and points:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">library</span>(gghalves)</span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a>gapminder_2002 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">filter</span>(continent <span class="sc">!=</span> <span class="st">"Oceania"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6"></a></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="fu">ggplot</span>(gapminder_2002,</span>
+<span id="cb16-8"><a href="#cb16-8"></a>       <span class="fu">aes</span>(<span class="at">y =</span> lifeExp, <span class="at">x =</span> continent,</span>
+<span id="cb16-9"><a href="#cb16-9"></a>           <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a>   <span class="fu">geom_half_point</span>(<span class="at">side =</span> <span class="st">"l"</span>, <span class="at">size =</span> <span class="fl">0.3</span>) <span class="sc">+</span> </span>
+<span id="cb16-11"><a href="#cb16-11"></a>  <span class="fu">geom_half_boxplot</span>(<span class="at">side =</span> <span class="st">"l"</span>, <span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">nudge =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb16-12"><a href="#cb16-12"></a>  <span class="fu">geom_half_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> continent), <span class="at">side =</span> <span class="st">"r"</span>) <span class="sc">+</span></span>
+<span id="cb16-13"><a href="#cb16-13"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>, <span class="at">color =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb16-14"><a href="#cb16-14"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-17-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06-Uncertainty_files/figure-revealjs/unnamed-chunk-44-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="regression-models" class="title-slide slide level1 center">
+<h1>Regression models</h1>
+
+</section>
+<section id="uncertainty-in-model-estimates" class="slide level2">
+<h2>Uncertainty in model estimates</h2>
+
+<img data-src="soepcoeffull.png" width="474" class="r-stretch quarto-figure-center"></section>
+<section id="uncertainty-in-model-effects" class="slide level2">
+<h2>Uncertainty in model effects</h2>
+
+<img data-src="ajps12696-fig-0003-m.png" width="563" class="r-stretch quarto-figure-center"><p class="caption">Oshri et al.&nbsp;(2022) Risk Aversion and the Gender Gap in the Vote for Populist Radical Right Parties</p></section>
+<section id="uncertainty-in-model-outcomes" class="slide level2">
+<h2>Uncertainty in model outcomes</h2>
+
+<img data-src="538.png" width="395" class="r-stretch quarto-figure-center"><p class="caption">Source: FiveThirtyEight</p></section></section>
+<section id="coding-example" class="title-slide slide level1 center">
+<h1>Coding example</h1>
 
 <div class="footer footer-default">
 <p>Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim</p>
@@ -560,6 +1306,44 @@ David Schweizer
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
