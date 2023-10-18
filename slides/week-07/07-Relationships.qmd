@@ -1,5 +1,5 @@
 ---
-title: "Comparisons"
+title: "Relationships"
 subtitle: "Week 7"
 author: "David Schweizer"
 date: "October 19, 2023"
