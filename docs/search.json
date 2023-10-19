@@ -3686,7 +3686,7 @@
     "href": "slides/week-07/07-Relationships.html#correlation-and-dual-y-axes-1",
     "title": "Relationships",
     "section": "Correlation and dual y-axes",
-    "text": "Correlation and dual y-axes\n\nProblemAlso the Economist gets it wrong!\n\n\n\nUsing dual y-axes and choosing their limits, we can deceive readers\nWe can show near perfect correlation by cherry-picking scales\n\nWhen to use dual y-axes?\n\nBoth axes measure the same quantity of interest.\n\n\n\n\n\n\n\nSource: Sarah Leo. Mistakes, we've drawn a few"
+    "text": "Correlation and dual y-axes\n\nProblemAlso the Economist gets it wrong!\n\n\n\nUsing dual y-axes and choosing their limits, we can deceive readers\nWe can show near perfect correlation by cherry-picking scales\n\nWhen to use dual y-axes?\n\nBoth axes measure the same quantity of interest.\n\n\n\n\n\n\n\nSource: Sarah Leo. Mistakes, we’ve drawn a few"
   },
   {
     "objectID": "slides/week-07/07-Relationships.html#how-to-add-a-second-scale-with-ggplot",
@@ -3742,7 +3742,7 @@
     "href": "slides/week-07/07-Relationships.html#correlogram-heatmaps",
     "title": "Relationships",
     "section": "Correlogram: Heatmaps",
-    "text": "Correlogram: Heatmaps\n\n\n\n\n\nCorrelogram: Points"
+    "text": "Correlogram: Heatmaps"
   },
   {
     "objectID": "slides/week-07/07-Relationships.html#building-ols-regression-models-in-r",
@@ -3855,5 +3855,12 @@
     "title": "Session_06 - Your data",
     "section": "",
     "text": "Set up\n\n# load your packages here\n\n# pacman::p_load(\"PACKAGENAME\")\n\n\n\nLoad data\nAs a first step, load your data. If you are not yet sure what data you want to work with, you can use one of the data sets of our earlier sessions. For example, the European Social Survey or data from the Federal Election Officer. Other data sources that provide well documented R or csv files are: V-Dem, the Manifesto project, The Populist, or ParlGov.\n\n# import your data here\n\n\n\nInspect the data\nNext, we want to inspect our data. Do we have any missings? Use the str() function and the summary() function.\n\n# insepct data here\n\n\n\nData transformation\nNow, we might need to transform our data. Maybe we have to change character variables to factor variables, or to numeric? Maybe we need to change our data to long format instead of wide in order to plot the data.\n\n# transform your data here\n\n\n\nDescriptives\nNow, we want to plot our main variables of interest descriptively. For example a histogram or a density plot to show the distribution of our data. Maybe, we want to show the development of a variable over time using a line plot?\n\n# plot descriptives\n\n\n\nCorrelation & Regression\nFinally, we want to show the correlation between two or multiple variables. Show the correlation between two variables using a scatterplot. Next, run an OLS regression, plot the results, and visualize them.\n\n# scatterplot here\n\n\n# regression here\n\n\n\nCustom theme\nFinally, create your own theme and apply it to the previous plots! Think about the CRAP principle and our session regarding themes. Of course, you can adapt the code from there!\n\n# plot descriptives"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#correlogram-points",
+    "href": "slides/week-07/07-Relationships.html#correlogram-points",
+    "title": "Relationships",
+    "section": "Correlogram: Points",
+    "text": "Correlogram: Points"
   }
 ]

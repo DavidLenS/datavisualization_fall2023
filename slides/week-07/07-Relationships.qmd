@@ -80,7 +80,7 @@ Coding
 ## Also the Economist gets it wrong!
 
 ::: {style="font-size: 50%;"}
-[![Source: Sarah Leo. Mistakes, we\'ve drawn a few](economist.webp){width="764"}](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368)
+[![Source: Sarah Leo. Mistakes, we've drawn a few](economist.webp){width="764"}](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368)
 :::
 :::
 
@@ -332,7 +332,7 @@ ggplot(correlation_matrix_long,
   theme(panel.grid = element_blank())
 ```
 
-Correlogram: Points
+## Correlogram: Points
 
 ```{r,echo=FALSE}
 ggplot(correlation_matrix_long, 
