@@ -647,3 +647,17 @@ ggplot(predicted_values_cat, aes(x = gdpPercap, y = estimate)) +
   facet_wrap(vars(continent), nrow = 1)
 ```
 :::
+
+## Beyond OLS
+
+So far, we covered OLS models built with *lm().* However: The techniques shown work for almost any model we can run in R:
+
+-   Logistic, probit, and multinomial regression
+
+-   Multilevel (i.e. mixed and random effects) regression
+
+-   Bayesian models (see tidybayes package)
+
+-   Machine learning models
+
+If our model has coefficients or if we make predictions, we can and should visualize it.

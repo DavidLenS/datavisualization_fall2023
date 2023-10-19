@@ -42,7 +42,9 @@ tbl-colwidths: [10,50,40]
 
 # Materials
 
-**TBA**
+-   If you want to create correlograms on your own, you can find illustrating code [here](https://ilias.uni-mannheim.de/goto.php?target=file_1444510_download&client_id=ILIAS).
+
+-   You can find the exercise [here](https://ilias.uni-mannheim.de/goto.php?target=file_1444511_download&client_id=ILIAS).
 
 # To Do's before our session
 
@@ -61,6 +63,6 @@ tbl-colwidths: [10,50,40]
 
 -   Questions to think about for the readings:
 
-    -   How can we communicate the relationship between variables the best way? Waht about uncertainty?
+    -   How can we communicate the relationship between variables the best way? What about uncertainty?
     -   What are the dangers of visualizing two variables?
 :::

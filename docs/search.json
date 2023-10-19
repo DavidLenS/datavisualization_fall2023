@@ -207,7 +207,7 @@
     "href": "weeks/week-07.html",
     "title": "Relationships",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nRelationships\n\n\nWeek 7\n\n\nOct 19, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA\n\n\nTo Do’s before our session\n\nReadThink\n\n\n\nChapter 9 in Cairo, The Truthful Art\n\nPlease access the chapter via Katalog Primo (University library)\n\nChapter 12: Visualizing associations among two or more quantitative variables in Wilke, Fundamentals of Data Visualization. Link to free online version\n\nHelpful and interesting readings:\n\nBlog post by Kieran Hiely\n\n\n\n\nQuestions to think about for the readings:\n\nHow can we communicate the relationship between variables the best way? Waht about uncertainty?\nWhat are the dangers of visualizing two variables?"
+    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nRelationships\n\n\nWeek 7\n\n\nOct 19, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\n\nIf you want to create correlograms on your own, you can find illustrating code here.\nYou can find the exercise here.\n\n\n\nTo Do’s before our session\n\nReadThink\n\n\n\nChapter 9 in Cairo, The Truthful Art\n\nPlease access the chapter via Katalog Primo (University library)\n\nChapter 12: Visualizing associations among two or more quantitative variables in Wilke, Fundamentals of Data Visualization. Link to free online version\n\nHelpful and interesting readings:\n\nBlog post by Kieran Hiely\n\n\n\n\nQuestions to think about for the readings:\n\nHow can we communicate the relationship between variables the best way? What about uncertainty?\nWhat are the dangers of visualizing two variables?"
   },
   {
     "objectID": "weeks/week-09.html",
@@ -3819,6 +3819,41 @@
     "href": "slides/week-07/07-Relationships.html#multiple-effects-at-once-1",
     "title": "Relationships",
     "section": "Multiple effects at once",
-    "text": "Multiple effects at once\n\nCodePlot\n\n\n\nggplot(predicted_values_cat, aes(x = gdpPercap, y = estimate)) +\n  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = continent),\n              alpha = 0.5) + \n  geom_line(aes(color = continent), linewidth = 1) +\n  labs(x = \"GDP per capita\", y = \"Life expectancy\") +\n  theme_minimal() +\n  guides(fill = \"none\", color = \"none\") +\n  facet_wrap(vars(continent), nrow = 1)\n\n\n\n\n\n\n\n\n\n\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+    "text": "Multiple effects at once\n\nCodePlot\n\n\n\nggplot(predicted_values_cat, aes(x = gdpPercap, y = estimate)) +\n  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = continent),\n              alpha = 0.5) + \n  geom_line(aes(color = continent), linewidth = 1) +\n  labs(x = \"GDP per capita\", y = \"Life expectancy\") +\n  theme_minimal() +\n  guides(fill = \"none\", color = \"none\") +\n  facet_wrap(vars(continent), nrow = 1)"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#beyond-ols",
+    "href": "slides/week-07/07-Relationships.html#beyond-ols",
+    "title": "Relationships",
+    "section": "Beyond OLS",
+    "text": "Beyond OLS\nSo far, we covered OLS models built with lm(). However: The techniques shown work for almost any model we can run in R:\n\nLogistic, probit, and multinomial regression\nMultilevel (i.e. mixed and random effects) regression\nBayesian models (see tidybayes package)\nMachine learning models\n\nIf our model has coefficients or if we make predictions, we can and should visualize it.\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "session_07_correlograms.html",
+    "href": "session_07_correlograms.html",
+    "title": "session_07_correlograms",
+    "section": "",
+    "text": "correlation_matrix &lt;- gapminder %&gt;% \n  filter(year == 2007) %&gt;% \n  dplyr::select(lifeExp, gdpPercap, pop) %&gt;% \n  cor()\n\ncorrelation_matrix[lower.tri(correlation_matrix)] &lt;- NA\n\ncorrelation_matrix_long &lt;- correlation_matrix %&gt;% \n  # Convert from a matrix to a data frame\n  as.data.frame() %&gt;% \n  # Matrixes have column names that don't get converted to columns when using\n  # as.data.frame(), so this adds those names as a column\n  rownames_to_column(\"measure2\") %&gt;% \n  # Make this long. Take all the columns except measure2 and put their names in\n  # a column named measure1 and their values in a column named cor\n  pivot_longer(cols = -measure2,\n               names_to = \"measure1\",\n               values_to = \"cor\") %&gt;% \n  # Make a new column with the rounded version of the correlation value\n  mutate(rounded_cor = round(cor, 2)) %&gt;% \n  # Remove rows where the two measures are the same\n  filter(measure2 != measure1) %&gt;%\n  # Get rid of the empty triangle\n  filter(!is.na(cor)) %&gt;% \n  # Put these categories in order\n  mutate(measure1 = fct_inorder(measure1),\n         measure2 = fct_inorder(measure2))\n\n\nggplot(correlation_matrix_long, \n       aes(x = measure2, y = measure1, fill = cor)) +\n  geom_tile() +\n  geom_text(aes(label = rounded_cor)) +\n  scale_fill_gradient2(low = \"#E16462\", mid = \"white\", high = \"#0D0887\",\n                       limits = c(-1, 1)) +\n  labs(x = NULL, y = NULL) +\n  coord_equal() +\n  theme_minimal() +\n  theme(panel.grid = element_blank())"
+  },
+  {
+    "objectID": "session_07_correlograms.html#correlogram-heatmaps",
+    "href": "session_07_correlograms.html#correlogram-heatmaps",
+    "title": "session_07_correlograms",
+    "section": "",
+    "text": "correlation_matrix &lt;- gapminder %&gt;% \n  filter(year == 2007) %&gt;% \n  dplyr::select(lifeExp, gdpPercap, pop) %&gt;% \n  cor()\n\ncorrelation_matrix[lower.tri(correlation_matrix)] &lt;- NA\n\ncorrelation_matrix_long &lt;- correlation_matrix %&gt;% \n  # Convert from a matrix to a data frame\n  as.data.frame() %&gt;% \n  # Matrixes have column names that don't get converted to columns when using\n  # as.data.frame(), so this adds those names as a column\n  rownames_to_column(\"measure2\") %&gt;% \n  # Make this long. Take all the columns except measure2 and put their names in\n  # a column named measure1 and their values in a column named cor\n  pivot_longer(cols = -measure2,\n               names_to = \"measure1\",\n               values_to = \"cor\") %&gt;% \n  # Make a new column with the rounded version of the correlation value\n  mutate(rounded_cor = round(cor, 2)) %&gt;% \n  # Remove rows where the two measures are the same\n  filter(measure2 != measure1) %&gt;%\n  # Get rid of the empty triangle\n  filter(!is.na(cor)) %&gt;% \n  # Put these categories in order\n  mutate(measure1 = fct_inorder(measure1),\n         measure2 = fct_inorder(measure2))\n\n\nggplot(correlation_matrix_long, \n       aes(x = measure2, y = measure1, fill = cor)) +\n  geom_tile() +\n  geom_text(aes(label = rounded_cor)) +\n  scale_fill_gradient2(low = \"#E16462\", mid = \"white\", high = \"#0D0887\",\n                       limits = c(-1, 1)) +\n  labs(x = NULL, y = NULL) +\n  coord_equal() +\n  theme_minimal() +\n  theme(panel.grid = element_blank())"
+  },
+  {
+    "objectID": "session_07_correlograms.html#correlogram-points",
+    "href": "session_07_correlograms.html#correlogram-points",
+    "title": "session_07_correlograms",
+    "section": "Correlogram: Points",
+    "text": "Correlogram: Points\n\nggplot(correlation_matrix_long, \n       aes(x = measure2, y = measure1, color = cor)) +\n  # Size by the absolute value so that -0.7 and 0.7 are the same size\n  geom_point(aes(size = abs(cor))) +\n  scale_color_gradient2(low = \"#E16462\", mid = \"white\", high = \"#0D0887\",\n                        limits = c(-1, 1)) +\n  scale_size_area(max_size = 15, limits = c(-1, 1), guide = \"none\") +\n  labs(x = NULL, y = NULL) +\n  coord_equal() +\n  theme_minimal() +\n  theme(panel.grid = element_blank())"
+  },
+  {
+    "objectID": "session_07_exercise.html",
+    "href": "session_07_exercise.html",
+    "title": "Session_06 - Your data",
+    "section": "",
+    "text": "Set up\n\n# load your packages here\n\n# pacman::p_load(\"PACKAGENAME\")\n\n\n\nLoad data\nAs a first step, load your data. If you are not yet sure what data you want to work with, you can use one of the data sets of our earlier sessions. For example, the European Social Survey or data from the Federal Election Officer. Other data sources that provide well documented R or csv files are: V-Dem, the Manifesto project, The Populist, or ParlGov.\n\n# import your data here\n\n\n\nInspect the data\nNext, we want to inspect our data. Do we have any missings? Use the str() function and the summary() function.\n\n# insepct data here\n\n\n\nData transformation\nNow, we might need to transform our data. Maybe we have to change character variables to factor variables, or to numeric? Maybe we need to change our data to long format instead of wide in order to plot the data.\n\n# transform your data here\n\n\n\nDescriptives\nNow, we want to plot our main variables of interest descriptively. For example a histogram or a density plot to show the distribution of our data. Maybe, we want to show the development of a variable over time using a line plot?\n\n# plot descriptives\n\n\n\nCorrelation & Regression\nFinally, we want to show the correlation between two or multiple variables. Show the correlation between two variables using a scatterplot. Next, run an OLS regression, plot the results, and visualize them.\n\n# scatterplot here\n\n\n# regression here\n\n\n\nCustom theme\nFinally, create your own theme and apply it to the previous plots! Think about the CRAP principle and our session regarding themes. Of course, you can adapt the code from there!\n\n# plot descriptives"
   }
 ]

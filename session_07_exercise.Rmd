@@ -1,0 +1,75 @@
+---
+title: "Session_06 - Your data"
+author: "David Schweizer"
+date: "2023-10-19"
+output: 
+  html_document:
+    highlight: "tango"
+    toc: true
+    toc_depth: 2
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Set up
+
+```{r load-packages}
+# load your packages here
+
+# pacman::p_load("PACKAGENAME")
+```
+
+# Load data
+
+As a first step, load your data. If you are not yet sure what data you want to work with, you can use one of the data sets of our earlier sessions. For example, the European Social Survey or data from the Federal Election Officer. Other data sources that provide well documented R or csv files are: [V-Dem](https://v-dem.net/), the [Manifesto project](https://manifesto-project.wzb.eu/), [The Populist](https://popu-list.org/), or [ParlGov](http://www.parlgov.org/#data).
+
+```{r data-import}
+# import your data here
+```
+
+# Inspect the data
+
+Next, we want to inspect our data. Do we have any missings? Use the *str()* function and the *summary()* function.
+
+```{r inspect-data}
+# insepct data here
+```
+
+# Data transformation
+
+Now, we might need to transform our data. Maybe we have to change character variables to factor variables, or to numeric? Maybe we need to change our data to long format instead of wide in order to plot the data.
+
+```{r transform-data}
+# transform your data here
+```
+
+# Descriptives
+
+Now, we want to plot our main variables of interest descriptively. For example a histogram or a density plot to show the distribution of our data. Maybe, we want to show the development of a variable over time using a line plot?
+
+```{r descriptive-plots}
+# plot descriptives
+```
+
+# Correlation & Regression
+
+Finally, we want to show the correlation between two or multiple variables. Show the correlation between two variables using a scatterplot. Next, run an OLS regression, plot the results, and visualize them.
+
+```{r scatterplot}
+# scatterplot here
+```
+
+```{r regression}
+# regression here
+```
+
+# Custom theme
+
+Finally, create your own theme and apply it to the previous plots! Think about the CRAP principle and our session regarding themes. Of course, you can adapt the code from there!
+
+```{r theme}
+# plot descriptives
+```
