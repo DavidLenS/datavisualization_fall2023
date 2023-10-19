@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -342,13 +407,604 @@ David Schweizer
 
   <p class="date">October 19, 2023</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
+<section id="plan-for-today" class="slide level2">
+<h2>Plan for today</h2>
+<p>Input</p>
+<ul>
+<li>Correlation != causation</li>
+<li>Dual y-axes</li>
+<li>Visualizing correlations</li>
+<li>Visualizing regressions</li>
+</ul>
+<p>Coding</p>
+<ul>
+<li><p>Coding example: R projects</p></li>
+<li><p>Your turn!</p></li>
+</ul>
+</section>
+<section id="chocolate-nobel-prize" class="slide level2">
+<h2>Chocolate ➝ Nobel prize???</h2>
+
+<img data-src="chocolate.png" width="740" class="r-stretch quarto-figure-center"></section>
+<section id="correlation-and-dual-y-axes" class="slide level2">
+<h2>Correlation and dual y-axes</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">99.79%</a></li><li><a href="#tabset-1-2">94.71%</a></li><li><a href="#tabset-1-3">99.26%</a></li><li><a href="#tabset-1-4">95.86%</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.tylervigen.com/spurious-correlations"><img data-src="chart.png"></a></p>
+</figure>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.tylervigen.com/spurious-correlations"><img data-src="chart (1).png"></a></p>
+</figure>
+</div>
+</div>
+<div id="tabset-1-3">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.tylervigen.com/spurious-correlations"><img data-src="chart (2).png"></a></p>
+</figure>
+</div>
+</div>
+<div id="tabset-1-4">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.tylervigen.com/spurious-correlations"><img data-src="chart (3).png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="correlation-and-dual-y-axes-1" class="slide level2">
+<h2>Correlation and dual y-axes</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Problem</a></li><li><a href="#tabset-2-2">Also the Economist gets it wrong!</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<ul>
+<li><p>Using dual y-axes and choosing their limits, we can deceive readers</p></li>
+<li><p>We can show near perfect correlation by cherry-picking scales</p></li>
+</ul>
+<p><strong>When to use dual y-axes?</strong></p>
+<ul>
+<li>Both axes measure the same quantity of interest.</li>
+</ul>
+</div>
+<div id="tabset-2-2">
+<div style="font-size: 50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368"><img data-src="economist.webp" width="764"></a></p>
+<figcaption>Source: Sarah Leo. Mistakes, we've drawn a few</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-add-a-second-scale-with-ggplot" class="slide level2">
+<h2>How to add a second scale with ggplot</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Code</a></li><li><a href="#tabset-3-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>gapminder_wealth <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">mutate</span>(<span class="at">wealth =</span> <span class="fu">case_when</span>(gdpPercap <span class="sc">&lt;</span> <span class="fl">1624.8</span> <span class="sc">~</span> <span class="st">"poor"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3"></a>                            gdpPercap <span class="sc">&gt;=</span> <span class="fl">1624.8</span> <span class="sc">&amp;</span> </span>
+<span id="cb1-4"><a href="#cb1-4"></a>                            gdpPercap <span class="sc">&lt;</span> <span class="fl">18008.8</span> <span class="sc">~</span> <span class="st">"middle"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5"></a>                            gdpPercap <span class="sc">&gt;=</span> <span class="fl">18008.8</span> <span class="sc">~</span> <span class="st">"rich"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="fu">group_by</span>(wealth) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="fu">summarize</span>(<span class="at">total =</span> <span class="fu">n</span>())</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>number_countries <span class="ot">&lt;-</span> <span class="fu">sum</span>(gapminder_wealth<span class="sc">$</span>total)</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="fu">ggplot</span>(gapminder_wealth,</span>
+<span id="cb1-12"><a href="#cb1-12"></a>       <span class="fu">aes</span>(<span class="at">x =</span> wealth, <span class="at">y =</span> total, <span class="at">fill =</span> wealth)) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="at">trans =</span> <span class="sc">~</span> .<span class="sc">/</span> number_countries,</span>
+<span id="cb1-15"><a href="#cb1-15"></a>                                         <span class="at">labels =</span> scales<span class="sc">::</span>percent)) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="07-Relationships_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="alternative-use-multiple-plots" class="slide level2">
+<h2>Alternative: Use multiple plots</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Code</a></li><li><a href="#tabset-4-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>life_exp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Europe"</span>), </span>
+<span id="cb2-4"><a href="#cb2-4"></a>                   <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> lifeExp, <span class="at">color =</span> country)) <span class="sc">+</span> </span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a>income <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Europe"</span>), </span>
+<span id="cb2-9"><a href="#cb2-9"></a>                   <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> gdpPercap, <span class="at">color =</span> country)) <span class="sc">+</span> </span>
+<span id="cb2-10"><a href="#cb2-10"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a>life_exp <span class="sc">+</span> income <span class="sc">+</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a> <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="07-Relationships_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="alternative-use-different-aesthetics" class="slide level2">
+<h2>Alternative: Use different aesthetics</h2>
+<iframe src="//www.gapminder.org/tools/?embedded=true#$chart-type=bubbles&amp;url=v1" style="width: 100%; height: 500px; margin: 0 0 0 0; border: 1px solid grey;" allowfullscreen="">
+</iframe>
+<div style="font-size: 70%;">
+<p>Source: <a href="https://www.gapminder.org/tools/#$chart-type=bubbles&amp;url=v1">Gapminder</a></p>
+</div>
+</section>
+<section>
+<section id="visualizing-correlations" class="title-slide slide level1 center">
+<h1>Visualizing correlations</h1>
+
+</section>
+<section id="correlation" class="slide level2">
+<h2>Correlation</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Formula</a></li><li><a href="#tabset-5-2">Interpretation</a></li><li><a href="#tabset-5-3">Example</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<ul>
+<li><p>As the value of X goes up, Y tends to go up (or down) a lot / a little / or not at all.</p></li>
+<li><p>This says nothing about how much Y changes when X changes!</p></li>
+</ul>
+<p><span class="math display">\[\color{black}{r_{x,y} = \frac{cov(x,y)}{\sigma_x \sigma_y}}\]</span></p>
+</div>
+<div id="tabset-5-2">
+<table>
+<thead>
+<tr class="header">
+<th>r (correlation)</th>
+<th style="text-align: center;">Interpretation (rule of thumb)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.1 - 0.3</td>
+<td style="text-align: center;">Modest</td>
+</tr>
+<tr class="even">
+<td>0.3 - 0.5</td>
+<td style="text-align: center;">Moderate</td>
+</tr>
+<tr class="odd">
+<td>0.5 - 0.8</td>
+<td style="text-align: center;">Strong</td>
+</tr>
+<tr class="even">
+<td>0.8 - 0.9</td>
+<td style="text-align: center;">Very strong</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-5-3">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="07-Relationships_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scatterplot-matrices" class="slide level2">
+<h2>Scatterplot matrices</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Code</a></li><li><a href="#tabset-6-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(GGally)</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>gapminder_2007 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-5"><a href="#cb3-5"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(lifeExp, gdpPercap, pop)</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="fu">ggpairs</span>(gapminder_2007)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-6-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="07-Relationships_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="correlogram-heatmaps" class="slide level2">
+<h2>Correlogram: Heatmaps</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="07-Relationships_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+</div>
+</div>
+<p>Correlogram: Points</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="07-Relationships_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="visualizing-regressions" class="title-slide slide level1 center">
+<h1>Visualizing regressions</h1>
+
+</section>
+<section id="building-ols-regression-models-in-r" class="slide level2">
+<h2>Building (OLS regression) models in R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># lm runs a OLS regression. You have to supply a dependent, </span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># independent variable, and your dataframe</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>your_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(INSERT_Y_HERE <span class="sc">~</span> INSERT_X_HERE, </span>
+<span id="cb4-4"><a href="#cb4-4"></a>                 <span class="at">data =</span> INSERT_DATAFRAME_HERE)</span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co"># this gives you your model details</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">summary</span>(your_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># Converting your results to a data frame for plotting</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">tidy</span>(your_model)</span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co"># Converting model diagnostics to a data frame</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="fu">glance</span>(your_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="life-expectancy-and-gdp-per-capita" class="slide level2">
+<h2>Life expectancy and GDP per capita</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Formula</a></li><li><a href="#tabset-7-2">Results</a></li><li><a href="#tabset-7-3">Interpretation</a></li><li><a href="#tabset-7-4">Visualization</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<p><span class="math display">\[\color{black}{\hat{LifeExp} = \beta_0 + \beta_1 * GDPpercap + \epsilon}\]</span></p>
+<p><br>
+Translation into R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>gapminder_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(lifeExp <span class="sc">~</span> gdpPercap, </span>
+<span id="cb6-2"><a href="#cb6-2"></a>                 <span class="at">data =</span> gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-7-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">tidy</span>(gapminder_model, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  term         estimate std.error statistic   p.value  conf.low conf.high
+  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept) 54.0      0.315         171.  0         53.3      54.6     
+2 gdpPercap    0.000765 0.0000258      29.7 3.57e-156  0.000714  0.000815</code></pre>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">glance</span>(gapminder_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 12
+  r.squared adj.r.squared sigma statistic   p.value    df logLik    AIC    BIC
+      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1     0.341         0.340  10.5      880. 3.57e-156     1 -6422. 12850. 12867.
+# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-7-3">
+<ul>
+<li><p>In general, for single variables: On average, a one unit increase in X is <strong>associated</strong> with a <span class="math inline">\(\beta1\)</span> increase (or decrease) in Y.</p></li>
+<li><p>Here: <span class="math inline">\(\color{black}{\hat{LifeExp} = 54.0 + 0.000765 * GDPpercap + \epsilon}\)</span></p></li>
+<li><p>Interpretation: On average, a one unit increase in GDP per capita is associated with 0.000765 unit increase in life expectancy. <em>Substantial interpretation?</em></p></li>
+<li><p>For a single variable, we only have to visualize one line!</p></li>
+</ul>
+</div>
+<div id="tabset-7-4">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="07-Relationships_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="multiple-regression" class="slide level2">
+<h2>Multiple regression</h2>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Formula</a></li><li><a href="#tabset-8-2">Results</a></li><li><a href="#tabset-8-3">Continuous</a></li><li><a href="#tabset-8-4">Categorial</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<p>We can take into account more than one predictor:</p>
+<p><br>
+</p>
+<p><span class="math inline">\(\color{black}{\hat{LifeExp} = \beta_0 + \beta_1 * GDPpercap + \beta_2 * continent + \epsilon}\)</span><br>
+</p>
+<p><br>
+</p>
+<p>Translation into R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>gapminder_multiple <span class="ot">&lt;-</span> <span class="fu">lm</span>(lifeExp <span class="sc">~</span> gdpPercap <span class="sc">+</span> continent, </span>
+<span id="cb11-2"><a href="#cb11-2"></a>                 <span class="at">data =</span> gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-8-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">tidy</span>(gapminder_multiple, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+  term               estimate std.error statistic   p.value  conf.low conf.high
+  &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)       47.9      0.340         141.  0         47.2      48.6     
+2 gdpPercap          0.000445 0.0000235      18.9 8.55e- 73  0.000399  0.000491
+3 continentAmericas 13.6      0.601          22.6 2.82e- 99 12.4      14.8     
+4 continentAsia      8.66     0.555          15.6 2.72e- 51  7.57      9.75    
+5 continentEurope   17.6      0.626          28.1 7.60e-143 16.3      18.8     
+6 continentOceania  18.1      1.79           10.2 1.50e- 23 14.6      21.7     </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">glance</span>(gapminder_multiple)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 12
+  r.squared adj.r.squared sigma statistic   p.value    df logLik    AIC    BIC
+      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1     0.579         0.578  8.39      468. 4.26e-316     5 -6039. 12093. 12131.
+# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-8-3">
+<div style="font-size: 85%;">
+<ul>
+<li><p>For continuous variables: On average, holding everything else constant, a one unit increase in X is <strong>associated</strong> with a <span class="math inline">\(\beta_n\)</span> increase (or decrease) in Y.</p>
+<p><span class="math inline">\(\color{black}{\hat{LifeExp} = 47.9 + 0.000445 * GDPpercap + 13.6 *\\ Americas + 8.66 * Asia + 17.6 * Europe + \\18.1 * Oceania + \epsilon}\)</span></p></li>
+<li><p>Interpretation: On average, holding everything else constant, a one unit increase in X is <strong>associated</strong> with a 0.000445 unit increase in life expectancy.</p></li>
+</ul>
+</div>
+</div>
+<div id="tabset-8-4">
+<div style="font-size: 85%;">
+<ul>
+<li><p>For categorical variables: On average, holding everything else constant, Y is <span class="math inline">\(\beta_n\)</span> units larger (or smaller) in <span class="math inline">\(X_n\)</span> compared to <span class="math inline">\(X_{other}\)</span>.</p>
+<p><span class="math inline">\(\color{black}{\hat{LifeExp} = 47.9 + 0.000445 * GDPpercap + 13.6 * \\ Americas + 8.66 * Asia + 17.6 * Europe + \\18.1* Oceania + \epsilon}\)</span></p></li>
+<li><p>Interpretation: On average, holding everything else constant, life expectancy is 17.6 units larger for people in Europe compared to people in Africa. <em>Substantial interpretation?</em></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualization-of-multiple-regression" class="slide level2">
+<h2>Visualization of multiple regression</h2>
+<ul>
+<li><p>Unfortunately, with multiple variables, we cannot use only one line. Things are more complicated</p></li>
+<li><p>First, each coefficient has its own estimate and standard errors</p>
+<ul>
+<li><em>Solution: Coefficient plot</em></li>
+</ul></li>
+<li><p>Second, results change as values of our variables change</p>
+<ul>
+<li><em>Solution: Marginal effect plot</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="coefficient-plot" class="slide level2">
+<h2>Coefficient plot</h2>
+<p>First, we need to convert our model results again using <em>tidy()</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>gapminder_multiple <span class="ot">&lt;-</span> <span class="fu">lm</span>(lifeExp <span class="sc">~</span> gdpPercap <span class="sc">+</span> continent, </span>
+<span id="cb16-2"><a href="#cb16-2"></a>                 <span class="at">data =</span> gapminder)</span>
+<span id="cb16-3"><a href="#cb16-3"></a></span>
+<span id="cb16-4"><a href="#cb16-4"></a>gapminder_coefs <span class="ot">&lt;-</span> <span class="fu">tidy</span>(gapminder_multiple, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6"></a></span>
+<span id="cb16-7"><a href="#cb16-7"></a>gapminder_coefs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 7
+  term               estimate std.error statistic   p.value  conf.low conf.high
+  &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 gdpPercap          0.000445 0.0000235      18.9 8.55e- 73  0.000399  0.000491
+2 continentAmericas 13.6      0.601          22.6 2.82e- 99 12.4      14.8     
+3 continentAsia      8.66     0.555          15.6 2.72e- 51  7.57      9.75    
+4 continentEurope   17.6      0.626          28.1 7.60e-143 16.3      18.8     
+5 continentOceania  18.1      1.79           10.2 1.50e- 23 14.6      21.7     </code></pre>
+</div>
+</div>
+</section>
+<section id="coefficient-plot-1" class="slide level2">
+<h2>Coefficient plot</h2>
+<div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Code</a></li><li><a href="#tabset-9-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<p>Now, we can plot the estimates and confidence intervals using <em>geom_pointrange():</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(gapminder_coefs,</span>
+<span id="cb18-2"><a href="#cb18-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> estimate,</span>
+<span id="cb18-3"><a href="#cb18-3"></a>           <span class="at">y =</span> term)) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> conf.low, </span>
+<span id="cb18-5"><a href="#cb18-5"></a>                      <span class="at">xmax =</span> conf.high)) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, </span>
+<span id="cb18-7"><a href="#cb18-7"></a>             <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-9-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="07-Relationships_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="predicted-values" class="slide level2">
+<h2>Predicted values</h2>
+<ul>
+<li><p>We interpret coefficients while holding others constant!</p></li>
+<li><p>The same holds true for the visualization of the effect</p></li>
+<li><p>Therefore, we can do the following:</p>
+<ul>
+<li><p>Insert many values into our model</p></li>
+<li><p>Find the predicted outcome</p></li>
+<li><p>Plot these values and the predicted outcome</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="predicted-values-1" class="slide level2">
+<h2>Predicted values</h2>
+<ul>
+<li>The <em>marginaleffects</em> package takes care of this</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Calculate predictions across a range of GDP per capita</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>predicted_values <span class="ot">&lt;-</span> <span class="fu">predictions</span>(</span>
+<span id="cb19-3"><a href="#cb19-3"></a>  gapminder_multiple,</span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="at">newdata =</span> <span class="fu">datagrid</span>(<span class="at">gdpPercap =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100000</span>, <span class="dv">1000</span>)) </span>
+<span id="cb19-5"><a href="#cb19-5"></a>)</span>
+<span id="cb19-6"><a href="#cb19-6"></a></span>
+<span id="cb19-7"><a href="#cb19-7"></a><span class="co"># Look at predicted values</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a>predicted_values <span class="sc">%&gt;%</span></span>
+<span id="cb19-9"><a href="#cb19-9"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(gdpPercap, estimate, std.error, conf.low, conf.high) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-10"><a href="#cb19-10"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Estimate Std. Error CI low CI high
+    47.89     0.3398  47.22   48.55
+    48.33     0.3370  47.67   48.99
+    48.78     0.3359  48.12   49.44
+    49.22     0.3364  48.56   49.88
+
+Prediction type:  
+Columns: gdpPercap, estimate, std.error, conf.low, conf.high </code></pre>
+</div>
+</div>
+</section>
+<section id="predicted-values-2" class="slide level2">
+<h2>Predicted values</h2>
+<div class="panel-tabset">
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Code</a></li><li><a href="#tabset-10-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">ggplot</span>(predicted_values, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> estimate)) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> conf.low, <span class="at">ymax =</span> conf.high),</span>
+<span id="cb21-3"><a href="#cb21-3"></a>              <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"GDP per capita"</span>, <span class="at">y =</span> <span class="st">"Predicted life expectancy"</span>) <span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-10-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="07-Relationships_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="multiple-effects-at-once" class="slide level2">
+<h2>Multiple effects at once</h2>
+<ul>
+<li>We can just add more variables to our datagrid!</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Calculate predictions across a range of GDP per capita</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>predicted_values_cat <span class="ot">&lt;-</span> <span class="fu">predictions</span>(</span>
+<span id="cb22-3"><a href="#cb22-3"></a>  gapminder_multiple,</span>
+<span id="cb22-4"><a href="#cb22-4"></a>  <span class="at">newdata =</span> <span class="fu">datagrid</span>(<span class="at">gdpPercap =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100000</span>, <span class="dv">1000</span>),</span>
+<span id="cb22-5"><a href="#cb22-5"></a>                     <span class="at">continent =</span> <span class="fu">c</span>(<span class="st">"Africa"</span>, <span class="st">"Americas"</span>, <span class="st">"Asia"</span>, <span class="st">"Europe"</span>, <span class="st">"Oceania"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-6"><a href="#cb22-6"></a>  <span class="fu">mutate</span>(<span class="at">continent =</span> <span class="fu">factor</span>(continent))</span>
+<span id="cb22-7"><a href="#cb22-7"></a></span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="co"># Look at predicted values</span></span>
+<span id="cb22-9"><a href="#cb22-9"></a>predicted_values <span class="sc">%&gt;%</span></span>
+<span id="cb22-10"><a href="#cb22-10"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(gdpPercap, estimate, std.error, conf.low, conf.high) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-11"><a href="#cb22-11"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Estimate Std. Error CI low CI high
+    47.89     0.3398  47.22   48.55
+    48.33     0.3370  47.67   48.99
+    48.78     0.3359  48.12   49.44
+    49.22     0.3364  48.56   49.88
+
+Prediction type:  
+Columns: gdpPercap, estimate, std.error, conf.low, conf.high </code></pre>
+</div>
+</div>
+</section>
+<section id="multiple-effects-at-once-1" class="slide level2">
+<h2>Multiple effects at once</h2>
+<div class="panel-tabset">
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Code</a></li><li><a href="#tabset-11-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">ggplot</span>(predicted_values_cat, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> estimate)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> conf.low, <span class="at">ymax =</span> conf.high, <span class="at">fill =</span> continent),</span>
+<span id="cb24-3"><a href="#cb24-3"></a>              <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb24-4"><a href="#cb24-4"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> continent), <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"GDP per capita"</span>, <span class="at">y =</span> <span class="st">"Life expectancy"</span>) <span class="sc">+</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>, <span class="at">color =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb24-8"><a href="#cb24-8"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(continent), <span class="at">nrow =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-11-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="07-Relationships_files/figure-revealjs/unnamed-chunk-30-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 <div class="footer footer-default">
 <p>Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim</p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -560,6 +1216,44 @@ David Schweizer
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

@@ -3659,5 +3659,166 @@
     "title": "Example - Session 6: Uncertainty",
     "section": "",
     "text": "In addition, we can look at the distribution of variables with box plots, violin plots, etc.\nFirst, we’ll make a box plot of satisfaction with democracy:\n\nggplot(ess,\n       aes(y = stfdem)) +\n  geom_boxplot()\n\n\n\n\nWe can switch this to a violin plot by just changing the geom layer:\n\nggplot(ess,\n       aes(y = stfdem,\n           x = \"\")) +\n  geom_violin()\n\n\n\n\nWith violin plots it’s typically good to overlay other geoms. We can add some jittered points for a strip plot:\n\nggplot(ess,\n       aes(y = stfdem,  \n           x = \"\")) +\n  geom_violin() +\n  geom_point(size = 0.2, position = position_jitter(width = 0.1)) +\n  guides(fill = \"none\")\n\n\n\n\nOverlaying the points directly on top of the violins shows extra information. However, it is also more crowded and more difficult to read. We can use the gghalves package to generate special halved versions of some of these geoms:\n\nggplot(ess,\n       aes(y = stfdem,  \n           x = \"\")) +\n  geom_half_point(side = \"l\", size = 0.5) +\n  geom_half_boxplot(side = \"r\")\n\n\n\n\nNote the side argument for specifying which half of the column the geom goes. We can also use geom_half_violin():\n\nggplot(ess,\n       aes(y = stfdem,  \n           x = \"\")) +\n  geom_half_point(side = \"l\", size = 0.5) +\n  geom_half_violin(side = \"r\")\n\n\n\n\nAnd finally, if we flip the plot, we can generate a rain cloud plot:\n\nggplot(ess,\n       aes(y = stfdem,  \n           x = \"\")) +\n  geom_half_boxplot(aes(alpha = 0.2), side = \"l\", width = 0.05, nudge = -0.15) +\n  geom_half_point(side = \"l\", size = 0.2) +\n  geom_half_violin(side = \"r\", nudge = 0.2) +\n  coord_flip()\n\n\n\n\n```"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#plan-for-today",
+    "href": "slides/week-07/07-Relationships.html#plan-for-today",
+    "title": "Relationships",
+    "section": "Plan for today",
+    "text": "Plan for today\nInput\n\nCorrelation != causation\nDual y-axes\nVisualizing correlations\nVisualizing regressions\n\nCoding\n\nCoding example: R projects\nYour turn!"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#chocolate-nobel-prize",
+    "href": "slides/week-07/07-Relationships.html#chocolate-nobel-prize",
+    "title": "Relationships",
+    "section": "Chocolate ➝ Nobel prize???",
+    "text": "Chocolate ➝ Nobel prize???"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#correlation-and-dual-y-axes",
+    "href": "slides/week-07/07-Relationships.html#correlation-and-dual-y-axes",
+    "title": "Relationships",
+    "section": "Correlation and dual y-axes",
+    "text": "Correlation and dual y-axes\n\n99.79%94.71%99.26%95.86%"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#correlation-and-dual-y-axes-1",
+    "href": "slides/week-07/07-Relationships.html#correlation-and-dual-y-axes-1",
+    "title": "Relationships",
+    "section": "Correlation and dual y-axes",
+    "text": "Correlation and dual y-axes\n\nProblemAlso the Economist gets it wrong!\n\n\n\nUsing dual y-axes and choosing their limits, we can deceive readers\nWe can show near perfect correlation by cherry-picking scales\n\nWhen to use dual y-axes?\n\nBoth axes measure the same quantity of interest.\n\n\n\n\n\n\n\nSource: Sarah Leo. Mistakes, we've drawn a few"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#how-to-add-a-second-scale-with-ggplot",
+    "href": "slides/week-07/07-Relationships.html#how-to-add-a-second-scale-with-ggplot",
+    "title": "Relationships",
+    "section": "How to add a second scale with ggplot",
+    "text": "How to add a second scale with ggplot\n\nCodePlot\n\n\n\ngapminder_wealth &lt;- gapminder %&gt;% \n  mutate(wealth = case_when(gdpPercap &lt; 1624.8 ~ \"poor\",\n                            gdpPercap &gt;= 1624.8 & \n                            gdpPercap &lt; 18008.8 ~ \"middle\",\n                            gdpPercap &gt;= 18008.8 ~ \"rich\")) %&gt;% \n  group_by(wealth) %&gt;% \n  summarize(total = n())\n\nnumber_countries &lt;- sum(gapminder_wealth$total)\n\nggplot(gapminder_wealth,\n       aes(x = wealth, y = total, fill = wealth)) +\n  geom_col() +\n  scale_y_continuous(sec.axis = sec_axis(trans = ~ ./ number_countries,\n                                         labels = scales::percent)) +\n  guides(fill = \"none\")"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#alternative-use-different-aesthetics",
+    "href": "slides/week-07/07-Relationships.html#alternative-use-different-aesthetics",
+    "title": "Relationships",
+    "section": "Alternative: Use different aesthetics",
+    "text": "Alternative: Use different aesthetics\n\n\n\nSource: Gapminder"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#alternative-use-multiple-plots",
+    "href": "slides/week-07/07-Relationships.html#alternative-use-multiple-plots",
+    "title": "Relationships",
+    "section": "Alternative: Use multiple plots",
+    "text": "Alternative: Use multiple plots\n\nCodePlot\n\n\n\nlibrary(patchwork)\n\nlife_exp &lt;- ggplot(gapminder %&gt;% filter(continent == \"Europe\"), \n                   aes(x = year, y = lifeExp, color = country)) + \n  geom_line() +\n  guides(color = \"none\")\n\nincome &lt;- ggplot(gapminder %&gt;% filter(continent == \"Europe\"), \n                   aes(x = year, y = gdpPercap, color = country)) + \n  geom_line() +\n  guides(color = \"none\")\n\n\nlife_exp + income +\n plot_layout(ncol = 2)"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#section-4",
+    "href": "slides/week-07/07-Relationships.html#section-4",
+    "title": "Relationships",
+    "section": "",
+    "text": "Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#visualizing-correlations",
+    "href": "slides/week-07/07-Relationships.html#visualizing-correlations",
+    "title": "Relationships",
+    "section": "Visualizing correlations",
+    "text": "Visualizing correlations\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#correlation",
+    "href": "slides/week-07/07-Relationships.html#correlation",
+    "title": "Relationships",
+    "section": "Correlation",
+    "text": "Correlation\n\nFormulaInterpretationExample\n\n\n\nAs the value of X goes up, Y tends to go up (or down) a lot / a little / or not at all.\nThis says nothing about how much Y changes when X changes!\n\n\\[\\color{black}{r_{x,y} = \\frac{cov(x,y)}{\\sigma_x \\sigma_y}}\\]\n\n\n\n\n\nr (correlation)\nInterpretation (rule of thumb)\n\n\n\n\n0.1 - 0.3\nModest\n\n\n0.3 - 0.5\nModerate\n\n\n0.5 - 0.8\nStrong\n\n\n0.8 - 0.9\nVery strong"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#scatterplot-matrices",
+    "href": "slides/week-07/07-Relationships.html#scatterplot-matrices",
+    "title": "Relationships",
+    "section": "Scatterplot matrices",
+    "text": "Scatterplot matrices\n\nCodePlot\n\n\n\nlibrary(GGally)\n\ngapminder_2007 &lt;- gapminder %&gt;% \n  filter(year == 2007) %&gt;% \n  dplyr::select(lifeExp, gdpPercap, pop)\n\nggpairs(gapminder_2007)"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#correlogram-heatmaps",
+    "href": "slides/week-07/07-Relationships.html#correlogram-heatmaps",
+    "title": "Relationships",
+    "section": "Correlogram: Heatmaps",
+    "text": "Correlogram: Heatmaps\n\n\n\n\n\nCorrelogram: Points"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#building-ols-regression-models-in-r",
+    "href": "slides/week-07/07-Relationships.html#building-ols-regression-models-in-r",
+    "title": "Relationships",
+    "section": "Building (OLS regression) models in R",
+    "text": "Building (OLS regression) models in R\n\n# lm runs a OLS regression. You have to supply a dependent, \n# independent variable, and your dataframe\nyour_model &lt;- lm(INSERT_Y_HERE ~ INSERT_X_HERE, \n                 data = INSERT_DATAFRAME_HERE)\n\n# this gives you your model details\nsummary(your_model)\n\n\n\n\nlibrary(broom)\n\n# Converting your results to a data frame for plotting\ntidy(your_model)\n\n# Converting model diagnostics to a data frame\nglance(your_model)"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#life-expectancy-and-gdp-per-capita",
+    "href": "slides/week-07/07-Relationships.html#life-expectancy-and-gdp-per-capita",
+    "title": "Relationships",
+    "section": "Life expectancy and GDP per capita",
+    "text": "Life expectancy and GDP per capita\n\nFormulaResultsInterpretationVisualization\n\n\n\\[\\color{black}{\\hat{LifeExp} = \\beta_0 + \\beta_1 * GDPpercap + \\epsilon}\\]\n\nTranslation into R:\n\ngapminder_model &lt;- lm(lifeExp ~ gdpPercap, \n                 data = gapminder)\n\n\n\n\ntidy(gapminder_model, conf.int = TRUE)\n\n# A tibble: 2 × 7\n  term         estimate std.error statistic   p.value  conf.low conf.high\n  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept) 54.0      0.315         171.  0         53.3      54.6     \n2 gdpPercap    0.000765 0.0000258      29.7 3.57e-156  0.000714  0.000815\n\n\n\n\n\nglance(gapminder_model)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic   p.value    df logLik    AIC    BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1     0.341         0.340  10.5      880. 3.57e-156     1 -6422. 12850. 12867.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\n\n\nIn general, for single variables: On average, a one unit increase in X is associated with a \\(\\beta1\\) increase (or decrease) in Y.\nHere: \\(\\color{black}{\\hat{LifeExp} = 54.0 + 0.000765 * GDPpercap + \\epsilon}\\)\nInterpretation: On average, a one unit increase in GDP per capita is associated with 0.000765 unit increase in life expectancy. Substantial interpretation?\nFor a single variable, we only have to visualize one line!"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#multiple-regression",
+    "href": "slides/week-07/07-Relationships.html#multiple-regression",
+    "title": "Relationships",
+    "section": "Multiple regression",
+    "text": "Multiple regression\n\nFormulaResultsContinuousCategorial\n\n\nWe can take into account more than one predictor:\n\n\n\\(\\color{black}{\\hat{LifeExp} = \\beta_0 + \\beta_1 * GDPpercap + \\beta_2 * continent + \\epsilon}\\)\n\n\n\nTranslation into R:\n\ngapminder_multiple &lt;- lm(lifeExp ~ gdpPercap + continent, \n                 data = gapminder)\n\n\n\n\ntidy(gapminder_multiple, conf.int = TRUE)\n\n# A tibble: 6 × 7\n  term               estimate std.error statistic   p.value  conf.low conf.high\n  &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)       47.9      0.340         141.  0         47.2      48.6     \n2 gdpPercap          0.000445 0.0000235      18.9 8.55e- 73  0.000399  0.000491\n3 continentAmericas 13.6      0.601          22.6 2.82e- 99 12.4      14.8     \n4 continentAsia      8.66     0.555          15.6 2.72e- 51  7.57      9.75    \n5 continentEurope   17.6      0.626          28.1 7.60e-143 16.3      18.8     \n6 continentOceania  18.1      1.79           10.2 1.50e- 23 14.6      21.7     \n\n\n\nglance(gapminder_multiple)\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic   p.value    df logLik    AIC    BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1     0.579         0.578  8.39      468. 4.26e-316     5 -6039. 12093. 12131.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\n\n\n\nFor continuous variables: On average, holding everything else constant, a one unit increase in X is associated with a \\(\\beta_n\\) increase (or decrease) in Y.\n\\(\\color{black}{\\hat{LifeExp} = 47.9 + 0.000445 * GDPpercap + 13.6 *\\\\ Americas + 8.66 * Asia + 17.6 * Europe + \\\\18.1 * Oceania + \\epsilon}\\)\nInterpretation: On average, holding everything else constant, a one unit increase in X is associated with a 0.000445 unit increase in life expectancy.\n\n\n\n\n\n\nFor categorical variables: On average, holding everything else constant, Y is \\(\\beta_n\\) units larger (or smaller) in \\(X_n\\) compared to \\(X_{other}\\).\n\\(\\color{black}{\\hat{LifeExp} = 47.9 + 0.000445 * GDPpercap + 13.6 * \\\\ Americas + 8.66 * Asia + 17.6 * Europe + \\\\18.1* Oceania + \\epsilon}\\)\nInterpretation: On average, holding everything else constant, life expectancy is 17.6 units larger for people in Europe compared to people in Africa. Substantial interpretation?"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#visualization-of-multiple-regression",
+    "href": "slides/week-07/07-Relationships.html#visualization-of-multiple-regression",
+    "title": "Relationships",
+    "section": "Visualization of multiple regression",
+    "text": "Visualization of multiple regression\n\nUnfortunately, with multiple variables, we cannot use only one line. Things are more complicated\nFirst, each coefficient has its own estimate and standard errors\n\nSolution: Coefficient plot\n\nSecond, results change as values of our variables change\n\nSolution: Marginal effect plot"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#coefficient-plot",
+    "href": "slides/week-07/07-Relationships.html#coefficient-plot",
+    "title": "Relationships",
+    "section": "Coefficient plot",
+    "text": "Coefficient plot\nFirst, we need to convert our model results again using tidy()\n\ngapminder_multiple &lt;- lm(lifeExp ~ gdpPercap + continent, \n                 data = gapminder)\n\ngapminder_coefs &lt;- tidy(gapminder_multiple, conf.int = TRUE) %&gt;% \n  filter(term != \"(Intercept)\")\n\ngapminder_coefs\n\n# A tibble: 5 × 7\n  term               estimate std.error statistic   p.value  conf.low conf.high\n  &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 gdpPercap          0.000445 0.0000235      18.9 8.55e- 73  0.000399  0.000491\n2 continentAmericas 13.6      0.601          22.6 2.82e- 99 12.4      14.8     \n3 continentAsia      8.66     0.555          15.6 2.72e- 51  7.57      9.75    \n4 continentEurope   17.6      0.626          28.1 7.60e-143 16.3      18.8     \n5 continentOceania  18.1      1.79           10.2 1.50e- 23 14.6      21.7"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#coefficient-plot-1",
+    "href": "slides/week-07/07-Relationships.html#coefficient-plot-1",
+    "title": "Relationships",
+    "section": "Coefficient plot",
+    "text": "Coefficient plot\n\nCodePlot\n\n\nNow, we can plot the estimates and confidence intervals using geom_pointrange():\n\nggplot(gapminder_coefs,\n       aes(x = estimate,\n           y = term)) +\n  geom_pointrange(aes(xmin = conf.low, \n                      xmax = conf.high)) +\n  geom_vline(xintercept = 0, \n             color = \"black\",\n             linetype = \"dashed\")"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#predicted-values",
+    "href": "slides/week-07/07-Relationships.html#predicted-values",
+    "title": "Relationships",
+    "section": "Predicted values",
+    "text": "Predicted values\n\nWe interpret coefficients while holding others constant!\nThe same holds true for the visualization of the effect\nTherefore, we can do the following:\n\nInsert many values into our model\nFind the predicted outcome\nPlot these values and the predicted outcome"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#predicted-values-1",
+    "href": "slides/week-07/07-Relationships.html#predicted-values-1",
+    "title": "Relationships",
+    "section": "Predicted values",
+    "text": "Predicted values\n\nThe marginaleffects package takes care of this\n\n\n# Calculate predictions across a range of GDP per capita\npredicted_values &lt;- predictions(\n  gapminder_multiple,\n  newdata = datagrid(gdpPercap = seq(0, 100000, 1000)) \n)\n\n# Look at predicted values\npredicted_values %&gt;%\n  dplyr::select(gdpPercap, estimate, std.error, conf.low, conf.high) %&gt;% \n  head(n=4)\n\n\n Estimate Std. Error CI low CI high\n    47.89     0.3398  47.22   48.55\n    48.33     0.3370  47.67   48.99\n    48.78     0.3359  48.12   49.44\n    49.22     0.3364  48.56   49.88\n\nPrediction type:  \nColumns: gdpPercap, estimate, std.error, conf.low, conf.high"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#predicted-values-2",
+    "href": "slides/week-07/07-Relationships.html#predicted-values-2",
+    "title": "Relationships",
+    "section": "Predicted values",
+    "text": "Predicted values\n\nCodePlot\n\n\n\nggplot(predicted_values, aes(x = gdpPercap, y = estimate)) +\n  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),\n              fill = \"lightblue\", alpha = 0.5) + \n  geom_line(linewidth = 1, color = \"blue\") +\n  labs(x = \"GDP per capita\", y = \"Predicted life expectancy\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#multiple-effects-at-once",
+    "href": "slides/week-07/07-Relationships.html#multiple-effects-at-once",
+    "title": "Relationships",
+    "section": "Multiple effects at once",
+    "text": "Multiple effects at once\n\nWe can just add more variables to our datagrid!\n\n\n# Calculate predictions across a range of GDP per capita\npredicted_values_cat &lt;- predictions(\n  gapminder_multiple,\n  newdata = datagrid(gdpPercap = seq(0, 100000, 1000),\n                     continent = c(\"Africa\", \"Americas\", \"Asia\", \"Europe\", \"Oceania\"))) %&gt;% \n  mutate(continent = factor(continent))\n\n# Look at predicted values\npredicted_values %&gt;%\n  dplyr::select(gdpPercap, estimate, std.error, conf.low, conf.high) %&gt;% \n  head(n=4)\n\n\n Estimate Std. Error CI low CI high\n    47.89     0.3398  47.22   48.55\n    48.33     0.3370  47.67   48.99\n    48.78     0.3359  48.12   49.44\n    49.22     0.3364  48.56   49.88\n\nPrediction type:  \nColumns: gdpPercap, estimate, std.error, conf.low, conf.high"
+  },
+  {
+    "objectID": "slides/week-07/07-Relationships.html#multiple-effects-at-once-1",
+    "href": "slides/week-07/07-Relationships.html#multiple-effects-at-once-1",
+    "title": "Relationships",
+    "section": "Multiple effects at once",
+    "text": "Multiple effects at once\n\nCodePlot\n\n\n\nggplot(predicted_values_cat, aes(x = gdpPercap, y = estimate)) +\n  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = continent),\n              alpha = 0.5) + \n  geom_line(aes(color = continent), linewidth = 1) +\n  labs(x = \"GDP per capita\", y = \"Life expectancy\") +\n  theme_minimal() +\n  guides(fill = \"none\", color = \"none\") +\n  facet_wrap(vars(continent), nrow = 1)\n\n\n\n\n\n\n\n\n\n\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
   }
 ]

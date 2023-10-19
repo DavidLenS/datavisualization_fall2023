@@ -13,4 +13,637 @@ format:
 editor: visual
 ---
 
-# TBA
+## Plan for today
+
+```{r, include=FALSE}
+pacman::p_load(
+  "tidyverse",
+  "gapminder",
+  "patchwork",
+  "MASS",
+  "GGally",
+  "broom",
+  "marginaleffects"
+)
+```
+
+Input
+
+-   Correlation != causation
+-   Dual y-axes
+-   Visualizing correlations
+-   Visualizing regressions
+
+Coding
+
+-   Coding example: R projects
+
+-   Your turn!
+
+## Chocolate ➝ Nobel prize???
+
+[![](chocolate.png){width="740"}](https://utw10426.utweb.utexas.edu/quest/Q7/choco.pdf)
+
+## Correlation and dual y-axes
+
+::: panel-tabset
+## 99.79%
+
+[![](chart.png)](https://www.tylervigen.com/spurious-correlations)
+
+## 94.71%
+
+[![](chart%20(1).png)](https://www.tylervigen.com/spurious-correlations)
+
+## 99.26%
+
+[![](chart%20(2).png)](https://www.tylervigen.com/spurious-correlations)
+
+## 95.86%
+
+[![](chart%20(3).png)](https://www.tylervigen.com/spurious-correlations)
+:::
+
+## Correlation and dual y-axes
+
+::: panel-tabset
+## Problem
+
+-   Using dual y-axes and choosing their limits, we can deceive readers
+
+-   We can show near perfect correlation by cherry-picking scales
+
+**When to use dual y-axes?**
+
+-   Both axes measure the same quantity of interest.
+
+## Also the Economist gets it wrong!
+
+::: {style="font-size: 50%;"}
+[![Source: Sarah Leo. Mistakes, we\'ve drawn a few](economist.webp){width="764"}](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368)
+:::
+:::
+
+## How to add a second scale with ggplot
+
+::: panel-tabset
+## Code
+
+```{r, echo=TRUE, eval=FALSE}
+gapminder_wealth <- gapminder %>% 
+  mutate(wealth = case_when(gdpPercap < 1624.8 ~ "poor",
+                            gdpPercap >= 1624.8 & 
+                            gdpPercap < 18008.8 ~ "middle",
+                            gdpPercap >= 18008.8 ~ "rich")) %>% 
+  group_by(wealth) %>% 
+  summarize(total = n())
+
+number_countries <- sum(gapminder_wealth$total)
+
+ggplot(gapminder_wealth,
+       aes(x = wealth, y = total, fill = wealth)) +
+  geom_col() +
+  scale_y_continuous(sec.axis = sec_axis(trans = ~ ./ number_countries,
+                                         labels = scales::percent)) +
+  guides(fill = "none")
+```
+
+## Plot
+
+```{r, echo=FALSE}
+gapminder_wealth <- gapminder %>% 
+  mutate(wealth = case_when(gdpPercap < 1624.8 ~ "poor",
+                            gdpPercap >= 1624.8 & 
+                            gdpPercap < 18008.8 ~ "middle",
+                            gdpPercap >= 18008.8 ~ "rich")) %>% 
+  group_by(wealth) %>% 
+  summarize(total = n())
+
+number_countries <- sum(gapminder_wealth$total)
+
+ggplot(gapminder_wealth,
+       aes(x = wealth, y = total, fill = wealth)) +
+  geom_col() +
+  scale_y_continuous(sec.axis = sec_axis(trans = ~ ./ number_countries,
+                                         labels = scales::percent)) +
+  guides(fill = "none")
+```
+:::
+
+## Alternative: Use multiple plots
+
+::: panel-tabset
+## Code
+
+```{r, echo=TRUE, eval=FALSE}
+library(patchwork)
+
+life_exp <- ggplot(gapminder %>% filter(continent == "Europe"), 
+                   aes(x = year, y = lifeExp, color = country)) + 
+  geom_line() +
+  guides(color = "none")
+
+income <- ggplot(gapminder %>% filter(continent == "Europe"), 
+                   aes(x = year, y = gdpPercap, color = country)) + 
+  geom_line() +
+  guides(color = "none")
+
+
+life_exp + income +
+ plot_layout(ncol = 2)
+```
+
+## Plot
+
+```{r, echo=FALSE}
+library(patchwork)
+
+life_exp <- ggplot(gapminder %>% filter(continent == "Europe"), 
+                   aes(x = year, y = lifeExp, color = country)) + 
+  geom_line() +
+  guides(color = "none")
+
+income <- ggplot(gapminder %>% filter(continent == "Europe"), 
+                   aes(x = year, y = gdpPercap, color = country)) + 
+  geom_line() +
+  guides(color = "none")
+
+
+life_exp + income +
+ plot_layout(ncol = 2)
+```
+:::
+
+## Alternative: Use different aesthetics
+
+<iframe src="//www.gapminder.org/tools/?embedded=true#$chart-type=bubbles&amp;url=v1" style="width: 100%; height: 500px; margin: 0 0 0 0; border: 1px solid grey;" allowfullscreen>
+
+</iframe>
+
+::: {style="font-size: 70%;"}
+Source: [Gapminder](https://www.gapminder.org/tools/#$chart-type=bubbles&url=v1)
+:::
+
+# Visualizing correlations
+
+## Correlation
+
+::: panel-tabset
+## Formula
+
+-   As the value of X goes up, Y tends to go up (or down) a lot / a little / or not at all.
+
+-   This says nothing about how much Y changes when X changes!
+
+$$\color{black}{r_{x,y} = \frac{cov(x,y)}{\sigma_x \sigma_y}}$$
+
+## Interpretation
+
+| r (correlation) | Interpretation (rule of thumb) |
+|-----------------|:------------------------------:|
+| 0.1 - 0.3       |             Modest             |
+| 0.3 - 0.5       |            Moderate            |
+| 0.5 - 0.8       |             Strong             |
+| 0.8 - 0.9       |          Very strong           |
+
+## Example
+
+```{r, echo=FALSE}
+set.seed(3295)
+samples = 200
+r1 = 0.2
+r2 = 0.6
+r3 = 0.9
+r4 = -0.2
+r5 = -0.6
+r6 = -0.9
+
+data1 <- as_tibble(mvrnorm(n=samples, mu=c(0, 0), Sigma=matrix(c(1, r1, r1, 1), nrow=2), empirical=TRUE))
+
+data1 <- data1 %>%
+  add_column(r = "0.2")
+
+data2 <- as_tibble(mvrnorm(n=samples, mu=c(0, 0), Sigma=matrix(c(1, r2, r2, 1), nrow=2), empirical=TRUE))
+
+data2 <- data2 %>%
+  add_column(r = "0.6")
+
+data3 <- as_tibble(mvrnorm(n=samples, mu=c(0, 0), Sigma=matrix(c(1, r3, r3, 1), nrow=2), empirical=TRUE))
+
+data3 <- data3 %>%
+  add_column(r = "0.9")
+
+data4 <- as_tibble(mvrnorm(n=samples, mu=c(0, 0), Sigma=matrix(c(1, r4, r4, 1), nrow=2), empirical=TRUE))
+
+data4 <- data4 %>%
+  add_column(r = "-0.2")
+
+data5 <- as_tibble(mvrnorm(n=samples, mu=c(0, 0), Sigma=matrix(c(1, r5, r5, 1), nrow=2), empirical=TRUE))
+
+data5 <- data5 %>%
+  add_column(r = "-0.6")
+
+data6 <- as_tibble(mvrnorm(n=samples, mu=c(0, 0), Sigma=matrix(c(1, r6, r6, 1), nrow=2), empirical=TRUE))
+
+data6 <- data6 %>%
+  add_column(r = "-0.9")
+
+data <- rbind(data1, data2, data3, data4, data5, data6)
+
+r.labs <- c("r: 0.2", "r: 0.6", "r: 0.9","r: -0.2", "r: -0.6", "r: -0.9")
+names(r.labs) <- c("0.2", "0.6", "0.9","-0.2", "-0.6", "-0.9")
+
+ggplot(data, aes(x= V1, y = V2)) +
+  geom_point() +
+  facet_wrap(vars(r), ncol = 3, labeller = labeller(r = r.labs)) +
+  labs(x = "x", y = "y") +
+  theme_minimal()
+```
+:::
+
+## Scatterplot matrices
+
+::: panel-tabset
+## Code
+
+```{r, eval=FALSE, echo=TRUE}
+library(GGally)
+
+gapminder_2007 <- gapminder %>% 
+  filter(year == 2007) %>% 
+  dplyr::select(lifeExp, gdpPercap, pop)
+
+ggpairs(gapminder_2007)
+```
+
+## Plot
+
+```{r, echo=FALSE}
+gapminder_2007 <- gapminder %>% 
+  filter(year == 2007) %>% 
+  dplyr::select(lifeExp, gdpPercap, pop)
+
+ggpairs(gapminder_2007)
+```
+:::
+
+## Correlogram: Heatmaps
+
+```{r echo=FALSE}
+correlation_matrix <- gapminder %>% 
+  filter(year == 2007) %>% 
+  dplyr::select(lifeExp, gdpPercap, pop) %>% 
+  cor()
+
+correlation_matrix[lower.tri(correlation_matrix)] <- NA
+
+correlation_matrix_long <- correlation_matrix %>% 
+  # Convert from a matrix to a data frame
+  as.data.frame() %>% 
+  # Matrixes have column names that don't get converted to columns when using
+  # as.data.frame(), so this adds those names as a column
+  rownames_to_column("measure2") %>% 
+  # Make this long. Take all the columns except measure2 and put their names in
+  # a column named measure1 and their values in a column named cor
+  pivot_longer(cols = -measure2,
+               names_to = "measure1",
+               values_to = "cor") %>% 
+  # Make a new column with the rounded version of the correlation value
+  mutate(rounded_cor = round(cor, 2)) %>% 
+  # Remove rows where the two measures are the same (like the correlation
+  # between humidity and humidity)
+  filter(measure2 != measure1) %>%
+  # Get rid of the empty triangle
+  filter(!is.na(cor)) %>% 
+  # Put these categories in order
+  mutate(measure1 = fct_inorder(measure1),
+         measure2 = fct_inorder(measure2))
+
+
+ggplot(correlation_matrix_long, 
+       aes(x = measure2, y = measure1, fill = cor)) +
+  geom_tile() +
+  geom_text(aes(label = rounded_cor)) +
+  scale_fill_gradient2(low = "#E16462", mid = "white", high = "#0D0887",
+                       limits = c(-1, 1)) +
+  labs(x = NULL, y = NULL) +
+  coord_equal() +
+  theme_minimal() +
+  theme(panel.grid = element_blank())
+```
+
+Correlogram: Points
+
+```{r,echo=FALSE}
+ggplot(correlation_matrix_long, 
+       aes(x = measure2, y = measure1, color = cor)) +
+  # Size by the absolute value so that -0.7 and 0.7 are the same size
+  geom_point(aes(size = abs(cor))) +
+  scale_color_gradient2(low = "#E16462", mid = "white", high = "#0D0887",
+                        limits = c(-1, 1)) +
+  scale_size_area(max_size = 15, limits = c(-1, 1), guide = "none") +
+  labs(x = NULL, y = NULL) +
+  coord_equal() +
+  theme_minimal() +
+  theme(panel.grid = element_blank())
+```
+
+# Visualizing regressions
+
+## Building (OLS regression) models in R
+
+```{r, eval=FALSE, echo=TRUE}
+# lm runs a OLS regression. You have to supply a dependent, 
+# independent variable, and your dataframe
+your_model <- lm(INSERT_Y_HERE ~ INSERT_X_HERE, 
+                 data = INSERT_DATAFRAME_HERE)
+
+# this gives you your model details
+summary(your_model)
+```
+
+\
+
+```{r, eval=FALSE, echo=TRUE}
+library(broom)
+
+# Converting your results to a data frame for plotting
+tidy(your_model)
+
+# Converting model diagnostics to a data frame
+glance(your_model)
+```
+
+## Life expectancy and GDP per capita
+
+::: panel-tabset
+## Formula
+
+$$\color{black}{\hat{LifeExp} = \beta_0 + \beta_1 * GDPpercap + \epsilon}$$
+
+\
+Translation into R:
+
+```{r, eval=FALSE, echo=TRUE}
+gapminder_model <- lm(lifeExp ~ gdpPercap, 
+                 data = gapminder)
+```
+
+## Results
+
+```{r,echo=FALSE}
+gapminder_model <- lm(lifeExp ~ gdpPercap, 
+                 data = gapminder)
+```
+
+```{r,echo=TRUE}
+tidy(gapminder_model, conf.int = TRUE)
+```
+
+\
+
+```{r,echo=TRUE}
+glance(gapminder_model)
+```
+
+## Interpretation
+
+-   In general, for single variables: On average, a one unit increase in X is **associated** with a $\beta1$ increase (or decrease) in Y.
+
+-   Here: $\color{black}{\hat{LifeExp} = 54.0 + 0.000765 * GDPpercap + \epsilon}$
+
+-   Interpretation: On average, a one unit increase in GDP per capita is associated with 0.000765 unit increase in life expectancy. *Substantial interpretation?*
+
+-   For a single variable, we only have to visualize one line!
+
+## Visualization
+
+```{r, echo=FALSE}
+ggplot(gapminder,
+       aes(x=gdpPercap,
+           y=lifeExp)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_minimal()
+```
+:::
+
+## Multiple regression
+
+::: panel-tabset
+## Formula
+
+We can take into account more than one predictor:
+
+\
+
+$\color{black}{\hat{LifeExp} = \beta_0 + \beta_1 * GDPpercap + \beta_2 * continent + \epsilon}$\
+
+\
+
+Translation into R:
+
+```{r, eval=FALSE, echo=TRUE}
+gapminder_multiple <- lm(lifeExp ~ gdpPercap + continent, 
+                 data = gapminder)
+```
+
+## Results
+
+```{r, echo=FALSE}
+gapminder_multiple <- lm(lifeExp ~ gdpPercap + continent, 
+                 data = gapminder)
+```
+
+```{r,echo=TRUE}
+tidy(gapminder_multiple, conf.int = TRUE)
+```
+
+```{r,echo=TRUE}
+glance(gapminder_multiple)
+```
+
+## Continuous
+
+::: {style="font-size: 85%;"}
+-   For continuous variables: On average, holding everything else constant, a one unit increase in X is **associated** with a $\beta_n$ increase (or decrease) in Y.
+
+    $\color{black}{\hat{LifeExp} = 47.9 + 0.000445 * GDPpercap + 13.6 *\\ Americas + 8.66 * Asia + 17.6 * Europe + \\18.1 * Oceania + \epsilon}$
+
+-   Interpretation: On average, holding everything else constant, a one unit increase in X is **associated** with a 0.000445 unit increase in life expectancy.
+:::
+
+## Categorial
+
+::: {style="font-size: 85%;"}
+-   For categorical variables: On average, holding everything else constant, Y is $\beta_n$ units larger (or smaller) in $X_n$ compared to $X_{other}$.
+
+    $\color{black}{\hat{LifeExp} = 47.9 + 0.000445 * GDPpercap + 13.6 * \\ Americas + 8.66 * Asia + 17.6 * Europe + \\18.1* Oceania + \epsilon}$
+
+-   Interpretation: On average, holding everything else constant, life expectancy is 17.6 units larger for people in Europe compared to people in Africa. *Substantial interpretation?*
+:::
+:::
+
+## Visualization of multiple regression
+
+-   Unfortunately, with multiple variables, we cannot use only one line. Things are more complicated
+
+-   First, each coefficient has its own estimate and standard errors
+
+    -   *Solution: Coefficient plot*
+
+-   Second, results change as values of our variables change
+
+    -   *Solution: Marginal effect plot*
+
+## Coefficient plot
+
+First, we need to convert our model results again using *tidy()*
+
+```{r, echo=TRUE}
+gapminder_multiple <- lm(lifeExp ~ gdpPercap + continent, 
+                 data = gapminder)
+
+gapminder_coefs <- tidy(gapminder_multiple, conf.int = TRUE) %>% 
+  filter(term != "(Intercept)")
+
+gapminder_coefs
+```
+
+## Coefficient plot
+
+::: panel-tabset
+## Code
+
+Now, we can plot the estimates and confidence intervals using *geom_pointrange():*
+
+```{r, eval=FALSE,echo=TRUE}
+ggplot(gapminder_coefs,
+       aes(x = estimate,
+           y = term)) +
+  geom_pointrange(aes(xmin = conf.low, 
+                      xmax = conf.high)) +
+  geom_vline(xintercept = 0, 
+             color = "black",
+             linetype = "dashed")
+
+```
+
+## Plot
+
+```{r, echo=FALSE}
+ggplot(gapminder_coefs,
+       aes(x = estimate,
+           y = term)) +
+  geom_pointrange(aes(xmin = conf.low, 
+                      xmax = conf.high)) +
+  geom_vline(xintercept = 0, 
+             color = "black",
+             linetype = "dashed")
+```
+:::
+
+## Predicted values
+
+-   We interpret coefficients while holding others constant!
+
+-   The same holds true for the visualization of the effect
+
+-   Therefore, we can do the following:
+
+    -   Insert many values into our model
+
+    -   Find the predicted outcome
+
+    -   Plot these values and the predicted outcome
+
+## Predicted values
+
+-   The *marginaleffects* package takes care of this
+
+```{r, echo=TRUE}
+# Calculate predictions across a range of GDP per capita
+predicted_values <- predictions(
+  gapminder_multiple,
+  newdata = datagrid(gdpPercap = seq(0, 100000, 1000)) 
+)
+
+# Look at predicted values
+predicted_values %>%
+  dplyr::select(gdpPercap, estimate, std.error, conf.low, conf.high) %>% 
+  head(n=4)
+```
+
+## Predicted values
+
+::: panel-tabset
+## Code
+
+```{r, eval=FALSE, echo=TRUE}
+ggplot(predicted_values, aes(x = gdpPercap, y = estimate)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
+              fill = "lightblue", alpha = 0.5) + 
+  geom_line(linewidth = 1, color = "blue") +
+  labs(x = "GDP per capita", y = "Predicted life expectancy") +
+  theme_minimal()
+```
+
+## Plot
+
+```{r, echo=FALSE}
+ggplot(predicted_values, aes(x = gdpPercap, y = estimate)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
+              fill = "lightblue", alpha = 0.5) + 
+  geom_line(linewidth = 1, color = "blue") +
+  labs(x = "GDP per capita", y = "Predicted life expectancy") +
+  theme_minimal()
+```
+:::
+
+## Multiple effects at once
+
+-   We can just add more variables to our datagrid!
+
+```{r, echo=TRUE}
+# Calculate predictions across a range of GDP per capita
+predicted_values_cat <- predictions(
+  gapminder_multiple,
+  newdata = datagrid(gdpPercap = seq(0, 100000, 1000),
+                     continent = c("Africa", "Americas", "Asia", "Europe", "Oceania"))) %>% 
+  mutate(continent = factor(continent))
+
+# Look at predicted values
+predicted_values %>%
+  dplyr::select(gdpPercap, estimate, std.error, conf.low, conf.high) %>% 
+  head(n=4)
+```
+
+## Multiple effects at once
+
+::: panel-tabset
+## Code
+
+```{r, echo=TRUE, eval=FALSE}
+ggplot(predicted_values_cat, aes(x = gdpPercap, y = estimate)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = continent),
+              alpha = 0.5) + 
+  geom_line(aes(color = continent), linewidth = 1) +
+  labs(x = "GDP per capita", y = "Life expectancy") +
+  theme_minimal() +
+  guides(fill = "none", color = "none") +
+  facet_wrap(vars(continent), nrow = 1)
+```
+
+## Plot
+
+```{r, echo=FALSE}
+ggplot(predicted_values_cat, aes(x = gdpPercap, y = estimate)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = continent),
+              alpha = 0.5) + 
+  geom_line(aes(color = continent), linewidth = 1) +
+  labs(x = "GDP per capita", y = "Life expectancy") +
+  theme_minimal() +
+  guides(fill = "none", color = "none") +
+  facet_wrap(vars(continent), nrow = 1)
+```
+:::
