@@ -1,8 +1,8 @@
 ---
-title: "Annotations"
-subtitle: "Week 11"
+title: "Interactivity I"
+subtitle: "Week 10"
 author: "David Schweizer"
-date: "November 16, 2023"
+date: "November 09, 2023"
 date-format: long
 institute: "University of Mannheim"
 format: 

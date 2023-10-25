@@ -1,8 +1,8 @@
 ---
-title: "Geospatial Data"
-subtitle: "Week 10"
+title: "Space"
+subtitle: "Week 12"
 author: "David Schweizer"
-date: "November 09, 2023"
+date: "November 23, 2023"
 date-format: long
 institute: "University of Mannheim"
 format: 
