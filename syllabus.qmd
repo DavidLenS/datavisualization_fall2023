@@ -9,7 +9,7 @@ editor:
 ## **Course details**
 
 |                 |                                                                                                           |
-|-----------------|-------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | Seminar:        | Übung - Methoden der Vergleichenden Regierungslehre                                                       |
 | Time:           | Thu 13:45 -- 15:15, September 07 to December 07                                                           |
 | Place:          | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)                                              |
@@ -68,13 +68,11 @@ before class. Use Slack to post any questions or discuss with your peers
 if you do not understand concepts. Usually, I post questions to think
 about regarding the readings. Keep them in mind while reading.
 
-**"TidyTuesday" participation and short presentation of graphics**
+**Mandatory exercises**
 
-Throughout the semester, I will assign you in groups of 2-3 to
-participate in the TidyTuesday challenge
-(<https://github.com/rfordatascience/tidytuesday>). The goal is to
-produce anything from simple plots to advanced graphics and present your
-work process in the next session.
+Throughout the semester, I will assign you small exercises. The goal is
+to produce anything from simple plots to advanced graphics and to
+demonstrate that you can apply the concepts presented in the seminar.
 
 **Visualization project (100% of your grade):**
 
@@ -173,12 +171,12 @@ books:
 | 3       | 21.09.2023 | Mapping (Tidy) Data     |
 | 4       | 28.09.2023 | Amounts & Proportions   |
 | 5       | 05.10.2023 | Themes & Refining Plots |
-| 6       | 12.10.2023 | Relationships           |
-| 7       | 19.10.2023 | Comparisons             |
-| 8       | 26.10.2023 | Uncertainty             |
-| 9       | 02.11.2023 | Time Series & Trends    |
-| 10      | 09.11.2023 | Geospatial Data         |
-| 11      | 16.11.2023 | Annotations             |
-| 12      | 23.11.2023 | Interactivity I         |
+| 6       | 12.10.2023 | Uncertainty             |
+| 7       | 19.10.2023 | Relationships           |
+| 8       | 26.10.2023 | Comparisons             |
+| 9       | 02.11.2023 | Annotations             |
+| 10      | 09.11.2023 | Interactivity I         |
+| 11      | 16.11.2023 | Time                    |
+| 12      | 23.11.2023 | Space                   |
 | 13      | 30.11.2023 | Interactivity II        |
 | 14      | 07.12.2023 | Closing Session         |

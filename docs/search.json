@@ -144,7 +144,7 @@
     "href": "syllabus.html#course-requirements",
     "title": "Syllabus: Data Visualization for Comparative Politics",
     "section": "Course requirements",
-    "text": "Course requirements\nActive participation and preparation:\nAttending the weekly sessions and reading assigned articles and chapters before class. Use Slack to post any questions or discuss with your peers if you do not understand concepts. Usually, I post questions to think about regarding the readings. Keep them in mind while reading.\n“TidyTuesday” participation and short presentation of graphics\nThroughout the semester, I will assign you in groups of 2-3 to participate in the TidyTuesday challenge (https://github.com/rfordatascience/tidytuesday). The goal is to produce anything from simple plots to advanced graphics and present your work process in the next session.\nVisualization project (100% of your grade):\nCreation of multiple visualizations of (political) data. While it is possible to produce static visualizations and hand in a PDF, ideally the visualizations are part of an interactive (web) dashboard. The visualization project has to be submitted via ILIAS. Late submissions will result in deductions of 1/3 of a grade point per day. In case of any questions or problems, please get in touch with me early.\nDeadline: January 18, 2024, 23:59."
+    "text": "Course requirements\nActive participation and preparation:\nAttending the weekly sessions and reading assigned articles and chapters before class. Use Slack to post any questions or discuss with your peers if you do not understand concepts. Usually, I post questions to think about regarding the readings. Keep them in mind while reading.\nMandatory exercises\nThroughout the semester, I will assign you small exercises. The goal is to produce anything from simple plots to advanced graphics and to demonstrate that you can apply the concepts presented in the seminar.\nVisualization project (100% of your grade):\nCreation of multiple visualizations of (political) data. While it is possible to produce static visualizations and hand in a PDF, ideally the visualizations are part of an interactive (web) dashboard. The visualization project has to be submitted via ILIAS. Late submissions will result in deductions of 1/3 of a grade point per day. In case of any questions or problems, please get in touch with me early.\nDeadline: January 18, 2024, 23:59."
   },
   {
     "objectID": "syllabus.html#recommended-readings",
@@ -165,7 +165,7 @@
     "href": "syllabus.html#course-schedule",
     "title": "Syllabus: Data Visualization for Comparative Politics",
     "section": "Course Schedule",
-    "text": "Course Schedule\n\n\n\nSession\nDate\nTopic\n\n\n1\n07.09.2023\nIntro Session\n\n\n2\n14.09.2023\nDesigning a Graph\n\n\n3\n21.09.2023\nMapping (Tidy) Data\n\n\n4\n28.09.2023\nAmounts & Proportions\n\n\n5\n05.10.2023\nThemes & Refining Plots\n\n\n6\n12.10.2023\nRelationships\n\n\n7\n19.10.2023\nComparisons\n\n\n8\n26.10.2023\nUncertainty\n\n\n9\n02.11.2023\nTime Series & Trends\n\n\n10\n09.11.2023\nGeospatial Data\n\n\n11\n16.11.2023\nAnnotations\n\n\n12\n23.11.2023\nInteractivity I\n\n\n13\n30.11.2023\nInteractivity II\n\n\n14\n07.12.2023\nClosing Session"
+    "text": "Course Schedule\n\n\n\nSession\nDate\nTopic\n\n\n1\n07.09.2023\nIntro Session\n\n\n2\n14.09.2023\nDesigning a Graph\n\n\n3\n21.09.2023\nMapping (Tidy) Data\n\n\n4\n28.09.2023\nAmounts & Proportions\n\n\n5\n05.10.2023\nThemes & Refining Plots\n\n\n6\n12.10.2023\nUncertainty\n\n\n7\n19.10.2023\nRelationships\n\n\n8\n26.10.2023\nComparisons\n\n\n9\n02.11.2023\nAnnotations\n\n\n10\n09.11.2023\nInteractivity I\n\n\n11\n16.11.2023\nTime\n\n\n12\n23.11.2023\nSpace\n\n\n13\n30.11.2023\nInteractivity II\n\n\n14\n07.12.2023\nClosing Session"
   },
   {
     "objectID": "syllabus.html#course-schedule-and-reading-material",
@@ -214,7 +214,7 @@
     "href": "weeks/week-09.html",
     "title": "Annotations",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nAnnotations\n\n\nWeek 9\n\n\nNov 2, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nAnnotations\n\n\nWeek 9\n\n\nNov 2, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA.\n\n\nTo Do’s before our session\n\nReadThink\n\n\n\nChapter 17: The principle of proportional ink in Wilke, Fundamentals of Data Visualization. Link to free online version\nChapter 18: Handling overlapping points in Wilke, Fundamentals of Data Visualization. Link to free online version\nChapter 19: Common pitfalls of color use in Wilke, Fundamentals of Data Visualization. Link to free online version\nChapter 22: Tites, captions, and tables in Wilke, Fundamentals of Data Visualization. Link to free online version\nChapter 5: Graph tables, add labels, make notes in Healy, Datavisualization. Link to free online version\n\nHelpful and interesting readings:\n\nTutorial by Cara Thompson\n\n\n\n\nQuestions to think about for the readings:\n\nWhen is annotation helpful and when does it clutter our graph? Can there be too much annotation? When is it most effective?"
   },
   {
     "objectID": "weeks/week-10.html",
@@ -347,7 +347,7 @@
     "href": "weeks/week-08.html",
     "title": "Comparisons",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nComparisons\n\n\nWeek 8\n\n\nOct 26, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA.\n\n\nTo Do’s before our session\n\nReadThink\n\n\n\nChapter 9: Visualizing many distributions at once in Wilke, Fundamentals of Data Visualization. Link to free online version\n\nHelpful and interesting readings:\n\nBlog post by Mike Bostock\nBlog post by Edward Tufte\nLollipop charts\n\n\n\n\nQuestions to think about for the readings:\n\nWhat is your favorite way to visualize comparisons?"
+    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nComparisons\n\n\nWeek 8\n\n\nOct 26, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA.\n\n\nTo Do’s before our session\n\nReadThink\n\n\n\nChapter 9: Visualizing many distributions at once in Wilke, Fundamentals of Data Visualization. Link to free online version\nChapter 21: Multi-panel figures in Wilke, Fundamentals of Data Visualization. Link to free online version\n\nHelpful and interesting readings:\n\nBlog post by Mike Bostock\nBlog post by Edward Tufte\nLollipop charts\n\n\n\n\nQuestions to think about for the readings:\n\nWhat is your favorite way to visualize comparisons?"
   },
   {
     "objectID": "slides/week-02/02-ScienceOfClimateChange.html#social-and-economic-impacts-of-climate",
@@ -3862,5 +3862,61 @@
     "title": "Relationships",
     "section": "Correlogram: Points",
     "text": "Correlogram: Points"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#plan-for-today",
+    "href": "slides/week-08/08-Comparisons.html#plan-for-today",
+    "title": "Comparisons",
+    "section": "Plan for today",
+    "text": "Plan for today\nShort input\n\nVisualizing comparisons\n\nCoding\n\nCoding example: Merging & transforming data\n\n\n\nGroup work: Multiples"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#lollipop-charts",
+    "href": "slides/week-08/08-Comparisons.html#lollipop-charts",
+    "title": "Comparisons",
+    "section": "Lollipop charts",
+    "text": "Lollipop charts\n\nExamplevs. barplotsvariation: cleveland dotplot\n\n\n\n\n\n\nSource: Data to Viz\n\n\n\n\n\n\n\n\n\nSource: Data to Viz\n\n\n\n\n\n\n\n\n\nSource: Data to Viz"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#small-multiples",
+    "href": "slides/week-08/08-Comparisons.html#small-multiples",
+    "title": "Comparisons",
+    "section": "Small multiples",
+    "text": "Small multiples\n\n\n\n\nSource: FiveThirtyEight"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#small-multiples-shapes",
+    "href": "slides/week-08/08-Comparisons.html#small-multiples-shapes",
+    "title": "Comparisons",
+    "section": "Small multiples & shapes",
+    "text": "Small multiples & shapes\n\n\n\n\nUsing facet_geo() from the geofacet package"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#sparklines",
+    "href": "slides/week-08/08-Comparisons.html#sparklines",
+    "title": "Comparisons",
+    "section": "Sparklines",
+    "text": "Sparklines\n\nIn textApple, Edward Tufte\n\n\n\n\n\n\nSource: Paul Bradshaw\n\n\n\n\n\n\n\n\n\n\n\nSource: Edward Tufte\n\n\n\n\nApple Watch sparkline, announced September 9,\ngood but should show more detail, more data texture.\nShould have design minimization, not data minimization."
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#small-multiples-sparklines",
+    "href": "slides/week-08/08-Comparisons.html#small-multiples-sparklines",
+    "title": "Comparisons",
+    "section": "Small multiples & sparklines",
+    "text": "Small multiples & sparklines\n\n\n\n\nSource: Flowingdata"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#slopegraphs",
+    "href": "slides/week-08/08-Comparisons.html#slopegraphs",
+    "title": "Comparisons",
+    "section": "Slopegraphs",
+    "text": "Slopegraphs\n\nTufteDiabetesAudience ratingsNYT\n\n\n\n\n\n\n\n\nSource: Edward Tufte\n\n\n\n\n\n\n\n\n\n\n\n\n\nSource: Storytelling with data by Mike Cisneros\n\n\n\n\n\n\n\n\n\nSource: Storytelling with data by Mike Cisneros\n\n\n\n\n\n\n\n\n\nSource: New York Times"
+  },
+  {
+    "objectID": "slides/week-08/08-Comparisons.html#bump-charts",
+    "href": "slides/week-08/08-Comparisons.html#bump-charts",
+    "title": "Comparisons",
+    "section": "Bump charts",
+    "text": "Bump charts\n\nBasicAdvancedExpert\n\n\n\n\n\n\nSource: David Sjoberg\n\n\n\n\n\n\n\n\n\nSource: David Sjoberg\n\n\n\n\n\n\n\n\n\nSource: David Sjoberg"
   }
 ]

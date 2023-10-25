@@ -50,6 +50,7 @@ TBA.
 ## Read
 
 -   Chapter 9: Visualizing many distributions at once in Wilke, Fundamentals of Data Visualization. [Link to free online version](https://clauswilke.com/dataviz/boxplots-violins.html)
+-   Chapter 21: Multi-panel figures in Wilke, Fundamentals of Data Visualization. [Link to free online version](https://clauswilke.com/dataviz/multi-panel-figures.html)
 
 **Helpful and interesting readings:**
 

@@ -13,4 +13,148 @@ format:
 editor: visual
 ---
 
-# TBA
+## Plan for today
+
+```{r, include=FALSE}
+pacman::p_load(   "tidyverse",   "gapminder",   "patchwork",   "MASS",   "GGally",   "broom",   "marginaleffects" )
+```
+
+**Short input**
+
+-   Visualizing comparisons
+
+**Coding**
+
+-   Coding example: Merging & transforming data
+
+<!-- -->
+
+-   Group work: Multiples
+
+# Visualizing comparisons
+
+## Lollipop charts
+
+::: panel-tabset
+## Example
+
+::: {style="font-size: 50%;"}
+[![Source: Data to Viz](lollipop_chart.png){width="488"}](https://www.data-to-viz.com/graph/lollipop.html)
+:::
+
+## vs. barplots
+
+::: {style="font-size: 50%;"}
+[![Source: Data to Viz](lollipop_2.png){width="670"}](https://www.data-to-viz.com/graph/lollipop.html)
+:::
+
+## variation: cleveland dotplot
+
+::: {style="font-size: 50%;"}
+[![Source: Data to Viz](lollipop_3.png){width="456"}](https://www.data-to-viz.com/graph/lollipop.html)
+:::
+:::
+
+## Small multiples
+
+::: {style="font-size: 50%;"}
+[![Source: FiveThirtyEight](biden.png){width="1070"}](https://projects.fivethirtyeight.com/biden-approval-rating/)
+:::
+
+## Small multiples & shapes
+
+::: {style="font-size: 50%;"}
+![Using facet_geo() from the geofacet package](eu_geom_life_exp.png){width="550"}
+:::
+
+## Sparklines
+
+::: panel-tabset
+## In text
+
+::: {style="font-size: 50%;"}
+[![Source: Paul Bradshaw](Sparklines.png){width="779"}](https://onlinejournalismblog.com/2017/09/21/how-to-use-the-atf-spark-font-for-creating-charts-with-only-text/)
+:::
+
+## Apple, Edward Tufte
+
+::: columns
+::: {.column width="50%"}
+::: {style="font-size: 50%;"}
+[![Source: Edward Tufte](apple_watch.png){width="390"}](https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001OR)
+:::
+:::
+
+::: {.column width="50%"}
+*Apple Watch sparkline, [announced September 9](http://www.apple.com/apple-events/september-2015/),\
+good but should show more detail, more data texture.\
+Should have design minimization, not data minimization.*
+:::
+:::
+:::
+
+## Small multiples & sparklines
+
+::: {style="font-size: 50%;"}
+[![Source: Flowingdata](sparklines_life_expectancy.png){width="575"}](https://flowingdata.com/2017/01/24/one-dataset-visualized-25-ways/02-time-series-sparklines-2/)
+:::
+
+## Slopegraphs
+
+::: panel-tabset
+## Tufte
+
+::: columns
+::: {.column width="50%"}
+::: {style="font-size: 50%;"}
+[![Source: Edward Tufte](tufte_1.gif){width="370"}](https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0000Jr)
+:::
+:::
+
+::: {.column width="50%"}
+![](tufte_2.gif){width="234"}
+:::
+:::
+
+## Diabetes
+
+::: {style="font-size: 50%;"}
+[![Source: Storytelling with data by Mike Cisneros](slopegraph1.png){width="537"}](https://www.storytellingwithdata.com/blog/2020/7/27/what-is-a-slopegraph)
+:::
+
+## Audience ratings
+
+::: {style="font-size: 50%;"}
+[![Source: Storytelling with data by Mike Cisneros](slopegraph2.png){width="575"}](https://www.storytellingwithdata.com/blog/2020/7/27/what-is-a-slopegraph)
+:::
+
+## NYT
+
+::: {style="font-size: 50%;"}
+[![Source: New York Times](newyorktimes.gif){width="274"}](https://archive.nytimes.com/www.nytimes.com/imagepages/2009/04/06/health/infant_stats.html?action=click&module=RelatedCoverage&pgtype=Article&region=Footer)
+:::
+:::
+
+## Bump charts
+
+::: panel-tabset
+## Basic
+
+::: {style="font-size: 50%;"}
+[![Source: David Sjoberg](bump1.png){width="1352"}](https://github.com/davidsjoberg/ggbump)
+:::
+
+## Advanced
+
+::: {style="font-size: 50%;"}
+[![Source: David Sjoberg](bump.png){width="788"}](https://github.com/davidsjoberg/ggbump)
+:::
+
+## Expert
+
+::: {style="font-size: 50%;"}
+[![Source: David Sjoberg](bump2.png){width="799"}](https://github.com/davidsjoberg/ggbump)
+:::
+:::
+
+# Coding example
