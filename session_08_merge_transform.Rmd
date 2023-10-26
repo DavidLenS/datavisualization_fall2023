@@ -1,0 +1,240 @@
+---
+title: "session_08_merge_transfrom"
+author: "David Schweizer"
+date: "2023-10-26"
+output: 
+  html_document:
+    highlight: "tango"
+    toc: true
+    toc_depth: 2
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# This script
+
+This script demonstrates how to merge data from different sources and transform it. We first load the data from [The Populist](https://popu-list.org/) and [ParlGov](http://www.parlgov.org/#data). Second, we then transform the data and merge it.
+
+The goal is to plot the vote share *- we get this from the ParlGov data -* of Eurosceptic parties *- we get this from The Populist -* from 1989 until 2022 for West European countries.
+
+In the section **Your turn: Add manifesto data**, you can apply the learnings and merge our dataset with data from the *Manifesto Project*.
+
+# Setup
+
+The following code chunk makes sure that we load all the necessary packages. If they are not installed, the function installs and loads the packages for us.
+
+```{r load-packages}
+# load your packages here
+pacman::p_load("tidyverse")
+```
+
+# Load data
+
+We first load the Populist data. We can load the data from our device, however, we can also download the data from the online source:
+
+```{r load-populist-data}
+# we use the read.csv2 function because the populist data is separated with a ";"
+populist <- read.csv2("https://osf.io/download/7krzm/")
+```
+
+Next, we load the parlgov data:
+
+```{r load-parlgov-data}
+# here, we use the read.csv function because the separator is a ","
+parlgov <- read.csv("https://www.parlgov.org/data/parlgov-development_csv-utf-8/view_election.csv")
+```
+
+# Inspect data
+
+We have loaded the data. Now, we should check the data structure and variables:
+
+```{r check-populist}
+str(populist)
+```
+
+```{r check-parlgov}
+str(parlgov)
+```
+
+You can see that the populist dataframe has a column called parlgov_id and our parlgov dataframe has a column called party_id. This is how we can merge the two data frames later!
+
+However, in this script, we are only interested in West European countries.
+
+# Transform
+
+-   First, we select only West European countries.
+
+-   Second, the Populist starts in 1989. Therefore, we only want to keep elections in or after 1989.
+
+-   Third, we are only interested in national elections. We discard European elections.
+
+```{r select-west-european-countries}
+# we create a new dataframe called parlgov_west
+parlgov_west <- parlgov %>% 
+  # we filter the parlgov dataframe to only keep these West European countries
+  filter(country_name %in% c("Germany",
+                        "Austria",
+                        "Switzerland",
+                        "Belgium",
+                        "Netherlands",
+                        "France",
+                        "Spain",
+                        "Portugal",
+                        "United Kingdom",
+                        "Ireland")) %>% 
+  # we only keep observations in or after 1989
+  filter(election_date >= "1989-01-01") %>% 
+  # we only keep national elections
+  filter(election_type == "parliament")
+  
+```
+
+-   Now, we merge the two datasets. We use the *left_join* function*. <https://dplyr.tidyverse.org/reference/mutate-joins.html>*
+
+```{r merge}
+# we create a new data frame called parl_pop
+parl_pop <- parlgov_west %>% 
+  # we join with the populist dataframe:
+  # we keep all observations in parlgov west, and add all rows with matching party ids from the populist dataframe!
+  left_join(populist, by = c("party_id" = "parlgov_id"))
+
+# have a look at our new dataframe
+# there are many NA's because many parties are not listed in the Populist as they are not Eurosceptic, far-right, populist, etc.
+head(parl_pop)
+```
+
+-   The populist provides a dynamic classification of parties. Therefore, we have to check, if a party is actually Eurosceptic at the particular election.
+
+```{r account-for-dynamic-classification}
+# we "overwrite" the parl_pop dataframe
+parl_pop <- parl_pop %>% 
+  # we create a variable called "Eurosceptic" that takes the value "1" if 
+  # it the party was considered eurosceptic before and after the election
+  mutate(Eurosceptic = case_when(election_date >= eurosceptic_start & election_date <= eurosceptic_end ~ 1,
+                                 TRUE ~ 0))
+```
+
+-   Now, we can restrict the dataset to the variables we are interested in for plotting!
+
+```{r select-relevant-variables}
+# we create a new dataframe
+parl_pop_plot <- parl_pop %>% 
+  # we select only the variables we need for our first plot
+  # and rename some of them in one step!
+  # dplyr:select(new_name = old_name)
+  dplyr::select(country = country_name.x,
+                election_date,
+                vote_share,
+                Eurosceptic) 
+  
+```
+
+-   As a last step, we need to summarize the vote shares of all Eurosceptic parties for each election.
+
+```{r summarize-vote-shares}
+# We "overwrite" our existing data frame
+parl_pop_plot <- parl_pop_plot %>% 
+  # before we summarize, we need to group our variables
+  group_by(country, election_date, Eurosceptic) %>% 
+  # now we can summarize, na.rm = TRUE omits NAs during the calculation
+  # this is important as some vote_shares are missing
+  summarize(Vote_share = sum(vote_share, na.rm = TRUE))
+```
+
+# Plot
+
+Finally, we can plot the vote share of Eurosceptic parties in West European countries over time!
+
+```{r basic-plot}
+# here, we are only interested in the vote share of Eurosceptic parties
+# We create a new dataframe called "Eurosceptic_vote"
+Eurosceptic_vote <- parl_pop_plot %>% 
+  # and filter that we keep the Eurosceptic observations
+  filter(Eurosceptic == 1) %>% 
+  # and change election_date to date format
+  mutate(election_date = as.Date(election_date))
+
+# Now we can plot these vote shares of Eurosceptic parties
+# we need out Eurosceptic_vote dataframe
+ggplot(data = Eurosceptic_vote,
+       # election_date at the x axis to show the development over time
+       aes(x = election_date,
+           # vote share on the y axis
+           y = Vote_share,
+           # we color by country
+           color = country,
+           # and tell ggplot that we need to group the observations by country
+           group = country)) +
+  geom_line() +
+  theme_minimal()
+```
+
+Is a smoothed trend better?
+
+```{r smoothed}
+ggplot(data = Eurosceptic_vote,
+       aes(x = election_date,
+           y = Vote_share,
+           color = country,
+           group = country)) +
+  # we set se=F to avoid confidence intervals as they would overlap too much
+  geom_smooth(se = F) +
+  theme_minimal()
+```
+
+Small multiples?
+
+```{r small-multiples}
+# how would you produce this plot?
+```
+
+How could we make small multiples with sparklines?
+
+```{r small-multiples-with-sparklines}
+# how would you produce this plot?
+```
+
+# Your turn: Add manifesto data
+
+-   First, you have to load the manifesto data. You can get the .csv file from ILIAS. Alternatively, you can create a free account here:<https://manifesto-project.wzb.eu/datasets/MPDS2023a>
+
+-   In addition, you need to load the party information from the ParlGov database. This is the right file: <https://www.parlgov.org/data/parlgov-development_csv-utf-8/view_party.csv>
+
+```{r load-new-data}
+# load the parlgov party and the manifesto data here
+```
+
+-   Next, you have to get the identifier from the Parlgov party data (cmp), then merge it to the the existing parlgov election data. This allows you to merge the new dataframe with the Manifesto data!
+
+    -   Think first about what identifiers you need to merge theses different dataframes!
+
+```{r get-cmp-code-from-parlgov}
+# get the cmp identifier
+# merge the parlgov election and party data (add the cmp variable to the eleciton data)
+# merge this new data frame with the manifesto data
+```
+
+-   Now, you can proceed as before. Select the relevant variables and plot the salience and positions regarding European integration for the Eurosceptic parties. Here, you can see how these variables are defined by the Manifesto project: <https://manifesto-project.wzb.eu/information/documents/visualizations>
+
+    -   European Integration (Salience): `per108 + per110`
+
+    -   European Integration (Position): `per108 - per110`
+
+```{r select-and-transform-relevant-data}
+# select and transform relevant data
+```
+
+-   Finally, we can plot the salience and positions regarding European integration from Eurosceptic parties over time.
+
+```{r plot}
+# plot the data
+```
+
+-   Add on:
+
+    -   What about the salience and positions regarding European integration from non-Eurosceptic parties?
+
+    -   Is there a correlation between vote shares and salience/positions regarding European integration?

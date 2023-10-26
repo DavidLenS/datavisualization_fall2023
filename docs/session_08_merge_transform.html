@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="David Schweizer">
+<meta name="dcterms.date" content="2023-10-26">
+
+<title>Data Visualization for Comparative Politics - Course Website - session_08_merge_transfrom</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">session_08_merge_transfrom</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/hex_sticker.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://datavis-fall2023.slack.com" title="Slack" class="quarto-navigation-tool px-1" aria-label="Slack"><i class="bi bi-slack"></i></a>
+    <a href="https://ilias.uni-mannheim.de/goto.php?target=crs_1413212&amp;client_id=ILIAS" title="Ilias" class="quarto-navigation-tool px-1" aria-label="Ilias"><i class="bi bi-bank"></i></a>
+    <a href="https://www.datacamp.com/" title="Datacamp" class="quarto-navigation-tool px-1" aria-label="Datacamp"><i class="bi bi-rocket"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./material.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#this-script" id="toc-this-script" class="nav-link active" data-scroll-target="#this-script">This script</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load data</a></li>
+  <li><a href="#inspect-data" id="toc-inspect-data" class="nav-link" data-scroll-target="#inspect-data">Inspect data</a></li>
+  <li><a href="#transform" id="toc-transform" class="nav-link" data-scroll-target="#transform">Transform</a></li>
+  <li><a href="#plot" id="toc-plot" class="nav-link" data-scroll-target="#plot">Plot</a></li>
+  <li><a href="#your-turn-add-manifesto-data" id="toc-your-turn-add-manifesto-data" class="nav-link" data-scroll-target="#your-turn-add-manifesto-data">Your turn: Add manifesto data</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">session_08_merge_transfrom</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>David Schweizer </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 26, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="this-script" class="level1">
+<h1>This script</h1>
+<p>This script demonstrates how to merge data from different sources and transform it. We first load the data from <a href="https://popu-list.org/">The Populist</a> and <a href="http://www.parlgov.org/#data">ParlGov</a>. Second, we then transform the data and merge it.</p>
+<p>The goal is to plot the vote share <em>- we get this from the ParlGov data -</em> of Eurosceptic parties <em>- we get this from The Populist -</em> from 1989 until 2022 for West European countries.</p>
+<p>In the section <strong>Your turn: Add manifesto data</strong>, you can apply the learnings and merge our dataset with data from the <em>Manifesto Project</em>.</p>
+</section>
+<section id="setup" class="level1">
+<h1>Setup</h1>
+<p>The following code chunk makes sure that we load all the necessary packages. If they are not installed, the function installs and loads the packages for us.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load your packages here</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="load-data" class="level1">
+<h1>Load data</h1>
+<p>We first load the Populist data. We can load the data from our device, however, we can also download the data from the online source:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we use the read.csv2 function because the populist data is separated with a ";"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>populist <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"https://osf.io/download/7krzm/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we load the parlgov data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># here, we use the read.csv function because the separator is a ","</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>parlgov <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://www.parlgov.org/data/parlgov-development_csv-utf-8/view_election.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="inspect-data" class="level1">
+<h1>Inspect data</h1>
+<p>We have loaded the data. Now, we should check the data structure and variables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(populist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   234 obs. of  31 variables:
+ $ party_name           : chr  "Bündnis Zukunft Österreich" "Freiheitliche Partei Österreichs" "Liste Hans-Peter Martin" "Team Stronach" ...
+ $ country_name         : chr  "Austria" "Austria" "Austria" "Austria" ...
+ $ party_name_english   : chr  "Alliance for the Future of Austria" "Freedom Party of Austria" "Hans-Peter Martin's List" "Team Stronach" ...
+ $ party_name_short     : chr  "BZÖ" "FPÖ" "Martin" "TS" ...
+ $ populist             : int  1 1 1 1 1 1 1 1 0 1 ...
+ $ populist_start       : int  1900 1900 1900 1900 1900 1900 1900 1900 2100 1900 ...
+ $ populist_end         : int  2100 2100 2100 2100 2100 2100 2100 2100 2100 2100 ...
+ $ populist_startnobl   : int  1900 1900 1900 1900 2100 1900 1900 1900 2100 1900 ...
+ $ populist_endnobl     : int  2100 2100 2100 2100 2100 2100 2100 2100 2100 2100 ...
+ $ populist_bl          : int  0 0 0 0 1 0 0 0 0 0 ...
+ $ farright             : int  0 1 0 0 0 1 0 1 0 1 ...
+ $ farright_start       : int  1900 1900 2100 2100 2100 1900 2100 1900 2100 1900 ...
+ $ farright_end         : int  2008 2100 2100 2100 2100 2100 2100 2100 2100 2100 ...
+ $ farright_startnobl   : int  1900 1900 2100 2100 2100 1900 2100 1900 2100 1900 ...
+ $ farright_endnobl     : int  2008 2100 2100 2100 2100 2100 2100 2100 2100 2100 ...
+ $ farright_bl          : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ farleft              : int  0 0 0 0 0 0 0 0 1 0 ...
+ $ farleft_start        : int  2100 2100 2100 2100 2100 2100 2100 2100 1900 2100 ...
+ $ farleft_end          : int  2100 2100 2100 2100 2100 2100 2100 2100 2100 2100 ...
+ $ farleft_startnobl    : int  2100 2100 2100 2100 2100 2100 2100 2100 1900 2100 ...
+ $ farleft_endnobl      : int  2100 2100 2100 2100 2100 2100 2100 2100 2100 2100 ...
+ $ farleft_bl           : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ eurosceptic          : int  1 1 1 1 0 1 1 1 1 1 ...
+ $ eurosceptic_start    : int  1900 1900 1900 1900 2100 1900 1900 1900 1900 1900 ...
+ $ eurosceptic_end      : int  2100 2100 2100 2100 2100 2100 2100 2100 2100 2100 ...
+ $ eurosceptic_startnobl: int  1900 1900 1900 1900 2100 1900 2100 1900 1900 1900 ...
+ $ eurosceptic_endnobl  : int  2100 2100 2100 2100 2100 2100 2100 2100 2100 2100 ...
+ $ eurosceptic_bl       : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ in_parliament        : int  0 1 0 0 0 0 0 0 1 1 ...
+ $ partyfacts_id        : int  599 463 1708 1971 6137 191 43 639 1753 553 ...
+ $ parlgov_id           : int  1536 50 669 2150 2651 171 221 438 256 993 ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(parlgov)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   8947 obs. of  16 variables:
+ $ country_name_short             : chr  "AUS" "AUS" "AUS" "AUS" ...
+ $ country_name                   : chr  "Australia" "Australia" "Australia" "Australia" ...
+ $ election_type                  : chr  "parliament" "parliament" "parliament" "parliament" ...
+ $ election_date                  : chr  "1901-03-30" "1901-03-30" "1901-03-30" "1901-03-30" ...
+ $ vote_share                     : num  44.4 34.2 19.4 1.4 0.6 29.7 34.4 31 0.5 4.5 ...
+ $ seats                          : int  32 26 15 1 1 26 25 23 1 0 ...
+ $ seats_total                    : int  75 75 75 75 75 75 75 75 75 75 ...
+ $ party_name_short               : chr  "PP" "FTP" "ALP" "none" ...
+ $ party_name                     : chr  "Protectionist Party" "Free Trade Party" "Australian Labor Party" "no party affiliation" ...
+ $ party_name_english             : chr  "Protectionist Party" "Free Trade Party" "Australian Labor Party" "no party affiliation" ...
+ $ left_right                     : num  7.4 6 3.88 NA NA ...
+ $ country_id                     : int  33 33 33 33 33 33 33 33 33 33 ...
+ $ election_id                    : int  731 731 731 731 731 730 730 730 730 730 ...
+ $ previous_parliament_election_id: int  NA NA NA NA NA 731 731 731 731 731 ...
+ $ previous_cabinet_id            : int  NA NA NA NA NA 997 997 997 997 997 ...
+ $ party_id                       : int  1898 1938 1253 1396 2299 1898 1938 1253 2299 1396 ...</code></pre>
+</div>
+</div>
+<p>You can see that the populist dataframe has a column called parlgov_id and our parlgov dataframe has a column called party_id. This is how we can merge the two data frames later!</p>
+<p>However, in this script, we are only interested in West European countries.</p>
+</section>
+<section id="transform" class="level1">
+<h1>Transform</h1>
+<ul>
+<li><p>First, we select only West European countries.</p></li>
+<li><p>Second, the Populist starts in 1989. Therefore, we only want to keep elections in or after 1989.</p></li>
+<li><p>Third, we are only interested in national elections. We discard European elections.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we create a new dataframe called parlgov_west</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>parlgov_west <span class="ot">&lt;-</span> parlgov <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we filter the parlgov dataframe to only keep these West European countries</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Germany"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Austria"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Switzerland"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Belgium"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Netherlands"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"France"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Spain"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Portugal"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"United Kingdom"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Ireland"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we only keep observations in or after 1989</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(election_date <span class="sc">&gt;=</span> <span class="st">"1989-01-01"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we only keep national elections</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(election_type <span class="sc">==</span> <span class="st">"parliament"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Now, we merge the two datasets. We use the <em>left_join</em> function<em>. <a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="uri">https://dplyr.tidyverse.org/reference/mutate-joins.html</a></em></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we create a new data frame called parl_pop</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>parl_pop <span class="ot">&lt;-</span> parlgov_west <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we join with the populist dataframe:</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we keep all observations in parlgov west, and add all rows with matching party ids from the populist dataframe!</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(populist, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"party_id"</span> <span class="ot">=</span> <span class="st">"parlgov_id"</span>))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># have a look at our new dataframe</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># there are many NA's because many parties are not listed in the Populist as they are not Eurosceptic, far-right, populist, etc.</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(parl_pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  country_name_short country_name.x election_type election_date vote_share
+1                AUT        Austria    parliament    1990-10-07       42.8
+2                AUT        Austria    parliament    1990-10-07       32.1
+3                AUT        Austria    parliament    1990-10-07       16.6
+4                AUT        Austria    parliament    1990-10-07        4.8
+5                AUT        Austria    parliament    1990-10-07        2.0
+6                AUT        Austria    parliament    1994-10-09       34.9
+  seats seats_total party_name_short.x                           party_name.x
+1    80         183                SPO Sozialdemokratische Partei Österreichs
+2    60         183                OVP            Österreichische Volkspartei
+3    33         183                FPO       Freiheitliche Partei Österreichs
+4    10         183             Gruene     Die Grünen – Die Grüne Alternative
+5     0         183                VGO             Vereinte Grüne Österreichs
+6    65         183                SPO Sozialdemokratische Partei Österreichs
+                 party_name_english.x left_right country_id election_id
+1  Social Democratic Party of Austria     3.7293         59         325
+2             Austrian People's Party     6.4733         59         325
+3            Freedom Party of Austria     8.3494         59         325
+4 The Greens -- The Green Alternative     2.4604         59         325
+5               United Greens Austria     2.5000         59         325
+6  Social Democratic Party of Austria     3.7293         59          66
+  previous_parliament_election_id previous_cabinet_id party_id
+1                             235                 873      973
+2                             235                 873     1013
+3                             235                 873       50
+4                             235                 873     1429
+5                             235                 873     1740
+6                             325                 524      973
+                      party_name.y country_name.y     party_name_english.y
+1                             &lt;NA&gt;           &lt;NA&gt;                     &lt;NA&gt;
+2                             &lt;NA&gt;           &lt;NA&gt;                     &lt;NA&gt;
+3 Freiheitliche Partei Österreichs        Austria Freedom Party of Austria
+4                             &lt;NA&gt;           &lt;NA&gt;                     &lt;NA&gt;
+5                             &lt;NA&gt;           &lt;NA&gt;                     &lt;NA&gt;
+6                             &lt;NA&gt;           &lt;NA&gt;                     &lt;NA&gt;
+  party_name_short.y populist populist_start populist_end populist_startnobl
+1               &lt;NA&gt;       NA             NA           NA                 NA
+2               &lt;NA&gt;       NA             NA           NA                 NA
+3                FPÖ        1           1900         2100               1900
+4               &lt;NA&gt;       NA             NA           NA                 NA
+5               &lt;NA&gt;       NA             NA           NA                 NA
+6               &lt;NA&gt;       NA             NA           NA                 NA
+  populist_endnobl populist_bl farright farright_start farright_end
+1               NA          NA       NA             NA           NA
+2               NA          NA       NA             NA           NA
+3             2100           0        1           1900         2100
+4               NA          NA       NA             NA           NA
+5               NA          NA       NA             NA           NA
+6               NA          NA       NA             NA           NA
+  farright_startnobl farright_endnobl farright_bl farleft farleft_start
+1                 NA               NA          NA      NA            NA
+2                 NA               NA          NA      NA            NA
+3               1900             2100           0       0          2100
+4                 NA               NA          NA      NA            NA
+5                 NA               NA          NA      NA            NA
+6                 NA               NA          NA      NA            NA
+  farleft_end farleft_startnobl farleft_endnobl farleft_bl eurosceptic
+1          NA                NA              NA         NA          NA
+2          NA                NA              NA         NA          NA
+3        2100              2100            2100          0           1
+4          NA                NA              NA         NA          NA
+5          NA                NA              NA         NA          NA
+6          NA                NA              NA         NA          NA
+  eurosceptic_start eurosceptic_end eurosceptic_startnobl eurosceptic_endnobl
+1                NA              NA                    NA                  NA
+2                NA              NA                    NA                  NA
+3              1900            2100                  1900                2100
+4                NA              NA                    NA                  NA
+5                NA              NA                    NA                  NA
+6                NA              NA                    NA                  NA
+  eurosceptic_bl in_parliament partyfacts_id
+1             NA            NA            NA
+2             NA            NA            NA
+3              0             1           463
+4             NA            NA            NA
+5             NA            NA            NA
+6             NA            NA            NA</code></pre>
+</div>
+</div>
+<ul>
+<li>The populist provides a dynamic classification of parties. Therefore, we have to check, if a party is actually Eurosceptic at the particular election.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we "overwrite" the parl_pop dataframe</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>parl_pop <span class="ot">&lt;-</span> parl_pop <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we create a variable called "Eurosceptic" that takes the value "1" if </span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># it the party was considered eurosceptic before and after the election</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Eurosceptic =</span> <span class="fu">case_when</span>(election_date <span class="sc">&gt;=</span> eurosceptic_start <span class="sc">&amp;</span> election_date <span class="sc">&lt;=</span> eurosceptic_end <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                                 <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Now, we can restrict the dataset to the variables we are interested in for plotting!</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we create a new dataframe</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>parl_pop_plot <span class="ot">&lt;-</span> parl_pop <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we select only the variables we need for our first plot</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># and rename some of them in one step!</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># dplyr:select(new_name = old_name)</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="at">country =</span> country_name.x,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                election_date,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                vote_share,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                Eurosceptic) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>As a last step, we need to summarize the vote shares of all Eurosceptic parties for each election.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We "overwrite" our existing data frame</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>parl_pop_plot <span class="ot">&lt;-</span> parl_pop_plot <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># before we summarize, we need to group our variables</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country, election_date, Eurosceptic) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># now we can summarize, na.rm = TRUE omits NAs during the calculation</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this is important as some vote_shares are missing</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Vote_share =</span> <span class="fu">sum</span>(vote_share, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'country', 'election_date'. You can
+override using the `.groups` argument.</code></pre>
+</div>
+</div>
+</section>
+<section id="plot" class="level1">
+<h1>Plot</h1>
+<p>Finally, we can plot the vote share of Eurosceptic parties in West European countries over time!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># here, we are only interested in the vote share of Eurosceptic parties</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We create a new dataframe called "Eurosceptic_vote"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>Eurosceptic_vote <span class="ot">&lt;-</span> parl_pop_plot <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># and filter that we keep the Eurosceptic observations</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Eurosceptic <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># and change election_date to date format</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">election_date =</span> <span class="fu">as.Date</span>(election_date))</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Now we can plot these vote shares of Eurosceptic parties</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># we need out Eurosceptic_vote dataframe</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Eurosceptic_vote,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>       <span class="co"># election_date at the x axis to show the development over time</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> election_date,</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>           <span class="co"># vote share on the y axis</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> Vote_share,</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>           <span class="co"># we color by country</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> country,</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>           <span class="co"># and tell ggplot that we need to group the observations by country</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>           <span class="at">group =</span> country)) <span class="sc">+</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="session_08_merge_transform_files/figure-html/basic-plot-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Is a smoothed trend better?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> Eurosceptic_vote,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> election_date,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> Vote_share,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> country,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">group =</span> country)) <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we set se=F to avoid confidence intervals as they would overlap too much</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> F) <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="session_08_merge_transform_files/figure-html/smoothed-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Small multiples?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># how would you produce this plot?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>How could we make small multiples with sparklines?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># how would you produce this plot?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="your-turn-add-manifesto-data" class="level1">
+<h1>Your turn: Add manifesto data</h1>
+<ul>
+<li><p>First, you have to load the manifesto data. You can get the .csv file from ILIAS. Alternatively, you can create a free account here:<a href="https://manifesto-project.wzb.eu/datasets/MPDS2023a" class="uri">https://manifesto-project.wzb.eu/datasets/MPDS2023a</a></p></li>
+<li><p>In addition, you need to load the party information from the ParlGov database. This is the right file: <a href="https://www.parlgov.org/data/parlgov-development_csv-utf-8/view_party.csv" class="uri">https://www.parlgov.org/data/parlgov-development_csv-utf-8/view_party.csv</a></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the parlgov party and the manifesto data here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Next, you have to get the identifier from the Parlgov party data (cmp), then merge it to the the existing parlgov election data. This allows you to merge the new dataframe with the Manifesto data!</p>
+<ul>
+<li>Think first about what identifiers you need to merge theses different dataframes!</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the cmp identifier</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># merge the parlgov election and party data (add the cmp variable to the eleciton data)</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># merge this new data frame with the manifesto data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Now, you can proceed as before. Select the relevant variables and plot the salience and positions regarding European integration for the Eurosceptic parties. Here, you can see how these variables are defined by the Manifesto project: <a href="https://manifesto-project.wzb.eu/information/documents/visualizations" class="uri">https://manifesto-project.wzb.eu/information/documents/visualizations</a></p>
+<ul>
+<li><p>European Integration (Salience): <code>per108 + per110</code></p></li>
+<li><p>European Integration (Position): <code>per108 - per110</code></p></li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select and transform relevant data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Finally, we can plot the salience and positions regarding European integration from Eurosceptic parties over time.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Add on:</p>
+<ul>
+<li><p>What about the salience and positions regarding European integration from non-Eurosceptic parties?</p></li>
+<li><p>Is there a correlation between vote shares and salience/positions regarding European integration?</p></li>
+</ul></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This page is built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>
