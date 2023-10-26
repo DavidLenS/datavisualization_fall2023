@@ -29,7 +29,7 @@ pacman::p_load(   "tidyverse",   "gapminder",   "patchwork",   "MASS",   "GGally
 
 <!-- -->
 
--   Group work: Multiples
+-   Group work: Your turn!
 
 # Visualizing comparisons
 
