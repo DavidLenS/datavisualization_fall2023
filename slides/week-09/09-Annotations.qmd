@@ -13,4 +13,756 @@ format:
 editor: visual
 ---
 
-# TBA
+## Plan for today
+
+```{r, include=FALSE}
+pacman::p_load(   "tidyverse",   "gapminder",   "patchwork",   "MASS",   "GGally",   "broom",   "marginaleffects", "ggrepel")
+```
+
+**Short input**
+
+-   Why details matter
+-   (Text) annotation
+-   Seeds
+
+**Coding**
+
+-   Group work: Your turn to code!
+
+# Why details matter
+
+## Why details matter
+
+::: columns
+::: {.column width="60%"}
+![](steve.jpg){width="603"}
+:::
+
+::: {.column width="40%"}
+This is what customers pay us for ---\
+to sweat all these details so it's easy and pleasant for them to use our computers.
+
+*- Steve Jobs*
+:::
+:::
+
+## Even tiny details
+
+![](details.png){width="1845"}
+
+## User experience
+
+::: panel-tabset
+## Human Interface Guidelines
+
+![](HIG.png){width="783"}
+
+## Material Design
+
+![](material.png){width="952"}
+:::
+
+## Details in plots: Redundant coding
+
+::: panel-tabset
+## Bad?
+
+[![](redundant_coding_1.png){width="747"}](https://clauswilke.com/dataviz/redundant-coding.html)
+
+## Better?
+
+[![](redundant_coding_2.png){width="745"}](https://clauswilke.com/dataviz/redundant-coding.html)
+:::
+
+## Details in plots: Ordering
+
+::: panel-tabset
+## Bad?
+
+[![](ordering_1.png){width="773"}](https://clauswilke.com/dataviz/redundant-coding.html)
+
+## Better?
+
+[![](ordering_2.png){width="802"}](https://clauswilke.com/dataviz/redundant-coding.html)
+:::
+
+## Why details matter
+
+-   If we get the details right, we ...
+
+    -   make our graphs much more accessible for the reader,
+
+    -   can communicate our message better,
+
+    -   and increase the chance of reaching a larger audience!
+
+# (Text) annotation in our plots
+
+## Ways to annotate our plot
+
+-   We can label actual data points using *geom_text(), geom_label(), or geom_text_repel()*
+
+. . .
+
+-   We can add any text or shape we want using *annotate()*
+
+. . .
+
+-   We can add titles, subtitles, captions, ... using, e.g., *labs(title = "This is a title")*
+
+# (Text) annotation
+
+*Label data points*
+
+## Label actual data points
+
+::: panel-tabset
+## Code
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-11|10"}
+library(gapminder)
+
+gapminder_africa_2007 <- gapminder %>%
+  filter(year == 2007,
+         continent == "Africa")
+
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_text(aes(label = country)) +
+  theme_minimal()
+
+```
+
+## Plot
+
+```{r, echo=FALSE}
+library(gapminder)
+
+gapminder_africa_2007 <- gapminder %>%
+  filter(year == 2007,
+         continent == "Africa")
+
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_text(aes(label = country)) +
+  theme_minimal()
+```
+
+## Problems
+
+-   Text and points overlap!
+
+-   Text and text overlap!
+
+Possible solution: We can try *geom_label().*
+:::
+
+## Label actual data points
+
+::: panel-tabset
+## Code
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-11|10"}
+library(gapminder)
+
+gapminder_africa_2007 <- gapminder %>%
+  filter(year == 2007,
+         continent == "Africa")
+
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_label(aes(label = country)) +
+  theme_minimal()
+
+```
+
+## Plot
+
+```{r, echo=FALSE}
+library(gapminder)
+
+gapminder_africa_2007 <- gapminder %>%
+  filter(year == 2007,
+         continent == "Africa")
+
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_label(aes(label = country)) +
+  theme_minimal()
+```
+
+## Problems
+
+Better? Still:
+
+-   Labels overlap!
+
+-   Labels cover data points!
+
+Possible solution: We can try *geom_label().*
+:::
+
+## Alternative: "Repel" labels
+
+::: panel-tabset
+## Code: Text
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-12|11"}
+library(gapminder)
+library(ggrepel)
+
+gapminder_africa_2007 <- gapminder %>%
+  filter(year == 2007,
+         continent == "Africa")
+
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_text_repel(aes(label = country)) +
+  theme_minimal()
+
+```
+
+## Plot
+
+```{r, echo=FALSE}
+library(gapminder)
+
+gapminder_africa_2007 <- gapminder %>%
+  filter(year == 2007,
+         continent == "Africa")
+
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_text_repel(aes(label = country)) +
+  theme_minimal()
+```
+
+## Code: Label
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-12|11"}
+library(gapminder)
+library(ggrepel)
+
+gapminder_africa_2007 <- gapminder %>%
+  filter(year == 2007,
+         continent == "Africa")
+
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_label_repel(aes(label = country)) +
+  theme_minimal()
+
+```
+
+## Plot
+
+```{r, echo=FALSE}
+library(gapminder)
+
+gapminder_africa_2007 <- gapminder %>%
+  filter(year == 2007,
+         continent == "Africa")
+
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_label_repel(aes(label = country)) +
+  theme_minimal()
+```
+:::
+
+## Alternative: Highlight selected points
+
+::: panel-tabset
+## Code
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-16|7-10|15"}
+library(gapminder)
+library(ggrepel)
+
+gapminder_africa_2007 <- gapminder %>%
+  filter(year == 2007,
+         continent == "Africa") %>% 
+  mutate(selected = case_when(country %in% c("Gabon", 
+                                             "Reunion", 
+                                             "Swaziland") ~ country,
+                              TRUE ~ NA))
+
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_label_repel(aes(label = selected)) +
+  theme_minimal()
+```
+
+## Plot
+
+```{r, echo=FALSE}
+library(gapminder)
+library(ggrepel)
+
+gapminder_africa_2007 <- gapminder %>%
+  filter(year == 2007,
+         continent == "Africa") %>% 
+  mutate(selected = case_when(country %in% c("Gabon", 
+                                             "Reunion", 
+                                             "Swaziland") ~ country,
+                              TRUE ~ NA))
+
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_label_repel(aes(label = selected)) +
+  theme_minimal()
+```
+:::
+
+## Alternative: Highlight + aesthetics
+
+::: panel-tabset
+## Code
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-15|7|8-10|11-13|13-14"}
+library(gapminder)
+library(ggrepel)
+
+# gapminder_africa_2007 is the same dataset as on the previous slide
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(aes(color = selected)) +
+  geom_label_repel(aes(label = selected,
+                       fill = selected,
+                       color = "black")) +
+  scale_color_manual(values = c("orange", "green", "red")) +
+  scale_fill_manual(calues = c("orange", "green", "red")) +
+  guides(color = "none", 
+         fill = "none")
+  theme_minimal()
+```
+
+## Plot
+
+```{r, echo=FALSE}
+library(gapminder)
+library(ggrepel)
+
+# gapminder_africa_2007 is the same dataset as on the previous slide
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(aes(color = selected)) +
+  geom_label_repel(aes(label = selected,
+                       fill = selected),
+                   color = "black") +
+  scale_color_manual(values = c("orange", "green", "red")) +
+  scale_fill_manual(values = c("orange", "green", "red")) +
+  guides(color = "none", 
+         fill = "none")
+  theme_minimal()
+```
+:::
+
+# (Text) annotation
+
+*Add text or shapes*
+
+## Add text & labels
+
+::: panel-tabset
+## Code: Text
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-9|5-8"}
+# gapminder_africa_2007 is the same dataset as on the previous slide
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  annotate(geom = "text",
+           x = 12000,
+           y = 68,
+           label = "Which countries are these?")
+  theme_minimal()
+```
+
+## Plot
+
+```{r, echo=FALSE}
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  annotate(geom = "text",
+           x = 12000,
+           y = 68,
+           label = "Which countries are these?")
+  theme_minimal()
+```
+
+## Code: Text
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-9|5-8"}
+# gapminder_africa_2007 is the same dataset as on the previous slide
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  annotate(geom = "label",
+           x = 12000,
+           y = 68,
+           label = "Which countries are these?")
+  theme_minimal()
+```
+
+## Plot
+
+```{r, echo=FALSE}
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  annotate(geom = "label",
+           x = 12000,
+           y = 68,
+           label = "Which countries are these?")
+  theme_minimal()
+```
+:::
+
+## Add shapes
+
+::: panel-tabset
+## Code: Point
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-9|5-8"}
+# gapminder_africa_2007 is the same dataset as on the previous slide
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  annotate(geom = "point",
+           x = 12000,
+           y = 68,
+           color = "darkgreen")
+  theme_minimal()
+```
+
+## Plot
+
+```{r, echo=FALSE}
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  annotate(geom = "point",
+           x = 12000,
+           y = 68,
+           color = "darkgreen")
+  theme_minimal()
+```
+
+## Code: Rectangle
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-9|5-8"}
+# gapminder_africa_2007 is the same dataset as on the previous slide
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  annotate(geom = "rect",
+           xmin = 10000, xmax = 12500,
+           ymin = 70, ymax = 75,
+           fill = "darkgreen", alpha = 0.25)
+  theme_minimal()
+```
+
+## Plot
+
+```{r, echo=FALSE}
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  annotate(geom = "rect",
+           xmin = 10000, xmax = 12500,
+           ymin = 70, ymax = 75,
+           fill = "darkgreen", alpha = 0.25)
+  theme_minimal()
+```
+:::
+
+## Combine text and shapes
+
+::: panel-tabset
+## Code: High + High
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-17|5-8|9-12|13-16"}
+# gapminder_africa_2007 is the same dataset as on the previous slide
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  annotate(geom = "rect",
+           xmin = 10000, xmax = 12500,
+           ymin = 70, ymax = 75,
+           fill = "darkgreen", alpha = 0.25) +
+  annotate(geom = "label",
+           x = 11250,
+           y = 65,
+           label = "High GDP & high life expectancy") +
+  annotate(geom = "segment",
+           x = 11250, xend = 11250,
+           y = 67, yend = 69,
+           arrow = arrow(ends = "last", length = unit(0.1,"in"))) +
+  theme_minimal()
+```
+
+## Plot
+
+```{r, echo=FALSE}
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  annotate(geom = "rect",
+           xmin = 10000, xmax = 12500,
+           ymin = 70, ymax = 75,
+           fill = "darkgreen", alpha = 0.25) +
+  annotate(geom = "label",
+           x = 11250,
+           y = 65,
+           label = "High GDP & high life expectancy") +
+  annotate(geom = "segment",
+           x = 11250, xend = 11250,
+           y = 67, yend = 69,
+           arrow = arrow(ends = "last", length = unit(0.1,"in"))) +
+  theme_minimal()
+```
+
+## Code: Low + Low
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-17|5-8|9-12|13-16"}
+# gapminder_africa_2007 is the same dataset as on the previous slide
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  annotate(geom = "rect",
+           xmin = 0, xmax = 2500,
+           ymin = 40, ymax = 50,
+           fill = "darkred", alpha = 0.25) +
+  annotate(geom = "label",
+           x = 3750,
+           y = 47,
+           label = "Low GDP &\n low life expectancy") +
+  annotate(geom = "segment",
+           x = 3500, xend = 2600,
+           y = 47, yend = 47,
+           arrow = arrow(ends = "last", length = unit(0.1,"in"))) +
+  theme_minimal()
+```
+
+## Plot
+
+```{r, echo=FALSE}
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  annotate(geom = "rect",
+           xmin = 0, xmax = 2500,
+           ymin = 40, ymax = 50,
+           fill = "darkred", alpha = 0.25) +
+  annotate(geom = "label",
+           x = 4500,
+           y = 47,
+           label = "Low GDP &\n low life expectancy") +
+  annotate(geom = "segment",
+           x = 3500, xend = 2600,
+           y = 47, yend = 47,
+           arrow = arrow(ends = "last", length = unit(0.1,"in"))) +
+  theme_minimal()
+```
+:::
+
+# (Text) annotation
+
+*Titles, subtitles, captions*
+
+## Titles, subtitles, captions
+
+::: panel-tabset
+## Code
+
+```{r, include = FALSE}
+plot <- ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  annotate(geom = "rect",
+           xmin = 10000, xmax = 12500,
+           ymin = 70, ymax = 75,
+           fill = "darkgreen", alpha = 0.25) +
+  annotate(geom = "segment",
+           x = 11250, xend = 11250,
+           y = 67, yend = 69,
+           arrow = arrow(ends = "last", length = unit(0.1,"in"))) +
+  annotate(geom = "rect",
+           xmin = 0, xmax = 2500,
+           ymin = 40, ymax = 50,
+           fill = "darkred", alpha = 0.25) +
+  annotate(geom = "label",
+           x = 4500,
+           y = 47,
+           label = "Low GDP &\n low life expectancy") +
+  annotate(geom = "segment",
+           x = 3500, xend = 2600,
+           y = 47, yend = 47,
+           arrow = arrow(ends = "last", length = unit(0.1,"in"))) +
+  theme_minimal()
+```
+
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="6-16|7|8-11|12-16"}
+# For simplicity: I have combined the code for High + High and Low + Low
+# The respective plot is stored in the ggplot object "plot"
+# The label annotation is added after geom_smooth that the line does not
+# cover the label!
+# Now, we can add further details:
+plot +
+  geom_smooth(color = "darkgrey", se = F) +
+  annotate(geom = "label",
+           x = 11250,
+           y = 65,
+           label = "High GDP & high life expectancy") +
+  labs(title = "GDP & Life Expectancy",
+       subtitle = "Is there a clear relationship in Africa?",
+       caption = "Data source: Gapminder",
+       x = "GDP per capita in $",
+       y = "Life expectancy in years")
+```
+
+## Plot
+
+```{r, echo=FALSE}
+plot +
+  geom_smooth(color = "darkgrey", se = F) +
+  labs(title = "GDP & Life Expectancy",
+       subtitle = "Is there a clear relationship in Africa?",
+       caption = "Data source: Gapminder",
+       x = "GDP per capita in $",
+       y = "Life expectancy in years")
+```
+:::
+
+## Where to place the information?
+
+::: panel-tabset
+## Title above + caption
+
+[![](better_2.png){width="609"}](https://clauswilke.com/dataviz/figure-titles-captions.html)
+
+## Caption only
+
+[![](better_1.png){width="619"}](https://clauswilke.com/dataviz/figure-titles-captions.html)
+
+## And now what?
+
+Our choice depends on the area of application:
+
+-   Usually, in **book or article layouts**, plots do not have an integrated title and/or subtitle. We want to give the reader the information in a caption block below our plots.
+
+-   If our plot is supposed to be published as a **stand-alone infographic or online without surrounding text**, then, we want to display titles above the plot but still use captions to provide more detailed information.
+:::
+
+# Seeds
+
+## Exkurs: Seeds
+
+-   Computers use algorithms to generate random numbers
+
+-   These algorithms start at a specific number called seed
+
+    -   In R: Current time + internal program process ID
+
+    -   Use of the same seed in random functions leads to consistent results
+
+-   This is crucial for reproducible results! Also true for jittering or geom_text_repel() .
+
+## geom_text_repel() without a seed
+
+::: panel-tabset
+## Are the plots the same \...
+
+```{r, echo=FALSE}
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_text_repel(aes(label = country)) +
+  theme_minimal()
+```
+
+## \... without a seed?
+
+```{r, echo=FALSE}
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_text_repel(aes(label = country)) +
+  theme_minimal()
+```
+:::
+
+## geom_text_repel() with a seed
+
+::: panel-tabset
+## Code
+
+```{r, echo=TRUE, eval=FALSE, `code-line-numbers`="1-14|4|13"}
+# we set the seed in the beginning of the document
+# or (if possible) directly in the function
+# You can choose any whole number!
+set.seed(02112023)
+
+gapminder_africa_2007 <- gapminder %>%
+  filter(year == 2007,
+         continent == "Africa")
+
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_text_repel(aes(label = country)) +
+  theme_minimal()
+```
+
+## The same ...
+
+```{r, echo=FALSE}
+# we set the seed in the beginning of the document
+# or (if possible) directly in the function
+set.seed(02112023)
+
+gapminder_africa_2007 <- gapminder %>%
+  filter(year == 2007,
+         continent == "Africa")
+
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_text_repel(aes(label = country)) +
+  theme_minimal()
+```
+
+## ... with a seed?
+
+```{r, echo=FALSE}
+# we set the seed in the beginning of the document
+# or (if possible) directly in the function
+set.seed(02112023)
+
+gapminder_africa_2007 <- gapminder %>%
+  filter(year == 2007,
+         continent == "Africa")
+
+ggplot(gapminder_africa_2007,
+       aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() +
+  geom_text_repel(aes(label = country)) +
+  theme_minimal()
+```
+:::
+
+# Your turn!
+
+*Coding group work*
