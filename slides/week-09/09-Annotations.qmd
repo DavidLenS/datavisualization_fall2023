@@ -96,7 +96,7 @@ to sweat all these details so it's easy and pleasant for them to use our compute
 
     -   and increase the chance of reaching a larger audience!
 
-# (Text) annotation in our plots
+# (Text) annotation
 
 ## Ways to annotate our plot
 
@@ -329,7 +329,7 @@ ggplot(gapminder_africa_2007,
 ::: panel-tabset
 ## Code
 
-```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-15|7|8-10|11-13|13-14"}
+```{r, eval=FALSE, echo=TRUE, `code-line-numbers`="1-15|7|8-10|11-12|13-14"}
 library(gapminder)
 library(ggrepel)
 
@@ -338,10 +338,10 @@ ggplot(gapminder_africa_2007,
        aes(x = gdpPercap, y = lifeExp)) +
   geom_point(aes(color = selected)) +
   geom_label_repel(aes(label = selected,
-                       fill = selected,
-                       color = "black")) +
+                       fill = selected),
+                   color = "black") +
   scale_color_manual(values = c("orange", "green", "red")) +
-  scale_fill_manual(calues = c("orange", "green", "red")) +
+  scale_fill_manual(values = c("orange", "green", "red")) +
   guides(color = "none", 
          fill = "none")
   theme_minimal()
@@ -385,7 +385,7 @@ ggplot(gapminder_africa_2007,
   annotate(geom = "text",
            x = 12000,
            y = 68,
-           label = "Which countries are these?")
+           label = "Which countries are these?") +
   theme_minimal()
 ```
 
@@ -398,7 +398,7 @@ ggplot(gapminder_africa_2007,
   annotate(geom = "text",
            x = 12000,
            y = 68,
-           label = "Which countries are these?")
+           label = "Which countries are these?") +
   theme_minimal()
 ```
 
@@ -412,7 +412,7 @@ ggplot(gapminder_africa_2007,
   annotate(geom = "label",
            x = 12000,
            y = 68,
-           label = "Which countries are these?")
+           label = "Which countries are these?") +
   theme_minimal()
 ```
 
@@ -425,7 +425,7 @@ ggplot(gapminder_africa_2007,
   annotate(geom = "label",
            x = 12000,
            y = 68,
-           label = "Which countries are these?")
+           label = "Which countries are these?") +
   theme_minimal()
 ```
 :::
@@ -443,7 +443,7 @@ ggplot(gapminder_africa_2007,
   annotate(geom = "point",
            x = 12000,
            y = 68,
-           color = "darkgreen")
+           color = "darkgreen") +
   theme_minimal()
 ```
 
@@ -456,7 +456,7 @@ ggplot(gapminder_africa_2007,
   annotate(geom = "point",
            x = 12000,
            y = 68,
-           color = "darkgreen")
+           color = "darkgreen") +
   theme_minimal()
 ```
 
@@ -470,7 +470,7 @@ ggplot(gapminder_africa_2007,
   annotate(geom = "rect",
            xmin = 10000, xmax = 12500,
            ymin = 70, ymax = 75,
-           fill = "darkgreen", alpha = 0.25)
+           fill = "darkgreen", alpha = 0.25) +
   theme_minimal()
 ```
 
@@ -483,7 +483,7 @@ ggplot(gapminder_africa_2007,
   annotate(geom = "rect",
            xmin = 10000, xmax = 12500,
            ymin = 70, ymax = 75,
-           fill = "darkgreen", alpha = 0.25)
+           fill = "darkgreen", alpha = 0.25) +
   theme_minimal()
 ```
 :::
@@ -638,6 +638,10 @@ plot +
 ```{r, echo=FALSE}
 plot +
   geom_smooth(color = "darkgrey", se = F) +
+  annotate(geom = "label",
+           x = 11250,
+           y = 65,
+           label = "High GDP & high life expectancy") +
   labs(title = "GDP & Life Expectancy",
        subtitle = "Is there a clear relationship in Africa?",
        caption = "Data source: Gapminder",
