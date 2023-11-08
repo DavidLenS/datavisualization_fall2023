@@ -42,7 +42,12 @@ tbl-colwidths: [10,50,40]
 
 # Materials
 
-TBA
+You find the materials to follow along the applied examples as a ZIP file [**here**](https://ilias.uni-mannheim.de/goto.php?target=file_1452333_download&client_id=ILIAS). You should extract the files and make use of the R project in the folder. The folder includes the raw election and structural data as well as the transformed data. With the transformed data you can run the R Markdown files. These allow you to create a simple flexdashboard, a flexdashboard with multiple pages, and a flexdashboard using Shiny (interactive) elements. In order to to run the R markdown files you need to install the package *flexdashboard* and *shiny*.
+
+```{r eval = F, echo = T}
+install.packages("flexdashboard")
+install.packages("shiny")
+```
 
 # To Do's before our session
 

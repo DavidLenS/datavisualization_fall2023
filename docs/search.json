@@ -221,7 +221,7 @@
     "href": "weeks/week-10.html",
     "title": "Interactivity I",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nInteractivity I\n\n\nWeek 10\n\n\nNov 9, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA\n\n\nTo Do’s before our session\n\nRead - Have a look at the examplesThink\n\n\n\nflexdashboard by R Studio\nR Shiny\n\nHelpful and interesting readings - Have a look at the respective introductions\n\nMastering Shiny\nOutstanding User Interfaces with Shiny\n\n\n\n\nQuestions to think about for the readings:\n\nHow would you visualize your data in an interactive way or via a flexdashboard?"
+    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nInteractivity I\n\n\nWeek 10\n\n\nNov 9, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou find the materials to follow along the applied examples as a ZIP file here. You should extract the files and make use of the R project in the folder. The folder includes the raw election and structural data as well as the transformed data. With the transformed data you can run the R Markdown files. These allow you to create a simple flexdashboard, a flexdashboard with multiple pages, and a flexdashboard using Shiny (interactive) elements. In order to to run the R markdown files you need to install the package flexdashboard and shiny.\n\ninstall.packages(\"flexdashboard\")\ninstall.packages(\"shiny\")\n\n\n\nTo Do’s before our session\n\nRead - Have a look at the examplesThink\n\n\n\nflexdashboard by R Studio\nR Shiny\n\nHelpful and interesting readings - Have a look at the respective introductions\n\nMastering Shiny\nOutstanding User Interfaces with Shiny\n\n\n\n\nQuestions to think about for the readings:\n\nHow would you visualize your data in an interactive way or via a flexdashboard?"
   },
   {
     "objectID": "weeks/week-11.html",
@@ -4128,5 +4128,75 @@
     "title": "Annotations",
     "section": "geom_text_repel() without a seed",
     "text": "geom_text_repel() without a seed\n\nAre the plots the same ...... without a seed?"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#plan-for-today",
+    "href": "slides/week-10/10-InteractivityI.html#plan-for-today",
+    "title": "Interactivity I",
+    "section": "Plan for today",
+    "text": "Plan for today\nShort input\n\nDashboards with flexdashboard\nUsing Shiny with flexdashboard\n\nCoding\n\nApplied examples\nGroup work: Your turn to code!"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#dashboards",
+    "href": "slides/week-10/10-InteractivityI.html#dashboards",
+    "title": "Interactivity I",
+    "section": "Dashboards",
+    "text": "Dashboards\n\nDashboards represent a tool for effective data visualization\nThey allow us to communicate information as intuitively as possible and can support data-driven decision making\nWe focus presenting our results and telling a story!\nDashboards are useful for science communication but also provide added value in other areas such as consulting, business, etc."
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#flexdashboard",
+    "href": "slides/week-10/10-InteractivityI.html#flexdashboard",
+    "title": "Interactivity I",
+    "section": "flexdashboard",
+    "text": "flexdashboard\n\nThe R package flexdashboard allows us to create dashboards in R using R Markdown\nWe can easily incorporate multiple visualization on one or multiple pages\nDifferent types of layouts allow us to tell different stories\nMost importantly, we can make our visualizations interactive using Shiny\nIn addition, it is highly customizable\n\n\n\n\n\n\n\nYou can find an extensive documentation here.\n\n\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#flexdashboard-r-markdown",
+    "href": "slides/week-10/10-InteractivityI.html#flexdashboard-r-markdown",
+    "title": "Interactivity I",
+    "section": "flexdashboard & R Markdown",
+    "text": "flexdashboard & R Markdown\n\nWe can easily incorporate multiple visualization on one or multiple pages\nDifferent types of layouts allow us to tell different stories\nMost importantly, we can make our visualizations interactive using Shiny\nIn addition, it is highly customizable\n\n\n\n\n\n\n\nYou can find an extensive documentation on the flexdashboard package here."
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#flexdashboard-examples",
+    "href": "slides/week-10/10-InteractivityI.html#flexdashboard-examples",
+    "title": "Interactivity I",
+    "section": "flexdashboard examples",
+    "text": "flexdashboard examples\n\nstoryboardnuclear waste"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#how-to-create-a-flexdashboard",
+    "href": "slides/week-10/10-InteractivityI.html#how-to-create-a-flexdashboard",
+    "title": "Interactivity I",
+    "section": "How to create a flexdashboard?",
+    "text": "How to create a flexdashboard?\n\nInstallNew R Markdown fileFrom Template\n\n\n\nInstall the R package\n\n\ninstall.packages(\"flexdashboard\")"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#building-your-own-flexdashboard",
+    "href": "slides/week-10/10-InteractivityI.html#building-your-own-flexdashboard",
+    "title": "Interactivity I",
+    "section": "Building your own flexdashboard",
+    "text": "Building your own flexdashboard\n\nUse the documentation!Example\n\n\n\nThe documentation for flexdashboard is great!\nOnce you have managed to create a basic flexdashboard, you can follow along the examples\nAnd with the help of Google, ChatGPT, and Stackoverflow you can fill great dashboards with your visualizations!"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#using-shiny",
+    "href": "slides/week-10/10-InteractivityI.html#using-shiny",
+    "title": "Interactivity I",
+    "section": "Using shiny …",
+    "text": "Using shiny …\n\nShinyExample\n\n\n\nShiny is an R package that allows us to build interactive web applications in R\nWe will learn how to make standalone shiny apps in our second section on interactivity\nHowever, we can also incorporate Shiny (interactive) elements in our flexdashboard"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#with-flexdashboard",
+    "href": "slides/week-10/10-InteractivityI.html#with-flexdashboard",
+    "title": "Interactivity I",
+    "section": "… with flexdashboard",
+    "text": "… with flexdashboard"
+  },
+  {
+    "objectID": "slides/week-10/10-InteractivityI.html#basic-structure",
+    "href": "slides/week-10/10-InteractivityI.html#basic-structure",
+    "title": "Interactivity I",
+    "section": "Basic structure",
+    "text": "Basic structure"
   }
 ]

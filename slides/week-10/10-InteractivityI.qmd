@@ -13,4 +13,122 @@ format:
 editor: visual
 ---
 
-# TBA
+## Plan for today
+
+```{r, include=FALSE}
+pacman::p_load(   "tidyverse",   "gapminder",   "patchwork",   "MASS",   "GGally",   "broom",   "marginaleffects", "ggrepel")
+```
+
+**Short input**
+
+-   Dashboards with flexdashboard
+
+-   Using Shiny with flexdashboard
+
+**Coding**
+
+-   Applied examples
+
+-   Group work: Your turn to code!
+
+## Dashboards
+
+-   Dashboards represent a tool for effective data visualization
+
+-   They allow us to communicate information as intuitively as possible and can support data-driven decision making
+
+-   We focus presenting our *results* and telling a story!
+
+-   Dashboards are useful for science communication but also provide added value in other areas such as consulting, business, etc.
+
+# Dashboards with felxdashboard
+
+## flexdashboard & R Markdown
+
+-   We can easily incorporate **multiple visualization** on one or multiple pages
+
+-   **Different types of layouts** allow us to tell different stories
+
+-   Most importantly, we can make our visualizations **interactive** using Shiny
+
+-   In addition, it is **highly customizable**
+
+::: {.callout-tip appearance="simple"}
+You can find an extensive documentation on the flexdashboard package [**here**](https://rstudio.github.io/flexdashboard/index.html).
+:::
+
+## flexdashboard examples
+
+::: panel-tabset
+## storyboard
+
+[![](dashboard2.png){width="962"}](https://testing-apps.shinyapps.io/flexdashboard-storyboard/)
+
+## nuclear waste
+
+[![](dashboard3.png){width="971"}](https://testing-apps.shinyapps.io/flexdashboard-leaflet-waste/)
+:::
+
+## How to create a flexdashboard?
+
+::: panel-tabset
+## Install
+
+-   Install the R package
+
+```{r eval=F, echo=T}
+install.packages("flexdashboard")
+```
+
+## New R Markdown file
+
+![](1.png){width="1094"}
+
+## From Template
+
+![](2.png){width="563"}
+:::
+
+## Basic structure
+
+![](flex1.png)
+
+## Building your own flexdashboard
+
+::: panel-tabset
+## Use the documentation!
+
+-   The [documentation](https://pkgs.rstudio.com/flexdashboard/articles/using.html) for flexdashboard is great!
+
+-   Once you have managed to create a basic flexdashboard, you can follow along the examples
+
+-   And with the help of Google, ChatGPT, and Stackoverflow you can fill great dashboards with your visualizations!
+
+## Example
+
+![](flex2.png){width="815"}
+:::
+
+# Using shiny with flexdashboard
+
+## Using shiny ...
+
+::: panel-tabset
+## Shiny
+
+-   Shiny is an R package that allows us to build interactive web applications in R
+
+-   We will learn how to make standalone shiny apps in our second section on interactivity
+
+-   However, we can also incorporate Shiny (interactive) elements in our flexdashboard
+
+## Example
+
+[![](shiny.png){width="1051"}](https://shiny.posit.co/r/gallery/start-simple/faithful/)
+:::
+
+## ... with flexdashboard
+
+[![](dashboard1.png){width="2121"}](https://walkerke.shinyapps.io/neighborhood_diversity/)
+
+# Applied examples in R
