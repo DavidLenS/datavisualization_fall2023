@@ -228,14 +228,14 @@
     "href": "weeks/week-11.html",
     "title": "Time",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nTime\n\n\nWeek 11\n\n\nNov 16, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA\n\n\nTo Do’s before our session\n\nReadThink\n\n\n\nChapter 8: Revealing Change in Cairo, The Truthful Art\n\nPlease access the chapter via Katalog Primo (University library)\n\nChapter 13: Visualizing time series and other functions of an independent variable in Wilke, Fundamentals of Data Visualization. Link to free online version\nChapter 14: Visualizing trends in Wilke, Fundamentals of Data Visualization. Link to free online version\n\nHelpful and interesting readings\n\n11 ways to visualize changes over time - a guide\n\n\n\n\nQuestions to think about for the readings:\n\nit is easy to mislead our readers when displaying changes over time. Why is this the case? And how can we avoid it?"
+    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nTime\n\n\nWeek 11\n\n\nNov 16, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\n\nYou can find the R Markdown file to animate gapminder data using the gganimate package here.\nYou can find the code for a flexdashboard with a time slider here.\n\n\n\nTo Do’s before our session\n\nReadThink\n\n\n\nChapter 8: Revealing Change in Cairo, The Truthful Art\n\nPlease access the chapter via Katalog Primo (University library)\n\nChapter 13: Visualizing time series and other functions of an independent variable in Wilke, Fundamentals of Data Visualization. Link to free online version\nChapter 14: Visualizing trends in Wilke, Fundamentals of Data Visualization. Link to free online version\n\nHelpful and interesting readings\n\n11 ways to visualize changes over time - a guide\n\n\n\n\nQuestions to think about for the readings:\n\nit is easy to mislead our readers when displaying changes over time. Why is this the case? And how can we avoid it?"
   },
   {
     "objectID": "weeks/week-12.html",
     "href": "weeks/week-12.html",
     "title": "Space",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nSpace\n\n\nWeek 12\n\n\nNov 23, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nSpace\n\n\nWeek 12\n\n\nNov 23, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA\n\n\nTo Do’s before our session\n\nReadThink\n\n\n\nChapter 10: Mapping Data in Cairo, The Truthful Art\n\nPlease access the chapter via Katalog Primo (University library)\n\nChapter 7: Draw maps in Healy, Data Visualization. A practical introduction. Link to free online version\nChapter 15: Visualizing trends in Wilke, Fundamentals of Data Visualization. Link to free online version\n\nHelpful and interesting readings\n\nVideo: Why all maps are wrong\n\n\n\n\nQuestions to think about for the readings:\n\nHow can you incorporate maps in your final assignment? Are they actually better suited for your data?"
   },
   {
     "objectID": "weeks/week-13.html",
@@ -4198,5 +4198,215 @@
     "title": "Interactivity I",
     "section": "Basic structure",
     "text": "Basic structure"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#plan-for-today",
+    "href": "slides/week-11/11-Time.html#plan-for-today",
+    "title": "Time",
+    "section": "Plan for today",
+    "text": "Plan for today\nInput\n\nIssues with the y-axis\nHow to visualize time\n\nCoding\n\nApplied example\nGroup work: Your turn!"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#section",
+    "href": "slides/week-11/11-Time.html#section",
+    "title": "Time",
+    "section": "",
+    "text": "Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#is-truncating-the-y-axis-misleading",
+    "href": "slides/week-11/11-Time.html#is-truncating-the-y-axis-misleading",
+    "title": "Time",
+    "section": "Is truncating the Y-axis misleading?",
+    "text": "Is truncating the Y-axis misleading?\n\n\n\n\nSource: MathsLinks"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#truncating-the-y-axis-can-make-sense-if",
+    "href": "slides/week-11/11-Time.html#truncating-the-y-axis-can-make-sense-if",
+    "title": "Time",
+    "section": "Truncating the y-axis can make sense if",
+    "text": "Truncating the y-axis can make sense if\n\nSmall changes matterScale is distortedZero is impossible\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#truncating-the-y-axis-can-make-sense",
+    "href": "slides/week-11/11-Time.html#truncating-the-y-axis-can-make-sense",
+    "title": "Time",
+    "section": "Truncating the y-axis can make sense!",
+    "text": "Truncating the y-axis can make sense!\n\nIf small changes ...... matter"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#truncating-the-y-axis-can-make-sense-1",
+    "href": "slides/week-11/11-Time.html#truncating-the-y-axis-can-make-sense-1",
+    "title": "Time",
+    "section": "Truncating the y-axis can make sense!",
+    "text": "Truncating the y-axis can make sense!\n\nZero is ...... impossible"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#do-not-truncate-the-y-axis-for-bar-charts",
+    "href": "slides/week-11/11-Time.html#do-not-truncate-the-y-axis-for-bar-charts",
+    "title": "Time",
+    "section": "Do not truncate the y-axis for bar charts!",
+    "text": "Do not truncate the y-axis for bar charts!\n\nOtherwise, data is not ...... represented accurately"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#missing-data",
+    "href": "slides/week-11/11-Time.html#missing-data",
+    "title": "Time",
+    "section": "Missing data",
+    "text": "Missing data\n\n\nSource: hapter 8 - Revealing Change in Cairo, The Truthful Art"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#how-to-deal-with-missing-data",
+    "href": "slides/week-11/11-Time.html#how-to-deal-with-missing-data",
+    "title": "Time",
+    "section": "How to deal with missing data?",
+    "text": "How to deal with missing data?\n\n\nSource: Chapter 8 - Revealing Change in Cairo, The Truthful Art"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#visualize-time-on-the-x-axis-with-geom_line",
+    "href": "slides/week-11/11-Time.html#visualize-time-on-the-x-axis-with-geom_line",
+    "title": "Time",
+    "section": "Visualize time on the x-axis with geom_line",
+    "text": "Visualize time on the x-axis with geom_line\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#visualizing-time-x-axis-with-geom_line",
+    "href": "slides/week-11/11-Time.html#visualizing-time-x-axis-with-geom_line",
+    "title": "Time",
+    "section": "Visualizing time: x-axis with geom_line",
+    "text": "Visualizing time: x-axis with geom_line"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#visualizing-time-x-axis-with-geom_tile",
+    "href": "slides/week-11/11-Time.html#visualizing-time-x-axis-with-geom_tile",
+    "title": "Time",
+    "section": "Visualizing time: x-axis with geom_tile",
+    "text": "Visualizing time: x-axis with geom_tile\n\n\nSource: Figure 8.28 - Chapter 8 - Revealing Change in Cairo, The Truthful Art"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#visualizing-time-y-axis-with-geom_density",
+    "href": "slides/week-11/11-Time.html#visualizing-time-y-axis-with-geom_density",
+    "title": "Time",
+    "section": "Visualizing time: y-axis with geom_density",
+    "text": "Visualizing time: y-axis with geom_density"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#visualizing-time-animation-with-geom_point",
+    "href": "slides/week-11/11-Time.html#visualizing-time-animation-with-geom_point",
+    "title": "Time",
+    "section": "Visualizing time: animation with geom_point()",
+    "text": "Visualizing time: animation with geom_point()"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#visualizing-time-maps",
+    "href": "slides/week-11/11-Time.html#visualizing-time-maps",
+    "title": "Time",
+    "section": "Visualizing time: maps",
+    "text": "Visualizing time: maps\n\n\nSource: Figure 8.30 - Chapter 8 - Revealing Change in Cairo, The Truthful Art"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#visualizing-time-small-multiples",
+    "href": "slides/week-11/11-Time.html#visualizing-time-small-multiples",
+    "title": "Time",
+    "section": "Visualizing time: small multiples",
+    "text": "Visualizing time: small multiples\n\n\nSource: Kieran Healy, The Kitchen Counter Observatory"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#seasonality-trends",
+    "href": "slides/week-11/11-Time.html#seasonality-trends",
+    "title": "Time",
+    "section": "Seasonality & Trends",
+    "text": "Seasonality & Trends\n\nTrend?Or Seasonality?\n\n\n\n\nSource: Figure 8.1. - Chapter 8 - Revealing Change in Cairo, The Truthful Art\n\n\n\n\n\n\n\n\n\nSource: Figure 8.2 - Chapter 8 - Revealing Change in Cairo, The Truthful Art"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#how-to-visualize-time-1",
+    "href": "slides/week-11/11-Time.html#how-to-visualize-time-1",
+    "title": "Time",
+    "section": "How to visualize time",
+    "text": "How to visualize time\n\nWe can map time to an aesthetic just as any other variable!\nWe can map it via the x- and y-axis, using color or fill, facetting, or animation.\nAccordingly, there are also many geoms to map time: lines, points, heatmaps, maps, …\nBest practice: When mapping time, follow general reading conventions (for us: left to right & top-down)"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#visualizing-time-x-axis-geom_line",
+    "href": "slides/week-11/11-Time.html#visualizing-time-x-axis-geom_line",
+    "title": "Time",
+    "section": "Visualizing time: x-axis & geom_line",
+    "text": "Visualizing time: x-axis & geom_line"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#visualizing-time-x-axis-geom_tile",
+    "href": "slides/week-11/11-Time.html#visualizing-time-x-axis-geom_tile",
+    "title": "Time",
+    "section": "Visualizing time: x-axis & geom_tile",
+    "text": "Visualizing time: x-axis & geom_tile\n\n\nSource: Figure 8.28 - Chapter 8 - Revealing Change in Cairo, The Truthful Art"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#visualizing-time-y-axis-geom_density",
+    "href": "slides/week-11/11-Time.html#visualizing-time-y-axis-geom_density",
+    "title": "Time",
+    "section": "Visualizing time: y-axis & geom_density",
+    "text": "Visualizing time: y-axis & geom_density"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#visualizing-time-animation-geom_point",
+    "href": "slides/week-11/11-Time.html#visualizing-time-animation-geom_point",
+    "title": "Time",
+    "section": "Visualizing time: animation & geom_point()",
+    "text": "Visualizing time: animation & geom_point()"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#applied-examples-in-r",
+    "href": "slides/week-11/11-Time.html#applied-examples-in-r",
+    "title": "Time",
+    "section": "Applied examples in R",
+    "text": "Applied examples in R\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#visualizing-time-gganimate-geom_point",
+    "href": "slides/week-11/11-Time.html#visualizing-time-gganimate-geom_point",
+    "title": "Time",
+    "section": "Visualizing time: gganimate & geom_point",
+    "text": "Visualizing time: gganimate & geom_point"
+  },
+  {
+    "objectID": "session_11_gganimate.html",
+    "href": "session_11_gganimate.html",
+    "title": "Session 11",
+    "section": "",
+    "text": "You can find a cheatsheet for gganimate here: https://rstudio.github.io/cheatsheets/gganimate.pdf\nAnd the package’s vignette here: https://gganimate.com/\n\n\n\n\nIn order to animate the gapminder dataset, we rely on the gganimate package. It allows us to easily create GIFs.\n\n# As usual we use our ggplot function and provide the data \"gapminder\"\ngapminder_animated &lt;- ggplot(gapminder, aes(x = gdpPercap, # GDP per capita on the x axis\n                      y = lifeExp, # Life expectancy on the y-axis\n                      colour = continent, # we color by continent\n                      size = pop)) + # and adjust the size according to the population size\n  geom_point(alpha = 0.5) + # make the points transparent\n  scale_size(range = c(2, 12)) + # adjust the maximum size of the points\n  scale_x_log10() + # transform the x-axis to a logarithmic one\n  # rename axes, and create a caption\n  labs(x = \"GDP per capita\", \n       y = \"Life expectancy\", \n       caption = \"Source: Gapminder. Animation created using the gganimate package\") +\n  # using the minimal theme\n  theme_minimal() +\n  # ! here the magic comes into play: transition_time defines how our data is animted.\n  # frame by frame per year\n  transition_time(year) +\n  # now we also give the plot a title: {frame_time} adapts to the frame's respective year\n  labs(title = \"Year: {frame_time}\") +\n  theme(legend.position = \"none\")\n\n# here, we safe the animated object as a GIF\nanim_save(\"animation_gapminder.gif\", gapminder_animated)\n\n# The expression \"![](animation_gapminder.gif)\" outside the code chunk (below) inlcudes the GIF in the R Markdown document. We can do the same for .png or .jpeg files."
+  },
+  {
+    "objectID": "session_11_gganimate.html#resources",
+    "href": "session_11_gganimate.html#resources",
+    "title": "Session 11",
+    "section": "",
+    "text": "You can find a cheatsheet for gganimate here: https://rstudio.github.io/cheatsheets/gganimate.pdf\nAnd the package’s vignette here: https://gganimate.com/"
+  },
+  {
+    "objectID": "session_11_gganimate.html#animating-the-gapminder-data-set",
+    "href": "session_11_gganimate.html#animating-the-gapminder-data-set",
+    "title": "Session 11",
+    "section": "",
+    "text": "In order to animate the gapminder dataset, we rely on the gganimate package. It allows us to easily create GIFs.\n\n# As usual we use our ggplot function and provide the data \"gapminder\"\ngapminder_animated &lt;- ggplot(gapminder, aes(x = gdpPercap, # GDP per capita on the x axis\n                      y = lifeExp, # Life expectancy on the y-axis\n                      colour = continent, # we color by continent\n                      size = pop)) + # and adjust the size according to the population size\n  geom_point(alpha = 0.5) + # make the points transparent\n  scale_size(range = c(2, 12)) + # adjust the maximum size of the points\n  scale_x_log10() + # transform the x-axis to a logarithmic one\n  # rename axes, and create a caption\n  labs(x = \"GDP per capita\", \n       y = \"Life expectancy\", \n       caption = \"Source: Gapminder. Animation created using the gganimate package\") +\n  # using the minimal theme\n  theme_minimal() +\n  # ! here the magic comes into play: transition_time defines how our data is animted.\n  # frame by frame per year\n  transition_time(year) +\n  # now we also give the plot a title: {frame_time} adapts to the frame's respective year\n  labs(title = \"Year: {frame_time}\") +\n  theme(legend.position = \"none\")\n\n# here, we safe the animated object as a GIF\nanim_save(\"animation_gapminder.gif\", gapminder_animated)\n\n# The expression \"![](animation_gapminder.gif)\" outside the code chunk (below) inlcudes the GIF in the R Markdown document. We can do the same for .png or .jpeg files."
+  },
+  {
+    "objectID": "session_11_gganimate.html#animating-the-gapminder-data-set-with-facets",
+    "href": "session_11_gganimate.html#animating-the-gapminder-data-set-with-facets",
+    "title": "Session 11",
+    "section": "Animating the gapminder data set with facets",
+    "text": "Animating the gapminder data set with facets\nHow would you adapt the code to show the animation by continent?"
+  },
+  {
+    "objectID": "session_11_gganimate.html#animation-in-flexdashboards",
+    "href": "session_11_gganimate.html#animation-in-flexdashboards",
+    "title": "Session 11",
+    "section": "Animation in flexdashboards",
+    "text": "Animation in flexdashboards\nCan you include the GIF in your dashboard?"
+  },
+  {
+    "objectID": "slides/week-11/11-Time.html#visualizing-time-shiny-slider-element",
+    "href": "slides/week-11/11-Time.html#visualizing-time-shiny-slider-element",
+    "title": "Time",
+    "section": "Visualizing time: Shiny slider element",
+    "text": "Visualizing time: Shiny slider element"
   }
 ]

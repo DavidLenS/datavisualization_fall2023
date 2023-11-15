@@ -342,8 +342,201 @@ David Schweizer
 
   <p class="date">November 16, 2023</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
+<section id="plan-for-today" class="slide level2">
+<h2>Plan for today</h2>
+<p><strong>Input</strong></p>
+<ul>
+<li><p>Issues with the y-axis</p></li>
+<li><p>How to visualize time</p></li>
+</ul>
+<p><strong>Coding</strong></p>
+<ul>
+<li><p>Applied example</p></li>
+<li><p>Group work: Your turn!</p></li>
+</ul>
+</section>
+<section>
+<section id="issues-with-the-y-axis" class="title-slide slide level1 center">
+<h1>Issues with the y-axis</h1>
+
+</section>
+<section id="is-truncating-the-y-axis-misleading" class="slide level2">
+<h2>Is truncating the Y-axis misleading?</h2>
+<div style="font-size: 60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://mathslinks.net/links/is-truncating-the-y-axis-misleading"><img data-src="misleading_yaxis.png" width="554"></a></p>
+<figcaption>Source: MathsLinks</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="truncating-the-y-axis-can-make-sense" class="slide level2">
+<h2>Truncating the y-axis can make sense!</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">If small changes ...</a></li><li><a href="#tabset-1-2">... matter</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://qz.com/418083/its-ok-not-to-start-your-y-axis-at-zero"><img data-src="small1.png" width="738"></a></p>
+</figure>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://qz.com/418083/its-ok-not-to-start-your-y-axis-at-zero"><img data-src="small2.png" width="738"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="truncating-the-y-axis-can-make-sense-1" class="slide level2">
+<h2>Truncating the y-axis can make sense!</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Zero is ...</a></li><li><a href="#tabset-2-2">... impossible</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://qz.com/418083/its-ok-not-to-start-your-y-axis-at-zero"><img data-src="temp1.png" width="738"></a></p>
+</figure>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://qz.com/418083/its-ok-not-to-start-your-y-axis-at-zero"><img data-src="temp2.png" width="738"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="do-not-truncate-the-y-axis-for-bar-charts" class="slide level2">
+<h2>Do not truncate the y-axis for bar charts!</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Otherwise, data is not ...</a></li><li><a href="#tabset-3-2">... represented accurately</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://qz.com/131891/misleading-chart-twitter-twtr-used-in-its-ipo-filing"><img data-src="twitter1.png" width="631"></a></p>
+</figure>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://qz.com/131891/misleading-chart-twitter-twtr-used-in-its-ipo-filing"><img data-src="twitter.png" width="800"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-deal-with-missing-data" class="slide level2">
+<h2>How to deal with missing data?</h2>
+
+<img data-src="consistent.jpg" class="r-stretch"><div style="font-size: 60%;">
+<p>Source: Chapter 8 - Revealing Change in Cairo, The Truthful Art</p>
+</div>
+</section>
+<section id="seasonality-trends" class="slide level2">
+<h2>Seasonality &amp; Trends</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Trend?</a></li><li><a href="#tabset-4-2">Or Seasonality?</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<p><img data-src="seasonality.jpg" width="1282"></p>
+<div style="font-size: 60%;">
+<p>Source: Figure 8.1. - Chapter 8 - Revealing Change in Cairo, The Truthful Art</p>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="trend.jpg" width="503"></p>
+</figure>
+</div>
+<div style="font-size: 60%;">
+<p>Source: Figure 8.2 - Chapter 8 - Revealing Change in Cairo, The Truthful Art</p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="how-to-visualize-time" class="title-slide slide level1 center">
+<h1>How to visualize time</h1>
+
+</section>
+<section id="how-to-visualize-time-1" class="slide level2">
+<h2>How to visualize time</h2>
+<ul>
+<li><p>We can map time to an aesthetic just as any other variable!</p></li>
+<li><p>We can map it via the x- and y-axis, using color or fill, facetting, or animation.</p></li>
+<li><p>Accordingly, there are also many <em>geoms</em> to map time: lines, points, heatmaps, maps, …</p></li>
+<li><p>Best practice: When mapping time, follow general reading conventions (for us: left to right &amp; top-down)</p></li>
+</ul>
+</section>
+<section id="visualizing-time-x-axis-geom_line" class="slide level2">
+<h2>Visualizing time: x-axis &amp; geom_line</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="nyt.png"></p>
+</div><div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.cfholbert.com/blog/jobs-report/"><img data-src="fed.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-time-x-axis-geom_tile" class="slide level2">
+<h2>Visualizing time: x-axis &amp; geom_tile</h2>
+
+<img data-src="heatmap.jpg" width="1321" class="r-stretch quarto-figure-center"><div style="font-size: 60%;">
+<p>Source: Figure 8.28 - Chapter 8 - Revealing Change in Cairo, The Truthful Art</p>
+</div>
+</section>
+<section id="visualizing-time-y-axis-geom_density" class="slide level2">
+<h2>Visualizing time: y-axis &amp; geom_density</h2>
+
+<img data-src="11-Time_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="visualizing-time-gganimate-geom_point" class="slide level2">
+<h2>Visualizing time: gganimate &amp; geom_point</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="animation_gapminder.gif"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="animation_gapminder_facet.gif"></p>
+</div>
+</div>
+</section>
+<section id="visualizing-time-maps" class="slide level2">
+<h2>Visualizing time: maps</h2>
+
+<img data-src="waltmart.jpg" width="599" class="r-stretch quarto-figure-center"><div style="font-size: 60%;">
+<p>Source: Figure 8.30 - Chapter 8 - Revealing Change in Cairo, The Truthful Art</p>
+</div>
+</section>
+<section id="visualizing-time-small-multiples" class="slide level2">
+<h2>Visualizing time: small multiples</h2>
+
+<img data-src="healy.png" width="1244" class="r-stretch quarto-figure-center"><div style="font-size: 60%;">
+<p>Source: Kieran Healy, The Kitchen Counter Observatory</p>
+</div>
+</section>
+<section id="visualizing-time-shiny-slider-element" class="slide level2">
+<h2>Visualizing time: Shiny slider element</h2>
+
+<img data-src="shiny.png" class="r-stretch"></section></section>
+<section id="applied-examples-in-r" class="title-slide slide level1 center">
+<h1>Applied examples in R</h1>
 
 <div class="footer footer-default">
 <p>Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim</p>
@@ -560,6 +753,44 @@ David Schweizer
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

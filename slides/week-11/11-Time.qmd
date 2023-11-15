@@ -13,4 +13,175 @@ format:
 editor: visual
 ---
 
-# TBA
+## Plan for today
+
+```{r, include=FALSE}
+pacman::p_load("tidyverse", "gapminder", "ggridges", "gganimate")
+```
+
+**Input**
+
+-   Issues with the y-axis
+
+-   How to visualize time
+
+**Coding**
+
+-   Applied example
+
+-   Group work: Your turn!
+
+# Issues with the y-axis
+
+## Is truncating the Y-axis misleading?
+
+::: {style="font-size: 60%;"}
+[![Source: MathsLinks](misleading_yaxis.png){width="554"}](https://mathslinks.net/links/is-truncating-the-y-axis-misleading)
+:::
+
+## Truncating the y-axis can make sense!
+
+::: panel-tabset
+## If small changes \...
+
+[![](small1.png){width="738"}](https://qz.com/418083/its-ok-not-to-start-your-y-axis-at-zero)
+
+## \... matter
+
+[![](small2.png){width="738"}](https://qz.com/418083/its-ok-not-to-start-your-y-axis-at-zero)
+:::
+
+## Truncating the y-axis can make sense!
+
+::: panel-tabset
+## Zero is \...
+
+[![](temp1.png){width="738"}](https://qz.com/418083/its-ok-not-to-start-your-y-axis-at-zero)
+
+## \... impossible
+
+[![](temp2.png){width="738"}](https://qz.com/418083/its-ok-not-to-start-your-y-axis-at-zero)
+:::
+
+## Do not truncate the y-axis for bar charts!
+
+::: panel-tabset
+## Otherwise, data is not \...
+
+[![](twitter1.png){width="631"}](https://qz.com/131891/misleading-chart-twitter-twtr-used-in-its-ipo-filing)
+
+## \... represented accurately
+
+[![](twitter.png){width="800"}](https://qz.com/131891/misleading-chart-twitter-twtr-used-in-its-ipo-filing)
+:::
+
+## How to deal with missing data?
+
+![](consistent.jpg)
+
+::: {style="font-size: 60%;"}
+Source: Chapter 8 - Revealing Change in Cairo, The Truthful Art
+:::
+
+## Seasonality & Trends
+
+::: panel-tabset
+## Trend?
+
+![](seasonality.jpg){width="1282"}
+
+::: {style="font-size: 60%;"}
+Source: Figure 8.1. - Chapter 8 - Revealing Change in Cairo, The Truthful Art
+:::
+
+## Or Seasonality?
+
+![](trend.jpg){fig-align="center" width="503"}
+
+::: {style="font-size: 60%;"}
+Source: Figure 8.2 - Chapter 8 - Revealing Change in Cairo, The Truthful Art
+:::
+:::
+
+# How to visualize time
+
+## How to visualize time
+
+-   We can map time to an aesthetic just as any other variable!
+
+-   We can map it via the x- and y-axis, using color or fill, facetting, or animation.
+
+-   Accordingly, there are also many *geoms* to map time: lines, points, heatmaps, maps, ...
+
+-   Best practice: When mapping time, follow general reading conventions (for us: left to right & top-down)
+
+## Visualizing time: x-axis & geom_line
+
+::: columns
+::: {.column width="30%"}
+![](nyt.png)
+:::
+
+::: {.column width="70%"}
+[![](fed.png)](https://www.cfholbert.com/blog/jobs-report/)
+:::
+:::
+
+## Visualizing time: x-axis & geom_tile
+
+![](heatmap.jpg){fig-align="center" width="1321"}
+
+::: {style="font-size: 60%;"}
+Source: Figure 8.28 - Chapter 8 - Revealing Change in Cairo, The Truthful Art
+:::
+
+## Visualizing time: y-axis & geom_density
+
+```{r echo = FALSE}
+gapminder <- gapminder 
+
+ggplot(data = gapminder, aes(x=lifeExp, y=as.factor(year), fill = stat(x))) +
+  geom_density_ridges_gradient(quantile_lines = TRUE, quantiles = 2) +
+  scale_fill_viridis_c(option = "A") +
+  scale_y_discrete(limits=rev) +
+  theme_minimal() +
+  labs(title = 'Life expectancy over time in the Gapminder dataset', 
+       y = "",
+       x = "Life expectancy") +
+  theme(legend.position = "none")
+```
+
+## Visualizing time: gganimate & geom_point
+
+::: columns
+::: {.column width="50%"}
+
+![](animation_gapminder.gif)
+:::
+
+::: {.column width="50%"}
+![](animation_gapminder_facet.gif)
+:::
+:::
+
+## Visualizing time: maps
+
+![](waltmart.jpg){fig-align="center" width="599"}
+
+::: {style="font-size: 60%;"}
+Source: Figure 8.30 - Chapter 8 - Revealing Change in Cairo, The Truthful Art
+:::
+
+## Visualizing time: small multiples
+
+[![](healy.png){fig-align="center" width="1244"}](https://kieranhealy.org/blog/archives/2020/05/21/the-kitchen-counter-observatory/)
+
+::: {style="font-size: 60%;"}
+Source: Kieran Healy, The Kitchen Counter Observatory
+:::
+
+## Visualizing time: Shiny slider element
+
+![](shiny.png)
+
+# Applied examples in R
