@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -342,8 +407,281 @@ David Schweizer
 
   <p class="date">November 23, 2023</p>
 </section>
-<section id="tba" class="title-slide slide level1 center">
-<h1>TBA</h1>
+<section id="plan-for-today" class="slide level2">
+<h2>Plan for today</h2>
+<p><strong>Input</strong></p>
+<ul>
+<li><p>Misleading maps?</p></li>
+<li><p>Projections</p></li>
+<li><p>Ways to visualize data with maps</p></li>
+<li><p>Shapefiles &amp; geom_sf()</p></li>
+</ul>
+<p><strong>Coding</strong></p>
+<ul>
+<li>Applied example</li>
+</ul>
+<!-- -->
+<ul>
+<li>Your turn!</li>
+</ul>
+</section>
+<section>
+<section id="misleading-maps" class="title-slide slide level1 center">
+<h1>Misleading maps?</h1>
+
+</section>
+<section id="the-2012-us-elections" class="slide level2">
+<h2>The 2012 US elections</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Different</a></li><li><a href="#tabset-1-2">ways</a></li><li><a href="#tabset-1-3">to</a></li><li><a href="#tabset-1-4">visualize</a></li><li><a href="#tabset-1-5">the</a></li><li><a href="#tabset-1-6">elections!</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p><img data-src="us_elections.png" width="774"></p>
+</div>
+<div id="tabset-1-2">
+<p><img data-src="us_elections1.png" width="706"></p>
+</div>
+<div id="tabset-1-3">
+<p><img data-src="us_elections2.png" width="704"></p>
+</div>
+<div id="tabset-1-4">
+<p><img data-src="us_elections3.png" width="706"></p>
+</div>
+<div id="tabset-1-5">
+<p><img data-src="us_elections4.png" width="683"></p>
+</div>
+<div id="tabset-1-6">
+<p><img data-src="us_elections5.png" width="563"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="what-about-our-audience" class="slide level2">
+<h2>What about our audience?</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Small-scale vs.</a></li><li><a href="#tabset-2-2">large-scale maps</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<p><img data-src="map1.jpg" width="883"></p>
+</div>
+<div id="tabset-2-2">
+<p><img data-src="map2.jpg" width="877"></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="projections" class="title-slide slide level1 center">
+<h1>Projections</h1>
+
+</section>
+<section id="popular-projections" class="slide level2">
+<h2>Popular projections</h2>
+
+<img data-src="pop_proj.jpg" class="r-stretch"></section>
+<section id="appropriate-projections-for-mapping" class="slide level2">
+<h2>Appropriate projections for mapping …</h2>
+
+<img data-src="proj.jpg" class="r-stretch"></section>
+<section id="where-to-find-projections" class="slide level2">
+<h2>Where to find projections</h2>
+<p>You can find projection codes here:</p>
+<ul>
+<li><a href="https://spatialreference.org/ref/epsg/">Spatial reference list</a>, <a href="https://epsg.io/">epsg.io</a>, and <a href="https://proj.org/en/9.3/operations/projections/index.html">PROJ.org</a></li>
+</ul>
+<p><a href="https://www.earthdatascience.org/courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/">This lesson</a> by the Earth Lab provides a great overview of different projection formats.</p>
+<p>In general, there are no good or bad projections!</p>
+<ul>
+<li><p>It always depends on our data and visualization goals.</p></li>
+<li><p>For example, the Mercator projection <em>can</em> be a good choice for mapping small areas.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="ways-to-visualize-data-with-maps" class="title-slide slide level1 center">
+<h1>Ways to visualize data with maps</h1>
+
+</section>
+<section id="ways-to-visualize-data-with-maps-1" class="slide level2">
+<h2>Ways to visualize data with maps</h2>
+<p>There are multiple ways to encode data on maps:</p>
+<ul>
+<li><p>points</p></li>
+<li><p>lines</p></li>
+<li><p>areas</p></li>
+<li><p>shapes</p></li>
+<li><p>…</p></li>
+</ul>
+</section>
+<section id="maps-points" class="slide level2">
+<h2>Maps + points</h2>
+
+<img data-src="baltimore.jpg" class="r-stretch"></section>
+<section id="maps-proportional-symbols" class="slide level2">
+<h2>Maps + proportional symbols</h2>
+
+<img data-src="measles.jpg" class="r-stretch quarto-figure-center"></section>
+<section id="maps-lines" class="slide level2">
+<h2>Maps + lines<img data-src="10fig19.jpg" width="1816"></h2>
+</section>
+<section id="maps-lines-1" class="slide level2">
+<h2>Maps + lines</h2>
+
+<img data-src="hiely.jpg" class="r-stretch quarto-figure-center"></section>
+<section id="choropleth-maps" class="slide level2">
+<h2>Choropleth maps</h2>
+
+<img data-src="10fig35.jpg" class="r-stretch"></section>
+<section id="cartograms" class="slide level2">
+<h2>Cartograms</h2>
+
+<img data-src="10fig38.jpg" class="r-stretch"></section>
+<section id="small-multiples" class="slide level2">
+<h2>Small multiples</h2>
+
+<img data-src="unemployment-geofacet-1.png" class="r-stretch"></section></section>
+<section>
+<section id="shapefiles" class="title-slide slide level1 center">
+<h1>Shapefiles</h1>
+
+</section>
+<section id="shapefiles-1" class="slide level2">
+<h2>Shapefiles</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">In general</a></li><li><a href="#tabset-3-2">Structure</a></li><li><a href="#tabset-3-3">Finding shapefiles</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Geographic information is shared as shapefiles</p></li>
+<li><p>They are not the same as regular CSV files</p></li>
+<li><p>Normally, you download them as zipped files (the .shp ending indicates the relevant file)</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="shp.jpg"></p>
+</div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>constituency_shapes <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"btw17_geometrie_wahlkreise_geo_shp/Geometrie_Wahlkreise_19DBT_geo.shp"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>constituency_shapes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 299 features and 4 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 5.866479 ymin: 47.27011 xmax: 15.03828 ymax: 55.05838
+Geodetic CRS:  WGS 84
+# A tibble: 299 × 5
+   WKR_NR LAND_NR LAND_NAME          WKR_NAME                           geometry
+    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;              &lt;chr&gt;                    &lt;MULTIPOLYGON [°]&gt;
+ 1      1 01      Schleswig-Holstein Flensburg – Schl… (((9.676908 54.83785, 9.…
+ 2      2 01      Schleswig-Holstein Nordfriesland – … (((8.630545 54.48889, 8.…
+ 3      3 01      Schleswig-Holstein Steinburg – Dith… (((8.689466 54.0485, 8.6…
+ 4      4 01      Schleswig-Holstein Rendsburg-Eckern… (((9.961349 54.50129, 9.…
+ 5      5 01      Schleswig-Holstein Kiel              (((10.18877 54.41108, 10…
+ 6      6 01      Schleswig-Holstein Plön – Neumünster (((10.64299 54.34371, 10…
+ 7      7 01      Schleswig-Holstein Pinneberg         (((9.751445 53.89304, 9.…
+ 8      8 01      Schleswig-Holstein Segeberg – Storm… (((10.37568 54.07279, 10…
+ 9      9 01      Schleswig-Holstein Ostholstein – St… (((11.11089 54.39639, 11…
+10     10 01      Schleswig-Holstein Herzogtum Lauenb… (((10.86189 53.70238, 10…
+# ℹ 289 more rows</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-3">
+<ul>
+<li><p><a href="https://www.naturalearthdata.com/">Natural Earth</a> for international maps</p></li>
+<li><p><a href="https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html">US Census Bureau</a> for US maps</p></li>
+<li><p><a href="https://ec.europa.eu/eurostat/web/gisco">Eurostat</a> for EU maps</p></li>
+<li><p>GOOGLE: <em>shapefiles for …</em></p>
+<ul>
+<li>e.g., <em>shapefiles for german election districts</em></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="geom_sf" class="title-slide slide level1 center">
+<h1>geom_sf()</h1>
+
+</section>
+<section id="geometry-column-geom_sf" class="slide level2">
+<h2>Geometry column &amp; geom_sf()</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Code</a></li><li><a href="#tabset-4-2">Plot - 2017 constituencies</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<p>If we have a geometry column, all we need to do is use <em>geom_sf():</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> constituency_shapes) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">geom_sf</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="12-Space_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="making-a-choropleth-map" class="slide level2">
+<h2>Making a choropleth map</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">And now?</a></li><li><a href="#tabset-5-2">Code</a></li><li><a href="#tabset-5-3">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<ul>
+<li><p>From here, it is easy to create a choropleth map.</p></li>
+<li><p>We just have to add data to our <em>constituency_shapes</em> dataframe.</p>
+<ul>
+<li>Remember the election and structural data from the German federal election officer?</li>
+</ul></li>
+<li><p>And we can use all typical ggplot functions!</p></li>
+</ul>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>constituency_shapes_vote <span class="ot">&lt;-</span> constituency_shapes <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="co"># here, we can use our "btw17_election" data from earlier sessions!</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">left_join</span>(btw17_election, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"WKR_NR"</span> <span class="ot">=</span> <span class="st">"constituency_number"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">filter</span>(party <span class="sc">==</span> <span class="st">"AfD"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="fu">ggplot</span>(<span class="at">data =</span> constituency_shapes_vote,</span>
+<span id="cb4-7"><a href="#cb4-7"></a>       <span class="fu">aes</span>(<span class="at">fill =</span> vote_share)) <span class="sc">+</span>  </span>
+<span id="cb4-8"><a href="#cb4-8"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
+<span id="cb4-9"><a href="#cb4-9"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"lightblue"</span>, <span class="at">high =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">"AfD vote share"</span>) <span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-5-3">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="12-Space_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sf-is-more-than-drawing-maps" class="slide level2">
+<h2>sf is more than drawing maps</h2>
+
+<img data-src="sf.jpg" class="r-stretch quarto-figure-center"></section></section>
+<section id="applied-example" class="title-slide slide level1 center">
+<h1>Applied example</h1>
+
+</section>
+
+<section id="your-turn" class="title-slide slide level1 center">
+<h1>Your turn!</h1>
 
 <div class="footer footer-default">
 <p>Data Visualization for Comparative Politics | Fall 2023 | University of Mannheim</p>
@@ -560,6 +898,44 @@ David Schweizer
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

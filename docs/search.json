@@ -235,7 +235,7 @@
     "href": "weeks/week-12.html",
     "title": "Space",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nSpace\n\n\nWeek 12\n\n\nNov 23, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA\n\n\nTo Do’s before our session\n\nReadThink\n\n\n\nChapter 10: Mapping Data in Cairo, The Truthful Art\n\nPlease access the chapter via Katalog Primo (University library)\n\nChapter 7: Draw maps in Healy, Data Visualization. A practical introduction. Link to free online version\nChapter 15: Visualizing trends in Wilke, Fundamentals of Data Visualization. Link to free online version\n\nHelpful and interesting readings\n\nVideo: Why all maps are wrong\n\n\n\n\nQuestions to think about for the readings:\n\nHow can you incorporate maps in your final assignment? Are they actually better suited for your data?"
+    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nSpace\n\n\nWeek 12\n\n\nNov 23, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can download the applied example for this week here.\n\n\nTo Do’s before our session\n\nReadThink\n\n\n\nChapter 10: Mapping Data in Cairo, The Truthful Art\n\nPlease access the chapter via Katalog Primo (University library)\n\nChapter 7: Draw maps in Healy, Data Visualization. A practical introduction. Link to free online version\nChapter 15: Geospatial data in Wilke, Fundamentals of Data Visualization. Link to free online version\n\nHelpful and interesting readings\n\nVideo: Why all maps are wrong\n\n\n\n\nQuestions to think about for the readings:\n\nHow can you incorporate maps in your final assignment? Are they actually better suited for your data?"
   },
   {
     "objectID": "weeks/week-13.html",
@@ -4408,5 +4408,131 @@
     "title": "Time",
     "section": "Visualizing time: Shiny slider element",
     "text": "Visualizing time: Shiny slider element"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#plan-for-today",
+    "href": "slides/week-12/12-Space.html#plan-for-today",
+    "title": "Space",
+    "section": "Plan for today",
+    "text": "Plan for today\nInput\n\nMisleading maps?\nProjections\nWays to visualize data with maps\nShapefiles & geom_sf()\n\nCoding\n\nApplied example\n\n\n\nYour turn!"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#the-2012-us-elections",
+    "href": "slides/week-12/12-Space.html#the-2012-us-elections",
+    "title": "Space",
+    "section": "The 2012 US elections",
+    "text": "The 2012 US elections\n\nDifferentwaystovisualizetheelections!"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#what-about-our-audience",
+    "href": "slides/week-12/12-Space.html#what-about-our-audience",
+    "title": "Space",
+    "section": "What about our audience?",
+    "text": "What about our audience?\n\nSmall-scale vs.large-scale maps"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#popular-projections",
+    "href": "slides/week-12/12-Space.html#popular-projections",
+    "title": "Space",
+    "section": "Popular projections",
+    "text": "Popular projections"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#appropriate-projections-for-mapping",
+    "href": "slides/week-12/12-Space.html#appropriate-projections-for-mapping",
+    "title": "Space",
+    "section": "Appropriate projections for mapping …",
+    "text": "Appropriate projections for mapping …"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#where-to-find-projections",
+    "href": "slides/week-12/12-Space.html#where-to-find-projections",
+    "title": "Space",
+    "section": "Where to find projections",
+    "text": "Where to find projections\nYou can find projection codes here:\n\nSpatial reference list, epsg.io, and PROJ.org\n\nThis lesson by the Earth Lab provides a great overview of different projection formats.\nIn general, there are no good or bad projections!\n\nIt always depends on our data and visualization goals.\nFor example, the Mercator projection can be a good choice for mapping small areas."
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#ways-to-visualize-data-with-maps-1",
+    "href": "slides/week-12/12-Space.html#ways-to-visualize-data-with-maps-1",
+    "title": "Space",
+    "section": "Ways to visualize data with maps",
+    "text": "Ways to visualize data with maps\nThere are multiple ways to encode data on maps:\n\npoints\nlines\nareas\nshapes\n…"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#maps-points",
+    "href": "slides/week-12/12-Space.html#maps-points",
+    "title": "Space",
+    "section": "Maps + points",
+    "text": "Maps + points"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#maps-proportional-symbols",
+    "href": "slides/week-12/12-Space.html#maps-proportional-symbols",
+    "title": "Space",
+    "section": "Maps + proportional symbols",
+    "text": "Maps + proportional symbols"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#maps-lines",
+    "href": "slides/week-12/12-Space.html#maps-lines",
+    "title": "Space",
+    "section": "Maps + lines",
+    "text": "Maps + lines"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#maps-lines-1",
+    "href": "slides/week-12/12-Space.html#maps-lines-1",
+    "title": "Space",
+    "section": "Maps + lines",
+    "text": "Maps + lines"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#choropleth-maps",
+    "href": "slides/week-12/12-Space.html#choropleth-maps",
+    "title": "Space",
+    "section": "Choropleth maps",
+    "text": "Choropleth maps"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#cartograms",
+    "href": "slides/week-12/12-Space.html#cartograms",
+    "title": "Space",
+    "section": "Cartograms",
+    "text": "Cartograms"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#small-multiples",
+    "href": "slides/week-12/12-Space.html#small-multiples",
+    "title": "Space",
+    "section": "Small multiples",
+    "text": "Small multiples"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#shapefiles-1",
+    "href": "slides/week-12/12-Space.html#shapefiles-1",
+    "title": "Space",
+    "section": "Shapefiles",
+    "text": "Shapefiles\n\nIn generalStructureFinding shapefiles\n\n\n\n\n\nGeographic information is shared as shapefiles\nThey are not the same as regular CSV files\nNormally, you download them as zipped files (the .shp ending indicates the relevant file)\n\n\n\n\n\n\n\n\nlibrary(sf)\nconstituency_shapes &lt;- read_sf(\"btw17_geometrie_wahlkreise_geo_shp/Geometrie_Wahlkreise_19DBT_geo.shp\")\nconstituency_shapes\n\nSimple feature collection with 299 features and 4 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 5.866479 ymin: 47.27011 xmax: 15.03828 ymax: 55.05838\nGeodetic CRS:  WGS 84\n# A tibble: 299 × 5\n   WKR_NR LAND_NR LAND_NAME          WKR_NAME                           geometry\n    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;              &lt;chr&gt;                    &lt;MULTIPOLYGON [°]&gt;\n 1      1 01      Schleswig-Holstein Flensburg – Schl… (((9.676908 54.83785, 9.…\n 2      2 01      Schleswig-Holstein Nordfriesland – … (((8.630545 54.48889, 8.…\n 3      3 01      Schleswig-Holstein Steinburg – Dith… (((8.689466 54.0485, 8.6…\n 4      4 01      Schleswig-Holstein Rendsburg-Eckern… (((9.961349 54.50129, 9.…\n 5      5 01      Schleswig-Holstein Kiel              (((10.18877 54.41108, 10…\n 6      6 01      Schleswig-Holstein Plön – Neumünster (((10.64299 54.34371, 10…\n 7      7 01      Schleswig-Holstein Pinneberg         (((9.751445 53.89304, 9.…\n 8      8 01      Schleswig-Holstein Segeberg – Storm… (((10.37568 54.07279, 10…\n 9      9 01      Schleswig-Holstein Ostholstein – St… (((11.11089 54.39639, 11…\n10     10 01      Schleswig-Holstein Herzogtum Lauenb… (((10.86189 53.70238, 10…\n# ℹ 289 more rows\n\n\n\n\n\nNatural Earth for international maps\nUS Census Bureau for US maps\nEurostat for EU maps\nGOOGLE: shapefiles for …\n\ne.g., shapefiles for german election districts"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#geometry-column-geom_sf",
+    "href": "slides/week-12/12-Space.html#geometry-column-geom_sf",
+    "title": "Space",
+    "section": "Geometry column & geom_sf()",
+    "text": "Geometry column & geom_sf()\n\nCodePlot - 2017 constituencies\n\n\nIf we have a geometry column, all we need to do is use geom_sf():\n\nggplot(data = constituency_shapes) +\n  geom_sf()"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#making-a-choropleth-map",
+    "href": "slides/week-12/12-Space.html#making-a-choropleth-map",
+    "title": "Space",
+    "section": "Making a choropleth map",
+    "text": "Making a choropleth map\n\nAnd now?CodePlot\n\n\n\nFrom here, it is easy to create a choropleth map.\nWe just have to add data to our constituency_shapes dataframe.\n\nRemember the election and structural data from the German federal election officer?\n\nAnd we can use all typical ggplot functions!\n\n\n\n\nconstituency_shapes_vote &lt;- constituency_shapes %&gt;% \n  # here, we can use our \"btw17_election\" data from earlier sessions!\n  left_join(btw17_election, by = c(\"WKR_NR\" = \"constituency_number\")) %&gt;% \n  filter(party == \"AfD\")\n\nggplot(data = constituency_shapes_vote,\n       aes(fill = vote_share)) +  \n  geom_sf() + \n  scale_fill_gradient(low = \"lightblue\", high = \"darkblue\") +\n  labs(fill = \"AfD vote share\") +\n  theme_void()"
+  },
+  {
+    "objectID": "slides/week-12/12-Space.html#sf-is-more-than-drawing-maps",
+    "href": "slides/week-12/12-Space.html#sf-is-more-than-drawing-maps",
+    "title": "Space",
+    "section": "sf is more than drawing maps",
+    "text": "sf is more than drawing maps"
   }
 ]

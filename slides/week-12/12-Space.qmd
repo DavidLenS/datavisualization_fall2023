@@ -13,4 +13,276 @@ format:
 editor: visual
 ---
 
-# TBA
+## Plan for today
+
+```{r, include=FALSE}
+pacman::p_load("tidyverse")
+```
+
+**Input**
+
+-   Misleading maps?
+
+-   Projections
+
+-   Ways to visualize data with maps
+
+-   Shapefiles & geom_sf()
+
+**Coding**
+
+-   Applied example
+
+```{=html}
+<!-- -->
+```
+-   Your turn!
+
+# Misleading maps?
+
+## The 2012 US elections
+
+::: panel-tabset
+## Different
+
+![](us_elections.png){width="774"}
+
+## ways
+
+![](us_elections1.png){width="706"}
+
+## to
+
+![](us_elections2.png){width="704"}
+
+## visualize
+
+![](us_elections3.png){width="706"}
+
+## the 
+
+![](us_elections4.png){width="683"}
+
+## elections!
+
+![](us_elections5.png){width="563"}
+:::
+
+## What about our audience?
+
+::: panel-tabset
+## Small-scale vs.
+
+![](map1.jpg){width="883"}
+
+## large-scale maps
+
+![](map2.jpg){width="877"}
+:::
+
+# Projections
+
+## Popular projections
+
+![](pop_proj.jpg)
+
+## Appropriate projections for mapping ...
+
+![](proj.jpg)
+
+## Where to find projections
+
+You can find projection codes here:
+
+-   [Spatial reference list](https://spatialreference.org/ref/epsg/), [epsg.io](https://epsg.io/), and [PROJ.org](https://proj.org/en/9.3/operations/projections/index.html)
+
+[This lesson](https://www.earthdatascience.org/courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/) by the Earth Lab provides a great overview of different projection formats.
+
+In general, there are no good or bad projections!
+
+-   It always depends on our data and visualization goals.
+
+-   For example, the Mercator projection *can* be a good choice for mapping small areas.
+
+# Ways to visualize data with maps
+
+## Ways to visualize data with maps
+
+There are multiple ways to encode data on maps:
+
+-   points
+
+-   lines
+
+-   areas
+
+-   shapes
+
+-   ...
+
+## Maps + points
+
+![](baltimore.jpg)
+
+## Maps + proportional symbols
+
+[![](measles.jpg)](https://www.nytimes.com/interactive/2015/02/06/us/california-measles-vaccines-map.html)
+
+## Maps + lines![](10fig19.jpg){width="1816"}
+
+## Maps + lines
+
+[![](hiely.jpg)](https://kieranhealy.org/prints/rivers/)
+
+## Choropleth maps
+
+![](10fig35.jpg)
+
+## Cartograms
+
+![](10fig38.jpg)
+
+## Small multiples
+
+![](unemployment-geofacet-1.png)
+
+# Shapefiles
+
+## Shapefiles
+
+::: panel-tabset
+## In general
+
+::: columns
+::: {.column width="50%"}
+-   Geographic information is shared as shapefiles
+
+-   They are not the same as regular CSV files
+
+-   Normally, you download them as zipped files (the .shp ending indicates the relevant file)
+:::
+
+::: {.column width="50%"}
+![](shp.jpg)
+:::
+:::
+
+## Structure
+
+```{r, echo=T}
+library(sf)
+constituency_shapes <- read_sf("btw17_geometrie_wahlkreise_geo_shp/Geometrie_Wahlkreise_19DBT_geo.shp")
+constituency_shapes
+```
+
+## Finding shapefiles
+
+-   [Natural Earth](https://www.naturalearthdata.com/) for international maps
+
+-   [US Census Bureau](https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html) for US maps
+
+-   [Eurostat](https://ec.europa.eu/eurostat/web/gisco) for EU maps
+
+-   GOOGLE: *shapefiles for ...*
+
+    -   e.g., *shapefiles for german election districts*
+:::
+
+# geom_sf()
+
+## Geometry column & geom_sf()
+
+::: panel-tabset
+## Code
+
+If we have a geometry column, all we need to do is use *geom_sf():*
+
+```{r, eval=F, echo=T}
+ggplot(data = constituency_shapes) +
+  geom_sf()
+```
+
+## Plot - 2017 constituencies
+
+```{r, echo=F}
+ggplot(data = constituency_shapes) +
+  geom_sf()
+```
+:::
+
+## Making a choropleth map
+
+::: panel-tabset
+## And now?
+
+-   From here, it is easy to create a choropleth map.
+
+-   We just have to add data to our *constituency_shapes* dataframe.
+
+    -   Remember the election and structural data from the German federal election officer?
+
+-   And we can use all typical ggplot functions!
+
+## Code
+
+```{r load-election-data_2017, include=F}
+# You can find the data to download also here: https://www.bundeswahlleiterin.de/bundestagswahlen/2021/ergebnisse.html
+btw17_kerg2 <- read_delim("btw17_kerg2.csv", # you have to adapt the file path
+     delim = ";",  # set semicolon as delimiter,
+     locale = locale(decimal_mark = ","), # decimal mark used in the csv file is "," and not "."
+     escape_double = FALSE, 
+     trim_ws = TRUE, 
+     skip = 9) # skip the first 9 rows
+```
+
+```{r transform-election-data-2017, include=F}
+btw17_election <- btw17_kerg2 %>% 
+  # we want to get rid of all rows regarding the federal and regional level, and keep the constituency level.
+  filter(Gebietsart == "Wahlkreis") %>% 
+  # in additiom, we are interested in the "Zweitstimme"
+  filter(Stimme == 2) %>% 
+  # next, we are primarily interested in party name and the relative share. We directly rename the variables while selecting. Further, we need the constituency number to merge the election results with structural data provided by the Federal Returning Officer.
+  select(constituency_number = Gebietsnummer, 
+         party = Gruppenname,
+         vote_share = Prozent) %>% 
+  mutate(constituency_number = as.numeric(constituency_number))
+```
+
+```{r, eval=F, echo=T}
+constituency_shapes_vote <- constituency_shapes %>% 
+  # here, we can use our "btw17_election" data from earlier sessions!
+  left_join(btw17_election, by = c("WKR_NR" = "constituency_number")) %>% 
+  filter(party == "AfD")
+
+ggplot(data = constituency_shapes_vote,
+       aes(fill = vote_share)) +  
+  geom_sf() + 
+  scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  labs(fill = "AfD vote share") +
+  theme_void()
+```
+
+## Plot
+
+```{r, echo=F}
+constituency_shapes_vote <- constituency_shapes %>% 
+  # here, we can use our "btw17_election" data from earlier sessions!
+  left_join(btw17_election, by = c("WKR_NR" = "constituency_number")) %>% 
+  filter(party == "AfD")
+
+ggplot(data = constituency_shapes_vote,
+       aes(fill = vote_share)) +  
+  geom_sf() + 
+  scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  labs(fill = "AfD vote share") +
+  theme_void()
+```
+:::
+
+## sf is more than drawing maps
+
+[![](sf.jpg)](https://github.com/rstudio/cheatsheets/blob/main/sf.pdf)
+
+# Applied example
+
+# Your turn!
