@@ -25,7 +25,7 @@
     "href": "material.html",
     "title": "Schedule",
     "section": "",
-    "text": "You can find all course materials below. This includes slides, R scripts, readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nDesigning a Graph\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nMapping (Tidy) Data\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nClosing Session\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "You can find all course materials below. This includes slides, R scripts, readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nDesigning a Graph\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nMapping (Tidy) Data\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nSelf-study: Final project\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "material.html#assignments",
@@ -165,7 +165,7 @@
     "href": "syllabus.html#course-schedule",
     "title": "Syllabus: Data Visualization for Comparative Politics",
     "section": "Course Schedule",
-    "text": "Course Schedule\n\n\n\nSession\nDate\nTopic\n\n\n1\n07.09.2023\nIntro Session\n\n\n2\n14.09.2023\nDesigning a Graph\n\n\n3\n21.09.2023\nMapping (Tidy) Data\n\n\n4\n28.09.2023\nAmounts & Proportions\n\n\n5\n05.10.2023\nThemes & Refining Plots\n\n\n6\n12.10.2023\nUncertainty\n\n\n7\n19.10.2023\nRelationships\n\n\n8\n26.10.2023\nComparisons\n\n\n9\n02.11.2023\nAnnotations\n\n\n10\n09.11.2023\nInteractivity I\n\n\n11\n16.11.2023\nTime\n\n\n12\n23.11.2023\nSpace\n\n\n13\n30.11.2023\nInteractivity II\n\n\n14\n07.12.2023\nClosing Session"
+    "text": "Course Schedule\n\n\n\nSession\nDate\nTopic\n\n\n1\n07.09.2023\nIntro Session\n\n\n2\n14.09.2023\nDesigning a Graph\n\n\n3\n21.09.2023\nMapping (Tidy) Data\n\n\n4\n28.09.2023\nAmounts & Proportions\n\n\n5\n05.10.2023\nThemes & Refining Plots\n\n\n6\n12.10.2023\nUncertainty\n\n\n7\n19.10.2023\nRelationships\n\n\n8\n26.10.2023\nComparisons\n\n\n9\n02.11.2023\nAnnotations\n\n\n10\n09.11.2023\nInteractivity I\n\n\n11\n16.11.2023\nTime\n\n\n12\n23.11.2023\nSpace\n\n\n13\n30.11.2023\nInteractivity II\n\n\n14\n07.12.2023\nSelf-study: Final project"
   },
   {
     "objectID": "syllabus.html#course-schedule-and-reading-material",
@@ -242,14 +242,14 @@
     "href": "weeks/week-13.html",
     "title": "Interactivity II",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nInteractivity II\n\n\nWeek 13\n\n\nNov 30, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nTBA.\n\n\nTo Do’s before our session\n\nReadThink\n\n\n\nChapter 1, Your first Shiny app in Wickham, Mastering Shiny. Link to free online version.\nR Shiny, Get Started: Welcome to Shiny.\n\n\n\n\nQuestions to think about for the readings:\n\nCan you implement the examples on your own device? Try to follow the practical examples and run these Shiny apps!"
+    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nInteractivity II\n\n\nWeek 13\n\n\nNov 30, 2023\n\n\n\n\n\n\nNo matching items\n\n\n\n\nMaterials\nYou can find a zip folder with R scripts for Shiny apps and the respective data here.\n\nAll Shiny apps use either constituency_shapes_vote.RDS or constituency_geometry_vote.RDS as data, both files are stored in the data folder. The R script used for the data processing is called raw_data_processing.R and makes use of the various .csv files and the .shp file in the raw data folder.\nshiny_app.R allows you to run a ‘basic’ Shiny app displaying a histogram of vote shares for the 2017 German federal election allowing you to choose the party.\nshiny_dashboard_bslib.R incorporates the same code, but renders the Shiny app as part of a dashboard.\nSimilar to a flexdashboard, we can create multiple pages on our dashboard. shinydashboard_multiple_pages_bslib.R demonstrates this.\nFinally, advanced_shiny_app_map.R introduces reactivity combined with an interactive plot based on the ggiraph package. Based on your selection on the map, the accompanying table will update.\n\n\n\nTo Do’s before our session\n\nReadThink\n\n\n\nChapter 1, Your first Shiny app in Wickham, Mastering Shiny. Link to free online version.\nR Shiny, Get Started: Welcome to Shiny.\n\n\n\n\nQuestions to think about for the readings:\n\nCan you implement the examples on your own device? Try to follow the practical examples and run these Shiny apps!"
   },
   {
     "objectID": "weeks/week-14.html",
     "href": "weeks/week-14.html",
-    "title": "Closing Session",
+    "title": "Self-study: Final project",
     "section": "",
-    "text": "Seminar slides\n\n\n\n\n\n\nTopic\n\n\nSession\n\n\nDate\n\n\n\n\n\n\nClosing Session\n\n\nWeek 14\n\n\nDec 7, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "This week, there will be no in-person session. Instead, you should use the time to develop a first sketch of your final project.\nI will offer individual office hour for each student in the week from 11.12. - 15.12.23 via Zoom. There, you can discuss this sketch with me and get early feedback. Please contact me about a specific date by the end of this week (08.12.23).\nOf course, there will additional office hours if needed before Christmas (until 22.12.23) and after New Year’s (from 03.01.24 onward).\nKeep in mind that the deadline for the final project is January 18, 2024, 23:59."
   },
   {
     "objectID": "weeks/week08.html",
@@ -2587,7 +2587,7 @@
     "href": "material.html#material",
     "title": "Schedule",
     "section": "",
-    "text": "You can find all course materials below. This includes slides, R scripts, readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nDesigning a Graph\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nMapping (Tidy) Data\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nClosing Session\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "You can find all course materials below. This includes slides, R scripts, readings, etc.\nJust click on the topic of the respective week.\n\n\n\n\n\n\nWeek\n\n\nTopic\n\n\nDate\n\n\n\n\n\n\nWeek 01\n\n\nIntro Session\n\n\nSeptember 07, 2023\n\n\n\n\nWeek 02\n\n\nDesigning a Graph\n\n\nSeptember 14, 2023\n\n\n\n\nWeek 03\n\n\nMapping (Tidy) Data\n\n\nSeptember 21, 2023\n\n\n\n\nWeek 04\n\n\nAmounts and Proportions\n\n\nSeptember 28, 2023\n\n\n\n\nWeek 05\n\n\nThemes\n\n\nOctober 05, 2023\n\n\n\n\nWeek 06\n\n\nUncertainty\n\n\nOctober 12, 2023\n\n\n\n\nWeek 07\n\n\nRelationships\n\n\nOctober 19, 2023\n\n\n\n\nWeek 08\n\n\nComparisons\n\n\nOctober 26, 2023\n\n\n\n\nWeek 09\n\n\nAnnotations\n\n\nNovember 02, 2023\n\n\n\n\nWeek 10\n\n\nInteractivity I\n\n\nNovember 09, 2023\n\n\n\n\nWeek 11\n\n\nTime\n\n\nNovember 16, 2023\n\n\n\n\nWeek 12\n\n\nSpace\n\n\nNovember 23, 2023\n\n\n\n\nWeek 13\n\n\nInteractivity II\n\n\nNovember 30, 2023\n\n\n\n\nWeek 14\n\n\nSelf-study: Final project\n\n\nDecember 07, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "slides/week-02/02-GrammarOfGraphics.html",
@@ -4534,5 +4534,26 @@
     "title": "Space",
     "section": "sf is more than drawing maps",
     "text": "sf is more than drawing maps"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#plan-for-today",
+    "href": "slides/week-13/13-InteractivityII.html#plan-for-today",
+    "title": "Interactivity II",
+    "section": "Plan for today",
+    "text": "Plan for today\nInput\n\nA short introduction to shiny\n\nCoding\n\nApplied example\nYour first stand-alone shiny app!"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#shiny-apps",
+    "href": "slides/week-13/13-InteractivityII.html#shiny-apps",
+    "title": "Interactivity II",
+    "section": "Shiny apps",
+    "text": "Shiny apps\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+  },
+  {
+    "objectID": "weeks/week-14.html#no-in-person-session-but-self-study",
+    "href": "weeks/week-14.html#no-in-person-session-but-self-study",
+    "title": "Self-study: Final project",
+    "section": "",
+    "text": "This week, there will be no in-person session. Instead, you should use the time to develop a first sketch of your final project.\nI will offer individual office hour for each student in the week from 11.12. - 15.12.23 via Zoom. There, you can discuss this sketch with me and get early feedback. Please contact me about a specific date by the end of this week (08.12.23).\nOf course, there will additional office hours if needed before Christmas (until 22.12.23) and after New Year’s (from 03.01.24 onward).\nKeep in mind that the deadline for the final project is January 18, 2024, 23:59."
   }
 ]

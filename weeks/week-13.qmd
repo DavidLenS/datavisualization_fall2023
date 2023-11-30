@@ -42,7 +42,17 @@ tbl-colwidths: [10,50,40]
 
 # Materials
 
-TBA.
+You can find a zip folder with R scripts for Shiny apps and the respective data [**here**](https://ilias.uni-mannheim.de/goto.php?target=file_1460658_download&client_id=ILIAS).
+
+-   All Shiny apps use either *constituency_shapes_vote.RDS* or *constituency_geometry_vote.RDS* as data, both files are stored in the *data* folder. The R script used for the data processing is called *raw_data_processing.R* and makes use of the *various .csv* files and the *.shp file* in the *raw data* folder.
+
+-   *shiny_app.R* allows you to run a 'basic' Shiny app displaying a histogram of vote shares for the 2017 German federal election allowing you to choose the party.
+
+-   *shiny_dashboard_bslib.R* incorporates the same code, but renders the Shiny app as part of a dashboard.
+
+-   Similar to a flexdashboard, we can create multiple pages on our dashboard. *shinydashboard_multiple_pages_bslib.R* demonstrates this.
+
+-   Finally, *advanced_shiny_app_map.R* introduces reactivity combined with an interactive plot based on the ggiraph package. Based on your selection on the map, the accompanying table will update.
 
 # To Do's before our session
 

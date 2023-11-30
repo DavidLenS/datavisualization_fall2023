@@ -216,7 +216,7 @@ Date
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1701298800000" data-listing-file-modified-sort="1694100361076" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="Interactivity II" data-listing-filename-sort="13-InteractivityII.qmd">
+<tr data-index="0" data-listing-date-sort="1701298800000" data-listing-file-modified-sort="1701337979717" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="Interactivity II" data-listing-filename-sort="13-InteractivityII.qmd">
 <td>
 <a href="../slides/week-13/13-InteractivityII.html" class="title listing-title">Interactivity II</a>
 </td>
@@ -237,7 +237,14 @@ No matching items
 </section>
 <section id="materials" class="level1">
 <h1>Materials</h1>
-<p>TBA.</p>
+<p>You can find a zip folder with R scripts for Shiny apps and the respective data <a href="https://ilias.uni-mannheim.de/goto.php?target=file_1460658_download&amp;client_id=ILIAS"><strong>here</strong></a>.</p>
+<ul>
+<li><p>All Shiny apps use either <em>constituency_shapes_vote.RDS</em> or <em>constituency_geometry_vote.RDS</em> as data, both files are stored in the <em>data</em> folder. The R script used for the data processing is called <em>raw_data_processing.R</em> and makes use of the <em>various .csv</em> files and the <em>.shp file</em> in the <em>raw data</em> folder.</p></li>
+<li><p><em>shiny_app.R</em> allows you to run a ‘basic’ Shiny app displaying a histogram of vote shares for the 2017 German federal election allowing you to choose the party.</p></li>
+<li><p><em>shiny_dashboard_bslib.R</em> incorporates the same code, but renders the Shiny app as part of a dashboard.</p></li>
+<li><p>Similar to a flexdashboard, we can create multiple pages on our dashboard. <em>shinydashboard_multiple_pages_bslib.R</em> demonstrates this.</p></li>
+<li><p>Finally, <em>advanced_shiny_app_map.R</em> introduces reactivity combined with an interactive plot based on the ggiraph package. Based on your selection on the map, the accompanying table will update.</p></li>
+</ul>
 </section>
 <section id="to-dos-before-our-session" class="level1">
 <h1>To Do’s before our session</h1>

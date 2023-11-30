@@ -5,6 +5,8 @@ author: "David Schweizer"
 date: "November 30, 2023"
 date-format: long
 institute: "University of Mannheim"
+filters: 
+  - shinylive
 format: 
   revealjs:
     theme: simple
@@ -13,4 +15,19 @@ format:
 editor: visual
 ---
 
-# TBA
+## Plan for today
+
+```{r, include=FALSE}
+pacman::p_load("tidyverse")
+```
+
+**Input**
+
+-   A short introduction to shiny
+
+**Coding**
+
+-   Applied example
+-   Your first stand-alone shiny app!
+
+## Shiny apps

@@ -33,9 +33,8 @@ pacman::p_load("tidyverse")
 
 -   Applied example
 
-```{=html}
 <!-- -->
-```
+
 -   Your turn!
 
 # Misleading maps?
@@ -59,7 +58,7 @@ pacman::p_load("tidyverse")
 
 ![](us_elections3.png){width="706"}
 
-## the 
+## the
 
 ![](us_elections4.png){width="683"}
 
