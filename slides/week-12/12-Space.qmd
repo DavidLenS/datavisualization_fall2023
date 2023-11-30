@@ -32,9 +32,6 @@ pacman::p_load("tidyverse")
 **Coding**
 
 -   Applied example
-
-<!-- -->
-
 -   Your turn!
 
 # Misleading maps?
