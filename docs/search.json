@@ -4540,14 +4540,14 @@
     "href": "slides/week-13/13-InteractivityII.html#plan-for-today",
     "title": "Interactivity II",
     "section": "Plan for today",
-    "text": "Plan for today\nInput\n\nA short introduction to shiny\n\nCoding\n\nApplied example\nYour first stand-alone shiny app!"
+    "text": "Plan for today\nInput\n\nWhat’s next\nA short introduction to shiny\n\nCoding\n\nApplied example\nYour first stand-alone shiny app!"
   },
   {
     "objectID": "slides/week-13/13-InteractivityII.html#shiny-apps",
     "href": "slides/week-13/13-InteractivityII.html#shiny-apps",
     "title": "Interactivity II",
     "section": "Shiny apps",
-    "text": "Shiny apps\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
+    "text": "Shiny apps\n\n\n\nData Visualization for Comparative Politics | Fall 2023 | University of Mannheim"
   },
   {
     "objectID": "weeks/week-14.html#no-in-person-session-but-self-study",
@@ -4555,5 +4555,82 @@
     "title": "Self-study: Final project",
     "section": "",
     "text": "This week, there will be no in-person session. Instead, you should use the time to develop a first sketch of your final project.\nI will offer individual office hour for each student in the week from 11.12. - 15.12.23 via Zoom. There, you can discuss this sketch with me and get early feedback. Please contact me about a specific date by the end of this week (08.12.23).\nOf course, there will additional office hours if needed before Christmas (until 22.12.23) and after New Year’s (from 03.01.24 onward).\nKeep in mind that the deadline for the final project is January 18, 2024, 23:59."
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#example---interactive-map",
+    "href": "slides/week-13/13-InteractivityII.html#example---interactive-map",
+    "title": "Interactivity II",
+    "section": "Example - Interactive map",
+    "text": "Example - Interactive map"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#why-shiny-apps",
+    "href": "slides/week-13/13-InteractivityII.html#why-shiny-apps",
+    "title": "Interactivity II",
+    "section": "Why Shiny apps?",
+    "text": "Why Shiny apps?\nMost importantly:\n\n(Interactive) communication of scientific results\n(Interactive) visualization of data sets\n\nBut there are many more use cases!"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#shiny-apps---user-showcase",
+    "href": "slides/week-13/13-InteractivityII.html#shiny-apps---user-showcase",
+    "title": "Interactivity II",
+    "section": "Shiny apps - User showcase",
+    "text": "Shiny apps - User showcase"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#key-elements-of-a-shiny-app",
+    "href": "slides/week-13/13-InteractivityII.html#key-elements-of-a-shiny-app",
+    "title": "Interactivity II",
+    "section": "Key elements of a Shiny app",
+    "text": "Key elements of a Shiny app\n\nUI (user interface):\n\nHere, we can determine the “look” of our app.\n\nServer:\n\nHere, we define our functions\n\nshinyApp():\n\nCombines our UI and server parts."
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#example---dashboard",
+    "href": "slides/week-13/13-InteractivityII.html#example---dashboard",
+    "title": "Interactivity II",
+    "section": "Example - Dashboard",
+    "text": "Example - Dashboard"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#how-to-assemble-these-elements",
+    "href": "slides/week-13/13-InteractivityII.html#how-to-assemble-these-elements",
+    "title": "Interactivity II",
+    "section": "How to assemble these elements",
+    "text": "How to assemble these elements\n\nuiservershinyApp()Output\n\n\n\nui &lt;- fluidPage(\n        titlePanel(\"2017 German election data\"),\n        sidebarLayout(\n          sidebarPanel(\n            selectInput(inputId = \"parties\", \n                        label = \"Choose a party\", \n                        choices = c(\"AfD\", \"CDU\", \"CSU\", \n                                    \"Left\" = \"DIE LINKE\", \n                                    \"FDP\", \"Greens\" = \"GRÜNE\", \n                                    \"SPD\"), \n                        selected = \"AfD\")\n            ),\n        mainPanel(\n           plotOutput(\"histogram\")\n        )\n    )\n)\n\n\n\n\nserver &lt;- function(input, output) {\n  \n    output$histogram &lt;- renderPlot({\n        data %&gt;% \n          filter(party == input$parties) %&gt;%\n          ggplot() +\n            geom_histogram(aes(x = vote_share),\n                           binwidth = 2.5,\n                           boundary = 0) +\n            scale_x_continuous(labels = scales::percent_format(scale = 1), \n                               limits = c(0, 80)) +\n            theme_minimal() +\n            labs(y = \"Count\",\n                 x = \"Vote share\")\n    })\n}\n\n\n\n\nshinyApp(ui = ui, server = server)"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#reactivity",
+    "href": "slides/week-13/13-InteractivityII.html#reactivity",
+    "title": "Interactivity II",
+    "section": "Reactivity",
+    "text": "Reactivity\n\nReactivityStep 1Step 2Step 3\n\n\nReactivity is what makes your Shiny apps responsive. It lets the app instantly update itself whenever the user makes a change.\nGarrett Grolemund, Understanding reactivity"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#building-your-own-app",
+    "href": "slides/week-13/13-InteractivityII.html#building-your-own-app",
+    "title": "Interactivity II",
+    "section": "Building your own app",
+    "text": "Building your own app\n\nGet startedCustomizeWidgets\n\n\n\nThere are many great resources online. I recommend starting with the R Shiny documentation on how to get started and to build your own app:\n\nhttps://shiny.posit.co/r/getstarted/shiny-basics/lesson1/index.html\n\nIn addition, the Mastering Shiny book by Hadley Wickham is great!\n\nhttps://mastering-shiny.org/index.html"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#how-to-publish-your-app",
+    "href": "slides/week-13/13-InteractivityII.html#how-to-publish-your-app",
+    "title": "Interactivity II",
+    "section": "How to publish your app",
+    "text": "How to publish your app\n\nThere are many ways. I find shinyapps.io the easiest.\n\nSet up a free account at shinyapps.io\n\nFollow only a few steps in this short tutorial. It includes:\n\nInstalling and loading the rsconnect package\nAdd your token from your shinyapps.io account to the rsconnect package once\nDeploy your app via the Publish button while viewing the app"
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#next-week",
+    "href": "slides/week-13/13-InteractivityII.html#next-week",
+    "title": "Interactivity II",
+    "section": "Next week",
+    "text": "Next week\n\nNo in-person session. Instead, you should use the time to develop a first sketch of your final project.\nIndividual office hour for each student in the week from 11.12. - 15.12.23 via Zoom.\nAdditional office hours if needed before Christmas (until 22.12.23) and after New Year’s (from 03.01.24 onward).\nDeadline for the final project is January 18, 2024, 23:59."
+  },
+  {
+    "objectID": "slides/week-13/13-InteractivityII.html#your-final-project",
+    "href": "slides/week-13/13-InteractivityII.html#your-final-project",
+    "title": "Interactivity II",
+    "section": "Your final project",
+    "text": "Your final project\n\nContentQuantityQuality\n\n\n\n\nYour final project should relate to a research question broadly related to political science and comparative politics.\nFirst, you should describe the motivation for your visualization project.\nSecond, make a theoretical argument for the relationships you are investigating.\nThird, describe the data source.\nFourth, annotate your coding (import, transformation, …) extensively.\n\n\n\n\n\n\nIt is difficult to determine a exact “number of plots” needed. Of course, you can display much more information in an interactive Shiny app than in a static dashboard.\nYou should produce enough plots (visualizations) to effectively address your research question. Description is totally fine!\nNote: This is also where the individual office hour comes into play!\n\n\n\n\n\n\nWe have spoken a lot about how we can produce elegant graphs.\nTherefore, the design of the visualizations will make up a considerable share of your grade.\nRemember? Contrast, Repetition, Alignment, and Proximity\nCreating your own theme!\nAll the little things: Titles, captions, accompanying text, colors, different aesthetics, …\nHere, there is clearly potential for bonus points for effort."
   }
 ]

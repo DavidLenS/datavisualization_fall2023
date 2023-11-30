@@ -23,6 +23,7 @@ pacman::p_load("tidyverse")
 
 **Input**
 
+-   What's next
 -   A short introduction to shiny
 
 **Coding**
@@ -30,4 +31,209 @@ pacman::p_load("tidyverse")
 -   Applied example
 -   Your first stand-alone shiny app!
 
-## Shiny apps
+# What's next
+
+## Next week
+
+-   **No in-person session.** **Instead**, you should use the time to **develop a first sketch** of your final project.
+
+-   **Individual office hour for each student** in the week from **11.12. - 15.12.23** via Zoom.
+
+-   **Additional office hours if needed** before Christmas (until 22.12.23) and after New Year's (from 03.01.24 onward).
+
+-   **Deadline for the final project** is January 18, 2024, 23:59.
+
+## Your final project
+
+::: panel-tabset
+## Content
+::: {style="font-size: 80%;"}
+-   Your final project should relate to a research question broadly related to political science and comparative politics.
+
+-   First, you should describe the motivation for your visualization project.
+
+-   Second, make a theoretical argument for the relationships you are investigating.
+
+-   Third, describe the data source.
+
+-   Fourth, annotate your coding (import, transformation, ...) extensively.
+:::
+## Quantity
+::: {style="font-size: 80%;"}
+-   It is difficult to determine a exact "number of plots" needed. Of course, you can display much more information in an interactive Shiny app than in a static dashboard.
+
+-   You should produce *enough* plots (visualizations) to effectively address your research question. Description is totally fine!
+
+-   Note: This is also where the individual office hour comes into play!
+:::
+## Quality
+::: {style="font-size: 80%;"}
+-   We have spoken a lot about how we can produce elegant graphs.
+
+-   Therefore, the design of the visualizations will make up a considerable share of your grade.
+
+-   Remember? **C**ontrast, **R**epetition, **A**lignment, and **P**roximity
+
+-   Creating your own theme!
+
+-   All the *little* things: Titles, captions, accompanying text, colors, different aesthetics, ...
+
+-   Here, there is clearly potential for bonus points for effort.
+:::
+:::
+# Shiny apps
+
+## Why Shiny apps?
+
+Most importantly:
+
+-   (Interactive) communication of scientific results
+
+-   (Interactive) visualization of data sets
+
+But there are many more use cases!
+
+## Shiny apps - User showcase
+
+[![](user_showcase.jpg)](https://shiny.posit.co/r/gallery/#user-showcase)
+
+## Key elements of a Shiny app
+
+-   UI (user interface):
+
+    -   Here, we can determine the "look" of our app.
+
+-   Server:
+
+    -   Here, we define our functions
+
+-   shinyApp():
+
+    -   Combines our UI and server parts.
+
+## How to assemble these elements
+
+::: panel-tabset
+## ui
+
+```{r, eval=F, echo=TRUE}
+ui <- fluidPage(
+        titlePanel("2017 German election data"),
+        sidebarLayout(
+          sidebarPanel(
+            selectInput(inputId = "parties", 
+                        label = "Choose a party", 
+                        choices = c("AfD", "CDU", "CSU", 
+                                    "Left" = "DIE LINKE", 
+                                    "FDP", "Greens" = "GRÜNE", 
+                                    "SPD"), 
+                        selected = "AfD")
+            ),
+        mainPanel(
+           plotOutput("histogram")
+        )
+    )
+)
+```
+
+## server
+
+```{r, eval=F, echo=TRUE}
+server <- function(input, output) {
+  
+    output$histogram <- renderPlot({
+        data %>% 
+          filter(party == input$parties) %>%
+          ggplot() +
+            geom_histogram(aes(x = vote_share),
+                           binwidth = 2.5,
+                           boundary = 0) +
+            scale_x_continuous(labels = scales::percent_format(scale = 1), 
+                               limits = c(0, 80)) +
+            theme_minimal() +
+            labs(y = "Count",
+                 x = "Vote share")
+    })
+}
+```
+
+## shinyApp()
+
+```{r, eval=F, echo=TRUE}
+shinyApp(ui = ui, server = server)
+```
+
+## Output
+
+![](basic.jpg){width="1002"}
+:::
+
+## Example - Dashboard
+
+[![](dashboard.jpg)](https://davidschweizer.shinyapps.io/shiny_dashboard/)
+
+## Reactivity
+
+::: panel-tabset
+## Reactivity
+
+*Reactivity is what makes your Shiny apps responsive. It lets the app instantly update itself whenever the user makes a change.*
+
+[Garrett Grolemund, Understanding reactivity](https://shiny.posit.co/r/articles/build/understanding-reactivity/)
+
+## Step 1
+
+![](1.jpg){width="1030"}
+
+## Step 2
+
+![](2.jpg){width="1046"}
+
+## Step 3
+
+![](3.jpg){width="1064"}
+:::
+
+## Example - Interactive map
+
+[![](map.jpg)](https://davidschweizer.shinyapps.io/shiny-map/)
+
+## Building your own app
+
+::: panel-tabset
+## Get started
+
+-   There are many great resources online. I recommend starting with the R Shiny documentation on how to get started and to build your own app:
+
+    -   https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/index.html
+
+-   In addition, the *Mastering Shiny* book by Hadley Wickham is great!
+
+    -   https://mastering-shiny.org/index.html
+
+## Customize
+
+[![](shiny.png){width="852"}](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/index.html)
+
+## Widgets
+
+[![](widgets.png){width="719"}](https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/index.html)
+:::
+
+## How to publish your app
+
+-   There are many ways. I find *shinyapps.io* the easiest.
+
+    -   Set up a free account at *shinyapps.io*
+
+-   Follow only a few steps in this [short tutorial](https://shiny.posit.co/r/articles/share/shinyapps/). It includes:
+
+    -   Installing and loading the rsconnect package
+
+    -   Add your token from your shinyapps.io account to the rsconnect package once
+
+    -   Deploy your app via the *Publish* button while viewing the app
+
+# Applied example
+
+# Your turn!
