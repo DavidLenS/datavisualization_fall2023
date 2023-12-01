@@ -9,7 +9,7 @@ editor:
 ## **Course details**
 
 |                 |                                                                                                           |
-|-------------------|-----------------------------------------------------|
+|--------------------|----------------------------------------------------|
 | Seminar:        | Übung - Methoden der Vergleichenden Regierungslehre                                                       |
 | Time:           | Thu 13:45 -- 15:15, September 07 to December 07                                                           |
 | Place:          | C -108 Methodenlabor - groß/ Telefonlabor (A 5, 6 Bauteil C)                                              |
@@ -84,6 +84,58 @@ will result in deductions of 1/3 of a grade point per day. **In case of
 any questions or problems, please get in touch with me early.**
 
 **Deadline:** January 18, 2024, 23:59.
+
+::: panel-tabset
+## Content
+
+::: {style="font-size: 80%;"}
+-   Your final project should relate to a research question broadly
+    related to political science and comparative politics.
+
+-   First, you should describe the motivation for your visualization
+    project.
+
+-   Second, make a theoretical argument for the relationships you are
+    investigating.
+
+-   Third, describe the data source.
+
+-   Fourth, annotate your coding (import, transformation, ...)
+    extensively.
+:::
+
+## Quantity
+
+::: {style="font-size: 80%;"}
+-   It is difficult to determine a exact "number of plots" needed. Of
+    course, you can display much more information in an interactive
+    Shiny app than in a static dashboard.
+
+-   You should produce *enough* plots (visualizations) to effectively
+    address your research question. Description is totally fine!
+
+-   Note: This is also where the individual office hour comes into play!
+:::
+
+## Quality
+
+::: {style="font-size: 80%;"}
+-   We have spoken a lot about how we can produce elegant graphs.
+
+-   Therefore, the design of the visualizations will make up a
+    considerable share of your grade.
+
+-   Remember? **C**ontrast, **R**epetition, **A**lignment,
+    and **P**roximity
+
+-   Creating your own theme!
+
+-   All the *little* things: Titles, captions, accompanying text,
+    colors, different aesthetics, ...
+
+-   Here, there is clearly potential for bonus points for effort.
+:::
+:::
 
 ## **Organization & Learning Resources**
 

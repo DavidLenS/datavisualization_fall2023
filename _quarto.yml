@@ -29,7 +29,7 @@ website:
       - href: syllabus.qmd
         text: Syllabus
       - href: material.qmd
-        text: Schedule
+        text: Schedule, slides & materials
         
 format:
   html:
